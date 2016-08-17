@@ -1,11 +1,15 @@
 <div class="header-container">
+	
+	<ul class="header-left">
 
-	<span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>
+		<li><%= link_to "Art", root_path %></li>
+
+	</ul>
 
 	<ul class="header-right">
 
-		<li><a>Signup</a></li>
-		<li><a>Login</a></li>
+		<li><%= link_to "Login", new_user_session_path %></li>
+		<li><%= link_to "Signup", new_user_registration_path %></li>
 
 	</ul>
 

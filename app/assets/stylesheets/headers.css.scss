@@ -10,13 +10,12 @@
     top: 0px;
     width: 100%;
 
-    ul.header-right{
+    ul{
     	
     	list-style-type: none;
 	    margin: 0;
 	    padding: 0;
 	    display: inline-block;
-	    float: right;
 
 		li{
 
@@ -34,6 +33,12 @@
     		}
 
     	}
+
+    }
+
+    ul.header-right{
+
+    	float: right;
 
     }
 }
