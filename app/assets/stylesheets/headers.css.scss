@@ -9,5 +9,31 @@
     position: fixed;
     top: 0px;
     width: 100%;
-    padding: 5px 0px;
+
+    ul.header-right{
+    	
+    	list-style-type: none;
+	    margin: 0;
+	    padding: 0;
+	    display: inline-block;
+	    float: right;
+
+		li{
+
+			display: inline-block;
+			text-align: center;
+
+			a{
+
+	    		display: block;
+	    		font-size: 18px;
+	    		font-weight: 500;
+    			letter-spacing: 1.1px;
+    			padding: 5px;
+
+    		}
+
+    	}
+
+    }
 }

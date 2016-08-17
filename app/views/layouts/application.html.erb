@@ -7,18 +7,24 @@
 	  <%= csrf_meta_tags %>
 
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<meta name="description" content="Buy and Sell Original Art Worldwide.">
 
 	</head>
-	
+
 	<body>
 
 		<%= render 'headers/header' %>
 
 		<div class="content-container">
+
+			<% flash.each do |name, msg| %>
+     			<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+			<% end %>
 
 			<%= yield %>
 
