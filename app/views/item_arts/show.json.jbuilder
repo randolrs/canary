@@ -1,0 +1,1 @@
+json.partial! "item_arts/item_art", item_art: @item_art

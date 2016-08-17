@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+Hello
+<p>
+  <strong>User:</strong>
+  <%= @item_art.user_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item_art.description %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item_art.name %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @item_art.height %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @item_art.width %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @item_art.length %>
+</p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @item_art.venue_id %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @item_art.price %>
+</p>
+
+<p>
+  <strong>Search code:</strong>
+  <%= @item_art.search_code %>
+</p>
+
+<%= link_to 'Edit', edit_item_art_path(@item_art) %> |
+<%= link_to 'Back', item_arts_path %>
