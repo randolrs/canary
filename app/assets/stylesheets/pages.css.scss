@@ -1,3 +1,93 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.simple-landing-container{
+	position: relative;
+	width: 600px;
+	margin: 0 auto;
+	text-align: center;
+
+	form{
+		
+		padding: 30px;
+    	border: 2px solid #666;
+    	margin-bottom: 30px;
+    	border-radius: 3px;
+
+	}
+
+	h2{
+		font-size: 60px;
+		font-weight: 700;
+		margin-bottom: 30px;
+
+	}
+
+	.dark-text-input{
+		font-size: 40px;
+    	text-align: center;
+	    width: 200px;
+	    border: none;
+	    border-radius: 3px;
+	    background: #333;
+	    color: #fff;
+	    padding: 10px 0px;
+	}
+
+	.dark-text-input:focus{
+		border:none;
+		outline: none;
+	}
+}
+
+.button-container{
+	margin: 30px 0px;
+}
+
+.button{
+	padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 30px;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.button:hover{
+	cursor: pointer;
+}
+
+.blue-background{
+	text-shadow: 0px 1px 2px #222;
+    background-color: #0F4DA8;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#437dd4), to(#0f4da8));
+    background-image: -webkit-linear-gradient(top, #437dd4, #0f4da8);
+    background-image: -moz-linear-gradient(top, #437dd4, #0f4da8);
+    background-image: -ms-linear-gradient(top, #437dd4, #0f4da8);
+    background-image: -o-linear-gradient(top, #437dd4, #0f4da8);
+    background-image: linear-gradient(top, #437dd4, #0f4da8);
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: inset 0px 1px 3px 0px #ccc;
+    color: #eee;
+    
+}
+
+.red-background{
+	background-color: #A81300;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#F21D00), to(#A81300));
+    background-image: -webkit-linear-gradient(top, #F21D00, #A81300);
+    background-image: -moz-linear-gradient(top, #F21D00, #A81300);
+    background-image: -ms-linear-gradient(top, #F21D00, #A81300);
+    background-image: -o-linear-gradient(top, #F21D00, #A81300);
+    background-image: linear-gradient(top, #F21D00, #A81300);
+    border: 1px solid rgba(200,0,0,0.5);
+    box-shadow: inset 0px 1px 3px 0px #ccc;
+    color: #eee;
+}
+
+span.divider-text{
+	font-size: 30px;
+    color: #999;
+    font-weight: 800;
+}

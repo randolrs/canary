@@ -48,6 +48,10 @@ body{
 
 }
 
+.content{
+	padding: 50px;
+}
+
 .blurred{
 	-webkit-filter: blur(3px);
   	-moz-filter: blur(3px);
@@ -58,4 +62,8 @@ body{
 
 .no-scroll{
   overflow: hidden;
+}
+
+.default-off{
+	display:none;
 }
