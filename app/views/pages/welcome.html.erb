@@ -1,6 +1,59 @@
 <div class="simple-landing-container">
 
-	<h3>you</h3>
+	<form>
 
+		<div id="welcome-panel">
+
+			<h2>Welcome! Help us get to know you better.</h2>
+
+			<a class="button blue-background" id="i-am-artist">I am an Artist.</a>
+
+			<a class="button red-background" id="i-am-buyer">I want to buy art.</a>
+
+		</div>
+
+		<div style="display:none;" id="exhibition-panel">
+			
+			<h2>Awesome! We're so glad you're here. Do you already have a public exhibition of your art?</h2>
+
+			<a class="button blue-background" id="exhibition-yes">Yes</a>
+
+			<a class="button red-background" id="exhibition-no">No</a>
+
+		</div>
+
+		<div style="display:none;" id="location-panel">
+			
+			<h2 style="display:none;" id="location-header-artist-has-exhibit">Very cool. We want to help you sell more art by connecting interested buyers with the story behind your art.  Where is your exhibition located?</h2>
+
+			<h2 style="display:none;" id="location-header-artist-no-exhibit">No problem. We want to help connect you with the perfect venue to showcase your art to interested buyers. Where are you located?</h2>
+
+			<h2 style="display:none;" id="location-header-buyer">Thanks for checking us out! Where are you located?</h2>
+			
+			<select>
+  				<option value="montreal">Montreal</option>
+  				<option value="philadelphia">Philadelphia</option>
+  				<option value="columbus_oh">Columbus, OH</option>
+			</select>
+
+			<br>
+
+			<a class="button blue-background" id="location-continue">Continue</a>
+
+			<br>
+
+			<%= link_to "I don't see my city...", root_path %>
+
+		</div>
+
+		<div style="display:none;" id="get-started-panel">
+			
+			<h2>Thanks for answering those questions.  Now we want to help you <span id="welcome-action"></span></h2>
+
+			<input type="submit" class="button blue-background" value="Get Started"></input>
+
+		</div>
+
+	</form>
 
 </div>

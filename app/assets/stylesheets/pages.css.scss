@@ -43,7 +43,7 @@
 	    	input:focus{
 
 	    		outline:none;
-	    		
+
 	    	}
 
     	}
@@ -52,8 +52,10 @@
 
 	form.outlined{
 		
-		border: 2px solid #666;
+		border: 2px solid #999;
 		border-radius: 3px;
+		background: #fff;
+    	box-shadow: 0px 1px 4px #aaa;
 	}
 
 	h2{
@@ -131,4 +133,6 @@ span.divider-text{
 	font-size: 30px;
     color: #999;
     font-weight: 800;
+    color: #333;
+    text-shadow: 0px 2px 2px #ddd;
 }

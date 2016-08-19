@@ -6,7 +6,27 @@ ready = ->
 		
 	jQuery ->
 
-	
+		$("#i-am-artist").click (event), ->
+			$(@).parent().hide()
+			$('body').find('#exhibition-panel').fadeIn()
+
+		$("#i-am-buyer").click (event), ->
+			$(@).parent().hide()
+			locationPanel = $('body').find('#location-panel')
+			locationPanel.find('#location-header-buyer').show()
+			locationPanel.fadeIn()
+
+		$("#exhibition-yes").click (event), ->
+			$(@).parent().hide()
+			locationPanel = $('body').find('#location-panel')
+			locationPanel.find('#location-header-artist-has-exhibit').show()
+			locationPanel.fadeIn()
+
+		$("#exhibition-no").click (event), ->
+			$(@).parent().hide()
+			locationPanel = $('body').find('#location-panel')
+			locationPanel.find('#location-header-artist-no-exhibit').show()
+			locationPanel.fadeIn()
 
 $(document).on('turbolinks:load', ready)
 
