@@ -10,5 +10,10 @@ class PagesController < ApplicationController
 
 
 	end
-	
+
+	def you
+
+
+	end
+
 end
