@@ -24,6 +24,10 @@
 
 			<% end %>
 
+			<li><a href='<%= about_path %>'><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin: 0px 5px;"></span>Messages</a></li>
+
+			<li><a href='<%= about_path %>'><span class="glyphicon glyphicon-question-sign" aria-hidden="true" style="margin: 0px 5px;"></span>Help</a></li>
+
 			<li><a data-method="delete" href='<%=destroy_user_session_path%>'>Logout</a></li>
 
 		<% else %>
