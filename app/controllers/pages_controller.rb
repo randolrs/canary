@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
 
+	#skip_before_filter :verify_authenticity_token #####****this is a workaround with POSSIBLE SECURITY GAPS####***
+
+
 	def home
 
 
@@ -25,10 +28,39 @@ class PagesController < ApplicationController
 
 		else
 
-
 			redirect_to root_path
 		end
 
+
+	end
+
+	def setup_user
+
+		if user_signed_in?
+
+			# params.each do |key|
+
+			# 	if Community.exists?(:name => key[0])
+
+			# 	  @community = Community.where(:name => key[0]).first
+
+			# 	  @following = Following.new
+
+			# 	  @following.update(:following_id => @community.id, :follower_id => current_user.id, :active => true)
+
+			# 	  @following.save
+
+			# 	end
+
+			# end
+
+			current_user.update(:onboarded => true)
+
+			current_user.save
+
+		end
+
+		redirect_to root_path
 
 	end
 

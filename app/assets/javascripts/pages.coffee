@@ -8,10 +8,12 @@ ready = ->
 
 		$("#i-am-artist").click (event), ->
 			$(@).parent().hide()
+			$(@).parent().find('#user_is_artist').prop('checked', true)
 			$('body').find('#exhibition-panel').fadeIn()
 
 		$("#i-am-buyer").click (event), ->
 			$(@).parent().hide()
+			$(@).parent().find('#user_is_buyer').prop('checked', true)
 			locationPanel = $('body').find('#location-panel')
 			locationPanel.find('#location-header-buyer').show()
 			locationPanel.fadeIn()
@@ -27,6 +29,12 @@ ready = ->
 			locationPanel = $('body').find('#location-panel')
 			locationPanel.find('#location-header-artist-no-exhibit').show()
 			locationPanel.fadeIn()
+
+		$("#location-continue").click (event), ->
+			$(@).parent().hide()
+			getStartedPanel = $('body').find('#get-started-panel')
+			getStartedPanel.find('#welcome-action').text("find stuff")
+			getStartedPanel.fadeIn()
 
 $(document).on('turbolinks:load', ready)
 

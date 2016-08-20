@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.simple-landing-container{
+.simple-landing-container, .medium-landing-container{
 	position: relative;
 	max-width: 600px;
 	width: 100%;
@@ -29,6 +29,10 @@
     		margin-top: 30px;
     	}
 
+    	.welcome-select-input{
+    		display: none;
+    	}
+
     	.field{
 
 	    	input{
@@ -46,6 +50,12 @@
 
 	    	}
 
+    	}
+
+    	select{
+    		
+    		font-size: 40px;
+    		margin-bottom: 30px;
     	}
 
 	}
@@ -83,6 +93,10 @@
 		border:none;
 		outline: none;
 	}
+}
+
+.medium-landing-container{
+	max-width: 900px;
 }
 
 .button-container{

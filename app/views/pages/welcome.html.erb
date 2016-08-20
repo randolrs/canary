@@ -1,6 +1,7 @@
-<div class="simple-landing-container">
+<div class="medium-landing-container">
 
-	<form>
+	<%= form_for(current_user, :url => registration_path(current_user)) do |f| %>
+<!-- 	<form name="setup_user" action="/setup_user/" method="POST"> -->
 
 		<div id="welcome-panel">
 
@@ -8,13 +9,21 @@
 
 			<a class="button blue-background" id="i-am-artist">I am an Artist.</a>
 
+			<%# f.check_box :is_artist, class:"welcome-select-input", id:"is_artist_input" %>
+
+			<%= check_box_tag "user[is_artist]" %>
+
 			<a class="button red-background" id="i-am-buyer">I want to buy art.</a>
+
+			<%= check_box_tag "user[is_buyer]" %>
+
+			<%# f.check_box :is_buyer, class:"welcome-select-input", id:"is_buyer_input" %>
 
 		</div>
 
 		<div style="display:none;" id="exhibition-panel">
 			
-			<h2>Awesome! We're so glad you're here. Do you already have a public exhibition of your art?</h2>
+			<h2>Awesome! We're so glad you're here.  <br><br> Do you already have a public exhibition of your art?</h2>
 
 			<a class="button blue-background" id="exhibition-yes">Yes</a>
 
@@ -24,17 +33,13 @@
 
 		<div style="display:none;" id="location-panel">
 			
-			<h2 style="display:none;" id="location-header-artist-has-exhibit">Very cool. We want to help you sell more art by connecting interested buyers with the story behind your art.  Where is your exhibition located?</h2>
+			<h2 style="display:none;" id="location-header-artist-has-exhibit">Very cool. We want to help you sell more art. <br><br> Where is your exhibition located?</h2>
 
-			<h2 style="display:none;" id="location-header-artist-no-exhibit">No problem. We want to help connect you with the perfect venue to showcase your art to interested buyers. Where are you located?</h2>
+			<h2 style="display:none;" id="location-header-artist-no-exhibit">No problem. We'll help connect you with the perfect venue to showcase your art. <br><br> Where are you located?</h2>
 
-			<h2 style="display:none;" id="location-header-buyer">Thanks for checking us out! Where are you located?</h2>
+			<h2 style="display:none;" id="location-header-buyer">Thanks for checking us out! <br><br> Where are you located?</h2>
 			
-			<select>
-  				<option value="montreal">Montreal</option>
-  				<option value="philadelphia">Philadelphia</option>
-  				<option value="columbus_oh">Columbus, OH</option>
-			</select>
+			<%= f.collection_select(:home_city_id, City.all, :id, :name, :prompt => 'Select City') %>
 
 			<br>
 
@@ -48,12 +53,16 @@
 
 		<div style="display:none;" id="get-started-panel">
 			
-			<h2>Thanks for answering those questions.  Now we want to help you <span id="welcome-action"></span></h2>
+			<h2>Thanks for answering those questions.  <br><br>Let's get started <span id="welcome-action"></span></h2>
 
-			<input type="submit" class="button blue-background" value="Get Started"></input>
+<!-- 			<input type="submit" class="button blue-background" value="Get Started"></input> -->
+
+			<%= f.submit "Get Started", class: 'button blue-background' %>
 
 		</div>
 
-	</form>
+<!-- 	</form> -->
+
+	<% end %>
 
 </div>

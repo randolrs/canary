@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819035855) do
+ActiveRecord::Schema.define(version: 20160820190246) do
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "item_arts", force: :cascade do |t|
     t.integer  "user_id"
@@ -41,6 +47,9 @@ ActiveRecord::Schema.define(version: 20160819035855) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "onboarded",              default: false
+    t.boolean  "is_artist",              default: false
+    t.boolean  "is_buyer",               default: false
+    t.integer  "home_city_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

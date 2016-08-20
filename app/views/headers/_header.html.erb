@@ -9,6 +9,18 @@
 	<ul class="header-right">
 		
 		<% if user_signed_in? %>
+			
+			<% if current_user.is_artist %>
+				
+				<li><a href='<%= about_path %>'>Artists</a></li>
+
+			<% end %>
+
+			<% if current_user.is_buyer %>
+				
+				<li><a href='<%= about_path %>'>Buyer</a></li>
+
+			<% end %>
 
 			<li><a data-method="delete" href='<%=destroy_user_session_path%>'>Logout</a></li>
 
