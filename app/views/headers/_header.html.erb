@@ -12,13 +12,15 @@
 			
 			<% if current_user.is_artist %>
 				
-				<li><a href='<%= about_path %>'>Artists</a></li>
+				<li><a href='<%= about_path %>'>My Profile</a></li>
+				<li><a href='<%= about_path %>'>My Exhibitions</a></li>
+				<li><a href='<%= about_path %>'>Balance: $20.00</a></li>
 
 			<% end %>
 
 			<% if current_user.is_buyer %>
 				
-				<li><a href='<%= about_path %>'>Buyer</a></li>
+				<li><a href='<%= about_path %>'>Search by Code</a></li>
 
 			<% end %>
 

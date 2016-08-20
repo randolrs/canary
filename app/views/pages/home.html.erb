@@ -1,27 +1,17 @@
-<div class="simple-landing-container">
+<% unless user_signed_in? %>
 
-	<form class="outlined">
-		
-		<h2>Enter Search Code</h2>
+	<%= render 'pages/basic_landing_page' %>
 
-		<input type="text" class="dark-text-input" id="home-page-search-code-input" autofocus></input>
+<%else%>
+	
+	<% if current_user.is_artist %>
+	
+		<%= render 'pages/artist_dashboard' %>
 
-		<br>
+	<% elsif current_user.is_buyer %>
 
-		<div class="button-container">
+		<%= render 'pages/buyer_dashboard' %>
 
-			<input value="Search" type="submit" class="button blue-background"></input>
+	<%end%>
 
-		</div>
-
-	</form>
-
-	<span class="divider-text">- OR -</span>
-
-	<div class="button-container">
-
-		<%= link_to "Learn More", about_path, class: "button red-background" %>
-
-	</div>
-
-</div>
+<%end%>
