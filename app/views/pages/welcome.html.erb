@@ -11,11 +11,19 @@
 
 			<%# f.check_box :is_artist, class:"welcome-select-input", id:"is_artist_input" %>
 
-			<%= check_box_tag "user[is_artist]" %>
+			<div style="display:none">
+
+				<%= check_box_tag "user[is_artist]" %>
+
+			</div>
 
 			<a class="button red-background" id="i-am-buyer">I want to buy art.</a>
 
-			<%= check_box_tag "user[is_buyer]" %>
+			<div style="display:none">
+				
+				<%= check_box_tag "user[is_buyer]" %>
+
+			</div>
 
 			<%# f.check_box :is_buyer, class:"welcome-select-input", id:"is_buyer_input" %>
 

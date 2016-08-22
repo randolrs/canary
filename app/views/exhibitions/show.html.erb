@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @exhibition.user_id %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @exhibition.city_id %>
+</p>
+
+<p>
+  <strong>Venue name:</strong>
+  <%= @exhibition.venue_name %>
+</p>
+
+<p>
+  <strong>Address line 1:</strong>
+  <%= @exhibition.address_line_1 %>
+</p>
+
+<p>
+  <strong>Address line 2:</strong>
+  <%= @exhibition.address_line_2 %>
+</p>
+
+<p>
+  <strong>State or province:</strong>
+  <%= @exhibition.state_or_province %>
+</p>
+
+<p>
+  <strong>Zip or postal code:</strong>
+  <%= @exhibition.zip_or_postal_code %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @exhibition.country %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @exhibition.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @exhibition.end_date %>
+</p>
+
+<%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
+<%= link_to 'Back', exhibitions_path %>

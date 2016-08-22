@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Exhibitions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>City</th>
+      <th>Venue name</th>
+      <th>Address line 1</th>
+      <th>Address line 2</th>
+      <th>State or province</th>
+      <th>Zip or postal code</th>
+      <th>Country</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exhibitions.each do |exhibition| %>
+      <tr>
+        <td><%= exhibition.user_id %></td>
+        <td><%= exhibition.city_id %></td>
+        <td><%= exhibition.venue_name %></td>
+        <td><%= exhibition.address_line_1 %></td>
+        <td><%= exhibition.address_line_2 %></td>
+        <td><%= exhibition.state_or_province %></td>
+        <td><%= exhibition.zip_or_postal_code %></td>
+        <td><%= exhibition.country %></td>
+        <td><%= exhibition.start_date %></td>
+        <td><%= exhibition.end_date %></td>
+        <td><%= link_to 'Show', exhibition %></td>
+        <td><%= link_to 'Edit', edit_exhibition_path(exhibition) %></td>
+        <td><%= link_to 'Destroy', exhibition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Exhibition', new_exhibition_path %>

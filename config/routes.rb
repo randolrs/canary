@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :exhibitions
   resources :cities
   devise_for :users, controllers: {registrations: 'registrations'}
   #devise_for :users

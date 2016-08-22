@@ -1,0 +1,85 @@
+<%= form_for(@exhibition) do |f| %>
+  <% if @exhibition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exhibition.errors.count, "error") %> prohibited this exhibition from being saved:</h2>
+
+      <ul>
+      <% @exhibition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="form-table">
+    
+    <tr>
+
+      <td><p><b>Venue Name</b></p></td>
+      <td><%= f.text_field :venue_name %></td>
+
+    </tr>
+
+    <tr>
+
+      <td><p><b>Address Line 1</b></p></td>
+      <td><%= f.text_field :address_line_1 %></td>
+
+    </tr>
+
+    <tr>
+
+      <td><p><b>Address Line 2</b></p></td>
+      <td><%= f.text_field :address_line_2 %></td>
+
+    </tr>
+
+    <tr>
+
+      <td><p><b>City</b></p></td>
+      <td><%= f.text_field :city %><%# f.collection_select(:city_id, City.all, :id, :name, :prompt => 'Select City') %></td>
+
+    </tr>
+
+    <tr>
+
+      <td><p><b>State/Province</b></p></td>
+      <td><%= f.text_field :state_or_province %></td>
+
+    </tr>
+
+    <tr>
+
+      <td><p><b>Zip/Postal Code</b></p></td>
+      <td><%= f.text_field :zip_or_postal_code %></td>
+
+    </tr>
+
+
+    <tr>
+
+      <td><p><b>Country</b></p></td>
+      <td><%= f.text_field :country %></td>
+
+    </tr>
+
+    <tr>
+
+      <td><p><b>Exhibition Start Date</b></p></td>
+      <td><%= f.datetime_select :start_date %></td>
+    
+    </tr>
+
+    <tr>
+
+      <td><p><b>Exhibition End Date</b></p></td>
+      <td><%= f.datetime_select :end_date %></td>
+    
+    </tr>
+
+  </table>
+  
+  <div class="actions">
+    <%= f.submit "Save", class: 'button blue-background'  %>
+  </div>
+<% end %>

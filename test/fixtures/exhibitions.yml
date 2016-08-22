@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  city_id: 1
+  venue_name: MyString
+  address_line_1: MyString
+  address_line_2: MyString
+  state_or_province: MyString
+  zip_or_postal_code: MyString
+  country: MyString
+  start_date: 2016-08-22 10:23:50
+  end_date: 2016-08-22 10:23:50
+
+two:
+  user_id: 1
+  city_id: 1
+  venue_name: MyString
+  address_line_1: MyString
+  address_line_2: MyString
+  state_or_province: MyString
+  zip_or_postal_code: MyString
+  country: MyString
+  start_date: 2016-08-22 10:23:50
+  end_date: 2016-08-22 10:23:50

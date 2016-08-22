@@ -1,0 +1,2 @@
+json.extract! exhibition, :id, :user_id, :city_id, :venue_name, :address_line_1, :address_line_2, :state_or_province, :zip_or_postal_code, :country, :start_date, :end_date, :created_at, :updated_at
+json.url exhibition_url(exhibition, format: :json)

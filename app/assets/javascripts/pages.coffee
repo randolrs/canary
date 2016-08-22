@@ -33,7 +33,7 @@ ready = ->
 		$("#location-continue").click (event), ->
 			$(@).parent().hide()
 			getStartedPanel = $('body').find('#get-started-panel')
-			getStartedPanel.find('#welcome-action').text("find stuff")
+			getStartedPanel.find('#welcome-action').text("adding your exhibition to our network.")
 			getStartedPanel.fadeIn()
 
 $(document).on('turbolinks:load', ready)
