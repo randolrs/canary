@@ -109,6 +109,7 @@
     font-size: 30px;
     display: inline-block;
     margin: 0 auto;
+    width: 200px;
 }
 
 .button:hover{
@@ -153,7 +154,9 @@ span.divider-text{
 
 table.form-table{
 
-	font-size: 20px;
+	font-size: 16px;
+	margin: 0px auto;
+	max-width: 550px;
 
 	td{
 		padding-bottom: 20px;

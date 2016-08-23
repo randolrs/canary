@@ -38,6 +38,8 @@ body{
 
 }
 
+
+
 .content-container{
 	height: auto;
 	width:100%;
@@ -62,4 +64,8 @@ body{
 
 .default-off{
 	display:none;
+}
+
+.centered{
+  text-align: center;
 }
