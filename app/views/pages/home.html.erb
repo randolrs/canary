@@ -1,16 +1,48 @@
 <% unless user_signed_in? %>
+	
+	<div class="content">
 
-	<%= render 'pages/basic_landing_page' %>
+		<%= render 'pages/basic_landing_page' %>
+	
+	</div>
 
 <%else%>
 	
 	<% if current_user.is_artist %>
-	
-		<%= render 'pages/artist_dashboard' %>
+		
+		<% if current_user.item_arts.count == 0 %>
+
+			<div class="notice yellow">
+
+				<p class="notice-content">
+					<span class="glyphicon glyphicon-exclamation-sign"></span><%= link_to "Add Art Works", new_item_art_path %>
+				</p>
+
+			</div>
+
+			<div class="notice red">
+
+				<p class="notice-content">
+					<span class="glyphicon glyphicon-exclamation-sign"></span>XXX
+				</p>
+
+			</div>
+
+		<%end%>
+
+		<div class="content">
+			
+			<%= render 'pages/artist_dashboard' %>
+
+		</div>
 
 	<% elsif current_user.is_buyer %>
 
-		<%= render 'pages/buyer_dashboard' %>
+		<div class="content">
+
+			<%= render 'pages/buyer_dashboard' %>
+
+		</div>
 
 	<%end%>
 
