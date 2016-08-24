@@ -1,8 +1,49 @@
-<% if current_user.item_arts.count == 0 %>
 
-	<div class="empty-cta-container centered">
+<div class="content-column sidebar">
 
-		<%= link_to "Add Art Works", new_item_art_path, :class => "button blue-background centered" %>
+	<div class="content-panel">
+
+		<ul>
+
+			<li>
+				<a><h3><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%><%= current_user.display_name %></h3></a>
+			</li>
+
+			<li>
+				<a>Notifications</a>
+
+			</li>
+
+			<li>
+				<a>My Exhibitions</a>
+
+			</li>
+
+			<li>
+				<a>My Works of Art</a>
+
+			</li>
+
+		</ul>
+
 	</div>
 
-<%end%>
+</div>
+
+<div class="content-column primary">
+
+	<h3 class="text-header-underline">Notifications</h3>
+
+	<% if current_user.item_arts.count == 0 %>
+
+		<div class="empty-cta-container centered">
+
+			<%= link_to "Add Art Works", new_item_art_path, :class => "button blue-background centered" %>
+		</div>
+
+	<%end%>
+
+</div>
+
+
+

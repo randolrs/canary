@@ -4,12 +4,17 @@
 
 @import 'bootstrap';
 
-body{
-	
+html{
 
-	a:hover{
-		text-decoration: none;
-		color: #eee;
+	body{
+		
+		background: #f7f7f7;
+
+		a:hover{
+			text-decoration: none;
+			color: #eee;
+
+		}
 
 	}
 

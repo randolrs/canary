@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824143500) do
+ActiveRecord::Schema.define(version: 20160824184734) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -72,6 +72,11 @@ ActiveRecord::Schema.define(version: 20160824143500) do
     t.boolean  "is_artist",              default: false
     t.boolean  "is_buyer",               default: false
     t.integer  "home_city_id"
+    t.string   "display_name"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

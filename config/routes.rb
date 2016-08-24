@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   get 'welcome' => 'pages#welcome'
 
+  get 'message_dashboard' => 'pages#messages'
+
+  get 'sales_dashboard' => 'pages#sales'
+
   post 'setup_user' => "pages#setup_user"
 
 
