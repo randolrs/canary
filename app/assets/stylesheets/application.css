@@ -69,3 +69,7 @@ body{
 .centered{
   text-align: center;
 }
+
+div.actions{
+  margin-top: 15px;
+}

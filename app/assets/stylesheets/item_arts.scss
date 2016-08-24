@@ -1,3 +1,81 @@
 // Place all the styles related to the item_arts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.item-art-form-header{
+	
+	border-top: 2px solid #666;
+	padding: 5px 0px 10px 0px;
+	font-size: 36px;
+
+	.left{
+		width:100%;
+		display: table-cell;
+		padding-right: 15px;
+
+		input{
+			width: 100%;
+
+		}
+	}
+
+	.right{
+		width:100px;
+		display: table-cell;
+	}
+
+	.price{
+		width: 100px;
+	}
+
+}
+
+.item-art-form-row{
+	
+	margin-bottom: 10px;
+
+	.item{
+		display: table-cell;
+
+	}
+
+	.dimension{
+		width: 100px;
+		margin-right: 10px;
+		text-align: center;
+	}
+
+	.medium{
+		font-size: 20px;
+		width: 50%;
+		min-width: 200px;
+	}
+
+
+
+}
+
+form.new_item_art{
+	
+	max-width: 900px;
+	margin: 0 auto;	
+
+	input[type="text"]{
+		border: none;
+		text-indent: 5px;
+		padding: 5px 0px;
+	}
+
+	input[type="text"]:focus{
+		background: #ffdddd;
+		outline: 1px solid #6666ff;
+	}
+
+	.description{
+		width: 100%;
+    	resize: none;
+    	height: 100px;
+	}
+
+}

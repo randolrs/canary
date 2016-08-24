@@ -109,7 +109,7 @@
     font-size: 30px;
     display: inline-block;
     margin: 0 auto;
-    width: 200px;
+    min-width: 200px;
 }
 
 .button:hover{
@@ -139,7 +139,7 @@
     background-image: -ms-linear-gradient(top, #F21D00, #A81300);
     background-image: -o-linear-gradient(top, #F21D00, #A81300);
     background-image: linear-gradient(top, #F21D00, #A81300);
-    border: 1px solid rgba(200,0,0,0.5);
+    border: 1px solid #771300;
     box-shadow: inset 0px 1px 3px 0px #ccc;
     color: #eee;
 }
@@ -167,5 +167,44 @@ table.form-table{
 			padding: 5px 0px;
 		}
 
+	}
+}
+
+
+.empty-cta-container{
+	
+	padding:50px;
+	border: 3px dashed #888;
+	background: rgba(200,200,0,.5);
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+.image-input-container{
+	width:100%;
+	background: #ccc;
+	border: 1px solid #999;
+	padding: 30px;
+	margin: 40px 0px;
+
+	h2{
+		
+		margin-bottom: 20px;
+
+	}
+
+	input.form-control{
+		display: inline-block;
+    	border: 2px solid #0000ff;
+	    box-shadow: 0px 1px 1px #ccc;
+	    height: 50px;
+	    padding: 15px;
+	    color: #111;
+	    background: #ffff99;
+	    max-width: 500px;
+	}
+
+	input.form-control:hover{
+		cursor: pointer;
 	}
 }
