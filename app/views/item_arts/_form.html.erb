@@ -1,76 +1,80 @@
+<div class="medium-content">
+  
+  <%= form_for(@item_art) do |f| %>
+    <% if @item_art.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@item_art.errors.count, "error") %> prohibited this item_art from being saved:</h2>
 
-<%= form_for(@item_art) do |f| %>
-  <% if @item_art.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item_art.errors.count, "error") %> prohibited this item_art from being saved:</h2>
+        <ul>
+        <% @item_art.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-      <% @item_art.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="item-art-form-header">
+
+      <div class="left">
+        <%= f.text_field :name, placeholder: "Name/Title", autofocus: true %>
+      </div>
+
+      <div class="right">
+        <%= f.text_field :price, placeholder: "Price", class: "price"  %>
+      </div>
+
     </div>
-  <% end %>
 
-  <div class="item-art-form-header">
-
-    <div class="left">
-      <%= f.text_field :name, placeholder: "Name/Title", autofocus: true %>
-    </div>
-
-    <div class="right">
-      <%= f.text_field :price, placeholder: "Price", class: "price"  %>
-    </div>
-
-  </div>
-
-  <div class="item-art-form-row">
+    <div class="item-art-form-row">
 
       <%= f.text_field :medium, placeholder: "Medium", class: "medium" %>
 
-  </div>
-
-  <div class="item-art-form-row">
-
-    <div class="item">
-      <p>Dimensions:</p>
     </div>
 
-    <div class="item">
-      <%= f.text_field :length, placeholder: "Length (cm)", class: "dimension" %>
+    <div class="item-art-form-row">
+
+      <table class="dimension-table">
+
+        <tr>
+          <td></td>
+          <td>Length (cm)</td>
+          <td>Width (cm)</td>
+          <td>Height (cm)</td>
+        </tr>
+        <tr>
+          <td>Dimensions:</td>
+          <td><%= f.text_field :length, placeholder: "Length (cm)", class: "dimension" %></td>
+          <td><%= f.text_field :width, placeholder: "Width (cm)", class: "dimension" %></td>
+          <td><%= f.text_field :height, placeholder: "Height (cm)", class: "dimension" %></td>
+        </tr>
+
+      </table>
+
+    </div>
+    
+    <div class="image-input-container centered">
+      <h2>Upload a Photo of Your Art</h2>
+      <%= f.file_field :image, class: "form-control" %>
+
     </div>
 
-    <div class="item">
-      <%= f.text_field :width, placeholder: "Width (cm)", class: "dimension" %>
+    <div class="item-art-form-header">
+
+      <div class="left">
+        <p>About</p>
+      </div>
+
     </div>
 
-    <div class="item">
-      <%= f.text_field :height, placeholder: "Height (cm)", class: "dimension" %>
+    <div class="field">
+      <%= f.text_area :description, placeholder: "A description of this piece.", class: "description"  %>
     </div>
 
-  </div>
-  
-  <div class="image-input-container centered">
-    <h2>Upload a Photo of Your Art</h2>
-    <%= f.file_field :image, class: "form-control" %>
-
-  </div>
-
-  <div class="item-art-form-header">
-
-    <div class="left">
-      <p>About</p>
+    <div class="actions centered">
+      <%= f.submit "Publish", class: 'button red-background'  %>
     </div>
 
-  </div>
+  <% end %>
 
-  <div class="field">
-    <%= f.text_area :description, placeholder: "A description of this piece.", class: "description"  %>
-  </div>
-
-  <div class="actions centered">
-    <%= f.submit "Publish", class: 'button red-background'  %>
-  </div>
-
-<% end %>
+</div>
 
