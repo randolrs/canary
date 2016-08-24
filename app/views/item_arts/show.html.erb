@@ -1,56 +1,61 @@
 
+<div class="medium-content">
 
+    <div class="item-art-form-header">
 
+      <div class="left">
+        <h2><%= @item_art.name %></h2>
+      </div>
 
-<p id="notice"><%= notice %></p>
+      <div class="right">
+        <%= @item_art.price %>
+      </div>
 
-Hello
-<p>
-  <strong>User:</strong>
-  <%= @item_art.user_id %>
-</p>
+    </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @item_art.description %>
-</p>
+    <div class="item-art-form-row">
 
-<p>
-  <strong>Name:</strong>
-  <%= @item_art.name %>
-</p>
+      <p><%= @item_art.medium %></p>
 
-<%= image_tag @item_art.image.url %>
+    </div>
 
-<p>
-  <strong>Height:</strong>
-  <%= @item_art.height %>
-</p>
+    <div class="item-art-form-row">
 
-<p>
-  <strong>Width:</strong>
-  <%= @item_art.width %>
-</p>
+      <table class="dimension-table">
 
-<p>
-  <strong>Length:</strong>
-  <%= @item_art.length %>
-</p>
+        <tr>
+          <td></td>
+          <td>Length (cm)</td>
+          <td>Width (cm)</td>
+          <td>Height (cm)</td>
+        </tr>
+        <tr>
+          <td>Dimensions:</td>
+          <td><%= @item_art.length %></td>
+          <td><%= @item_art.width %></td>
+          <td><%= @item_art.height %></td>
+        </tr>
 
-<p>
-  <strong>Venue:</strong>
-  <%= @item_art.venue_id %>
-</p>
+      </table>
 
-<p>
-  <strong>Price:</strong>
-  <%= @item_art.price %>
-</p>
+    </div>
+    
+    <div class="image-input-container centered">
+      
+      <%= image_tag @item_art.image.url %>
 
-<p>
-  <strong>Search code:</strong>
-  <%= @item_art.search_code %>
-</p>
+    </div>
 
-<%= link_to 'Edit', edit_item_art_path(@item_art) %> |
-<%= link_to 'Back', item_arts_path %>
+    <div class="item-art-form-header">
+
+      <div class="left">
+        <p>About</p>
+      </div>
+
+    </div>
+
+    <div class="field">
+      <p><%= @item_art.description  %></p>
+    </div>
+
+</div>
