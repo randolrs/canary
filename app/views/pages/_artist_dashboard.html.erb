@@ -6,21 +6,21 @@
 		<ul>
 
 			<li>
-				<a><h3><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%><%= current_user.display_name %></h3></a>
+				<a href="<%= edit_user_registration_path %>"><h3><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%><%= current_user.display_name %></h3></a>
 			</li>
 
 			<li>
-				<a>Notifications</a>
-
-			</li>
-
-			<li>
-				<a>My Exhibitions</a>
+				<a><span class="glyphicon glyphicon-bell" aria-hidden="true" style="margin-right: 5px;"></span>Notifications</a>
 
 			</li>
 
 			<li>
-				<a>My Works of Art</a>
+				<a><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span><span>Messages</span></a>
+
+			</li>
+
+			<li>
+				<a><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Sales</span></a>
 
 			</li>
 
@@ -32,7 +32,23 @@
 
 <div class="content-column primary">
 
-	<h3 class="text-header-underline">Notifications</h3>
+	<div id="notifications-content">
+		
+		<h3 class="text-header-underline">Notifications</h3>
+
+	</div>
+
+	<div id="exhibitions-content" style="display: none;">
+		
+		<h3 class="text-header-underline">My Exhibitions</h3>
+
+	</div>
+
+	<div id="works-content" style="display: none;">
+		
+		<h3 class="text-header-underline">My Works</h3>
+
+	</div>
 
 	<% if current_user.item_arts.count == 0 %>
 
