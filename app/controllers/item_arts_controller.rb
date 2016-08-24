@@ -26,6 +26,8 @@ class ItemArtsController < ApplicationController
   def create
     @item_art = ItemArt.new(item_art_params)
 
+    @item_art.update(:user_id => current_user.id)
+    
     respond_to do |format|
       if @item_art.save
         format.html { redirect_to @item_art, notice: 'Item art was successfully created.' }

@@ -36,16 +36,20 @@
       <table class="dimension-table">
 
         <tr>
+          
           <td></td>
-          <td>Length (cm)</td>
-          <td>Width (cm)</td>
           <td>Height (cm)</td>
+          <td>Width (cm)</td>
+          <td>Length (cm)</td>
+          
         </tr>
         <tr>
+          
           <td>Dimensions:</td>
-          <td><%= f.text_field :length, placeholder: "Length (cm)", class: "dimension" %></td>
-          <td><%= f.text_field :width, placeholder: "Width (cm)", class: "dimension" %></td>
           <td><%= f.text_field :height, placeholder: "Height (cm)", class: "dimension" %></td>
+          <td><%= f.text_field :width, placeholder: "Width (cm)", class: "dimension" %></td>
+          <td><%= f.text_field :length, placeholder: "Length (cm)", class: "dimension" %></td>
+          
         </tr>
 
       </table>
