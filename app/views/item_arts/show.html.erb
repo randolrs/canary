@@ -15,7 +15,7 @@
 
     <div class="item-art-form-row">
 
-      <p><%= @item_art.medium %></p>
+      <p><%= @item_art.medium %> , <%= @item_art.height %> H X <%= @item_art.width %> W <% if @item_art.length %> X <%= @item_art.length %> L<%end%></p>
 
     </div>
 
@@ -42,7 +42,7 @@
     
     <div class="image-input-container centered">
       
-      <%= image_tag @item_art.image.url %>
+      <%= image_tag @item_art.image.url, class: "item-art-main-image" %>
 
     </div>
 
