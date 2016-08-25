@@ -50,7 +50,7 @@ class RegistrationsController < Devise::RegistrationsController
   	if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
     	params[:user].delete(:password)
     	params[:user].delete(:password_confirmation)
-	end
+	   end
 
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)

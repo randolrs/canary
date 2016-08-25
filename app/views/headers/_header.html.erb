@@ -6,9 +6,9 @@
 
 			<li><%= link_to "Art", root_path, class: "header-logo" %></li>
 
-			<li><a href='<%= message_dashboard_path %>'><span>My Exhibitions</span></a></li>
+<!-- 			<li><a href='<%# message_dashboard_path %>'><span>My Exhibitions</span></a></li>
 			
-			<li><a href='<%= sales_dashboard_path %>'><span>My Works</span></a></li>
+			<li><a href='<%# sales_dashboard_path %>'><span>My Works</span></a></li> -->
 
 		</ul>
 
@@ -18,7 +18,7 @@
 				
 				<% if current_user.is_artist %>
 					
-					<li><a href='<%= about_path %>'><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></a></li>
+					<li><a href='<%= edit_user_registration_path %>'>Account Settings</a></li>
 
 				<% end %>
 

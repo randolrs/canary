@@ -1,0 +1,51 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.modal-container{
+	position: fixed;
+	left:0;
+	right:0;
+	top:0px;
+	bottom:0px;
+	height:100%;
+	width:100%;
+    background: rgba(255, 255, 255, 0.9);
+    display:none;
+    vertical-overflow:hidden;
+    z-index: 999999999999;
+
+}
+
+.modal-content{
+	max-width:600px;
+	width:100%;
+	margin:0 auto;
+	z-index: 100;
+	background: #fff;
+	top:100px;
+	position:relative;
+
+    box-shadow: 0px 0px 4px #0000ff;
+    border: 1px solid #ddddff;
+    border-radius: 2px;
+}
+
+span.dismiss-modal{
+    border: 0;
+    position: absolute;
+    padding:5px;
+    right: 0px;
+    font-size: 20px;
+    font-weight: 200;
+    color: #333;
+    text-shadow: 0px 1px 2px #ccc;
+}
+
+span.dismiss-modal:hover{
+    cursor:pointer;
+    text-decoration:none;
+    webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+
+}

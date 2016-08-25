@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824184734) do
+ActiveRecord::Schema.define(version: 20160825144139) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 20160824184734) do
     t.datetime "image_updated_at"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.string   "recipient_id"
+    t.string   "subject",      default: "(No subject)"
+    t.text     "body"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -81,5 +90,12 @@ ActiveRecord::Schema.define(version: 20160824184734) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "views", force: :cascade do |t|
+    t.integer  "item_art_id"
+    t.string   "visitor_ip"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end

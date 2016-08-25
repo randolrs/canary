@@ -34,7 +34,7 @@
     </div>
 
     <div class="field">
-      <p><%= @item_art.description  %></p>
+      <p><%= @item_art.description %></p>
     </div>
 
     <br>
@@ -42,7 +42,9 @@
     <div class="item-art-form-header">
 
       <div class="left">
-        <p>The Artist</p>
+        
+        <p>The Artist<a class="message-modal modal-cta button red-background">Message</a></p>
+
       </div>
 
     </div>
@@ -52,3 +54,5 @@
     </div>
 
 </div>
+
+<%= render 'messages/modal_form' %>

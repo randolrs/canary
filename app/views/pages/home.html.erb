@@ -15,20 +15,26 @@
 			<div class="notice yellow">
 
 				<p class="notice-content">
-					<span class="glyphicon glyphicon-exclamation-sign"></span><%= link_to "Add Art Works", new_item_art_path %>
-				</p>
-
-			</div>
-
-			<div class="notice red">
-
-				<p class="notice-content">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>XXX
+					<span class="glyphicon glyphicon-exclamation-sign"></span> You have not posted any works of art. <%= link_to "Add Art Works", new_item_art_path %> to promote your artwork to the ART network.
 				</p>
 
 			</div>
 
 		<%end%>
+
+		<% if current_user.exhibitions.count == 0 %>
+			
+			<div class="notice red">
+
+				<p class="notice-content">
+					<span class="glyphicon glyphicon-exclamation-sign"></span>You have not posted  any exhibitions.  <%= link_to "Add Exhibitions", new_exhibition_path %> in order to promote your exhibitions to our artwork.
+				</p>
+
+			</div>
+
+		<%end%>
+
+
 
 		<div class="content">
 			

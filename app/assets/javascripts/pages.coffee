@@ -36,5 +36,29 @@ ready = ->
 			getStartedPanel.find('#welcome-action').text("adding your exhibition to our network.")
 			getStartedPanel.fadeIn()
 
+		$(".message-modal").click (event), ->
+			$('body').find('#message-modal').show()
+
+		$(".modal-cta").click (event), ->
+			contentContainer = $('body').find(".content")
+			contentContainer.addClass('blurred')
+			$('body').addClass('no-scroll')
+
+		$("span.dismiss-modal").click (event), ->
+			modal = $('body').find(".modal-container")
+			contentContainer = $('body').find(".content")
+			contentContainer.removeClass('blurred')
+			$('body').removeClass('no-scroll')
+			modal.hide()
+
+		$(".modal-container").click (event), ->
+			contentContainer = $('body').find(".content")
+			contentContainer.removeClass('blurred')
+			$('body').removeClass('no-scroll')
+			$(@).hide()
+
+		$(".modal-content").click (event), ->
+			event.stopPropagation()
+
 $(document).on('turbolinks:load', ready)
 

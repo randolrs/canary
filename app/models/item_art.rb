@@ -2,6 +2,8 @@ class ItemArt < ActiveRecord::Base
 
 	belongs_to :user
 
+	has_many :views
+
 	has_attached_file :image, 
 	:styles => { :medium => "194x194#", :small => "70x70#", :thumb => "30x30#"},
 	:default_url => 'missing_item_:style.png',

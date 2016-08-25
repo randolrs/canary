@@ -8,12 +8,27 @@ class User < ActiveRecord::Base
 
   	has_many :item_arts
 
+    has_many :views, :through => :item_arts
+
 	has_attached_file :image, 
 	:styles => { :medium => "194x194#", :small => "70x70#", :thumb => "30x30#"},
 	:default_url => 'missing_:style.png',
 	:s3_protocol => :https
 
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
+  def messages_to_me
+
+    return Message.where(:recipient_id => self.id)
+
+  end
+
+  def messages_sent_by_me
+
+    return Message.where(:sender_id => self.id)
+
+  end
+
 
 
 end

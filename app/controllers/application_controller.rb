@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
 
-    registration_params = [:email, :password, :is_artist, :is_buyer, :home_city_id, :password]
+    registration_params = [:email, :password, :is_artist, :is_buyer, :home_city_id, :password, :display_name]
     devise_parameter_sanitizer.permit(:sign_up, keys: registration_params)
     devise_parameter_sanitizer.permit(:sign_in, keys: registration_params)
     devise_parameter_sanitizer.permit(:account_update, keys: registration_params)

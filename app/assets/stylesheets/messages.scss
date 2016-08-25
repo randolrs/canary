@@ -1,0 +1,17 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+form.new_message{
+	
+	padding: 20px;
+
+	input[type="text"], textarea{
+		width: 100%;
+	}
+
+	textarea{
+		resize: none;
+		height: 100px;
+	}
+}

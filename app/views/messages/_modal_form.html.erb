@@ -1,0 +1,40 @@
+<div class="modal-container" id="message-modal">
+
+  <div class="modal-content">
+
+    <span class="glyphicon glyphicon-remove dismiss-modal"></span>
+
+    <%= form_for(@message) do |f| %>
+
+    <h2>Message to<%= image_tag @message_recipient.image.url(:medium), class: "header-profile-image"%><%= @message_recipient.display_name %></h2>
+
+      <%= f.number_field :recipient_id, :value => @message_recipient.id, :hidden => true  %>
+
+<!--       <div class="field">
+        <%# f.label :sender_id %><br>
+        <%# f.number_field :sender_id %>
+      </div>
+      <div class="field">
+        <%# f.label :recipient_id %><br>
+        <%# f.text_field :recipient_id %>
+      </div> -->
+
+
+
+      <div class="field">
+        <%= f.label :subject %><br>
+        <%= f.text_field :subject %>
+      </div>
+      <div class="field">
+        <%= f.label :body %><br>
+        <%= f.text_area :body %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Send", class: 'button red-background'  %>
+      </div>
+    <% end %>
+
+  </div>
+
+
+</div>

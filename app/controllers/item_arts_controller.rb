@@ -10,6 +10,17 @@ class ItemArtsController < ApplicationController
   # GET /item_arts/1
   # GET /item_arts/1.json
   def show
+
+    @view = View.new
+
+    @view.update(:item_art_id => @item_art.id, :visitor_ip => request.remote_ip)
+
+    @view.save
+
+    @message = Message.new
+
+    @message_recipient = @item_art.user
+
   end
 
   # GET /item_arts/new

@@ -14,6 +14,16 @@ class PagesController < ApplicationController
 
 	end
 
+	def profile
+
+		@user = User.find_by_display_name(params[:display_name])
+
+		@message = Message.new
+
+		@message_recipient = @user
+
+	end
+
 	def welcome
 
 		if user_signed_in?

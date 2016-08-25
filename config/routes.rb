@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   resources :exhibitions
   resources :cities
   devise_for :users, controllers: {registrations: 'registrations'}
@@ -10,8 +11,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#home'
 
+  get '/:display_name' => 'pages#profile', as: 'profile'
 
   get 'about' => 'pages#about'
+
+  get 'welcome' => 'pages#welcome'
 
   get 'welcome' => 'pages#welcome'
 
@@ -20,6 +24,9 @@ Rails.application.routes.draw do
   get 'sales_dashboard' => 'pages#sales'
 
   post 'setup_user' => "pages#setup_user"
+
+
+
 
 
 
