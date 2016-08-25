@@ -8,7 +8,7 @@
 
 			<% if current_user.is_artist %>
 
-				<li><a href='<%= my_work_path %>'><span>My Work</span></a></li>
+				<!-- <li><a href='<%# my_work_path %>'><span>My Work</span></a></li> -->
 
 			<% end %>
 
@@ -21,7 +21,7 @@
 				<% if current_user.is_artist %>
 					
 					<li><a href='<%# edit_user_registration_path %>'>Balance: $20.00</a></li>
-					
+
 				<% end %>
 
 				<% if current_user.is_buyer %>
