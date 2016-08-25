@@ -70,3 +70,25 @@
     margin: 0px 10px;
 }
 
+.menu-button::after {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 22px;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    right: 25px;
+    top: 18px;
+  }
+
+.menu-button::before {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 12px;
+    width: 22px;
+    border-top: 2px solid #fff;
+    right: 25px;
+    top: 30px;
+  }
