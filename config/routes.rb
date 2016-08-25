@@ -11,11 +11,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#home'
 
-  get '/:display_name' => 'pages#profile', as: 'profile'
-
   get 'about' => 'pages#about'
-
-  get 'welcome' => 'pages#welcome'
 
   get 'welcome' => 'pages#welcome'
 
@@ -26,6 +22,8 @@ Rails.application.routes.draw do
   post 'setup_user' => "pages#setup_user"
 
   get '/me/work' => 'pages#my_work', as: 'my_work'
+
+  get '/:display_name' => 'pages#profile', as: 'profile'
 
 
 
