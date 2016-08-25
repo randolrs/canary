@@ -117,12 +117,14 @@
 }
 
 .button.medium{
-	min-width: 300px;
+	max-width: 200px;
+	width:100%;
     font-size: 20px;
 }
 
 .button.large{
-	min-width: 300px;
+	max-width: 300px;
+	width: 100%;
 	font-size: 28px;
 }
 
@@ -222,5 +224,5 @@ table.form-table{
 .dashboard-option.active{
 	
 	background: #ccccff;
-	
+
 }

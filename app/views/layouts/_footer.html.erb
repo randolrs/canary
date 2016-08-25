@@ -8,8 +8,11 @@
 
 			<li><%= link_to "Legal", root_path %></li>
 
-			<li><a data-method="delete" href='<%= destroy_user_session_path%>'>Logout</a></li>
+			<% if user_signed_in?%>
 			
+				<li><a data-method="delete" href='<%= destroy_user_session_path%>'>Logout</a></li>
+				
+			<%end%>
 
 
 		</ul>
