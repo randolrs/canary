@@ -21,12 +21,11 @@
 	.content-column{
 		display: table-cell;
 		vertical-align: top;
-		padding: 0px 20px;
 
 		.content-panel{
 
 			background: #fff;
-			box-shadow: 0px 2px 2px #aaa;
+			border: 1px solid #ddd;
 			border-radius: 2px;
 
 			ul{
@@ -72,12 +71,16 @@
 	.content-column.primary{
 		width: 1000px;
 		min-width: 65%;
+		padding: 0px 30px;
+		padding-bottom: 30px;
+		border: 1px solid #ddd;
+    	background: #fff;
 	}
 
 	.text-header-underline{
 		display: block;
 		border-bottom: 2px solid #666;
-		padding: 5px 0px;
+		padding: 15px 0px;
 		margin-bottom: 10px;
 	}
 	
@@ -92,6 +95,8 @@
 	display: block;
 	box-shadow: 0px 2px 2px #ccc;
 	font-size: 20px;
+	margin-bottom: 20px;
+	position: relative;
 
 	.notice-content{
 		margin: 0 auto;
@@ -99,7 +104,7 @@
 		padding: 5px 20px;
 	}
 
-	.glyphicon{
+	.glyphicon-exclamation-sign{
 		color: red;
 	}
 }
@@ -124,6 +129,24 @@
 	border-radius: 2px;
 	padding: 10px;
 	text-align: center;
-	margin: 10px 0px;
+	margin-top: 50px;
 }
 
+span.dismiss-parent{
+    border: 0;
+    position: absolute;
+    padding:5px;
+    right: 0px;
+    font-size: 16px;
+    font-weight: 200;
+    color: #333;
+    text-shadow: 0px 1px 2px #ccc;
+}
+
+span.dismiss-parent:hover{
+    cursor:pointer;
+    text-decoration:none;
+    webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+
+}

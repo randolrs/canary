@@ -51,6 +51,9 @@ ready = ->
 			$('body').removeClass('no-scroll')
 			modal.hide()
 
+		$("span.dismiss-parent").click (event), ->
+			$(@).parent().slideUp()
+
 		$(".modal-container").click (event), ->
 			contentContainer = $('body').find(".content")
 			contentContainer.removeClass('blurred')
@@ -68,8 +71,10 @@ ready = ->
 				$('body').find('div.dashboard-panel#messages-content').show()
 			else if $(@).data('content-panel') == "views-content"
 				$('body').find('div.dashboard-panel#views-content').show()
-			else if $(@).data('content-panel') == "balance-content"
-				$('body').find('div.dashboard-panel#balance-content').show()
+			else if $(@).data('content-panel') == "work-content"
+				$('body').find('div.dashboard-panel#work-content').show()
+			else if $(@).data('content-panel') == "settings-content"
+				$('body').find('div.dashboard-panel#settings-content').show()
 
 
 $(document).on('turbolinks:load', ready)

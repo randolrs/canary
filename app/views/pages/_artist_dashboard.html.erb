@@ -12,7 +12,7 @@
 
 			<li class="dashboard-option active" id="messages" data-content-panel="messages-content">
 				
-				<a><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span><span>Messages</span></a>
+				<a><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span><span>Inbox</span></a>
 
 			</li>
 
@@ -21,10 +21,17 @@
 				<a><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span>Views</a>
 
 			</li>
-
-			<li class="dashboard-option" id="balance" data-content-panel="balance-content">
+			
+			<li class="dashboard-option" id="work" data-content-panel="work-content">
 				
-				<a><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Balance: $20.00</span></a>
+				<a><span class="glyphicon glyphicon-certificate" aria-hidden="true" style="margin-right: 5px;"></span>My Work</a>
+
+			</li>
+
+
+			<li class="dashboard-option" id="account-settings" data-content-panel="settings-content">
+				
+				<a><span class="glyphicon glyphicon-cog" aria-hidden="true" style="margin-right: 5px;"></span><span>Account Settings</span></a>
 
 			</li>
 
@@ -36,11 +43,16 @@
 
 <div class="content-column primary">
 
+	<div class="dashboard-panel" id="main-content">
+		
+
+
+	</div>
+
+
 	<div class="dashboard-panel" id="messages-content">
 		
-		<h3 class="text-header-underline">Messages</h3>
-
-		<h4>Inbox</h4>
+		<h3 class="text-header-underline">Inbox</h3>
 
 		<% if current_user.messages_to_me.count > 0 %>
 
@@ -55,26 +67,6 @@
 			<div class="nothing-to-see-container">
 
 				<p>No incoming messages.</p>
-
-			</div>
-
-		<% end%>
-
-		<h4>Outbox</h4>
-
-		<% if current_user.messages_sent_by_me.count > 0 %>
-
-			<% current_user.messages_sent_by_me.each do |message| %>
-
-				<%= message.id %>
-
-			<% end%>
-
-		<% else %>
-
-			<div class="nothing-to-see-container">
-
-				<p>No outgoing messages.</p>
 
 			</div>
 
@@ -106,11 +98,44 @@
 
 	</div>
 
-
-
-	<div class="dashboard-panel" id="balance-content" style="display: none;">
+	<div class="dashboard-panel" id="work-content" style="display: none;">
 		
-		<h3 class="text-header-underline">Balance</h3>
+		<h3 class="text-header-underline" >My Work</h3>
+
+	</div>
+
+
+	<div class="dashboard-panel" id="settings-content" style="display: none;">
+		
+		<h3 class="text-header-underline">Account Settings</h3>
+
+		<%= form_for(current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
+
+		    <div class="field">
+		      <%= f.label :email %><br />
+		      <%= f.email_field :email, autofocus: true %>
+		    </div>
+
+		    <div class="field">
+		      <%= f.label :display_name %><br />
+		      <%= f.text_field :display_name %>
+		    </div>
+
+		    <div class="field">
+		      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+		      <%= f.password_field :password, autocomplete: "off" %>
+		      <% if @minimum_password_length %>
+		        <br />
+		        <em><%= @minimum_password_length %> characters minimum</em>
+		      <% end %>
+		    </div>
+
+		    <div class="actions">
+		      <%= f.submit "Update" %>
+		    </div>
+
+  		<% end %>
+
 
 	</div>
 
