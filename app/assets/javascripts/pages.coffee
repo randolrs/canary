@@ -60,5 +60,17 @@ ready = ->
 		$(".modal-content").click (event), ->
 			event.stopPropagation()
 
+		$(".dashboard-option").click (event), ->
+			$(@).parent().children('.dashboard-option').removeClass('active')
+			$(@).addClass('active')
+			$('body').find('div.dashboard-panel').hide()
+			if $(@).data('content-panel') == "messages-content"
+				$('body').find('div.dashboard-panel#messages-content').show()
+			else if $(@).data('content-panel') == "views-content"
+				$('body').find('div.dashboard-panel#views-content').show()
+			else if $(@).data('content-panel') == "balance-content"
+				$('body').find('div.dashboard-panel#balance-content').show()
+
+
 $(document).on('turbolinks:load', ready)
 

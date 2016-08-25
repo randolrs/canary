@@ -106,14 +106,24 @@
 .button{
 	padding: 10px 25px;
     border-radius: 5px;
-    font-size: 30px;
+    
     display: inline-block;
     margin: 0 auto;
-    min-width: 200px;
+    text-align: center;
 }
 
 .button:hover{
 	cursor: pointer;
+}
+
+.button.medium{
+	min-width: 150px;
+	font-size: 24px;
+}
+
+.button.large{
+	min-width: 300px;
+	font-size: 28px;
 }
 
 .blue-background{
@@ -207,4 +217,10 @@ table.form-table{
 	input.form-control:hover{
 		cursor: pointer;
 	}
+}
+
+.dashboard-option.active{
+	
+	background: #ccccff;
+	
 }

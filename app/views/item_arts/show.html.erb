@@ -8,7 +8,7 @@
       </div>
 
       <div class="right">
-        <%= number_to_currency(@item_art.price) %>
+        <a class="button large blue-background">Buy for <%= number_to_currency(@item_art.price) %></a>
       </div>
 
     </div>
@@ -43,7 +43,13 @@
 
       <div class="left">
         
-        <p>The Artist<a class="message-modal modal-cta button red-background">Message</a></p>
+        <p>The Artist</p>
+
+      </div>
+
+      <div class="right">
+
+        <a class="message-modal modal-cta button medium red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span></a>
 
       </div>
 

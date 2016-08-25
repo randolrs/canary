@@ -6,20 +6,24 @@
 		<ul>
 
 			<li>
+				
 				<a href="<%= profile_path(current_user.display_name) %>"><h3><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%><%= current_user.display_name %></h3></a>
 			</li>
 
-			<li>
+			<li class="dashboard-option active" id="messages" data-content-panel="messages-content">
+				
 				<a><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span><span>Messages</span></a>
 
 			</li>
 
-			<li>
+			<li class="dashboard-option" id="views" data-content-panel="views-content">
+				
 				<a><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span>Views</a>
 
 			</li>
 
-			<li>
+			<li class="dashboard-option" id="balance" data-content-panel="balance-content">
+				
 				<a><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Balance: $20.00</span></a>
 
 			</li>
@@ -32,7 +36,7 @@
 
 <div class="content-column primary">
 
-	<div id="messages-content">
+	<div class="dashboard-panel" id="messages-content">
 		
 		<h3 class="text-header-underline">Messages</h3>
 
@@ -45,7 +49,7 @@
 		<% end%>
 
 		<h4>Sent by Me:</h4>
-		
+
 		<% current_user.messages_sent_by_me.each do |message| %>
 
 			<%= message.id %>
@@ -54,7 +58,7 @@
 
 	</div>
 
-	<div id="views-content" style="display: none;">
+	<div class="dashboard-panel" id="views-content" style="display: none;">
 		
 		<h3 class="text-header-underline" >Views</h3>
 
@@ -64,7 +68,7 @@
 
 
 
-	<div id="balance-content" style="display: none;">
+	<div class="dashboard-panel" id="balance-content" style="display: none;">
 		
 		<h3 class="text-header-underline">Balance</h3>
 

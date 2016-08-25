@@ -13,6 +13,7 @@
 		width:100%;
 		display: table-cell;
 		padding-right: 15px;
+		vertical-align: middle;
 
 		input{
 			width: 100%;
@@ -21,7 +22,8 @@
 	}
 
 	.right{
-		width:100px;
+		width:300px;
+		vertical-align: middle;
 		display: table-cell;
 	}
 
