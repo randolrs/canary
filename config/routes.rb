@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   post 'setup_user' => "pages#setup_user"
 
+  get '/me/work' => 'pages#my_work', as: 'my_work'
+
 
 
 

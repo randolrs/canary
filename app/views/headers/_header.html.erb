@@ -6,9 +6,11 @@
 
 			<li><%= link_to "Art", root_path, class: "header-logo" %></li>
 
-<!-- 			<li><a href='<%# message_dashboard_path %>'><span>My Exhibitions</span></a></li>
-			
-			<li><a href='<%# sales_dashboard_path %>'><span>My Works</span></a></li> -->
+			<% if current_user.is_artist %>
+
+				<li><a href='<%= my_work_path %>'><span>My Work</span></a></li>
+
+			<% end %>
 
 		</ul>
 

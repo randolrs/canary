@@ -40,19 +40,43 @@
 		
 		<h3 class="text-header-underline">Messages</h3>
 
-		<h4>To Me:</h4>
+		<h4>Inbox</h4>
 
-		<% current_user.messages_to_me.each do |message| %>
+		<% if current_user.messages_to_me.count > 0 %>
 
-			<%= message.id %>
+			<% current_user.messages_to_me.each do |message| %>
+
+				<%= message.id %>
+
+			<% end%>
+
+		<% else %>
+
+			<div class="nothing-to-see-container">
+
+				<p>No incoming messages.</p>
+
+			</div>
 
 		<% end%>
 
-		<h4>Sent by Me:</h4>
+		<h4>Outbox</h4>
 
-		<% current_user.messages_sent_by_me.each do |message| %>
+		<% if current_user.messages_sent_by_me.count > 0 %>
 
-			<%= message.id %>
+			<% current_user.messages_sent_by_me.each do |message| %>
+
+				<%= message.id %>
+
+			<% end%>
+
+		<% else %>
+
+			<div class="nothing-to-see-container">
+
+				<p>No outgoing messages.</p>
+
+			</div>
 
 		<% end%>
 
@@ -62,7 +86,23 @@
 		
 		<h3 class="text-header-underline" >Views</h3>
 
-		<p>running summation fo views, messages, balance</p>
+		<% if current_user.views.count > 0 %>
+			
+			<% current_user.views.each do |view| %>
+
+				<%= view.id %>
+
+			<% end%>
+
+		<% else%>
+
+			<div class="nothing-to-see-container">
+
+				<p>No views, yet...check back later.</p>
+
+			</div>
+
+		<%end%>
 
 	</div>
 
