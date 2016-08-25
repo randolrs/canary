@@ -6,10 +6,12 @@
 
 			<li><%= link_to "Art", root_path, class: "header-logo" %></li>
 
-			<% if current_user.is_artist %>
+			<% if user_signed_in?%>
+				<% if current_user.is_artist %>
 
-				<!-- <li><a href='<%# my_work_path %>'><span>My Work</span></a></li> -->
+					<!-- <li><a href='<%# my_work_path %>'><span>My Work</span></a></li> -->
 
+				<% end %>
 			<% end %>
 
 		</ul>
