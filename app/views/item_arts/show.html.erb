@@ -1,63 +1,66 @@
+<div class="content">
 
-<div class="medium-content">
+  <div class="medium-content">
 
-    <div class="item-art-form-header">
+      <div class="item-art-form-header">
 
-      <div class="left">
-        <h2><%= @item_art.name %></h2>
+        <div class="left">
+          <h2><%= @item_art.name %></h2>
+        </div>
+
+        <div class="right">
+          <a class="button large blue-background">Buy for <%= number_to_currency(@item_art.price) %></a>
+        </div>
+
       </div>
 
-      <div class="right">
-        <a class="button large blue-background">Buy for <%= number_to_currency(@item_art.price) %></a>
+      <div class="item-art-form-row">
+
+        <p><%= @item_art.medium %>, <%= @item_art.height.to_i %> H X <%= @item_art.width.to_i %> W <% if @item_art.length %> X <%= @item_art.length.to_i %> L<%end%></p>
+
       </div>
-
-    </div>
-
-    <div class="item-art-form-row">
-
-      <p><%= @item_art.medium %>, <%= @item_art.height.to_i %> H X <%= @item_art.width.to_i %> W <% if @item_art.length %> X <%= @item_art.length.to_i %> L<%end%></p>
-
-    </div>
-    
-    <div class="image-input-container centered">
       
-      <%= image_tag @item_art.image.url, class: "item-art-main-image" %>
-
-    </div>
-
-    <div class="item-art-form-header">
-
-      <div class="left">
-        <p>About</p>
-      </div>
-
-    </div>
-
-    <div class="field">
-      <p><%= @item_art.description %></p>
-    </div>
-
-    <br>
-    
-    <div class="item-art-form-header">
-
-      <div class="left">
+      <div class="image-input-container centered">
         
-        <p>The Artist</p>
+        <%= image_tag @item_art.image.url, class: "item-art-main-image" %>
 
       </div>
 
-      <div class="right">
+      <div class="item-art-form-header">
 
-        <a class="message-modal modal-cta button medium red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span></a>
+        <div class="left">
+          <p>About</p>
+        </div>
 
       </div>
 
-    </div>
+      <div class="field">
+        <p><%= @item_art.description %></p>
+      </div>
 
-    <div class="field">
-      <p><%= @item_art.user.email %></p>
-    </div>
+      <br>
+      
+      <div class="item-art-form-header">
+
+        <div class="left">
+          
+          <p>The Artist</p>
+
+        </div>
+
+        <div class="right">
+
+          <a class="message-modal modal-cta button medium red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span></a>
+
+        </div>
+
+      </div>
+
+      <div class="field">
+        <p><%= @item_art.user.email %></p>
+      </div>
+
+  </div>
 
 </div>
 

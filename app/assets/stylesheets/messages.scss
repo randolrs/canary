@@ -15,3 +15,47 @@ form.new_message{
 		height: 100px;
 	}
 }
+
+table.inbox{
+	
+	display: block;
+	font-size: 16px;
+	border: 1px solid #666;
+
+	color: #666;
+
+	tbody{
+
+		display: block;
+
+		tr{
+			padding: 10px 0px;
+			display: block;
+			border-bottom: 1px solid #666;
+
+
+			td{
+				padding: 0px 15px;
+
+				span.message-list-subject{
+					font-weight: 600;
+					padding-right: 10px;
+				}
+
+				span.message-list-sender{
+					font-weight: 600;
+				}
+			}
+		}
+
+		tr:last-child{
+			border-bottom: none;
+		}
+
+		tr:hover{
+			background: #ddd;
+			cursor: pointer;
+		}
+
+	}
+}

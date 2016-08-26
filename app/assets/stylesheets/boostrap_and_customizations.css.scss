@@ -10,9 +10,13 @@ html{
 
 		background-image: asset-url("seamless_paper_texture.png");
 
+		a{
+			color: #333;
+		}
+
 		a:hover{
 			text-decoration: none;
-			color: #eee;
+			color: #444;
 
 		}
 
