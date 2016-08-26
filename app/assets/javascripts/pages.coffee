@@ -72,6 +72,7 @@ ready = ->
 			else if $(@).data('content-panel') == "balance-content"
 				$('body').find('div.dashboard-panel#balance-content').show()
 			else if $(@).data('content-panel') == "work-content"
+				$('body').find('div.dashboard-panel#work-content').show()
 			else if $(@).data('content-panel') == "views-content"
 				$('body').find('div.dashboard-panel#views-content').show()
 			else if $(@).data('content-panel') == "work-content"

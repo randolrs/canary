@@ -95,6 +95,13 @@
 		
 		<h3 class="text-header-underline">Balance</h3>
 
+		<ul>
+
+			<li><a>Sales</a></li>
+			<li><a>Payments to You</a></li>
+
+		</ul>
+
 	</div>
 
 	<div class="dashboard-panel" id="views-content" style="display: none;">
@@ -134,12 +141,27 @@
 		
 		<h3 class="text-header-underline" >My Work</h3>
 
+		<ul>
+
+			<li><a>Work</a></li>
+			<li><a>Exhibitions</a></li>
+
+		</ul>
+
 	</div>
 
 
 	<div class="dashboard-panel" id="settings-content" style="display: none;">
 		
 		<h3 class="text-header-underline">Account Settings</h3>
+
+		<ul>
+
+			<li><a>Basic Information</a></li>
+			<li><a>Payments</a></li>
+
+		</ul>
+
 
 		<%= form_for(current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
 
