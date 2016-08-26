@@ -97,10 +97,14 @@
 
 		<ul>
 
-			<li><a>Sales</a></li>
+			<li class="active"><a>Sales</a></li>
 			<li><a>Payments to You</a></li>
 
 		</ul>
+
+		<div class="dasboard-panel-content">
+
+		</div>
 
 	</div>
 
@@ -143,10 +147,14 @@
 
 		<ul>
 
-			<li><a>Work</a></li>
+			<li class="active"><a>Work</a></li>
 			<li><a>Exhibitions</a></li>
 
 		</ul>
+
+		<div class="dasboard-panel-content">
+
+		</div>
 
 	</div>
 
@@ -157,39 +165,41 @@
 
 		<ul>
 
-			<li><a>Basic Information</a></li>
+			<li class="active"><a>Basic Information</a></li>
 			<li><a>Payments</a></li>
 
 		</ul>
 
+		<div class="dasboard-panel-content">
 
-		<%= form_for(current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
+			<%= form_for(current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
 
-		    <div class="field">
-		      <%= f.label :email %><br />
-		      <%= f.email_field :email, autofocus: true %>
-		    </div>
+			    <div class="field">
+			      <%= f.label :email %><br />
+			      <%= f.email_field :email, autofocus: true %>
+			    </div>
 
-		    <div class="field">
-		      <%= f.label :display_name %><br />
-		      <%= f.text_field :display_name %>
-		    </div>
+			    <div class="field">
+			      <%= f.label :display_name %><br />
+			      <%= f.text_field :display_name %>
+			    </div>
 
-		    <div class="field">
-		      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-		      <%= f.password_field :password, autocomplete: "off" %>
-		      <% if @minimum_password_length %>
-		        <br />
-		        <em><%= @minimum_password_length %> characters minimum</em>
-		      <% end %>
-		    </div>
+			    <div class="field">
+			      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+			      <%= f.password_field :password, autocomplete: "off" %>
+			      <% if @minimum_password_length %>
+			        <br />
+			        <em><%= @minimum_password_length %> characters minimum</em>
+			      <% end %>
+			    </div>
 
-		    <div class="actions">
-		      <%= f.submit "Update", class:"button medium blue-background" %>
-		    </div>
+			    <div class="actions">
+			      <%= f.submit "Update", class:"button medium blue-background" %>
+			    </div>
 
-  		<% end %>
+	  		<% end %>
 
+	  	</div>
 
 	</div>
 
