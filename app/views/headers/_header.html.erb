@@ -7,11 +7,13 @@
 			<li><%= link_to "Art", root_path, class: "header-logo" %></li>
 
 			<% if user_signed_in?%>
+
 				<% if current_user.is_artist %>
 
-					<!-- <li><a href='<%# my_work_path %>'><span>My Work</span></a></li> -->
+<!-- 					<li><a href='<%# edit_user_registration_path %>'>Balance: $20.00</a></li> -->
 
 				<% end %>
+
 			<% end %>
 
 		</ul>
@@ -22,7 +24,9 @@
 				
 				<% if current_user.is_artist %>
 					
-					<li><a href='<%# edit_user_registration_path %>'>Balance: $20.00</a></li>
+					<li><a href='<%=new_item_art_path%>'><span class="glyphicon glyphicon-plus"></span><span>Add a New Listing</span></a></li>
+
+					<li><%= link_to "Promote an Exhibition", new_exhibition_path %></li>
 
 				<% end %>
 

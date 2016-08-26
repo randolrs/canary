@@ -69,6 +69,9 @@ ready = ->
 			$('body').find('div.dashboard-panel').hide()
 			if $(@).data('content-panel') == "messages-content"
 				$('body').find('div.dashboard-panel#messages-content').show()
+			else if $(@).data('content-panel') == "balance-content"
+				$('body').find('div.dashboard-panel#balance-content').show()
+			else if $(@).data('content-panel') == "work-content"
 			else if $(@).data('content-panel') == "views-content"
 				$('body').find('div.dashboard-panel#views-content').show()
 			else if $(@).data('content-panel') == "work-content"

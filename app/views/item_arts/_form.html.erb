@@ -1,5 +1,4 @@
-<div class="medium-content">
-  
+
   <%= form_for(@item_art) do |f| %>
     <% if @item_art.errors.any? %>
       <div id="error_explanation">
@@ -75,10 +74,8 @@
     </div>
 
     <div class="actions centered">
-      <%= f.submit "Publish", class: 'button red-background'  %>
+      <%= f.submit "Publish", class: 'button medium red-background'  %>
     </div>
 
   <% end %>
-
-</div>
 

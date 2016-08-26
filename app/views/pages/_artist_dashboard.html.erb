@@ -5,14 +5,21 @@
 
 		<ul>
 
-			<li>
+			<li class="dashboard-header">
 				
-				<a href="<%= profile_path(current_user.display_name) %>"><h3><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%><%= current_user.display_name %></h3></a>
+				<a href="<%= profile_path(current_user.display_name) %>"><h3 class="dashboard-profile-header"><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%><%= current_user.display_name %></h3></a>
 			</li>
 
 			<li class="dashboard-option active" id="messages" data-content-panel="messages-content">
 				
 				<a><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span><span>Inbox</span></a>
+
+			</li>
+
+
+			<li class="dashboard-option" id="balance" data-content-panel="balance-content">
+				
+				<a><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Balance:</span><span style="color: green;">$20.00</span></a>
 
 			</li>
 
@@ -74,6 +81,12 @@
 
 	</div>
 
+	<div class="dashboard-panel" id="balance-content" style="display: none;">
+		
+		<h3 class="text-header-underline">Balance</h3>
+
+	</div>
+
 	<div class="dashboard-panel" id="views-content" style="display: none;">
 		
 		<h3 class="text-header-underline" >Views</h3>
@@ -131,7 +144,7 @@
 		    </div>
 
 		    <div class="actions">
-		      <%= f.submit "Update" %>
+		      <%= f.submit "Update", class:"button medium blue-background" %>
 		    </div>
 
   		<% end %>
