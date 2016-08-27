@@ -50,6 +50,8 @@
 
 <div class="content-column primary">
 
+	<%= render 'pages/user/warnings' %>
+
 	<div class="dashboard-panel" id="main-content">
 		
 
@@ -59,7 +61,7 @@
 
 	<div class="dashboard-panel" id="messages-content">
 		
-<!-- 		<h3 class="text-header-underline">Inbox</h3> -->
+		<h3 class="text-header-underline">Inbox</h3>
 
 		<% if current_user.messages_to_me.count > 0 %>
 
@@ -93,7 +95,7 @@
 
 	<div class="dashboard-panel" id="balance-content" style="display: none;">
 		
-		<!-- <h3 class="text-header-underline">Balance</h3> -->
+		<h3 class="text-header-underline">Balance</h3>
 
 		<ul>
 
@@ -110,7 +112,7 @@
 
 	<div class="dashboard-panel" id="views-content" style="display: none;">
 		
-		<!-- <h3 class="text-header-underline" >Views</h3> -->
+		<h3 class="text-header-underline">Views</h3>
 
 		<% if current_user.views.count > 0 %>
 			
@@ -143,7 +145,7 @@
 
 	<div class="dashboard-panel" id="work-content" style="display: none;">
 		
-		<!-- <h3 class="text-header-underline" >My Work</h3> -->
+		<h3 class="text-header-underline">My Work</h3>
 
 		<ul>
 
@@ -161,7 +163,7 @@
 
 	<div class="dashboard-panel" id="settings-content" style="display: none;">
 		
-		<!-- <h3 class="text-header-underline">Account Settings</h3> -->
+		<h3 class="text-header-underline">Account Settings</h3>
 
 		<ul>
 
