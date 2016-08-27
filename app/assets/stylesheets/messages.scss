@@ -20,7 +20,7 @@ table.inbox{
 	
 	display: block;
 	font-size: 16px;
-	border: 1px solid #666;
+	border: 1px solid #aaa;
 
 	color: #666;
 
@@ -31,7 +31,7 @@ table.inbox{
 		tr{
 			padding: 10px 0px;
 			display: block;
-			border-bottom: 1px solid #666;
+			border-bottom: 1px solid #aaa;
 
 
 			td{
@@ -53,7 +53,7 @@ table.inbox{
 		}
 
 		tr:hover{
-			background: #ddd;
+			background: #eee;
 			cursor: pointer;
 		}
 

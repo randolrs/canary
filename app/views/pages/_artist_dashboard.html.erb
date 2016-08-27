@@ -156,6 +156,13 @@
 
 		<div class="dasboard-panel-content">
 
+			<% current_user.item_arts.each do |item| %>
+
+				<a><%= item.name %></a>
+
+			<% end%>
+
+
 		</div>
 
 	</div>
