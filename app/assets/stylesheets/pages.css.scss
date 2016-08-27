@@ -221,3 +221,38 @@ table.form-table{
 		cursor: pointer;
 	}
 }
+
+ul.horizontal{
+	
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+	
+	li{
+
+		display: inline-block;
+        text-align: center;
+        vertical-align: top;
+
+		a{
+
+			display: block;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 10px;
+            color: #fff;
+           	letter-spacing: 1.5px;
+
+
+		}
+
+		a.active{
+            
+            border-bottom: 3px solid #fff;
+
+        }
+
+	}
+
+}

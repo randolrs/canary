@@ -1,11 +1,43 @@
-<div class="content">
-	
-	<h2>Profile</h2>
+<div class="profile-header">
 
-	<a class="message-modal modal-cta">Message</a>
+	<div class="profile-header-content">
+
+		<%= image_tag @user.image.url(:medium), class: "medium-profile-image"%>
+
+		<h2><%= @user.display_name %></h2>
+
+		<p class="about"><%= @user.about %>allegations</p>
+
+		<ul class="horizontal">
+
+			<li><a class="active">Work</a></li>
+			<li><a>Exhibitions</a></li>
+			<li><a>About</a></li>
+
+		</ul>
+
+	</div>
+
+</div>
+
+<div class="profile-content">
+
+	<% @user.item_arts.each do |item| %>
+
+		<div class="lightbox">
+
+			<%= image_tag item.image.url(:medium), class: "medium-item-image"%>
+
+			<%= item.name %>
+
+		</div>
+
+	<% end%>
 
 
 </div>
-	
+
+<a class="message-modal modal-cta">Message</a>
+
 
 <%= render 'messages/modal_form' %>

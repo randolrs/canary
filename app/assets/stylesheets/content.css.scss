@@ -39,12 +39,12 @@
 	    			display: block;
 
 	    			background-color: #ccccff;
-    				background-image: -webkit-gradient(linear, left top, left bottom, from(#e9e9ff), to(#ccccff));
-    				background-image: -webkit-linear-gradient(top, #e9e9ff, #ccccff);
-    				background-image: -moz-linear-gradient(top, #e9e9ff, #ccccff);
-    				background-image: -ms-linear-gradient(top, #e9e9ff, #ccccff);
-    				background-image: -o-linear-gradient(top, #e9e9ff, #ccccff);
-    				background-image: linear-gradient(top, #e9e9ff, #ccccff);
+    				background-image: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#ccc));
+    				background-image: -webkit-linear-gradient(top, #efefef, #ccc);
+    				background-image: -moz-linear-gradient(top, #efefef, #ccc);
+    				background-image: -ms-linear-gradient(top, #efefef, #ccc);
+    				background-image: -o-linear-gradient(top, #efefef, #ccc);
+    				background-image: linear-gradient(top, #efefef, #ccc);
 
 	    			border-bottom: 1px solid #bbb;
 
@@ -93,20 +93,41 @@
 
 	        	li.active{
 
-	        		background: #fff;
+	        		background: #D31027;
 	        		border-right: none;
 
+    				border-top: 2px solid #D31027;
+    				border-bottom: 2px solid #D31027;
+
 	        		a{
-	        			font-weight: 600;
-	        			color: #222;
+	        			
+	        			color: #fff;
 	        			text-shadow: none;
+	        			font-weight: 600;
 	        		}
+
 
 	        	}
 
 	        	li:hover{
 	        		cursor: pointer;
-	        		background: #fff;
+
+	        		a{
+	        			color: #D31027;
+	        			font-weight: 600;
+
+	        		}
+	        	}
+
+	        	li.active:hover{
+
+	        		cursor: pointer;
+
+	        		a{
+	        			color: #fff;
+	        			font-weight: 600;
+
+	        		}
 	        	}
 
 	        	li.dashboard-header:hover{
@@ -300,4 +321,17 @@ h3.dashboard-profile-header{
 	padding: 0px;
 	width:100%;
 	max-width: 100%;
+}
+
+
+.medium-profile-image{
+	width: 150px;
+	height:150px;
+	border-radius: 150px;
+	border: 2px solid #fff;
+}
+
+.medium-item-image{
+	width: 300px;
+	border: 2px solid #fff;
 }
