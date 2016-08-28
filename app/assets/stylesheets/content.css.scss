@@ -22,7 +22,6 @@
 
 		font-weight: 600;
     	font-size: 30px;
-    	margin-bottom: 10px;
 	}
 
 
@@ -161,11 +160,16 @@
 	}
 
 	.content-column.sidebar{
-		width: 25%;
-		min-width: 25%;
+		width: 50%;
+		max-width: 400px;
 		border-right: 1px solid #bbb;
 		background: #eee;
 		min-height: 700px;
+	}
+
+	.content-column.sidebar.full-content{
+		width: 25%;
+		min-width: 25%;
 	}
 
 	.content-column.sidebar-content{
