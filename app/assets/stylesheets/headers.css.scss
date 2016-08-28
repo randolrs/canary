@@ -2,83 +2,87 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.header-container{
-    
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    background: #000;
-    z-index: 999;
-    padding: 0px 30px;
+body{
+
+    .header-container{
+        
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        background: #000;
+        z-index: 999;
+        padding: 0px 30px;
 
 
-    .header-content{
+        .header-content{
 
-        ul{
+            ul{
+            	
+            	list-style-type: none;
+        	    margin: 0;
+        	    padding: 0;
+        	    display: inline-block;
+
+        		li{
+
+        			display: inline-block;
+        			text-align: center;
+                    vertical-align: top;
+
+        			a{
+
+        	    		display: block;
+        	    		font-size: 16px;
+        	    		font-weight: 500;
+            			letter-spacing: 1.1px;
+            			padding: 5px 10px;
+                        color: #fff;
+                        margin: 0 5px;
+                        line-height: 45px;
+                        text-shadow: 0px 1px 2px #333;
+
+            		}
+
+            		a.header-logo{
         	
-        	list-style-type: none;
-    	    margin: 0;
-    	    padding: 0;
-    	    display: inline-block;
+        				font-weight: 600;
+                        font-size: 32px;
+                        font-family: 'Lobster', cursive;
 
-    		li{
+        			}
 
-    			display: inline-block;
-    			text-align: center;
-                vertical-align: top;
+                    a.mobile-button{
+                        font-size: 20px;
+                    }
 
-    			a{
+                    a.mobile-button:hover{
+                        cursor: pointer;
+                    }
 
-    	    		display: block;
-    	    		font-size: 16px;
-    	    		font-weight: 500;
-        			letter-spacing: 1.1px;
-        			padding: 5px 10px;
-                    color: #fff;
-                    margin: 0 5px;
-                    line-height: 45px;
-                    text-shadow: 0px 1px 2px #333;
+            	}
 
-        		}
+            }
 
-        		a.header-logo{
-    	
-    				font-weight: 600;
-                    font-size: 32px;
-                    font-family: 'Lobster', cursive;
+            ul.header-right{
 
-    			}
+            	float: right;
 
-                a.mobile-button{
-                    font-size: 30px;
-                }
-
-                a.menu-button:hover{
-                    cursor: pointer;
-                }
-
-        	}
+            }
 
         }
-
-        ul.header-right{
-
-        	float: right;
-
-        }
-
     }
-}
 
-.header-profile-image{
-    width: 44px;
-    height: 44px;
-    border-radius: 45px;
-    margin: 0px 5px;
-    border: 2px solid #fff;
-    box-shadow: 0px 1px 2px #222;
-}
+    .header-profile-image{
+        width: 44px;
+        height: 44px;
+        border-radius: 45px;
+        margin: 0px 5px;
+        border: 2px solid #fff;
+        box-shadow: 0px 1px 2px #222;
+    }
 
-.mobile-menu-options{
-    display: none;
+    .mobile-menu-options{
+        display: none;
+    }
+
 }

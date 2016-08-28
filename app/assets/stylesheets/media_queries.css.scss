@@ -4,55 +4,59 @@
 
 
 @media only screen and (max-width: 800px) {
+	
+	html{
+	
+		body{
 
-	body{
-
-		div.full-menu-options{
-			display: none;
-		}
-
-		div.mobile-menu-options{
-			display: block;
-		}
-
-		.content{
-
-			margin: 0 auto;
-			border: none;
-			box-shadow: none;
-
-			.content-column.secondary{
-				width: auto;
-				min-width: auto;
-				display: block;
-			}
-
-			.content-column.primary{
-				width: auto;
-				min-width: auto;
-		    	display: block;
-		    	
-			}
-
-		}
-
-		.header-container{
-			padding: 0px 10px;
-		}
-
-		.dashboard-content{
-			
-			.content-column.sidebar-content{
-				width: auto;
-				min-width: auto;
-				display: block;
-			}
-
-			.content-column.sidebar.full-content{
+			div.full-menu-options{
 				display: none;
 			}
 
+			div.mobile-menu-options{
+				display: block;
+			}
+
+			.content{
+
+				margin: 0 auto;
+				border: none;
+				box-shadow: none;
+
+				.content-column.secondary{
+					width: auto;
+					min-width: auto;
+					display: block;
+				}
+
+				.content-column.primary{
+					width: auto;
+					min-width: auto;
+			    	display: block;
+			    	
+				}
+
+			}
+
+			.header-container{
+				padding: 0px 10px;
+			}
+
+			.dashboard-content{
+				
+				.content-column.sidebar-content{
+					width: auto;
+					min-width: auto;
+					display: block;
+				}
+
+				.content-column.sidebar.full-content{
+					display: none;
+				}
+
+			}
 		}
+
 	}
 
 }
