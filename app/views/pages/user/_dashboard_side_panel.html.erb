@@ -9,33 +9,39 @@
 				<a href="<%= profile_path(current_user.display_name) %>"><h3 class="dashboard-profile-header"><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%><%= current_user.display_name %></h3></a>
 			</li>
 
-			<li class="dashboard-option active" id="messages" data-content-panel="messages-content">
+			<li class="dashboard-option <% if @page=="home" %>active<%end%>" id="home" data-content-panel="home-content">
+				
+				<a href="<%= root_path %>"><span class="glyphicon glyphicon-home" aria-hidden="true" style="margin-right: 5px;"></span><span>Home</span></a>
+
+			</li>
+
+			<li class="dashboard-option <% if @page=="messages" %>active<%end%>" id="messages" data-content-panel="messages-content">
 				
 				<a href="<%= inbox_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span><span>Inbox</span></a>
 
 			</li>
 
 
-			<li class="dashboard-option" id="balance" data-content-panel="balance-content">
+			<li class="dashboard-option <% if @page=="balance" %>active<%end%>" id="balance" data-content-panel="balance-content">
 				
 				<a href="<%= balance_path %>"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Balance:</span><span style="color: green;">$20.00</span></a>
 
 			</li>
 
-			<li class="dashboard-option" id="views" data-content-panel="views-content">
+			<li class="dashboard-option <% if @page=="views" %>active<%end%>" id="views" data-content-panel="views-content">
 				
 				<a href="<%= views_path %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span>Views</a>
 
 			</li>
 			
-			<li class="dashboard-option" id="work" data-content-panel="work-content">
+			<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="work" data-content-panel="work-content">
 				
 				<a href="<%= my_work_path %>"><span class="glyphicon glyphicon-certificate" aria-hidden="true" style="margin-right: 5px;"></span>My Work</a>
 
 			</li>
 
 
-			<li class="dashboard-option" id="account-settings" data-content-panel="settings-content">
+			<li class="dashboard-option <% if @page=="settings" %>active<%end%>" id="account-settings" data-content-panel="settings-content">
 				
 				<a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog" aria-hidden="true" style="margin-right: 5px;"></span><span>Account Settings</span></a>
 

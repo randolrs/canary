@@ -63,23 +63,6 @@ ready = ->
 		$(".modal-content").click (event), ->
 			event.stopPropagation()
 
-		$(".dashboard-option").click (event), ->
-			$(@).parent().children('.dashboard-option').removeClass('active')
-			$(@).addClass('active')
-			$('body').find('div.dashboard-panel').hide()
-			if $(@).data('content-panel') == "messages-content"
-				$('body').find('div.dashboard-panel#messages-content').show()
-			else if $(@).data('content-panel') == "balance-content"
-				$('body').find('div.dashboard-panel#balance-content').show()
-			else if $(@).data('content-panel') == "work-content"
-				$('body').find('div.dashboard-panel#work-content').show()
-			else if $(@).data('content-panel') == "views-content"
-				$('body').find('div.dashboard-panel#views-content').show()
-			else if $(@).data('content-panel') == "work-content"
-				$('body').find('div.dashboard-panel#work-content').show()
-			else if $(@).data('content-panel') == "settings-content"
-				$('body').find('div.dashboard-panel#settings-content').show()
-
 		$("a.mobile-button").click (event), ->
 			contentContainer = $('body').find(".content")
 			contentContainer.addClass('blurred')

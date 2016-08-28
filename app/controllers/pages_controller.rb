@@ -5,7 +5,8 @@ class PagesController < ApplicationController
 
 	def home
 
-
+		@page = "home"
+		
 	end
 
 
@@ -16,12 +17,33 @@ class PagesController < ApplicationController
 
 	def settings
 
-
+		@page = "settings"
 
 	end
 
 
 	def sales
+
+		@page = "balance"
+
+	end
+
+	def views
+
+		@page = "views"
+
+
+	end
+
+	def messages
+
+		@page = "messages"
+
+	end
+
+	def my_work
+
+		@page = "work"
 
 	end
 
