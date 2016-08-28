@@ -3,3 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+@media only screen and (max-width: 800px) {
+
+	body{
+
+		div.full-menu-options{
+			display: none;
+		}
+
+		div.mobile-menu-options{
+			display: block;
+		}
+	}
+
+}

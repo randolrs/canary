@@ -80,6 +80,12 @@ ready = ->
 			else if $(@).data('content-panel') == "settings-content"
 				$('body').find('div.dashboard-panel#settings-content').show()
 
+		$("a.mobile-button").click (event), ->
+			contentContainer = $('body').find(".content")
+			contentContainer.addClass('blurred')
+			$('body').addClass('no-scroll')
+			$('body').find('#mobile-menu').show()
+
 
 $(document).on('turbolinks:load', ready)
 

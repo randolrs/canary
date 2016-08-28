@@ -49,6 +49,14 @@
 
     			}
 
+                a.mobile-button{
+                    font-size: 30px;
+                }
+
+                a.menu-button:hover{
+                    cursor: pointer;
+                }
+
         	}
 
         }
@@ -69,4 +77,8 @@
     margin: 0px 5px;
     border: 2px solid #fff;
     box-shadow: 0px 1px 2px #222;
+}
+
+.mobile-menu-options{
+    display: none;
 }

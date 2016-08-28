@@ -20,34 +20,44 @@
 
 		<ul class="header-right">
 			
-			<% if user_signed_in? %>
-				
-				<% if current_user.is_artist %>
-					
-					<li><a href='<%=new_item_art_path%>'><span class="glyphicon glyphicon-plus"></span><span>Add a New Listing</span></a></li>
+			<div class="full-menu-options">
 
-					<li><%= link_to "Promote an Exhibition", new_exhibition_path %></li>
+				<% if user_signed_in? %>
+					
+					<% if current_user.is_artist %>
+						
+						<li><a href='<%=new_item_art_path%>'><span class="glyphicon glyphicon-plus"></span><span>Add a New Listing</span></a></li>
+
+						<li><%= link_to "Promote an Exhibition", new_exhibition_path %></li>
+
+					<% end %>
+
+					<% if current_user.is_buyer %>
+						
+						<li><a href='<%= about_path %>'>Search by Code</a></li>
+
+					<% end %>
+
+		<!-- 			<li><a href='<%# about_path %>'><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin: 0px 5px;"></span>Messages</a></li>
+
+					<li><a href='<%# about_path %>'><span class="glyphicon glyphicon-question-sign" aria-hidden="true" style="margin: 0px 5px;"></span>Help</a></li> -->
+
+		<!-- 			<li><a data-method="delete" href='<%#destroy_user_session_path%>'>Logout</a></li> -->
+
+				<% else %>
+
+					<li><%= link_to "Login", new_user_session_path %></li>
+					<li><%= link_to "Signup", new_user_registration_path %></li>
 
 				<% end %>
 
-				<% if current_user.is_buyer %>
-					
-					<li><a href='<%= about_path %>'>Search by Code</a></li>
+			</div>
 
-				<% end %>
+			<div class="mobile-menu-options">
 
-	<!-- 			<li><a href='<%# about_path %>'><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin: 0px 5px;"></span>Messages</a></li>
+				<li><a class="mobile-button">&#9776;</a></li>
+			</div>
 
-				<li><a href='<%# about_path %>'><span class="glyphicon glyphicon-question-sign" aria-hidden="true" style="margin: 0px 5px;"></span>Help</a></li> -->
-
-	<!-- 			<li><a data-method="delete" href='<%#destroy_user_session_path%>'>Logout</a></li> -->
-
-			<% else %>
-
-				<li><%= link_to "Login", new_user_session_path %></li>
-				<li><%= link_to "Signup", new_user_registration_path %></li>
-
-			<% end %>
 		</ul>
 
 	</div>
