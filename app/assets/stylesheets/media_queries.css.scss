@@ -14,6 +14,23 @@
 		div.mobile-menu-options{
 			display: block;
 		}
+
+		.content{
+		
+			.content-column.secondary{
+				width: auto;
+				min-width: auto;
+				display: block;
+			}
+
+			.content-column.primary{
+				width: auto;
+				min-width: auto;
+		    	display: block;
+		    	
+			}
+
+		}
 	}
 
 }
