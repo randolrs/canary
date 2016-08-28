@@ -14,6 +14,17 @@ class PagesController < ApplicationController
 
 	end
 
+	def settings
+
+
+
+	end
+
+
+	def sales
+
+	end
+
 	def profile
 
 		@user = User.find_by_display_name(params[:display_name])

@@ -1,0 +1,33 @@
+<div class="dashboard-panel" id="messages-content">
+	
+	<h3 class="text-header-underline">Inbox</h3>
+
+	<% if current_user.messages_to_me.count > 0 %>
+
+		<table class="inbox">
+			
+
+			<% current_user.messages_to_me.each do |message| %>
+
+				<tr>
+					<td><a><%# image_tag message.sender.image.url(:medium), class: "header-profile-image"%><span class="message-list-sender"><%= message.sender.email %></span></a></td>
+					<td><a><span class="message-list-subject"><%= message.subject %></span><span><%= message.body %></span></a></td>
+					<td><a><%= message.created_at.strftime("%b %d") %></a></td>
+				</tr>
+
+			<% end%>
+
+			
+		</table>
+
+	<% else %>
+
+		<div class="nothing-to-see-container">
+
+			<p>No incoming messages.</p>
+
+		</div>
+
+	<% end%>
+
+</div>

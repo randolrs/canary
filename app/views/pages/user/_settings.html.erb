@@ -1,0 +1,43 @@
+<div class="dashboard-panel" id="settings-content">
+	
+	<h3 class="text-header-underline">Account Settings</h3>
+
+	<ul>
+
+		<li class="active"><a>Basic Information</a></li>
+		<li><a>Payments</a></li>
+
+	</ul>
+
+	<div class="dasboard-panel-content">
+
+		<%= form_for(current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
+
+		    <div class="field">
+		      <%= f.label :email %><br />
+		      <%= f.email_field :email %>
+		    </div>
+
+		    <div class="field">
+		      <%= f.label :display_name %><br />
+		      <%= f.text_field :display_name %>
+		    </div>
+
+		    <div class="field">
+		      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+		      <%= f.password_field :password, autocomplete: "off" %>
+		      <% if @minimum_password_length %>
+		        <br />
+		        <em><%= @minimum_password_length %> characters minimum</em>
+		      <% end %>
+		    </div>
+
+		    <div class="actions">
+		      <%= f.submit "Update", class:"button medium blue-background" %>
+		    </div>
+
+  		<% end %>
+
+  	</div>
+
+</div>

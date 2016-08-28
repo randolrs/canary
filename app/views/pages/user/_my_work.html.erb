@@ -1,0 +1,23 @@
+<div class="dashboard-panel" id="work-content">
+	
+	<h3 class="text-header-underline">My Work</h3>
+
+	<ul>
+
+		<li class="active"><a>Work</a></li>
+		<li><a>Exhibitions</a></li>
+
+	</ul>
+
+	<div class="dasboard-panel-content">
+
+		<% current_user.item_arts.each do |item| %>
+
+			<a><%= item.name %></a>
+
+		<% end%>
+
+
+	</div>
+
+</div>

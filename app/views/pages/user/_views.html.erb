@@ -1,0 +1,32 @@
+<div class="dashboard-panel" id="views-content">
+	
+	<h3 class="text-header-underline">Views</h3>
+
+	<% if current_user.views.count > 0 %>
+		
+		<table class="inbox">
+
+			<% current_user.views.each do |view| %>
+
+				<tr>
+
+					<td><a><%= view.item_art.name %></a></td>
+					<td><a><%= view.created_at.strftime("%b %d") %></a></td>
+
+				</tr>
+
+			<% end%>
+
+		</table>
+
+	<% else%>
+
+		<div class="nothing-to-see-container">
+
+			<p>No views, yet...check back later.</p>
+
+		</div>
+
+	<%end%>
+
+</div>
