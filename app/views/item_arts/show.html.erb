@@ -1,6 +1,47 @@
 <div class="content">
 
-  <div class="medium-content">
+  <div class="content-column primary">
+
+    <%= image_tag @item_art.image.url, class: "item-art-main-image" %>
+
+  </div>
+
+  <div class="content-column secondary left-border">
+
+    <h2><%= @item_art.name %></h2>
+
+    <p><%= @item_art.medium %></p>
+
+    <p><%= @item_art.height.to_i %> H X <%= @item_art.width.to_i %> W <% if @item_art.length %> X <%= @item_art.length.to_i %> L<%end%></p>
+
+    <br>
+
+    <a class="button large blue-background">Buy for <%= number_to_currency(@item_art.price) %></a>
+
+    <br>
+
+    <h4 class="text-header-underline">About this Piece</h4>
+
+    <p><%= @item_art.description %></p>
+
+    <br>
+
+    <h4 class="text-header-underline">About the Artist</h4>
+
+    <p><%= image_tag @item_art.user.image.url(:medium), class: "header-profile-image"%><%= @item_art.user.display_name %></p>
+
+    <p><%= @item_art.user.about %></p>
+
+    <br>
+    
+    <a class="message-modal modal-cta button large red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Message the Artist</a>
+
+  </div>
+
+
+
+
+  <div class="medium-content" style="display: none;">
 
       <div class="item-art-form-header">
 
@@ -28,9 +69,7 @@
 
       <div class="item-art-form-header">
 
-        <div class="left">
           <p>About</p>
-        </div>
 
       </div>
 
@@ -57,7 +96,7 @@
       </div>
 
       <div class="field">
-        <p><%= @item_art.user.email %></p>
+        <p><%= @item_art.user.about %></p>
       </div>
 
   </div>

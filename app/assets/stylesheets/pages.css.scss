@@ -109,12 +109,13 @@
     border-radius: 5px;
     
     display: inline-block;
-    margin: 0 auto;
+    margin: 5px auto;
     text-align: center;
 }
 
 .button:hover{
 	cursor: pointer;
+	color: #fff;
 }
 
 .button.medium{
