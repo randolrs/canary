@@ -24,17 +24,21 @@
 
 	<% @user.item_arts.each do |item| %>
 
-		<div class="lightbox">
+		<%= link_to(item) do %>
+		
+			<div class="lightbox">
 
-			<%= image_tag item.image.url(:medium), class: "medium-item-image"%>
+				<%= image_tag item.image.url(:medium), class: "medium-item-image"%>
 
-			<br>
+				<br>
 
-			<h3><%= item.name %></h3>
+				<h3><%= item.name %></h3>
 
-			<h3><%= number_to_currency(item.price) %></h3>
+				<h3><%= number_to_currency(item.price) %></h3>
 
-		</div>
+			</div>
+
+		<%end%>
 
 	<% end%>
 
