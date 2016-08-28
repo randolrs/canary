@@ -1,0 +1,169 @@
+<%= render 'pages/user/warnings' %>
+
+<% if current_user.is_artist %>
+
+	<div class="dashboard-panel" id="main-content">
+	
+
+
+	</div>
+
+
+	<div class="dashboard-panel" id="messages-content">
+		
+		<h3 class="text-header-underline">Inbox</h3>
+
+		<% if current_user.messages_to_me.count > 0 %>
+
+			<table class="inbox">
+				
+
+				<% current_user.messages_to_me.each do |message| %>
+
+					<tr>
+						<td><a><%# image_tag message.sender.image.url(:medium), class: "header-profile-image"%><span class="message-list-sender"><%= message.sender.email %></span></a></td>
+						<td><a><span class="message-list-subject"><%= message.subject %></span><span><%= message.body %></span></a></td>
+						<td><a><%= message.created_at.strftime("%b %d") %></a></td>
+					</tr>
+
+				<% end%>
+
+				
+			</table>
+
+		<% else %>
+
+			<div class="nothing-to-see-container">
+
+				<p>No incoming messages.</p>
+
+			</div>
+
+		<% end%>
+
+	</div>
+
+	<div class="dashboard-panel" id="balance-content" style="display: none;">
+		
+		<h3 class="text-header-underline">Balance</h3>
+
+		<ul>
+
+			<li class="active"><a>Sales</a></li>
+			<li><a>Payments to You</a></li>
+
+		</ul>
+
+		<div class="dasboard-panel-content">
+
+		</div>
+
+	</div>
+
+	<div class="dashboard-panel" id="views-content" style="display: none;">
+		
+		<h3 class="text-header-underline">Views</h3>
+
+		<% if current_user.views.count > 0 %>
+			
+			<table class="inbox">
+
+				<% current_user.views.each do |view| %>
+
+					<tr>
+
+						<td><a><%= view.item_art.name %></a></td>
+						<td><a><%= view.created_at.strftime("%b %d") %></a></td>
+
+					</tr>
+
+				<% end%>
+
+			</table>
+
+		<% else%>
+
+			<div class="nothing-to-see-container">
+
+				<p>No views, yet...check back later.</p>
+
+			</div>
+
+		<%end%>
+
+	</div>
+
+	<div class="dashboard-panel" id="work-content" style="display: none;">
+		
+		<h3 class="text-header-underline">My Work</h3>
+
+		<ul>
+
+			<li class="active"><a>Work</a></li>
+			<li><a>Exhibitions</a></li>
+
+		</ul>
+
+		<div class="dasboard-panel-content">
+
+			<% current_user.item_arts.each do |item| %>
+
+				<a><%= item.name %></a>
+
+			<% end%>
+
+
+		</div>
+
+	</div>
+
+
+	<div class="dashboard-panel" id="settings-content" style="display: none;">
+		
+		<h3 class="text-header-underline">Account Settings</h3>
+
+		<ul>
+
+			<li class="active"><a>Basic Information</a></li>
+			<li><a>Payments</a></li>
+
+		</ul>
+
+		<div class="dasboard-panel-content">
+
+			<%= form_for(current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
+
+			    <div class="field">
+			      <%= f.label :email %><br />
+			      <%= f.email_field :email, autofocus: true %>
+			    </div>
+
+			    <div class="field">
+			      <%= f.label :display_name %><br />
+			      <%= f.text_field :display_name %>
+			    </div>
+
+			    <div class="field">
+			      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+			      <%= f.password_field :password, autocomplete: "off" %>
+			      <% if @minimum_password_length %>
+			        <br />
+			        <em><%= @minimum_password_length %> characters minimum</em>
+			      <% end %>
+			    </div>
+
+			    <div class="actions">
+			      <%= f.submit "Update", class:"button medium blue-background" %>
+			    </div>
+
+	  		<% end %>
+
+	  	</div>
+
+	</div>
+
+
+<% elsif current_user.is_buyer %>
+
+
+<%end%>

@@ -1,3 +1,4 @@
+
 <% unless user_signed_in? %>
 	
 	<div class="content">
@@ -7,23 +8,22 @@
 	</div>
 
 <%else%>
-	
-	<% if current_user.is_artist %>
 
-		<div class="dashboard-content">
-			
-			<%= render 'pages/artist_dashboard' %>
+	<div class="dashboard-content">
 
-		</div>
+		<div class="content-column sidebar">
 
-	<% elsif current_user.is_buyer %>
-
-		<div class="content">
-
-			<%= render 'pages/buyer_dashboard' %>
+			<%= render 'pages/user/dashboard_side_panel' %>
 
 		</div>
 
-	<%end%>
+
+		<div class="content-column primary">
+
+			<%= render 'pages/user/dashboard_primary_content' %>
+
+		</div>
+
+	</div>
 
 <%end%>

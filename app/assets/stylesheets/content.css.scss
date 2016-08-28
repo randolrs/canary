@@ -80,11 +80,16 @@
     				background-image: -ms-linear-gradient(top, #444, #222);
     				background-image: -o-linear-gradient(top, #444, #222);
     				background-image: linear-gradient(top, #444, #222);
+    				border-bottom: none;
     				
 
     				a{
     					color: #fff;
     					text-shadow: 0px 1px 2px #222;
+    				}
+
+    				a:hover{
+    					color: #fff;
     				}
 
     				
@@ -166,8 +171,9 @@
 
 	.text-header-underline{
 		display: block;
-		border-bottom: 1px solid #999;
+		border-bottom: 2px solid #666;
 		padding: 15px 0px;
+		color: #666;
 		
 	}
 
@@ -332,8 +338,9 @@ h3.dashboard-profile-header{
 }
 
 .medium-item-image{
-	width: 300px;
-	border: 2px solid #fff;
+	width:100%;
+	max-width: 300px;
+	box-shadow: 0px 2px 2px #999;
 }
 
 .profile-header{
@@ -368,4 +375,15 @@ h3.dashboard-profile-header{
 .profile-content{
     text-align: center;
     padding:20px;
+}
+
+.lightbox{
+	display: inline-block;
+	width: 100%;
+	max-width: 300px;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0px 1px 3px #666;
+    border-radius: 2px;
+    margin: 0 auto;
 }
