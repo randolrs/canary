@@ -58,7 +58,24 @@
 					display: none;
 				}
 
+
+				.content-column{
+
+					.content-panel{
+
+						ul{
+
+				        	li.mobile-only{
+			  					display: block;
+							}
+
+						}
+					}
+
+				}
+
 			}
+
 		}
 
 	}
