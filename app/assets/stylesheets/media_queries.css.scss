@@ -6,8 +6,12 @@
 @media only screen and (max-width: 800px) {
 	
 	html{
-	
+
 		body{
+
+			.mobile-only{
+				display: block;
+			}
 
 			div.full-menu-options{
 				display: none;

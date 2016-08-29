@@ -84,3 +84,7 @@ div.actions{
  
 
 }
+
+.mobile-only{
+  display: none;
+}
