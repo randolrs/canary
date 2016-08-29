@@ -26,6 +26,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'bootstrap-sass'
 
+gem 'figaro'
+
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 
