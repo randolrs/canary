@@ -18,66 +18,6 @@
 
 			<%= render 'pages/user/warnings' %>
 
-			Code: <%= ENV['stripe_publishable_key'] %>
-
-			API Code: <%= ENV['stripe_api_key'] %>
-
-			  <%= form_tag charges_path id: 'chargeForm' do %>
-			    <script src="https://checkout.stripe.com/checkout.js"></script>
-			    <%= hidden_field_tag 'stripeToken' %>
-			    <%= hidden_field_tag 'stripeEmail' %>  
-			    <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>I want this!</button>
-			    <script>
-			    var handler = StripeCheckout.configure({
-			      key: '<%= ENV["stripe_publishable_key"] %>',
-			      token: function(token, arg) {
-			        document.getElementById("stripeToken").value = token.id;
-			        document.getElementById("stripeEmail").value = token.email;
-			        document.getElementById("chargeForm").submit();
-			      }
-			    });
-			     document.getElementById('btn-buy').addEventListener('click', function(e) {
-			      handler.open({
-			        name: 'One Month',
-			        description: 'Growth Hacking Crash Course ($4.99)',
-			        amount: 499
-			    });
-			    e.preventDefault();
-			   })
-			  </script>
-			<% end %>
-
-			<h3 class="text-header-underline">Portfolio</h3>
-
-			<div class="dasboard-panel-content">
-
-				<% current_user.item_arts.each do |item| %>
-
-					<%= link_to(item) do %>
-				
-						<div class="lightbox">
-
-							<%= image_tag item.image.url(:medium), class: "medium-item-image"%>
-
-							<br>
-
-							<h3><%= item.name %></h3>
-
-							<h3><%= number_to_currency(item.price) %></h3>
-
-							<h4><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span><%= item.views.count %></h4>
-
-							<a class="button blue-background">Unlist</a>
-
-						</div>
-
-					<%end%>
-
-				<% end%>
-
-			</div>
-
-<!-- 			<h3 class="text-header-underline">Exhibitions</h3> -->
 
 			<div class="content-column primary">
 

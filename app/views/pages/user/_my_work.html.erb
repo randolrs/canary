@@ -2,40 +2,28 @@
 
 	<%= render 'pages/user/warnings' %>
 	
-	<h3 class="text-header-underline">My Work</h3>
+	<h3 class="text-header-underline">Portfolio</h3>
 
-	<ul>
+	<% current_user.item_arts.each do |item| %>
 
-		<li class="active"><a>Work</a></li>
-		<li><a>Exhibitions</a></li>
+		<%= link_to(item) do %>
+	
+			<div class="lightbox">
 
-	</ul>
+				<%= image_tag item.image.url(:medium), class: "medium-item-image"%>
 
-	<div class="dasboard-panel-content">
+				<br>
 
-		<% current_user.item_arts.each do |item| %>
+				<h3><%= item.name %></h3>
 
-			<%= link_to(item) do %>
-		
-				<div class="lightbox">
+				<h3><%= number_to_currency(item.price) %></h3>
 
-					<%= image_tag item.image.url(:medium), class: "medium-item-image"%>
+				<a class="button blue-background">Unlist</a>
 
-					<br>
+			</div>
 
-					<h3><%= item.name %></h3>
+		<%end%>
 
-					<h3><%= number_to_currency(item.price) %></h3>
-
-					<a class="button blue-background">Unlist</a>
-
-				</div>
-
-			<%end%>
-
-		<% end%>
-
-
-	</div>
+	<% end%>
 
 </div>
