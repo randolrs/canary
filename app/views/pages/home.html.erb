@@ -22,6 +22,9 @@
 
 			<%= render 'pages/user/warnings' %>
 
+			Code: <%= ENV['stripe_publishable_key'] %>
+
+			API Code: <%= ENV['stripe_api_key'] %>
 
 			  <%= form_tag charges_path id: 'chargeForm' do %>
 			    <script src="https://checkout.stripe.com/checkout.js"></script>
