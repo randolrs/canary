@@ -4,16 +4,17 @@
 
 		<% if current_user.is_artist %>
 	
-			<li class="dashboard-header">
+<!-- 			<li class="dashboard-header">
 				
-				<a href="<%= profile_path(current_user.display_name) %>"><h3 class="dashboard-profile-header"><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%><%= current_user.display_name %></h3></a>
-			</li>
+				<a href="<%# profile_path(current_user.display_name) %>"><h3 class="dashboard-profile-header"><%# image_tag current_user.image.url(:medium), class: "header-profile-image"%><%# current_user.display_name %></h3></a>
+			</li> -->
 
 			<li class="dashboard-option <% if @page=="home" %>active<%end%>" id="home" data-content-panel="home-content">
 				
 				<a href="<%= root_path %>"><span class="glyphicon glyphicon-home" aria-hidden="true" style="margin-right: 5px;"></span><span>Home</span></a>
 
 			</li>
+
 
 			<li class="dashboard-option <% if @page=="messages" %>active<%end%>" id="messages" data-content-panel="messages-content">
 				

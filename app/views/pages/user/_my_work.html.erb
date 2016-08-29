@@ -15,7 +15,23 @@
 
 		<% current_user.item_arts.each do |item| %>
 
-			<a><%= item.name %></a>
+			<%= link_to(item) do %>
+		
+				<div class="lightbox">
+
+					<%= image_tag item.image.url(:medium), class: "medium-item-image"%>
+
+					<br>
+
+					<h3><%= item.name %></h3>
+
+					<h3><%= number_to_currency(item.price) %></h3>
+
+					<a class="button blue-background">Unlist</a>
+
+				</div>
+
+			<%end%>
 
 		<% end%>
 
