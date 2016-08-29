@@ -25,10 +25,15 @@
 				<% if user_signed_in? %>
 					
 					<% if current_user.is_artist %>
-						
-						<li><a href='<%=new_item_art_path%>'><span class="glyphicon glyphicon-plus"></span><span>Add a New Listing</span></a></li>
 
-						<li><%= link_to "Promote an Exhibition", new_exhibition_path %></li>
+						<li><a class="header-cta purple" href='<%=new_item_art_path%>'><span class="glyphicon glyphicon-plus"></span><span>Add New Artwork</span></a></li>
+
+						<!-- <li><%# link_to "Add New Exhibition", new_exhibition_path %></li> -->
+
+						<li>
+					
+							<a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%><%= current_user.display_name %></a>
+						</li>
 
 					<% end %>
 

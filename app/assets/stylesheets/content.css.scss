@@ -323,6 +323,13 @@ span.dismiss-parent{
     text-shadow: 0px 1px 2px #ccc;
 }
 
+span.dismiss-modal.light, span.dismiss-parent.light{
+    font-size: 24px;
+    font-weight: 200;
+    color: #fff;
+    text-shadow: 0px 1px 2px #000;
+}
+
 span.dismiss-parent:hover{
     cursor:pointer;
     text-decoration:none;
@@ -475,5 +482,29 @@ h3.dashboard-profile-header{
 section.home-primary{
 	width: 100%;
 	background: #000;
-	min-height: 300px;
+	position:relative;
+	padding: 50px 20px;
+	text-align: center;
+	border-bottom: 1px solid #222;
+
+	.dark-text-input{
+
+		font-size: 40px;
+	    text-align: center;
+	    max-width: 400px;
+	    width: 100%;
+	    display: inline-block;
+	    margin: 0 auto;
+	    border: none;
+	    border-radius: 3px;
+	    background: #333;
+	    color: #fff;
+	    padding: 10px 0px;
+
+	}
+
+	h2{
+		color: #fff;
+		text-shadow: 0px 2px 2px #222;
+	}
 }

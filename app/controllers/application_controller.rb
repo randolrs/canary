@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
     	if current_user.onboarded
 
-  			request.referrer
+  			root_path
   			
   		else
 

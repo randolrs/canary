@@ -12,7 +12,6 @@ body{
         background: #000;
         z-index: 999;
         padding: 0px 30px;
-        border-bottom: 1px solid #222;
 
 
         .header-content{
@@ -39,8 +38,9 @@ body{
             			padding: 5px 10px;
                         color: #fff;
                         margin: 0 5px;
-                        line-height: 45px;
+                        line-height: 46px;
                         text-shadow: 0px 1px 2px #333;
+                        font-family: 'Lato', sans-serif;
 
             		}
 
@@ -54,6 +54,18 @@ body{
 
                     a.mobile-button{
                         font-size: 20px;
+                    }
+
+                    a.header-cta.purple{
+                        text-shadow: 0px 1px 2px #222;
+                        background-color: #AA076B;
+                        background-image: -webkit-gradient(linear, left top, left bottom, from(#AA076B), to(#AA076B));
+                        background-image: -webkit-linear-gradient(top, #AA076B, #AA076B);
+                        background-image: -moz-linear-gradient(top, #AA076B, #AA076B);
+                        background-image: -ms-linear-gradient(top, #AA076B, #AA076B);
+                        background-image: -o-linear-gradient(top, #AA076B, #AA076B);
+                        background-image: linear-gradient(top, #AA076B, #AA076B);
+                        color: #fff;
                     }
 
                     a.mobile-button:hover{

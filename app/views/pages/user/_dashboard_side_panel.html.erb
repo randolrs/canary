@@ -5,11 +5,6 @@
 		<% if user_signed_in?%>
 
 			<% if current_user.is_artist %>
-		
-	<!-- 			<li class="dashboard-header">
-					
-					<a href="<%# profile_path(current_user.display_name) %>"><h3 class="dashboard-profile-header"><%# image_tag current_user.image.url(:medium), class: "header-profile-image"%><%# current_user.display_name %></h3></a>
-				</li> -->
 
 				<li class="dashboard-option <% if @page=="home" %>active<%end%>" id="home" data-content-panel="home-content">
 					
@@ -24,24 +19,23 @@
 
 				</li>
 
-
 				<li class="dashboard-option <% if @page=="balance" %>active<%end%>" id="balance" data-content-panel="balance-content">
 					
 					<a href="<%= balance_path %>"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Balance:</span><span style="color: green;">$20.00</span></a>
 
 				</li>
 
-				<li class="dashboard-option <% if @page=="views" %>active<%end%>" id="views" data-content-panel="views-content">
+<!-- 				<li class="dashboard-option <%# if @page=="views" %>active<%#end%>" id="views" data-content-panel="views-content">
 					
-					<a href="<%= views_path %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span>Views</a>
+					<a href="<%# views_path %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span>Views</a>
 
-				</li>
+				</li> -->
 				
-				<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="work" data-content-panel="work-content">
+<!-- 				<li class="dashboard-option <%# if @page=="work" %>active<%#end%>" id="work" data-content-panel="work-content">
 					
-					<a href="<%= my_work_path %>"><span class="glyphicon glyphicon-certificate" aria-hidden="true" style="margin-right: 5px;"></span>My Work</a>
+					<a href="<%# my_work_path %>"><span class="glyphicon glyphicon-certificate" aria-hidden="true" style="margin-right: 5px;"></span>Portfolio</a>
 
-				</li>
+				</li> -->
 
 
 				<li class="dashboard-option <% if @page=="settings" %>active<%end%>" id="account-settings" data-content-panel="settings-content">

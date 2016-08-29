@@ -37,9 +37,9 @@ html, body{
 	width:100%;
 	min-height: 100%;
 	max-width:100%;
-  padding-top: 55px;
+  padding-top: 56px;
   font-family: 'Lato', sans-serif;
-  background: rgba(20,180,255,0.2);
+  background: rgba(0,0,0,0.98);
 
 }
 

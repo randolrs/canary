@@ -47,6 +47,53 @@
 			  </script>
 			<% end %>
 
+			<a href='<%=new_item_art_path%>'><span class="glyphicon glyphicon-plus"></span><span>Add a New Listing</span></a>
+
+			<%= link_to "Promote an Exhibition", new_exhibition_path %>
+
+
+			<h3 class="text-header-underline">Portfolio</h3>
+
+			<div class="dasboard-panel-content">
+
+				<% current_user.item_arts.each do |item| %>
+
+					<%= link_to(item) do %>
+				
+						<div class="lightbox">
+
+							<%= image_tag item.image.url(:medium), class: "medium-item-image"%>
+
+							<br>
+
+							<h3><%= item.name %></h3>
+
+							<h3><%= number_to_currency(item.price) %></h3>
+
+							<h4><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span><%= item.views.count %></h4>
+
+							<a class="button blue-background">Unlist</a>
+
+						</div>
+
+					<%end%>
+
+				<% end%>
+
+			</div>
+
+<!-- 			<h3 class="text-header-underline">Exhibitions</h3> -->
+
+			<div class="content-column primary">
+
+    			XXX
+
+  			</div>
+
+			<div class="content-column secondary left-border">
+					XXCCCXX
+			</div>
+
 		</div>
 
 	</div>
