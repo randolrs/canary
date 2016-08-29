@@ -65,6 +65,18 @@
 
 	        		}
 
+	        		a.header-cta.purple{
+                        text-shadow: 0px 1px 2px #222;
+                        background-color: #AA076B;
+                        background-image: -webkit-gradient(linear, left top, left bottom, from(#AA076B), to(#AA076B));
+                        background-image: -webkit-linear-gradient(top, #AA076B, #AA076B);
+                        background-image: -moz-linear-gradient(top, #AA076B, #AA076B);
+                        background-image: -ms-linear-gradient(top, #AA076B, #AA076B);
+                        background-image: -o-linear-gradient(top, #AA076B, #AA076B);
+                        background-image: linear-gradient(top, #AA076B, #AA076B);
+                        color: #fff;
+                    }
+
 
 	        		a:hover{
 	        			
