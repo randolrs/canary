@@ -15,6 +15,8 @@ Rails.application.configure do
   }
 }
 
+  Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.

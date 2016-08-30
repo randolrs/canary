@@ -20,9 +20,11 @@
 
     <p><%= @item_art.search_code %></p>
 
-      Code: <%= ENV['stripe_publishable_key'] %>
+      Environment: <%= ENV['STRIPE_SECRET_KEY'] %>
 
-      API Code: <%= ENV['stripe_api_key'] %>
+      PUBLISHABLE Code: <%= ENV['STRIPE_PUBLISHABLE_KEY'] %>
+
+      SECRET Code: <%= ENV['STRIPE_SECRET_KEY'] %>
 
         <%= form_tag charges_path id: 'chargeForm' do %>
           <script src="https://checkout.stripe.com/checkout.js"></script>
