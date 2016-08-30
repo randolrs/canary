@@ -66,6 +66,41 @@
 
 		<%else%>
 
+			<li class="dashboard-header" id="signup">
+				
+				<a class="title" href="<%= root_path %>">Artigami</a>
+
+			</li>
+
+			<li class="dashboard-option" id="signup">
+				
+				<a class="header-cta purple" href="<%= new_user_registration_path %>"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="margin-right: 5px;"></span>Signup</a>
+
+			</li>
+
+			<li class="dashboard-option" id="login">
+					
+				<a href="<%= new_user_session_path %>"><span class="glyphicon glyphicon-log-in" aria-hidden="true" style="margin-right: 5px;"></span>Login</a>
+
+			</li>
+
+			<li class="dashboard-option" id="about">
+				
+				<%= link_to "About Us", about_path %>
+
+			</li>
+
+			<li class="dashboard-option" id="about">
+				
+				<%= link_to "How it Works", about_path %>
+
+			</li>
+
+			<li class="dashboard-option" id="about">
+				
+				<%= link_to "Browse Art", about_path %>
+
+			</li>
 
 
 		<%end%>
