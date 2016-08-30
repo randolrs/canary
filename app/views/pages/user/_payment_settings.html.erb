@@ -1,0 +1,36 @@
+<div class="dashboard-panel" id="settings-content">
+
+	<%= render 'pages/user/warnings' %>
+	
+	<h3 class="text-header-underline"><span class="glyphicon glyphicon-cog" aria-hidden="true" style="margin-right: 5px;"></span>Account Settings</h3>
+
+	<ul>
+
+		<li><%= link_to "Basic Information", settings_path %></li>
+		<li class="active"><%= link_to "Payment Information", payment_settings_path %></li>
+
+	</ul>
+
+	<div class="dasboard-panel-content">
+		
+		<%= form_for(current_user, url: registration_path(current_user), html: { method: :put, class: "edit_user_settings" }) do |f| %>
+
+		    <br />
+
+		    <div class="field">
+		      <%# f.label :payee_name %><br />
+		      <%# f.text_field :payee_name %>
+		    </div>
+
+
+		    <br />
+
+		    <div class="actions">
+		      <%= f.submit "Update", class:"button medium blue-background" %>
+		    </div>
+
+  		<% end %>
+
+  	</div>
+
+</div>

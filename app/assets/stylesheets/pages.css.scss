@@ -264,3 +264,25 @@ ul.horizontal{
 	}
 
 }
+
+form.edit_user_settings{
+	
+	font-size: 20px;
+
+	input, label{
+		
+		font-size: 20px;
+
+		}
+
+	input, textarea{
+		width: 100%;
+    	max-width: 400px;
+	}
+
+	textarea{
+		resize: none;
+		height: 150px;
+	}
+    	
+}
