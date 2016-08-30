@@ -23,6 +23,22 @@ class ItemArtsController < ApplicationController
 
   end
 
+  def search
+
+    @item_art = ItemArt.search(params[:search])
+
+    if @item_art
+
+      redirect_to @item_art
+
+    else
+
+      redirect_to root_path, flash[:error] => "Item not found."
+
+    end
+
+  end
+
   # GET /item_arts/new
   def new
     @item_art = ItemArt.new
@@ -38,7 +54,23 @@ class ItemArtsController < ApplicationController
     @item_art = ItemArt.new(item_art_params)
 
     @item_art.update(:user_id => current_user.id)
+
+    c = 0
     
+    until c==1 do
+      
+      search_code = (SecureRandom.urlsafe_base64 3).downcase
+      
+      unless ItemArt.where(:search_code => search_code).exists?
+
+        @item_art.update(:search_code => search_code)
+
+        c=1
+
+      end
+
+    end
+
     respond_to do |format|
       if @item_art.save
         format.html { redirect_to @item_art, notice: 'Item art was successfully created.' }

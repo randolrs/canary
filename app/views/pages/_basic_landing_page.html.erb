@@ -2,17 +2,21 @@
 
 	<span class="glyphicon glyphicon-remove dismiss-parent light"></span>
 
-	<form>
 
-		<input type="text" class="dark-text-input" id="home-page-search-code-input" autofocus placeholder="Search Code"></input>
+	<form action="/item_search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
 
-		<br>
-		<br>
+		<% flash.each do |k, v| %>
+      		<div id="<%= k %>"><%= v %></div>
+    	<% end %>
 
-		<input value="Find Piece" type="submit" class="button medium blue-background"></input>
+	    <input type="text" class="dark-text-input" name="search" id="search" placeholder="Search Code" autofocus>
+
+	    <br>
+	    <br>
+	    
+	    <input type="submit" class="button medium blue-background" value="Find Piece">
 
 	</form>
-
 
 
 </section>

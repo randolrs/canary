@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   get 'balance' => 'pages#sales'
 
+  get 'item_search' => 'item_arts#search'
+
   post 'setup_user' => "pages#setup_user"
 
   get '/me/work' => 'pages#my_work', as: 'my_work'

@@ -12,5 +12,12 @@ class ItemArt < ActiveRecord::Base
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 
+	def self.search(search)
+	    if search
+	      return ItemArt.all.where(:search_code => search).last
+	    else
+	      return nil
+	    end
+  	end
 
 end

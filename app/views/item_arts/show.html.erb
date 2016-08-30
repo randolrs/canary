@@ -18,7 +18,9 @@
 
     <a class="button large blue-background">Buy for <%= number_to_currency(@item_art.price) %></a>
 
-            Code: <%= ENV['stripe_publishable_key'] %>
+    <p><%= @item_art.search_code %></p>
+
+      Code: <%= ENV['stripe_publishable_key'] %>
 
       API Code: <%= ENV['stripe_api_key'] %>
 
