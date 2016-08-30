@@ -20,12 +20,6 @@
 
     <p><%= @item_art.search_code %></p>
 
-      Environment: <%= ENV['STRIPE_SECRET_KEY'] %>
-
-      PUBLISHABLE Code: <%= ENV['STRIPE_PUBLISHABLE_KEY'] %>
-
-      SECRET Code: <%= ENV['STRIPE_SECRET_KEY'] %>
-
         <%= form_tag charges_path id: 'chargeForm' do %>
           <script src="https://checkout.stripe.com/checkout.js"></script>
           <%= hidden_field_tag 'stripeToken' %>
@@ -33,7 +27,7 @@
           <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>I want this!</button>
           <script>
           var handler = StripeCheckout.configure({
-            key: '<%= ENV["stripe_publishable_key"] %>',
+            key: '<%= Rails.configuration.stripe[:publishable_key] %>',
             token: function(token, arg) {
               document.getElementById("stripeToken").value = token.id;
               document.getElementById("stripeEmail").value = token.email;
