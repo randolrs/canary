@@ -2,6 +2,12 @@
 
 	<ul>
 
+		<li class="dashboard-header" id="signup">
+				
+			<a class="title" href="<%= root_path %>">Artigami</a>
+
+		</li>
+
 		<% if user_signed_in?%>
 
 			<% if current_user.is_artist %>
@@ -65,12 +71,6 @@
 			<%end%>
 
 		<%else%>
-
-			<li class="dashboard-header" id="signup">
-				
-				<a class="title" href="<%= root_path %>">Artigami</a>
-
-			</li>
 
 			<li class="dashboard-option" id="signup">
 				

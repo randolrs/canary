@@ -32,7 +32,7 @@ body{
         			a{
 
         	    		display: block;
-        	    		font-size: 16px;
+        	    		font-size: 20px;
         	    		font-weight: 500;
             			letter-spacing: 1.1px;
             			padding: 5px 10px;
@@ -59,13 +59,15 @@ body{
                     a.header-cta.purple{
                         text-shadow: 0px 1px 2px #222;
                         background-color: #AA076B;
-                        background-image: -webkit-gradient(linear, left top, left bottom, from(#AA076B), to(#AA076B));
-                        background-image: -webkit-linear-gradient(top, #AA076B, #AA076B);
-                        background-image: -moz-linear-gradient(top, #AA076B, #AA076B);
-                        background-image: -ms-linear-gradient(top, #AA076B, #AA076B);
-                        background-image: -o-linear-gradient(top, #AA076B, #AA076B);
-                        background-image: linear-gradient(top, #AA076B, #AA076B);
+                        background-image: -webkit-gradient(linear, left top, left bottom, from(#F20A98), to(#AA076B));
+                        background-image: -webkit-linear-gradient(top, #F20A98, #AA076B);
+                        background-image: -moz-linear-gradient(top, #F20A98, #AA076B);
+                        background-image: -ms-linear-gradient(top, #F20A98, #AA076B);
+                        background-image: -o-linear-gradient(top, #F20A98, #AA076B);
+                        background-image: linear-gradient(top, #F20A98, #AA076B);
                         color: #fff;
+                        border: 1px solid rgba(100, 0, 100, 0.5);
+                        box-shadow: inset 0px 1px 3px 0px #FFaaff;
                     }
 
                     a.mobile-button:hover{

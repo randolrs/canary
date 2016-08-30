@@ -57,7 +57,7 @@
 	    			a{
 
 	    	    		display: block;
-	    	    		font-size: 18px;
+	    	    		font-size: 20px;
 	    	    		font-weight: 500;
 	        			letter-spacing: 1.1px;
 	        			padding: 20px;
@@ -74,13 +74,15 @@
 	        		a.header-cta.purple{
                         text-shadow: 0px 1px 2px #222;
                         background-color: #AA076B;
-                        background-image: -webkit-gradient(linear, left top, left bottom, from(#AA076B), to(#AA076B));
-                        background-image: -webkit-linear-gradient(top, #AA076B, #AA076B);
-                        background-image: -moz-linear-gradient(top, #AA076B, #AA076B);
-                        background-image: -ms-linear-gradient(top, #AA076B, #AA076B);
-                        background-image: -o-linear-gradient(top, #AA076B, #AA076B);
-                        background-image: linear-gradient(top, #AA076B, #AA076B);
+                        background-image: -webkit-gradient(linear, left top, left bottom, from(#F20A98), to(#AA076B));
+                        background-image: -webkit-linear-gradient(top, #F20A98, #AA076B);
+                        background-image: -moz-linear-gradient(top, #F20A98, #AA076B);
+                        background-image: -ms-linear-gradient(top, #F20A98, #AA076B);
+                        background-image: -o-linear-gradient(top, #F20A98, #AA076B);
+                        background-image: linear-gradient(top, #F20A98, #AA076B);
                         color: #fff;
+                        border: 1px solid rgba(100, 0, 100, 0.5);
+                        box-shadow: inset 0px 1px 3px 0px #FFaaff;
                     }
 
 
@@ -129,7 +131,7 @@
 	        	li.dashboard-header:hover{
 
 	        		cursor: pointer;
-	        		
+
 	        		background-color: #000;
     				background-image: -webkit-gradient(linear, left top, left bottom, from(#111), to(#000));
     				background-image: -webkit-linear-gradient(top, #111, #000);
@@ -216,6 +218,7 @@
 		max-width: 350px;
 		background: #090909;
 		min-height: 700px;
+		box-shadow: 1px 0px 3px #000;
 	}
 
 	.content-column.sidebar.full-content{
@@ -501,6 +504,7 @@ h3.dashboard-profile-header{
     box-shadow: 0px 1px 3px #666;
     border-radius: 2px;
     margin: 0 auto;
+    vertical-align: top;
 }
 
 section.home-primary{
@@ -535,4 +539,10 @@ section.home-primary{
 
 h1.light{
 	color: #fff;
+}
+
+h1.action-header{
+	
+	margin: 40px 0px;
+
 }
