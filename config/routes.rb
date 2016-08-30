@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :exhibitions
   resources :charges
   resources :cities
+  resources :purchases, only: [:show]
   devise_for :users, controllers: {registrations: 'registrations'}
   #devise_for :users
   resources :item_arts
