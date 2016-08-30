@@ -218,12 +218,15 @@
 		max-width: 350px;
 		background: #090909;
 		min-height: 700px;
+		height: auto;
 		box-shadow: 1px 0px 3px #000;
 	}
 
 	.content-column.sidebar.full-content{
 		width: 25%;
 		min-width: 25%;
+		min-height: 700px;
+    	height: auto;
 	}
 
 	.content-column.sidebar-content{
@@ -232,6 +235,7 @@
 		padding: 30px;
     	background: #fff;
     	min-height: 700px;
+    	height: auto;
     	
 	}
 
@@ -264,25 +268,25 @@
 		
 	}
 
-	.text-header-underline{
-		display: block;
-		border-bottom: 2px solid #333;
+	h3{
 		padding: 15px 0px;
 		color: #111;
-		
-	}
-
-	h3.text-header-underline{
+		display: block;
 		font-size: 40px;
 		letter-spacing: 1.5px;
 		margin-bottom: 30px;
 	}
 
-	h4.text-header-underline{
+	h4{
 		font-size: 24px;
 		letter-spacing: 0.5px;
 		margin-bottom: 10px;
 		font-weight: 600;
+	}
+
+	.text-header-underline{
+		border-bottom: 2px solid #333;
+		
 	}
 	
 }
@@ -384,7 +388,7 @@ h3.dashboard-profile-header{
 		list-style-type: none;
     	margin: 0;
     	padding: 0;
-    	display: inline-block;
+    	display: block;
 
 		
 		li{
@@ -393,12 +397,10 @@ h3.dashboard-profile-header{
     		text-align: center;
             vertical-align: top;
             
-
-
 			a{
 
 				display: block;
-    	    	font-size: 16px;
+    	    	font-size: 20px;
     	    	font-weight: 600;
         		padding: 5px 10px;
                 color: #333;
@@ -409,28 +411,59 @@ h3.dashboard-profile-header{
 
 			a:hover{
 				cursor: pointer;
-				background: #ddd;
+				background: #333;
+				color: #fff;
 			}
 
 		}
 
 		li.active{
 			
-			border: 2px solid #333;
-			background: #333;
+			background: #D31027;
+			
 			color: #fff;
+
+			background-image: -webkit-linear-gradient(top, #FF132F, #D31027);
+			
+			background-color: #D31027;
+		    background-image: -webkit-gradient(linear, left top, left bottom, from(#FF132F), to(#D31027));
+		    background-image: -webkit-linear-gradient(top, #FF132F, #D31027);
+		    background-image: -moz-linear-gradient(top, #FF132F, #D31027);
+		    background-image: -ms-linear-gradient(top, #FF132F, #D31027);
+		    background-image: -o-linear-gradient(top, #FF132F, #D31027);
+		    background-image: linear-gradient(top, #FF132F, #D31027);
+
+
+			border: 1px solid #cc0010;
 			border-bottom: none;
+    		box-shadow: inset 0px 1px 2px 0px #FFaaff;
+    		text-shadow: 0px 2px 1px #000;
 
 			a{
 				color: #fff;
 			}
+
+			a:hover{
+
+				background-image: -webkit-linear-gradient(top, #FF132F, #D31027);
+			
+				background-color: #D31027;
+			    background-image: -webkit-gradient(linear, left top, left bottom, from(#FF132F), to(#D31027));
+			    background-image: -webkit-linear-gradient(top, #FF132F, #D31027);
+			    background-image: -moz-linear-gradient(top, #FF132F, #D31027);
+			    background-image: -ms-linear-gradient(top, #FF132F, #D31027);
+			    background-image: -o-linear-gradient(top, #FF132F, #D31027);
+			    background-image: linear-gradient(top, #FF132F, #D31027);
+			}
+
 		}
 
 	}
 
 	.dasboard-panel-content{
 		padding: 20px;
-		border: 2px solid #333;
+		border: 2px solid #D31027;
+		
 	}
 }
 
