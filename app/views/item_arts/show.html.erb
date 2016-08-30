@@ -16,8 +16,8 @@
 
     <br>
 
-    <a class="button large blue-background">Buy for <%= number_to_currency(@item_art.price) %></a>
-
+    <!-- <a class="button large blue-background">Buy for <%# number_to_currency(@item_art.price) %></a>
+ -->
     <p><%= @item_art.search_code %></p>
 
         <%= form_tag charges_path, id: 'chargeForm' do %>
@@ -26,26 +26,38 @@
           <%= hidden_field_tag 'stripeEmail' %> 
           <%= hidden_field_tag 'amount', @item_art.price %> 
           <%= hidden_field_tag 'itemArtID', @item_art.id %> 
-          <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>I want this!</button>
+          
+          <% if user_signed_in?%>
+
+            <%= hidden_field_tag 'user_id', current_user.id %> 
+
+          <%end%>
+
+          <button id="btn-buy" type="button" class="button blue-background large">Buy for <%= number_to_currency(@item_art.price) %></button>
+
           <script>
-          var handler = StripeCheckout.configure({
-            key: '<%= Rails.configuration.stripe[:publishable_key] %>',
-            token: function(token, arg) {
-              document.getElementById("stripeToken").value = token.id;
-              document.getElementById("stripeEmail").value = token.email;
-              document.getElementById("chargeForm").submit();
-            }
-          });
-           document.getElementById('btn-buy').addEventListener('click', function(e) {
-            handler.open({
-              name: '<%= @item_art.name%>',
-              description: 'Original artwork',
-              amount: 499
-          });
-          e.preventDefault();
-         })
-        </script>
+
+            var handler = StripeCheckout.configure({
+              key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+              token: function(token, arg) {
+                document.getElementById("stripeToken").value = token.id;
+                document.getElementById("stripeEmail").value = token.email;
+                document.getElementById("chargeForm").submit();
+              }
+            });
+             document.getElementById('btn-buy').addEventListener('click', function(e) {
+              handler.open({
+                name: '<%= @item_art.name%>',
+                description: 'Original artwork',
+                amount: <%= @item_art.price * 100 %>
+            });
+            e.preventDefault();
+           })
+
+          </script>
+
       <% end %>
+
     <br>
 
     <h4 class="text-header-underline">About this Piece</h4>

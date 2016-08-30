@@ -3,7 +3,9 @@ class ChargesController < ApplicationController
 
 	def create
 	  # Amount in cents
-	  @amount = 500
+	  	if params[:itemArtID]
+	  		@item_art = ItemArt.find(params[:itemArtID])
+		end
 
 	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
@@ -18,9 +20,15 @@ class ChargesController < ApplicationController
 	    :currency    => 'usd'
 	  )
 
-	purchase = Purchase.create(user_id: current_user.id, email: params[:stripeEmail], stripe_card_id: params[:stripeToken], 
+	purchase = Purchase.create(email: params[:stripeEmail], stripe_card_id: params[:stripeToken], 
     amount: params[:amount], description: charge.description, currency: charge.currency,
-    stripe_customer_id: customer.id, item_art_id: params[:itemArtID])
+    stripe_customer_id: customer.id, item_art_id: params[:itemArtID], artist_id: @item_art.user.id)
+
+	if params[:user_id]
+
+		purchase.update(:user_id => params[:user_id])
+
+	end
 
 	redirect_to purchase
 

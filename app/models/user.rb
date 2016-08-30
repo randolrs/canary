@@ -31,6 +31,9 @@ class User < ActiveRecord::Base
 
   end
 
+  def purchases_of_my_work
 
-
+    return Purchase.where(:artist_id => self.id)
+  end
+  
 end
