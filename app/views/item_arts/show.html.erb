@@ -118,13 +118,25 @@
 
       <h4 class="text-header-underline">Delivery Options</h4>
 
+        <form action="action_page.php">
+          <input type="radio" name="delivery-option" value="pickup" checked>Pickup<br>
+          <input type="radio" name="delivery-option" value="delivery">Delivery<br>
+        </form>
+
+
       <a id="delivery-option-continue" class="button blue-background item-buy-action">Continue</a>
 
     </div>
 
     <div class="item-side-panel" id="confirm-purchase-form" style="display: none;">
 
-      <h4 class="text-header-underline">Confirm</h4>
+      <h4 class="text-header-underline">Confirm Purchase</h4>
+
+      <a><%= @item_art.price %></a>
+
+      <p>Payment Method:<span>Vida ending 6662</span></p>
+
+      <p>Delivered to <span>616 N. 7th St.</span></p>
 
       <a id="confirm-purchase" class="button blue-background item-buy-action">Purchase</a>
 
