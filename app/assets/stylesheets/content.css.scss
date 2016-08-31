@@ -579,3 +579,22 @@ h1.action-header{
 	margin: 20px 0px;
 
 }
+
+div.activity{
+	width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    text-align: center;
+    border: 1px solid #ccc;
+    box-shadow: 0px 1px 1px #ccc;
+    margin-bottom: 5px;
+    
+    p{
+    	padding: 10px;
+    }
+
+    p.sale{
+    	background: #bfb;
+    }
+}

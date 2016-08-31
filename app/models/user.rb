@@ -70,9 +70,7 @@ class User < ActiveRecord::Base
       
     end
 
-    activity.sort_by { |k| k['created_at'] }
-
-    return activity.reverse
+    return activity.sort_by { |k| k['created_at'] }.reverse
 
 
   end
