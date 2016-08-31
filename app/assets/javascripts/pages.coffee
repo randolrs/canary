@@ -69,6 +69,11 @@ ready = ->
 			$('body').addClass('no-scroll')
 			$('body').find('#mobile-menu').show()
 
+		$('#pins').imagesLoaded ->
+    		$('#pins').masonry
+      		itemSelector: '.box'
+      		isFitWidth: true
+
 
 $(document).on('turbolinks:load', ready)
 

@@ -22,25 +22,23 @@
 
 <div class="profile-content">
 
-	<% @user.item_arts.each do |item| %>
+	<div id="portfolio">
 
-		<%= link_to(item) do %>
-		
-			<div class="lightbox">
+		<% @user.item_arts.each do |item| %>
 
-				<%= image_tag item.image.url(:medium), class: "medium-item-image"%>
+			<%= link_to(item) do %>
+			
+				<div class="lightbox">
 
-				<br>
+					<%= image_tag item.image.url, class: "medium-item-image"%>
 
-				<h3><%= item.name %></h3>
+				</div>
 
-				<h3><%= number_to_currency(item.price) %></h3>
+			<% end %>
 
-			</div>
+		<% end %>
 
-		<%end%>
-
-	<% end%>
+	</div>
 
 
 </div>
