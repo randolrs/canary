@@ -74,6 +74,21 @@ ready = ->
       		itemSelector: '.box'
       		isFitWidth: true
 
+      	$('#item-buy-cta').click (event), ->
+      		paymentDetailForm = $('body').find(".item-side-panel#payment-detail-form")
+      		$('body').find(".item-side-panel").slideUp()
+      		paymentDetailForm.slideDown()
+
+      	$('#payment-detail-continue').click (event), ->
+      		deliveryOptionForm = $('body').find(".item-side-panel#delivery-option-form")
+      		$('body').find(".item-side-panel").slideUp()
+      		deliveryOptionForm.slideDown()
+
+      	$('#delivery-option-continue').click (event), ->
+      		confirmPurchaseForm = $('body').find(".item-side-panel#confirm-purchase-form")
+      		$('body').find(".item-side-panel").slideUp()
+      		confirmPurchaseForm.slideDown()
+
 
 $(document).on('turbolinks:load', ready)
 
