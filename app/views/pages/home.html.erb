@@ -20,15 +20,27 @@
 
 			<h3 class="text-header-underline"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span>Recent Activity</h3>
 
-			<div class="content-column primary">
+			<% current_user.recent_activity.each do |activity| %>
 
-    			XXX
+				<div>
 
-  			</div>
 
-			<div class="content-column secondary left-border">
-					XXCCCXX
-			</div>
+					<% if activity['type'] == "view" %>
+						<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span>[Someone] viewed your work, <%= activity['object'].item_art.name %>, on <%= activity['created_at'].strftime("%b %d") %></p>
+					<% elsif activity['type'] == "purchase" %>
+
+						<p><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span>[Someone] purchased your work, <%= activity['object'].item_art.name %>, on <%= activity['created_at'].strftime("%b %d") %></p>
+
+					<%end%>
+
+					
+
+				</div>
+
+				<br>
+				
+
+			<%end%>
 
 		</div>
 

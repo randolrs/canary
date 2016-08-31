@@ -34,6 +34,47 @@ class User < ActiveRecord::Base
   def purchases_of_my_work
 
     return Purchase.where(:artist_id => self.id)
+
+  end
+
+
+  def recent_activity
+
+    activity = Array.new
+
+    self.views.each do |view|
+
+      data = Hash.new
+
+      data['type'] = "view"
+
+      data['object'] = view
+
+      data['created_at'] = view.created_at
+
+      activity << data
+      
+    end
+
+    self.purchases_of_my_work.each do |purchase|
+
+      data = Hash.new
+
+      data['type'] = "purchase"
+
+      data['object'] = purchase
+
+      data['created_at'] = purchase.created_at
+
+      activity << data
+      
+    end
+
+    activity.sort_by { |k| k['created_at'] }
+
+    return activity.reverse
+
+
   end
   
 end

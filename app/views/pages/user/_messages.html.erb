@@ -5,22 +5,38 @@
 	<h3 class="text-header-underline"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Inbox</h3>
 
 	<% if current_user.messages_to_me.count > 0 %>
-
-		<table class="inbox">
 			
+		<% current_user.messages_to_me.each do |message| %>
 
-			<% current_user.messages_to_me.each do |message| %>
+			<%= link_to(message) do %>
+				
+				<div class="message">
 
-				<tr>
-					<td><a><%# image_tag message.sender.image.url(:medium), class: "header-profile-image"%><span class="message-list-sender"><%= message.sender.email %></span></a></td>
-					<td><a><span class="message-list-subject"><%= message.subject %></span><span><%= message.body %></span></a></td>
-					<td><a><%= message.created_at.strftime("%b %d") %></a></td>
-				</tr>
+					<div class="message-sender">
 
-			<% end%>
+						<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%><span class="message-list-sender"><%= current_user.display_name %></span></span>
 
-			
-		</table>
+					</div>
+
+					<div class="message-text">
+
+						<span class="message-list-subject"><%= message.subject %></span><span><%= message.body %></span>
+
+					</div>
+
+					<div class="message-action">
+
+						<span><%= message.created_at.strftime("%b %d") %></span>
+
+						<span class="glyphicon glyphicon-trash"></span>
+
+					</div>
+
+				</div>
+
+			<%end%>
+
+		<% end%>
 
 	<% else %>
 

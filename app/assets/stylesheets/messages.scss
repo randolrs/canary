@@ -59,3 +59,38 @@ table.inbox{
 
 	}
 }
+
+div.message{
+	padding: 10px;	
+	border: 1px solid #bbb;
+    box-shadow: 0px 1px 1px #ccc;
+    margin-bottom: 10px;
+    background: #fff;
+}
+
+div.message:hover{
+	background: #bbf;
+	box-shadow: none;
+	border: 1px solid #f66;
+	cursor: pointer;
+}
+
+.message-sender, .message-text, .message-date, .message-action{
+	
+	display: table-cell;
+	width: 50%;
+	vertical-align: middle;
+
+	span.message-list-subject{
+		font-weight: 600;
+		font-size: 16px;
+		padding-right: 10px;
+	}
+
+	span.message-list-sender{
+		font-weight: 600;
+		font-size: 16px;
+	}
+
+}
+
