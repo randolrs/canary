@@ -2,6 +2,8 @@
 
 <div class="content">
 
+  <h1 class="centered light action-header">New Artwork</h1>
+
   <%= form_for(@item_art) do |f| %>
   <% if @item_art.errors.any? %>
     <div id="error_explanation">
@@ -33,16 +35,10 @@
 
     <%= f.text_field :medium, placeholder: "Medium", class: "medium" %>
 
+    <br>
+
     <table class="dimension-table">
 
-      <tr>
-        
-        <td></td>
-        <td>Height (cm)</td>
-        <td>Width (cm)</td>
-        <td>Length (cm)</td>
-        
-      </tr>
       <tr>
         
         <td>Dimensions:</td>
@@ -57,6 +53,8 @@
     <br>
 
     <%= f.text_field :price, placeholder: "Price", class: "price"  %>
+
+    <br>
 
     <h4 class="text-header-underline">About this Piece</h4>
 
