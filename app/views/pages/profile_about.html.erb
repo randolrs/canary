@@ -1,0 +1,32 @@
+<div class="profile-header">
+
+	<div class="profile-header-content">
+
+		<%= image_tag @user.image.url(:medium), class: "medium-profile-image"%>
+
+		<h2><%= @user.display_name %></h2>
+
+		<a class="message-modal modal-cta">Message</a>
+
+		<p class="about"><%= @user.about %>allegations</p>
+
+		<ul class="horizontal">
+
+			<li><%= link_to "Portfolio", profile_path %></li>
+			<li><%= link_to "About Me", profile_about_path, class:"active" %></li>
+
+		</ul>
+
+	</div>
+
+</div>
+
+<div class="profile-content">
+
+	
+
+
+</div>
+
+
+<%= render 'messages/modal_form' %>

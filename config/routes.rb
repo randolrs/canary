@@ -35,6 +35,8 @@ Rails.application.routes.draw do
 
   get '/:display_name' => 'pages#profile', as: 'profile'
 
+  get '/:display_name/about' => 'pages#profile_about', as: 'profile_about'
+
 
 
 
