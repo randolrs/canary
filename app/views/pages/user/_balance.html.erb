@@ -27,7 +27,7 @@
 
 		<table class="sales-index">
 
-			<% current_user.purchases_of_my_work.each do |purchase| %>
+			<% current_user.purchases_of_my_work.reverse.each do |purchase| %>
 
 				<tr>
 

@@ -6,19 +6,30 @@
 
 	<div id="portfolio">
 
-		<% current_user.item_arts.each do |item| %>
+		<% if current_user.item_arts.count > 0 %>
+			<% current_user.item_arts.each do |item| %>
 
-			<%= link_to(item) do %>
-		
-				<div class="lightbox">
+				<%= link_to(item) do %>
+			
+					<div class="lightbox">
 
-					<%= image_tag item.image.url, class: "medium-item-image"%>
+						<%= image_tag item.image.url, class: "medium-item-image"%>
 
-				</div>
+					</div>
+
+				<% end %>
 
 			<% end %>
 
-		<% end %>
+		<%else%>
+
+			<div class="nothing-to-see-container">
+
+				<p>You have not shared any artwork yet.</p>
+
+			</div>
+
+		<%end%>
 
 	</div>
 

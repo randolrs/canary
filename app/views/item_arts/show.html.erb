@@ -30,7 +30,7 @@
 
     <p><%= @item_art.search_code %></p>
 
-    <a id="item-buy-cta" class="button blue-background large item-buy-action">JBuy for <%= number_to_currency(@item_art.price) %></a>
+    <a id="item-buy-cta" class="button blue-background large item-buy-action">Buy for <%= number_to_currency(@item_art.price) %></a>
 
     <br>
 
@@ -197,7 +197,7 @@
         
         <br>
 
-        <p id="pickup-option-confirm" style="display:none;">Pickup details for <b>"<%= @item_art.name %>"</b> inluding the address and availablity will be emailed to you at <b><% if user_signed_in? %> <%= current_user.email %> <%else%> %> <span id="confirm-email">[email]</span><%end%></b>.</p>
+        <p id="pickup-option-confirm" style="display:none;">Pickup details for <b>"<%= @item_art.name %>"</b> (inluding the address and availablity) will be emailed to you at <b><% if user_signed_in? %> <%= current_user.email %> <%else%> <span id="confirm-email">[email]</span><%end%></b>.</p>
 
         <p id="delivery-option-confirm" style="display:none;"><b>"<%= @item_art.name %>"</b> will be delivered to <b><span id="confirm-name">[fullName]</span></b> at <b><span id="confirm-address">[address]</span></b>.</p>
 
