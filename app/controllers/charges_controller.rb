@@ -7,15 +7,24 @@ class ChargesController < ApplicationController
 	  		@item_art = ItemArt.find(params[:itemArtID])
 		end
 
+		token = Stripe::Token.create(
+		  :card => {
+		    :number => params[:cardNumber],
+		    :exp_month => params[:expMonth],
+		    :exp_year => params[:expYear],
+		    :cvc => params[:cvc]
+		  },
+		)
+
 	  customer = Stripe::Customer.create(
-	    :email => params[:stripeEmail],
-	    :card  => params[:stripeToken]
+	    :card  => token.id
 	  )
 
+	  price = params[:amount]
 
 	  charge = Stripe::Charge.create(
 	    :customer    => customer.id,
-	    :amount      => (params[:amount]*100).to_i,
+	    :amount      => price,
 	    :description => 'Rails Stripe customer',
 	    :currency    => 'usd'
 	  )
@@ -34,7 +43,7 @@ class ChargesController < ApplicationController
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
-	  redirect_to charges_path
+	  redirect_to :back
 	end
 
 

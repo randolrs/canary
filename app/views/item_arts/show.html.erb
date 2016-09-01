@@ -8,7 +8,15 @@
 
   <div class="content-column secondary left-border">
 
-    <div class="item-side-panel" id="info">
+    
+      <div class="left">
+          <h2><%= @item_art.name %></h2>
+        </div>
+
+        <div class="right">
+          <h4><%= number_to_currency(@item_art.price) %></h4>
+      </div>
+
 
       <h2><%= @item_art.name %></h2>
 
@@ -18,50 +26,15 @@
 
       <br>
 
-    <!-- <a class="button large blue-background">Buy for <%# number_to_currency(@item_art.price) %></a>
- -->
+      
+
+      <div class="item-side-panel" id="info">
+
       <p><%= @item_art.search_code %></p>
 
-      <%= form_tag charges_path, id: 'chargeForm' do %>
-
-        <script src="https://checkout.stripe.com/checkout.js"></script>
-        <%= hidden_field_tag 'stripeToken' %>
-        <%= hidden_field_tag 'stripeEmail' %> 
-        <%= hidden_field_tag 'amount', @item_art.price %> 
-        <%= hidden_field_tag 'itemArtID', @item_art.id %> 
         
-        <% if user_signed_in?%>
-
-          <%= hidden_field_tag 'user_id', current_user.id %> 
-
-        <%end%>
-
-        <button id="btn-buy" type="button" class="button blue-background large">Buy for <%= number_to_currency(@item_art.price) %></button>
 
         <a id="item-buy-cta" class="button blue-background large item-buy-action">JBuy for <%= number_to_currency(@item_art.price) %></a>
-
-        <script>
-
-          var handler = StripeCheckout.configure({
-            key: '<%= Rails.configuration.stripe[:publishable_key] %>',
-            token: function(token, arg) {
-              document.getElementById("stripeToken").value = token.id;
-              document.getElementById("stripeEmail").value = token.email;
-              document.getElementById("chargeForm").submit();
-            }
-          });
-           document.getElementById('btn-buy').addEventListener('click', function(e) {
-            handler.open({
-              name: '<%= @item_art.name%>',
-              description: 'Original artwork',
-              amount: <%= @item_art.price * 100 %>
-          });
-          e.preventDefault();
-         })
-
-        </script>
-
-      <% end %>
 
       <br>
 
@@ -83,64 +56,136 @@
     
     </div>
 
-    <div class="item-side-panel" id="payment-detail-form" style="display: none;">
+    <%= form_tag charges_path, id: 'chargeForm' do %>
 
-      <h4 class="text-header-underline">Credit Card Information</h4>
+      <div class="item-side-panel" id="payment-detail-form" style="display: none;">
 
-      <table class="card-form">
+        <%= hidden_field_tag 'amount', (@item_art.price * 100).to_i %> 
+        
+        <%= hidden_field_tag 'itemArtID', @item_art.id %> 
+          
+          <% if user_signed_in?%>
 
-        <tr>
+            <%= hidden_field_tag 'user_id', current_user.id %> 
 
-          <td colspan="2"><input type="text" placeholder="Name on Card"></input></td>
+          <%end%>
 
-        </tr>
+        <h4 class="text-header-underline">Payment Information</h4>
 
-        <tr>
+        <table class="card-form">
 
-          <td colspan="2"><input type="text" placeholder="Card Number"></input></td>
+          <tr>
 
-        </tr>
+            <td colspan="3"><input type="text" placeholder="Name on Card" name="nameOnCard"></input></td>
 
-        <tr>
+          </tr>
 
-          <td><input type="text" placeholder="EXP"></input></td>
-          <td><input type="text" placeholder="CVC"></input></td>
+          <tr>
 
-        </tr>
+            <td colspan="3"><input type="text" placeholder="Card Number" name="cardNumber" id="cardNumberInput"></input></td>
 
-      </table>
+          </tr>
 
-      <a id="payment-detail-continue" class="button blue-background item-buy-action">Continue</a>
+          <tr>
 
-    </div>
+            <td><input type="text" placeholder="EXP Month" name="expMonth"></input></td>
+            <td><input type="text" placeholder="EXP Year" name="expYear"></input></td>
+            <td><input type="text" placeholder="CVC" name="cvc"></input></td>
 
-    <div class="item-side-panel" id="delivery-option-form" style="display: none;">
+          </tr>
 
-      <h4 class="text-header-underline">Delivery Options</h4>
+        </table>
 
-        <form action="action_page.php">
-          <input type="radio" name="delivery-option" value="pickup" checked>Pickup<br>
-          <input type="radio" name="delivery-option" value="delivery">Delivery<br>
-        </form>
+        <br>
+
+        <a id="payment-detail-continue" class="button blue-background item-buy-action">Continue</a>
+
+      </div>
+
+      <div class="item-side-panel" id="delivery-option-form" style="display: none;">
+
+        <h4 class="text-header-underline">Delivery Options</h4>
+
+        <input type="radio" name="delivery-option" value="pickup" id="delivery-pickup" checked>Pickup<br>
+        
+        <input type="radio" name="delivery-option" value="delivery" id="delivery-yes">Delivery<br>
+
+        <div id="delivery-option-details" style="display: none;">
+
+          <br>
+
+          <table class="delivery-detail-form">
+
+            <tr>
+
+              <td colspan="2"><input type="text" placeholder="Full Name" name="fullName"></input></td>
+
+            </tr>
+
+            <tr>
+
+              <td colspan="2"><input type="text" placeholder="Address Line 1" name="addressLine1" id="addressInput"></input></td>
+
+            </tr>
+
+            <tr>
+
+              <td colspan="2"><input type="text" placeholder="Address Line 2" name="addressLine2"></input></td>
+
+            </tr>
+
+            <tr>
+
+              <td colspan="2"><input type="text" placeholder="City" name="city"></input></td>
+
+            </tr>
+
+            <tr>
+
+              <td><input type="text" placeholder="State/Province" name="stateProvince"></input></td>
+
+              <td><input type="text" placeholder="Zip/Postal Code" name="zipPostalCode"></input></td>
 
 
-      <a id="delivery-option-continue" class="button blue-background item-buy-action">Continue</a>
+            </tr>
 
-    </div>
+            <tr>
 
-    <div class="item-side-panel" id="confirm-purchase-form" style="display: none;">
+              <td colspan="2"><input type="text" placeholder="Country" name="country"></input></td>
 
-      <h4 class="text-header-underline">Confirm Purchase</h4>
+            </tr>
 
-      <a><%= @item_art.price %></a>
+            <tr>
 
-      <p>Payment Method:<span>Vida ending 6662</span></p>
+              <td colspan="2"><input type="text" placeholder="Phone" name="phone"></input></td>
+             
+            </tr>
 
-      <p>Delivered to <span>616 N. 7th St.</span></p>
+          </table>
 
-      <a id="confirm-purchase" class="button blue-background item-buy-action">Purchase</a>
+        </div>
 
-    </div>
+        <br>
+
+        <a id="delivery-option-continue" class="button blue-background item-buy-action">Continue</a>
+
+      </div>
+
+      <div class="item-side-panel" id="confirm-purchase-form" style="display: none;">
+
+        <h4 class="text-header-underline">Confirm Purchase</h4>
+
+        <a><%= number_to_currency(@item_art.price)%></a>
+
+        <p>Payment Method: Card ending <span id="confirm-last-4">6662</span></p>
+
+        <p>Delivered to <span id="confirm-address">616 N. 7th St.</span></p>
+
+        <input type="submit" value="Confirm" id="confirm-purchase" class="button blue-background item-buy-action">
+
+      </div>
+
+    <% end %>
 
   </div>
 

@@ -30,6 +30,15 @@
 		height: 100%;
     	display: inline-block;
 
+    	.left, .right{
+    		display: table-cell;
+    		vertical-align: middle;
+    	}
+
+    	.left{
+    		width:100%;
+    	}
+
 		.content-panel{
 
 			ul{
@@ -282,6 +291,7 @@
 		letter-spacing: 0.5px;
 		margin-bottom: 10px;
 		font-weight: 600;
+		padding:10px 0px;
 	}
 
 	.text-header-underline{

@@ -86,8 +86,18 @@ ready = ->
 
       	$('#delivery-option-continue').click (event), ->
       		confirmPurchaseForm = $('body').find(".item-side-panel#confirm-purchase-form")
+      		$('body').find('span#confirm-last-4').text("666")
+      		alert($('input#addressLine1').val())
+      		$('span#confirm-address').text()
       		$('body').find(".item-side-panel").slideUp()
+
       		confirmPurchaseForm.slideDown()
+
+      	$('#delivery-yes').click (event), ->
+      		$('body').find("#delivery-option-details").slideDown()
+
+      	$('#delivery-pickup').click (event), ->
+      		$('body').find("#delivery-option-details").slideUp()
 
 
 $(document).on('turbolinks:load', ready)
