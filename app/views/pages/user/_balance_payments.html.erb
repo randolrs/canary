@@ -1,0 +1,33 @@
+<div class="dashboard-panel" id="balance-content">
+
+	<%= render 'pages/user/warnings' %>
+	
+	<div class="left">
+
+        <h3>Balance</h3>
+
+      </div>
+
+      <div class="right">
+
+        <h4 style="color: green;"><%= number_to_currency(238) %></h4>
+
+    </div>
+
+    <h4 class="centered">Next Payment Date: Aug 3, 2016</h4>
+
+	<ul>
+
+		<li><%= link_to "Sales", balance_path %></li>
+		<li class="active"><%= link_to "Payments to You", balance_payments_path %></li>
+
+	</ul>
+
+
+	<div class="dasboard-panel-content">
+
+		
+
+	</div>
+
+</div>

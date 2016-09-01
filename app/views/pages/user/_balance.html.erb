@@ -2,22 +2,67 @@
 
 	<%= render 'pages/user/warnings' %>
 	
-	<h3>Balance</h3>
+	<div class="left">
+
+        <h3>Balance</h3>
+
+      </div>
+
+      <div class="right">
+
+        <h4 style="color: green;"><%= number_to_currency(238) %></h4>
+
+    </div>
+
+    <h4 class="centered">Next Payment Date: Aug 3, 2016</h4>
 
 	<ul>
 
-		<li class="active"><a>Sales</a></li>
-		<li><a>Payments to You</a></li>
+		<li class="active"><%= link_to "Sales", balance_path %></li>
+		<li><%= link_to "Payments to You", balance_payments_path %></li>
 
 	</ul>
 
 	<div class="dasboard-panel-content">
 
-		<% current_user.purchases_of_my_work.each do |purchase| %>
+		<table class="sales-index">
 
-			<%= purchase.id%>
+			<% current_user.purchases_of_my_work.each do |purchase| %>
 
-		<%end%>
+				<tr>
+
+					<td>
+
+						<%= purchase.created_at.strftime("%b %d") %>
+					</td>
+
+					<td>
+						
+						<%= image_tag purchase.item_art.image.url, class: "small-item-image"%>
+						<br>
+						<%= purchase.item_art.name %>
+
+					</td>
+
+					<td>
+
+						<%= number_to_currency(purchase.amount) %>
+
+					</td>
+
+					<td>
+
+						<%= purchase.status_as_string %>
+
+					</td>
+
+					
+
+				</tr>
+
+			<%end%>
+
+		</table>
 
 	</div>
 

@@ -1,0 +1,23 @@
+
+<% if user_signed_in? %>
+
+	<div class="dashboard-content">
+
+		<div class="content-column sidebar full-content">
+
+			<%= render 'pages/user/dashboard_side_panel' %>
+
+		</div>
+
+
+		<div class="content-column sidebar-content">
+
+			<%= render 'pages/user/balance_payments' %>
+
+		</div>
+
+	</div>
+
+<%end%>
+	
+	

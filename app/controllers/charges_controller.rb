@@ -30,7 +30,7 @@ class ChargesController < ApplicationController
 	  )
 
 	purchase = Purchase.create(email: params[:stripeEmail], stripe_card_id: params[:stripeToken], 
-    amount: params[:amount], description: charge.description, currency: charge.currency,
+    amount: price, description: charge.description, currency: charge.currency,
     stripe_customer_id: customer.id, item_art_id: params[:itemArtID], artist_id: @item_art.user.id)
 
 	if params[:user_id]

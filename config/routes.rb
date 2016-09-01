@@ -23,9 +23,11 @@ Rails.application.routes.draw do
 
   get 'settings' => 'pages#settings'
 
-  get 'settings/payment' => 'pages#payment_settings', as: 'payment_settings'
+  get 'settings/payments' => 'pages#payment_settings', as: 'payment_settings'
 
   get 'balance' => 'pages#sales'
+
+  get 'balance/payments' => 'pages#balance_payments', as: 'balance_payments'
 
   get 'item_search' => 'item_arts#search'
 

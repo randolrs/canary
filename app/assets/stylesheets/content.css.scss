@@ -33,6 +33,10 @@
     	.left, .right{
     		display: table-cell;
     		vertical-align: middle;
+
+    		h1, h2, h3, h4{
+    			margin: 0px;
+    		}
     	}
 
     	.left{
@@ -501,6 +505,12 @@ h3.dashboard-profile-header{
 .medium-item-image{
 	width:100%;
 	max-width: 200px;
+	box-shadow: 0px 2px 2px #999;
+}
+
+.small-item-image{
+	width:100%;
+	max-width: 100px;
 	box-shadow: 0px 2px 2px #999;
 }
 

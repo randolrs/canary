@@ -28,6 +28,12 @@ class PagesController < ApplicationController
 
 	end
 
+	def balance_payments
+
+		@page = "balance"
+
+	end
+
 	def views
 
 		@page = "views"
