@@ -106,11 +106,12 @@ input.dimension{
 table.card-form{
 	
 	margin: 0 auto;
+	box-shadow: 0px 1px 2px #999;
 	
 	tr{
 		margin-bottom: -1px;
 	}
-	
+
 	td{
 
 	    border: 1px solid #aaa;
@@ -119,18 +120,18 @@ table.card-form{
 	input{
 		width: 100%;
 		border:none;
-		padding: 5px 0px;
-		font-size: 16px;
+		padding: 10px 0px;
+		font-size: 20px;
 		text-indent: 5px;
 	}
 }
 
 .item-side-panel{
 	padding: 20px;
-    box-shadow: 0px 1px 2px #ccc;
+    box-shadow: 0px 1px 3px #aaa;
     border: 1px solid #bbb;
-    background: #eee;
-    font-size: 16px;
+    background: #ded;
+    font-size: 20px;
 }
 
 .item-side-panel#info{
@@ -145,8 +146,18 @@ table.delivery-detail-form{
 	input{
 		width: 100%;
 		padding: 5px 0px;
-		font-size: 16px;
+		font-size: 20px;
 		text-indent: 5px;
 		margin-bottom: -1px;
 	}
+}
+
+.clickable{
+	
+	h4{
+		margin: 0px;
+	}
+}
+.clickable:hover{
+	cursor: pointer;
 }

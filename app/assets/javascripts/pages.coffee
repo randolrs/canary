@@ -80,25 +80,63 @@ ready = ->
       		paymentDetailForm.slideDown()
 
       	$('#payment-detail-continue').click (event), ->
+      		event.stopPropagation()
       		deliveryOptionForm = $('body').find(".item-side-panel#delivery-option-form")
-      		$('body').find(".item-side-panel").slideUp()
+      		$(@).parent(".purchase-step-content").slideUp()
+      		$(@).hide()
+      		$(@).parent().parent(".item-side-panel").addClass("clickable")
       		deliveryOptionForm.slideDown()
 
       	$('#delivery-option-continue').click (event), ->
+      		event.stopPropagation()
       		confirmPurchaseForm = $('body').find(".item-side-panel#confirm-purchase-form")
-      		$('body').find('span#confirm-last-4').text("666")
-      		alert($('input#addressLine1').val())
-      		$('span#confirm-address').text()
-      		$('body').find(".item-side-panel").slideUp()
-
+      		last4 = $('input#cardNumberInput').val().slice(-4)
+      		$('span#confirm-last-4').text(last4)
+      		$(@).parent(".purchase-step-content").slideUp()
+      		$(@).hide()
+      		$(@).parent().parent(".item-side-panel").addClass("clickable")
+      		delivery = $('input[name=delivery-option]:radio:checked').val()
+      		if delivery=="delivery"
+      			$('span#confirm-name').text($('input#fullNameInput').val())
+      			$('span#confirm-address').text($('input#addressInput').val())
+      			$('p#delivery-option-confirm').show()
+      		if delivery=="pickup"
+      			$('span#confirm-email').text($('input#emailInput').val())
+      			$('p#pickup-option-confirm').show()
       		confirmPurchaseForm.slideDown()
 
       	$('#delivery-yes').click (event), ->
+      		$('body').find("#pickup-contact-details").slideUp()
       		$('body').find("#delivery-option-details").slideDown()
+      		$('p#pickup-option-confirm').hide()
+      		$('p#delivery-option-confirm').show()
 
       	$('#delivery-pickup').click (event), ->
       		$('body').find("#delivery-option-details").slideUp()
+      		$('body').find("#pickup-contact-details").slideDown()
+      		$('p#delivery-option-confirm').hide()
+      		$('p#pickup-option-confirm').show()
+
+      	$("div.click-to-open").click (event), ->
+      		$(@).find(".purchase-step-content").slideDown()
+
+      	$('input#cardNumberInput').keypress (event), ->
+      		last4 = $(@).val().slice(-4)
+      		$('span#confirm-last-4').text(last4)
+
+      	$('input#fullNameInput').keypress (event), ->
+      		fullName = $(@).val()
+      		$('span#confirm-name').text(fullName)
+
+      	$('input#addressInput').keypress (event), ->
+      		address = $(@).val()
+      		$('span#confirm-address').text(address)
+
+      	$('input#emailInput').keypress (event), ->
+      		email = $(@).val()
+      		$('span#confirm-email').text(email)
 
 
+      		
 $(document).on('turbolinks:load', ready)
 

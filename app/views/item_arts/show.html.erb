@@ -8,57 +8,53 @@
 
   <div class="content-column secondary left-border">
 
-    
-      <div class="left">
-          <h2><%= @item_art.name %></h2>
-        </div>
+    <div class="left">
 
-        <div class="right">
-          <h4><%= number_to_currency(@item_art.price) %></h4>
+        <h2><%= @item_art.name %></h2>
+
       </div>
 
+      <div class="right">
 
-      <h2><%= @item_art.name %></h2>
+        <h4><%= number_to_currency(@item_art.price) %></h4>
 
-      <p><%= @item_art.medium %></p>
-
-      <p><%= @item_art.height.to_i %> H X <%= @item_art.width.to_i %> W <% if @item_art.length %> X <%= @item_art.length.to_i %> L<%end%></p>
-
-      <br>
-
-      
-
-      <div class="item-side-panel" id="info">
-
-      <p><%= @item_art.search_code %></p>
-
-        
-
-        <a id="item-buy-cta" class="button blue-background large item-buy-action">JBuy for <%= number_to_currency(@item_art.price) %></a>
-
-      <br>
-
-      <h4 class="text-header-underline">About this Piece</h4>
-
-      <p><%= @item_art.description %></p>
-
-      <br>
-
-      <h4 class="text-header-underline">About the Artist</h4>
-
-      <p><%= image_tag @item_art.user.image.url(:medium), class: "header-profile-image"%><%= @item_art.user.display_name %></p>
-
-      <p><%= @item_art.user.about %></p>
-
-      <br>
-      
-      <a class="message-modal modal-cta button large red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Message the Artist</a>
-    
     </div>
+
+    <p><%= @item_art.medium %></p>
+
+    <p><%= @item_art.height.to_i %> H X <%= @item_art.width.to_i %> W <% if @item_art.length %> X <%= @item_art.length.to_i %> L<%end%></p>
+
+    <br>
+
+    <div class="item-side-panel" id="info">
+
+    <p><%= @item_art.search_code %></p>
+
+    <a id="item-buy-cta" class="button blue-background large item-buy-action">JBuy for <%= number_to_currency(@item_art.price) %></a>
+
+    <br>
+
+    <h4 class="text-header-underline">About this Piece</h4>
+
+    <p><%= @item_art.description %></p>
+
+    <br>
+
+    <h4 class="text-header-underline">About the Artist</h4>
+
+    <p><%= image_tag @item_art.user.image.url(:medium), class: "header-profile-image"%><%= @item_art.user.display_name %></p>
+
+    <p><%= @item_art.user.about %></p>
+
+    <br>
+    
+    <a class="message-modal modal-cta button large red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Message the Artist</a>
+  
+  </div>
 
     <%= form_tag charges_path, id: 'chargeForm' do %>
 
-      <div class="item-side-panel" id="payment-detail-form" style="display: none;">
+      <div class="item-side-panel click-to-open" id="payment-detail-form" style="display: none;">
 
         <%= hidden_field_tag 'amount', (@item_art.price * 100).to_i %> 
         
@@ -70,118 +66,144 @@
 
           <%end%>
 
-        <h4 class="text-header-underline">Payment Information</h4>
+        <h4>1. Enter Payment Information</h4>
 
-        <table class="card-form">
+        <div class="purchase-step-content">
 
-          <tr>
-
-            <td colspan="3"><input type="text" placeholder="Name on Card" name="nameOnCard"></input></td>
-
-          </tr>
-
-          <tr>
-
-            <td colspan="3"><input type="text" placeholder="Card Number" name="cardNumber" id="cardNumberInput"></input></td>
-
-          </tr>
-
-          <tr>
-
-            <td><input type="text" placeholder="EXP Month" name="expMonth"></input></td>
-            <td><input type="text" placeholder="EXP Year" name="expYear"></input></td>
-            <td><input type="text" placeholder="CVC" name="cvc"></input></td>
-
-          </tr>
-
-        </table>
-
-        <br>
-
-        <a id="payment-detail-continue" class="button blue-background item-buy-action">Continue</a>
-
-      </div>
-
-      <div class="item-side-panel" id="delivery-option-form" style="display: none;">
-
-        <h4 class="text-header-underline">Delivery Options</h4>
-
-        <input type="radio" name="delivery-option" value="pickup" id="delivery-pickup" checked>Pickup<br>
-        
-        <input type="radio" name="delivery-option" value="delivery" id="delivery-yes">Delivery<br>
-
-        <div id="delivery-option-details" style="display: none;">
-
-          <br>
-
-          <table class="delivery-detail-form">
+          <table class="card-form">
 
             <tr>
 
-              <td colspan="2"><input type="text" placeholder="Full Name" name="fullName"></input></td>
+              <td colspan="3"><input type="text" placeholder="Name on Card" name="nameOnCard"></input></td>
 
             </tr>
 
             <tr>
 
-              <td colspan="2"><input type="text" placeholder="Address Line 1" name="addressLine1" id="addressInput"></input></td>
+              <td colspan="3"><input type="text" placeholder="Card Number" name="cardNumber" id="cardNumberInput"></input></td>
 
             </tr>
 
             <tr>
 
-              <td colspan="2"><input type="text" placeholder="Address Line 2" name="addressLine2"></input></td>
+              <td><input type="text" placeholder="EXP Month" name="expMonth"></input></td>
+              <td><input type="text" placeholder="EXP Year" name="expYear"></input></td>
+              <td><input type="text" placeholder="CVC" name="cvc"></input></td>
 
-            </tr>
-
-            <tr>
-
-              <td colspan="2"><input type="text" placeholder="City" name="city"></input></td>
-
-            </tr>
-
-            <tr>
-
-              <td><input type="text" placeholder="State/Province" name="stateProvince"></input></td>
-
-              <td><input type="text" placeholder="Zip/Postal Code" name="zipPostalCode"></input></td>
-
-
-            </tr>
-
-            <tr>
-
-              <td colspan="2"><input type="text" placeholder="Country" name="country"></input></td>
-
-            </tr>
-
-            <tr>
-
-              <td colspan="2"><input type="text" placeholder="Phone" name="phone"></input></td>
-             
             </tr>
 
           </table>
 
+          <br>
+
+          <a id="payment-detail-continue" class="button blue-background large item-buy-action">Continue</a>
+
         </div>
 
-        <br>
+      </div>
 
-        <a id="delivery-option-continue" class="button blue-background item-buy-action">Continue</a>
+      <div class="item-side-panel click-to-open" id="delivery-option-form" style="display: none;">
+
+        <h4>2. Select Delivery Option</h4>
+
+        <div class="purchase-step-content">
+
+          <input type="radio" name="delivery-option" value="pickup" id="delivery-pickup" checked>Pickup<br>
+
+          <%unless user_signed_in? %>
+
+            <div id="pickup-contact-details">
+
+              <br>
+
+              <input type="text" placeholder="Contact Email" name="email" id="emailInput" style="width: 100%;" ></input>
+
+              <br>
+
+            </div>
+
+          <%end%>
+          
+          <input type="radio" name="delivery-option" value="delivery" id="delivery-yes">Delivery<br>
+
+          <div id="delivery-option-details" style="display: none;">
+
+            <br>
+
+            <table class="delivery-detail-form">
+
+              <tr>
+
+                <td colspan="2"><input type="text" placeholder="Full Name" name="fullName" id="fullNameInput"></input></td>
+
+              </tr>
+
+              <tr>
+
+                <td colspan="2"><input type="text" placeholder="Address Line 1" name="addressLine1" id="addressInput"></input></td>
+
+              </tr>
+
+              <tr>
+
+                <td colspan="2"><input type="text" placeholder="Address Line 2" name="addressLine2"></input></td>
+
+              </tr>
+
+              <tr>
+
+                <td colspan="2"><input type="text" placeholder="City" name="city"></input></td>
+
+              </tr>
+
+              <tr>
+
+                <td><input type="text" placeholder="State/Province" name="stateProvince"></input></td>
+
+                <td><input type="text" placeholder="Zip/Postal Code" name="zipPostalCode"></input></td>
+
+
+              </tr>
+
+              <tr>
+
+                <td colspan="2"><input type="text" placeholder="Country" name="country"></input></td>
+
+              </tr>
+
+              <tr>
+
+                <td colspan="2"><input type="text" placeholder="Phone" name="phone"></input></td>
+               
+              </tr>
+
+            </table>
+
+          </div>
+
+          <br>
+
+          <a id="delivery-option-continue" class="button blue-background large item-buy-action">Continue</a>
+
+        </div>
 
       </div>
 
       <div class="item-side-panel" id="confirm-purchase-form" style="display: none;">
 
-        <h4 class="text-header-underline">Confirm Purchase</h4>
+        <h4>Confirm Purchase</h4>
 
-        <a><%= number_to_currency(@item_art.price)%></a>
+        <p><b><%= number_to_currency(@item_art.price)%></b> will be charged to credit card ending <b><span id="confirm-last-4">[last4]</span></b>.</p>
+        
+        <br>
 
-        <p>Payment Method: Card ending <span id="confirm-last-4">6662</span></p>
+        <p id="pickup-option-confirm" style="display:none;">Pickup details for <b>"<%= @item_art.name %>"</b> inluding the address and availablity will be emailed to you at <b><% if user_signed_in? %> <%= current_user.email %> <%else%> %> <span id="confirm-email">[email]</span><%end%></b>.</p>
 
-        <p>Delivered to <span id="confirm-address">616 N. 7th St.</span></p>
+        <p id="delivery-option-confirm" style="display:none;"><b>"<%= @item_art.name %>"</b> will be delivered to <b><span id="confirm-name">[fullName]</span></b> at <b><span id="confirm-address">[address]</span></b>.</p>
 
-        <input type="submit" value="Confirm" id="confirm-purchase" class="button blue-background item-buy-action">
+        <br>
+
+        <input type="submit" value="Confirm" id="confirm-purchase" class="button green-background large item-buy-action">
 
       </div>
 
