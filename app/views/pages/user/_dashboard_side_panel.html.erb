@@ -12,22 +12,22 @@
 
 			<% if current_user.is_artist %>
 
-				<li class="dashboard-option <% if @page=="home" %>active<%end%>" id="home" data-content-panel="home-content">
+				<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="work" data-content-panel="work-content">
 					
-					<a href="<%= root_path %>"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span><span>Recent Stats</span></a>
+					<a href="<%= portfolio_path %>"><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right: 5px;"></span>Portfolio</a>
 
 				</li>
+
+<!-- 				<li class="dashboard-option <%# if @page=="home" %>active<%#end%>" id="home" data-content-panel="home-content">
+					
+					<a href="<%# root_path %>"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span><span>Recent Stats</span></a>
+
+				</li> -->
 
 
 				<li class="dashboard-option <% if @page=="messages" %>active<%end%>" id="messages" data-content-panel="messages-content">
 					
 					<a href="<%= inbox_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span><span>Inbox</span></a>
-
-				</li>
-
-				<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="work" data-content-panel="work-content">
-					
-					<a href="<%= portfolio_path %>"><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right: 5px;"></span>Portfolio</a>
 
 				</li>
 

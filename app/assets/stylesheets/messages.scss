@@ -75,6 +75,15 @@ div.message:hover{
 	cursor: pointer;
 }
 
+div.message-index{
+	padding: 10px;	
+	border: 1px solid #bbb;
+    box-shadow: 0px 1px 1px #ccc;
+    margin-bottom: -1px;
+    background: #fff;
+}
+
+
 .message-sender, .message-text, .message-date, .message-action{
 	
 	display: table-cell;

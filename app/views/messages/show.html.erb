@@ -1,28 +1,57 @@
 <div class="medium-content">
 
-	<p id="notice"><%= notice %></p>
+	<div class="message-index">
 
-	<p>
-	  <strong>Sender:</strong>
-	  <%= @message.sender_id %>
-	</p>
+		<div class="message-sender">
 
-	<p>
-	  <strong>Recipient:</strong>
-	  <%= @message.recipient_id %>
-	</p>
+			<span><%= image_tag @message.sender.image.url(:medium), class: "header-profile-image"%><span class="message-list-sender"><%=  @message.sender.display_name %></span></span>
 
-	<p>
-	  <strong>Subject:</strong>
-	  <%= @message.subject %>
-	</p>
+		</div>
 
-	<p>
-	  <strong>Body:</strong>
-	  <%= @message.body %>
-	</p>
+		<div class="message-text">
+
+			<span><%= @message.body %></span>
+
+		</div>
+
+	</div>
+
+	<% @message.responses.each do |response| %>
+
+		<div class="message-index">
+
+			<div class="message-sender">
+
+				<span><%= image_tag response.sender.image.url(:medium), class: "header-profile-image"%><span class="message-list-sender"><%=  response.sender.display_name %></span></span>
+
+			</div>
+
+			<div class="message-text">
+
+				<span><%= response.body %></span>
+
+			</div>
+
+		</div>
+
+	<%end%>
+
+
+	<%= form_for(@new_message) do |f| %>
+
+      <%= f.number_field :recipient_id, :value => @new_message_recipient.id, :hidden => true  %>
+
+      <%= f.number_field :parent_message_id, :value => @message.id, :hidden => true  %>
+
+      <div class="field">
+        <label>Reply</label><br>
+        <%= f.text_area :body %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Send", class: 'button red-background'  %>
+      </div>
+
+    <% end %>
 
 </div>
-
-<%= link_to 'Edit', edit_message_path(@message) %> |
-<%= link_to 'Back', messages_path %>

@@ -32,4 +32,10 @@ class Message < ActiveRecord::Base
 
 
 	end
+
+	def responses
+
+		return Message.where(:parent_message_id => self.id)
+
+	end
 end

@@ -4,7 +4,7 @@
 	<%= render 'pages/basic_landing_page' %>
 
 <%else%>
-
+	
 	<div class="dashboard-content">
 
 		<div class="content-column sidebar full-content">
@@ -16,9 +16,19 @@
 
 		<div class="content-column sidebar-content">
 
-			<%= render 'pages/user/warnings' %>
+			<%= render 'pages/user/my_work' %>
 
-			<h3><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span>Recent Stats</h3>
+		</div>
+
+	</div>
+
+<!-- 	<div class="dashboard-content">
+
+
+		<div class="content-column sidebar-content"> -->
+
+
+<!-- 			<h3><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span>Recent Stats</h3>
 
 			<div class="centered">
 
@@ -39,26 +49,26 @@
 
 				</ul>
 
-			</div>
+			</div> -->
 
-			<% current_user.recent_activity.each do |activity| %>
+			<%# current_user.recent_activity.each do |activity| %>
 
-				<div class="activity">
+<!-- 				<div class="activity">
 
-					<% if activity['type'] == "view" %>
-						<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span>[Someone] viewed your work, <%= activity['object'].item_art.name %>, on <%= activity['created_at'].strftime("%b %d") %></p>
-					<% elsif activity['type'] == "purchase" %>
+					<%# if activity['type'] == "view" %>
+						<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span>[Someone] viewed your work, <%# activity['object'].item_art.name %>, on <%# activity['created_at'].strftime("%b %d") %></p>
+					<%# elsif activity['type'] == "purchase" %>
 
-						<p class="sale"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span>[Someone] purchased your work, <%= activity['object'].item_art.name %>, on <%= activity['created_at'].strftime("%b %d") %></p>
+						<p class="sale"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span>[Someone] purchased your work, <%# activity['object'].item_art.name %>, on <%# activity['created_at'].strftime("%b %d") %></p>
 
-					<%end%>
+					<%#end%>
 
-				</div>				
+				</div>	 -->			
 
-			<%end%>
+			<%#end%>
 
-		</div>
+<!-- 		</div>
 
-	</div>
+	</div> -->
 
 <%end%>

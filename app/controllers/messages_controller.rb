@@ -10,6 +10,11 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
+
+    @new_message = Message.new
+
+    @new_message_recipient = current_user
+
   end
 
   # GET /messages/new
@@ -24,15 +29,30 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
+    
     @message = Message.new(message_params)
 
     @message.update(:sender_id => current_user.id)
 
 
     respond_to do |format|
+      
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
+
+        unless @message.parent_message_id
+
+          format.html { redirect_to @message, notice: 'Message was successfully created.' }
+          format.json { render :show, status: :created, location: @message }
+
+        else
+
+          @parent_message = Message.find(@message.parent_message_id)
+
+          format.html { redirect_to @parent_message, notice: 'Message was successfully created.' }
+          format.json { render :show, status: :created, location: @message }
+
+        end
+
       else
         format.html { render :new }
         format.json { render json: @message.errors, status: :unprocessable_entity }
@@ -72,6 +92,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:sender_id, :recipient_id, :subject, :body)
+      params.require(:message).permit(:sender_id, :recipient_id, :subject, :body, :parent_message_id)
     end
 end

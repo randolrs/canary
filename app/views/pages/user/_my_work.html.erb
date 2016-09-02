@@ -7,6 +7,7 @@
 	<div id="portfolio">
 
 		<% if current_user.item_arts.count > 0 %>
+			
 			<% current_user.item_arts.each do |item| %>
 
 				<%= link_to(item) do %>
@@ -14,7 +15,7 @@
 					<div class="lightbox">
 
 						<%= image_tag item.image.url, class: "medium-item-image"%>
-
+						<div><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span><%= item.views.count %></div>
 					</div>
 
 				<% end %>

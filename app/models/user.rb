@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 
   def messages_to_me
 
-    return Message.where(:recipient_id => self.id)
+    return Message.where(:recipient_id => self.id, :parent_message_id => nil)
 
   end
 
