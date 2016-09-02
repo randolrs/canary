@@ -5,9 +5,11 @@
 
 		<div id="welcome-panel">
 
-			<h2>Welcome! Help us get to know you better.</h2>
+			<h2>Welcome to Artagami!</h2>
+			
+			<h2>Are You an Artist?</h2>
 
-			<a class="button blue-background" id="i-am-artist">I am an Artist.</a>
+			<a class="button blue-background" id="i-am-artist">Yes</a>
 
 			<%# f.check_box :is_artist, class:"welcome-select-input", id:"is_artist_input" %>
 
@@ -17,7 +19,7 @@
 
 			</div>
 
-			<a class="button red-background" id="i-am-buyer">I want to buy art.</a>
+			<a class="button red-background" id="i-am-buyer">No</a>
 
 			<div style="display:none">
 				
@@ -65,7 +67,7 @@
 
 <!-- 			<input type="submit" class="button blue-background" value="Get Started"></input> -->
 
-			<%= f.submit "Get Started", class: 'button blue-background' %>
+			<%= f.submit "Get Started", class: 'button medium blue-background' %>
 
 		</div>
 
