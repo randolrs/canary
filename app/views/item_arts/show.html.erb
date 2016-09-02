@@ -29,8 +29,16 @@
     <div class="item-side-panel" id="info">
 
 <!--     <p><%# @item_art.search_code %></p> -->
+    
+    <% unless @item_art.sold %>
+    
+      <a id="item-buy-cta" class="button blue-background large item-buy-action">Buy for <%= number_to_currency(@item_art.price) %></a>
+    
+    <%else%>
 
-    <a id="item-buy-cta" class="button blue-background large item-buy-action">Buy for <%= number_to_currency(@item_art.price) %></a>
+      <a class="button green-background large"><span class="glyphicon glyphicon-ok"  aria-hidden="true" style="margin-right: 5px;"></span>Sold</a>
+
+    <%end%>
 
     <br>
 
@@ -45,6 +53,8 @@
     <h4 class="text-header-underline">About the Artist</h4>
 
     <p><a href="<%= profile_path(@item_art.user.display_name) %>"><%= image_tag @item_art.user.image.url(:medium), class: "header-profile-image"%><%= @item_art.user.display_name %></a></p>
+
+    <br>
 
     <p><%= @item_art.user.about %></p>
 
@@ -216,8 +226,6 @@
   
 
 </div>
-
-
 
 
   <div class="medium-content" style="display: none;">

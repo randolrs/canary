@@ -22,4 +22,11 @@ class ItemArt < ActiveRecord::Base
 	    end
   	end
 
+  	def sold
+
+  		return Purchase.where(:item_art_id => self.id).exists?
+
+  	end
+
+
 end
