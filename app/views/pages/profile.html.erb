@@ -6,9 +6,12 @@
 
 		<h2><%= @user.display_name %></h2>
 
-		<% unless current_user.id == @user.id %>
-		
-			<a class="message-modal modal-cta button medium red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Send Message</a>
+		<% if user_signed_in? %>
+			<% unless current_user.id == @user.id %>
+			
+				<a class="message-modal modal-cta button medium red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Send Message</a>
+
+			<%end%>
 
 		<%end%>
 
@@ -16,8 +19,8 @@
 
 		<ul class="horizontal">
 
-			<li><%= link_to "Portfolio", profile_path, class:"active" %></li>
-			<li><%= link_to "About Me", profile_about_path %></li>
+			<li><%= link_to "Portfolio", profile_path, class: "active light" %></li>
+			<li><%= link_to "About Me", profile_about_path, class: "light" %></li>
 
 		</ul>
 
@@ -51,8 +54,16 @@
 
 				<p>
 
-					<% if current_user.id == @user.id %>
-						You have not shared any artwork yet. <%= link_to "Add Art Works", new_item_art_path, class: "warning-text-cta" %>
+					<% if user_signed_in?%>
+
+						<% if current_user.id == @user.id %>
+							You have not shared any artwork yet. <%= link_to "Add Art Works", new_item_art_path, class: "warning-text-cta" %>
+						<%else%>
+
+							<%= @user.display_name%> has not shared any artwork yet.
+
+						<%end%>
+
 					<%else%>
 
 						<%= @user.display_name%> has not shared any artwork yet.

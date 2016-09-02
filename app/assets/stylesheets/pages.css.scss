@@ -261,10 +261,31 @@ ul.horizontal{
             font-size: 20px;
             font-weight: 600;
             padding: 10px;
-            color: #fff;
            	letter-spacing: 1.5px;
 
 
+		}
+
+		a.light{
+			color: #fff;
+		}
+
+		a.stats{
+			
+			box-shadow: 0px 2px 3px #666;
+    		background: #ddd;
+
+    		span.stats-header{
+
+    			font-size: 40px;
+    			font-weight: 700;
+    		}
+
+    		span.stats-data{
+
+    			font-size: 30px;
+    			
+    		}
 		}
 
 		a:hover{

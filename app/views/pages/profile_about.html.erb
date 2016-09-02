@@ -6,9 +6,13 @@
 
 		<h2><%= @user.display_name %></h2>
 
-		<% unless current_user.id == @user.id %>
+		<% if user_signed_in? %>
 
-			<a class="message-modal modal-cta button medium red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Send Message</a>
+			<% unless current_user.id == @user.id %>
+
+				<a class="message-modal modal-cta button medium red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Send Message</a>
+
+			<%end%>
 
 		<%end%>
 
@@ -16,8 +20,8 @@
 
 		<ul class="horizontal">
 
-			<li><%= link_to "Portfolio", profile_path %></li>
-			<li><%= link_to "About Me", profile_about_path, class:"active" %></li>
+			<li><%= link_to "Portfolio", profile_path, class: "light" %></li>
+			<li><%= link_to "About Me", profile_about_path, class: "active light" %></li>
 
 		</ul>
 
@@ -28,14 +32,24 @@
 <div class="profile-content">
 
 	<% if @user.about.length > 0 %>
+
 		<p class="about"><%= @user.about %></p>
+		
 	<%else%>
 
 		<div class="nothing-to-see-container">
 
-			<% if current_user.id == @user.id %>
-				
-				<p>You have not written a bio yet. <%= link_to "Go to Account Settings", settings_path, class: "warning-text-cta" %> to update bio.</p>
+			<% if user_signed_in?%>
+
+				<% if current_user.id == @user.id %>
+					
+					<p>You have not written a bio yet. <%= link_to "Go to Account Settings", settings_path, class: "warning-text-cta" %> to update bio.</p>
+
+				<%else%>
+
+					<p><%= @user.display_name %> has not written a bio yet.</p>
+
+				<%end%>
 
 			<%else%>
 
@@ -44,6 +58,7 @@
 			<%end%>
 
 		</div>
+
 	<%end%>
 
 
