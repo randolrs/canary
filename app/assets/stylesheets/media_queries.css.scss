@@ -9,6 +9,16 @@
 
 		body{
 
+			.mobile-only{
+				display: inherit;
+			}
+
+			.content-container{
+
+  				padding-top: 58px;
+
+			}
+
 			.button-container{
 				text-align: center;
 			}
