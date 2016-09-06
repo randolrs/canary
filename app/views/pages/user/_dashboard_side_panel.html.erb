@@ -38,6 +38,13 @@
 
 				</li>
 
+				<li class="dashboard-option" id="profile" data-content-panel="profile-link">
+					
+					<a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%><%= current_user.display_name %></a>
+
+				</li>
+
+
 <!-- 				<li class="dashboard-option <%# if @page=="views" %>active<%#end%>" id="views" data-content-panel="views-content">
 					
 					<a href="<%# views_path %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span>Views</a>

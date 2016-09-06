@@ -2,9 +2,48 @@
 
 	<div class="profile-header-content">
 
-		<%= image_tag @user.image.url(:medium), class: "medium-profile-image"%>
+		<div class="profile-header-image">
 
-		<h2><%= @user.display_name %></h2>
+			<%= image_tag @user.image.url(:medium), class: "medium-profile-image"%>
+
+		</div>
+
+
+		<div class="profile-header-text">
+
+			<h2><%= @user.display_name %></h2>
+
+			<% if @user.about.length > 0 %>
+
+				<p class="about"><%= @user.about %></p>
+				
+			<%else%>
+
+				<div class="nothing-to-see-container no-margin">
+
+					<% if user_signed_in?%>
+
+						<% if current_user.id == @user.id %>
+							
+							<p>You have not written a bio yet. <%= link_to "Go to Account Settings", settings_path, class: "warning-text-cta" %> to update bio.</p>
+
+						<%else%>
+
+							<p><%= @user.display_name %> has not written a bio yet.</p>
+
+						<%end%>
+
+					<%else%>
+
+						<p><%= @user.display_name %> has not written a bio yet.</p>
+
+					<%end%>
+
+				</div>
+
+			<%end%>
+
+		</div>
 
 		<% if user_signed_in? %>
 			<% unless current_user.id == @user.id %>
@@ -14,15 +53,6 @@
 			<%end%>
 
 		<%end%>
-
-		<br>
-
-		<ul class="horizontal">
-
-			<li><%= link_to "Portfolio", profile_path, class: "active light" %></li>
-			<li><%= link_to "About Me", profile_about_path, class: "light" %></li>
-
-		</ul>
 
 	</div>
 

@@ -230,7 +230,7 @@
 		width: 70%;
 		max-width: 350px;
 		background: #090909;
-		min-height: 700px;
+		min-height: 100%;
 		height: auto;
 		box-shadow: 1px 0px 3px #000;
 	}
@@ -238,7 +238,7 @@
 	.content-column.sidebar.full-content{
 		width: 25%;
 		min-width: 25%;
-		min-height: 700px;
+		min-height: 100%;
     	height: auto;
 	}
 
@@ -247,7 +247,7 @@
 		min-width: 75%;
 		padding: 15px 30px;
     	background: #f9f9f9;
-    	min-height: 700px;
+    	min-height: 100%;
     	height: auto;
     	
 	}
@@ -311,7 +311,6 @@
     margin: 0 auto;
     padding: 30px;
     background: #fff;
-    border: 1px solid #000;
 
 }
 
@@ -356,6 +355,10 @@
 	max-width: 600px;
     margin: 50px auto;
     font-size: 20px;
+}
+
+.nothing-to-see-container.no-margin{
+	margin: 10px auto;
 }
 
 span.dismiss-parent{
@@ -491,9 +494,8 @@ h3.dashboard-profile-header{
 }
 
 .content{
-	margin: 50px auto 0 auto;
-	padding: 0px;
-    border: 1px solid #000;
+	margin: 0 auto;
+	padding: 30px;
 }
 
 
@@ -506,7 +508,7 @@ h3.dashboard-profile-header{
 
 .medium-item-image{
 	width:100%;
-	max-width: 200px;
+	max-width: 100%;
 	box-shadow: 0px 2px 2px #999;
 }
 
@@ -518,13 +520,13 @@ h3.dashboard-profile-header{
 
 .profile-header{
     
-    background: #222;
-    color: #fff;
+    background: #fff;
+    color: #222;
 
     .profile-header-content{
 
         padding: 20px 20px 0px 20px;
-        max-width: 1100px;
+        max-width: 1000px;
         width:100%;
         margin: 0 auto;
         text-align:center;
@@ -540,6 +542,23 @@ h3.dashboard-profile-header{
         h2{
             padding:15px 0px;
             font-size: 48px;
+            font-weight: 600;
+        }
+
+        .profile-header-image, .profile-header-text{
+
+        	display:table-cell;
+        	vertical-align: top;
+        }
+
+        .profile-header-image{
+        	width: 300px;
+        	text-align:center;
+        }
+
+        .profile-header-text{
+        	text-align:justify
+
         }
     }
 
@@ -548,12 +567,15 @@ h3.dashboard-profile-header{
 .profile-content{
     text-align: center;
     padding:20px;
+    max-width: 1000px;
+    width:100%;
+    margin: 0 auto;
 }
 
 .lightbox{
 	display: inline-block;
 	width: 100%;
-	max-width: 200px;
+	max-width: 31%;
     background: #fff;
     box-shadow: 0px 1px 3px #666;
     border-radius: 2px;
