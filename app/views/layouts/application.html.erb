@@ -34,7 +34,11 @@
 
 		</div>
 
-		<%= render 'layouts/mobile_action_footer' %>
+		<% if user_signed_in? %>
+
+			<%= render 'layouts/mobile_action_footer' %>
+
+		<%end%>
 
 		<%= render 'layouts/footer' %>
 
