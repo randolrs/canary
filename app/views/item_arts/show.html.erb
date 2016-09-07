@@ -1,3 +1,17 @@
+<% if flash[:error] %>
+
+  <div class="notice red">
+
+        <span class="glyphicon glyphicon-remove dismiss-parent"></span>
+
+        <p class="notice-content">
+          <span class="glyphicon glyphicon-exclamation-sign"></span> <%= flash[:error] %>
+        </p>
+
+  </div>
+
+<%end%>
+
 <div class="content">
 
   <div class="content-column primary">

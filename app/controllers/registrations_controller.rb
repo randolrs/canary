@@ -8,6 +8,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    @hide_header = true
+    @hide_footer = true
     build_resource({})
     yield resource if block_given?
     respond_with resource

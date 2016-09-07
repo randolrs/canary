@@ -43,7 +43,7 @@ class ChargesController < ApplicationController
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
-	  redirect_to :back
+	  redirect_to @item_art
 	end
 
 

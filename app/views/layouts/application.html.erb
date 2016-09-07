@@ -20,8 +20,9 @@
 
 	<body>
 
-		<%= render 'headers/header' %>
-
+		<% unless @hide_header %>
+			<%= render 'headers/header' %>
+		<%end%>
 		<%# render 'layouts/mobile_menu' %>
 
 		<div class="content-container">
@@ -40,7 +41,11 @@
 
 		<%end%>
 
-		<%= render 'layouts/footer' %>
+		<% unless @hide_footer %>
+
+			<%= render 'layouts/footer' %>
+
+		<%end%>
 
 	</body>
 

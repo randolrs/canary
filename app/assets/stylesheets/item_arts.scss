@@ -163,14 +163,18 @@ table.delivery-detail-form{
 }
 
 .sale-index{
-	box-shadow: 0px 1px 1px #666;
     border: 1px solid #bbb;
     display: inline-block;
     width: 100%;
-    max-width: 400px;
     margin: 0 auto;
     background: #fff;
     margin-bottom: 20px;
+}
+
+.sale-index:hover{
+	
+	background: #bbf;
+    border: 1px solid #f66;
 }
 
 .sale-index-image{
