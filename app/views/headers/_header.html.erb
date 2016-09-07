@@ -62,11 +62,26 @@
 
 				<!-- <li><a class="mobile-button">Menu</a></li> -->
 
-				<li class="mobile-only"><a href="<%= inbox_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li>
+				<% if user_signed_in? %>
+					
+					<% if current_user.is_artist %>
 
-				<li class="mobile-only"><a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></a></li>
+						<li class="mobile-only"><a href="<%= inbox_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li>
 
-				<li class="mobile-only"><a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
+						<li class="mobile-only"><a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></a></li>
+
+						<li class="mobile-only"><a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
+
+					<%end%>
+
+
+				<%else%>
+
+					<li><%= link_to "Login", new_user_session_path %></li>
+					
+					<li><%= link_to "Signup", new_user_registration_path %></li>
+
+				<%end%>
 
 			</div>
 
