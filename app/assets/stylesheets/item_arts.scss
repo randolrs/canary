@@ -161,3 +161,26 @@ table.delivery-detail-form{
 .clickable:hover{
 	cursor: pointer;
 }
+
+.sale-index{
+	box-shadow: 0px 1px 1px #666;
+    border: 1px solid #bbb;
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+.sale-index-image{
+	display:table-cell;
+	vertical-align: top;
+}
+
+
+.sale-index-content{
+	display:table-cell;
+	vertical-align: top;
+	padding: 10px 20px;
+}

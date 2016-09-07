@@ -161,7 +161,7 @@
 
 	        	li.active{
 
-	        		background: #f9f9f9;
+	        		background: #eee;
 	        		border-right: none;
 
     				border-top: 2px solid #eee;
@@ -171,7 +171,7 @@
 	        		a{
 	        			
 	        			color: #111;
-	        			text-shadow: none;
+	        			text-shadow: 0px 2px 1px #aaa;
 	        			font-weight: 600;
 	        		}
 
@@ -206,13 +206,13 @@
 
 	        		cursor: pointer;
 
-	        		background-color: #f9f9f9;
-    				background-image: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#f9f9f9));
-    				background-image: -webkit-linear-gradient(top, #f9f9f9, #f9f9f9);
-    				background-image: -moz-linear-gradient(top, #f9f9f9, #f9f9f9);
-    				background-image: -ms-linear-gradient(top, #f9f9f9, #f9f9f9);
-    				background-image: -o-linear-gradient(top, #f9f9f9, #f9f9f9);
-    				background-image: linear-gradient(top, #f9f9f9, #f9f9f9);
+	        		background-color: #eee;
+    				background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#eee));
+    				background-image: -webkit-linear-gradient(top, #eee, #eee);
+    				background-image: -moz-linear-gradient(top, #eee, #eee);
+    				background-image: -ms-linear-gradient(top, #eee, #eee);
+    				background-image: -o-linear-gradient(top, #eee, #eee);
+    				background-image: linear-gradient(top, #eee, #eee);
 
 	        		a{
 	        			color: #000;
@@ -246,7 +246,7 @@
 		width: 75%;
 		min-width: 75%;
 		padding: 15px 30px;
-    	background: #f9f9f9;
+    	background: #eee;
     	min-height: 100%;
     	height: auto;
     	
@@ -284,6 +284,7 @@
 	h3{
 		padding: 15px 0px;
 		color: #111;
+		text-shadow: 0px 2px 1px #aaa;
 		display: block;
 		font-size: 40px;
 		letter-spacing: 1.5px;
@@ -399,93 +400,6 @@ h3.dashboard-profile-header{
 	box-shadow: 0px 2px 2px #666;
 }
 
-.dashboard-panel{
-	
-	ul{
-
-		list-style-type: none;
-    	margin: 0;
-    	padding: 0;
-    	display: block;
-
-		
-		li{
-
-			display: inline-block;
-    		text-align: center;
-            vertical-align: top;
-            
-			a{
-
-				display: block;
-    	    	font-size: 20px;
-    	    	font-weight: 600;
-        		padding: 5px 10px;
-                color: #333;
-                letter-spacing: 1.5px;
-
-			}
-
-
-			a:hover{
-				cursor: pointer;
-				background: #333;
-				color: #fff;
-			}
-
-		}
-
-		li.active{
-			
-			background: #D31027;
-			
-			color: #fff;
-
-			background-image: -webkit-linear-gradient(top, #FF132F, #D31027);
-			
-			background-color: #D31027;
-		    background-image: -webkit-gradient(linear, left top, left bottom, from(#FF132F), to(#D31027));
-		    background-image: -webkit-linear-gradient(top, #FF132F, #D31027);
-		    background-image: -moz-linear-gradient(top, #FF132F, #D31027);
-		    background-image: -ms-linear-gradient(top, #FF132F, #D31027);
-		    background-image: -o-linear-gradient(top, #FF132F, #D31027);
-		    background-image: linear-gradient(top, #FF132F, #D31027);
-
-
-			border: 1px solid #cc0010;
-			border-bottom: none;
-    		box-shadow: inset 0px 1px 2px 0px #FFaaff;
-    		text-shadow: 0px 2px 1px #000;
-
-			a{
-				color: #fff;
-			}
-
-			a:hover{
-
-				background-image: -webkit-linear-gradient(top, #FF132F, #D31027);
-			
-				background-color: #D31027;
-			    background-image: -webkit-gradient(linear, left top, left bottom, from(#FF132F), to(#D31027));
-			    background-image: -webkit-linear-gradient(top, #FF132F, #D31027);
-			    background-image: -moz-linear-gradient(top, #FF132F, #D31027);
-			    background-image: -ms-linear-gradient(top, #FF132F, #D31027);
-			    background-image: -o-linear-gradient(top, #FF132F, #D31027);
-			    background-image: linear-gradient(top, #FF132F, #D31027);
-			}
-
-		}
-
-	}
-
-	.dasboard-panel-content{
-		padding: 20px;
-		border: 2px solid #D31027;
-		background: #fff;
-    	box-shadow: 0px 1px 1px #666;
-		
-	}
-}
 
 .dashboard-content{
 	padding: 0px;
@@ -671,4 +585,11 @@ a.warning-text-cta{
 
 a.warning-text-cta:hover{
 	color: #66b;
+}
+
+.dashboard-panel-content{
+	
+	background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
 }

@@ -247,6 +247,7 @@ ul.horizontal{
 	
 	list-style-type: none;
     margin: 0;
+    margin-bottom: -1px;
     padding: 0;
     display: inline-block;
 	
@@ -259,12 +260,11 @@ ul.horizontal{
 		a{
 
 			display: block;
-            font-size: 20px;
+            font-size: 28px;
             font-weight: 600;
             padding: 10px;
            	letter-spacing: 1.5px;
-
-
+           	text-shadow: 0px 2px 1px #aaa;
 		}
 
 		a.light{
@@ -299,6 +299,16 @@ ul.horizontal{
 
         }
 
+	}
+
+	li.active{
+		background: #fff;
+		border: 1px solid #ccc;
+
+		a{
+			color: #111;
+			text-shadow: none;
+		}
 	}
 
 }

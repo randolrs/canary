@@ -30,19 +30,19 @@
 
 <!--     <p><%# @item_art.search_code %></p> -->
     
-    <% unless @item_art.sold %>
-    
-      <a id="item-buy-cta" class="button blue-background large item-buy-action">Buy for <%= number_to_currency(@item_art.price) %></a>
-    
-    <%else%>
+    <div class="button-container">
 
-      <a class="button green-background large"><span class="glyphicon glyphicon-ok"  aria-hidden="true" style="margin-right: 5px;"></span>Sold</a>
+      <% unless @item_art.sold %>
+      
+        <a id="item-buy-cta" class="button blue-background large item-buy-action">Buy for <%= number_to_currency(@item_art.price) %></a>
+      
+      <%else%>
 
-    <%end%>
+        <a class="button green-background large"><span class="glyphicon glyphicon-ok"  aria-hidden="true" style="margin-right: 5px;"></span>Sold</a>
 
-    <br>
+      <%end%>
 
-    <br>
+    </div>
 
     <h4 class="text-header-underline">About this Piece</h4>
 
@@ -58,10 +58,12 @@
 
     <p><%= @item_art.user.about %></p>
 
-    <br>
+    <div class="button-container">
     
-    <a class="message-modal modal-cta button large red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Message the Artist</a>
-  
+      <a class="message-modal modal-cta button large red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Message the Artist</a>
+    
+    </div>
+
   </div>
 
     <%= form_tag charges_path, id: 'chargeForm' do %>

@@ -1,68 +1,50 @@
 <div class="dashboard-panel" id="balance-content">
 
 	<%= render 'pages/user/warnings' %>
-	
-	<div class="left">
 
-        <h3>Sales</h3>
+    <h3>My Sales</h3>
 
-      </div>
+	<ul class="horizontal">
 
-      <div class="right">
-
-        <h4 style="color: green;"><%= number_to_currency(238) %></h4>
-
-    </div>
-
-    <h4 class="centered">Next Payment Date: Aug 3, 2016</h4>
-
-	<ul>
-
-		<li class="active"><%= link_to "Sales", balance_path %></li>
-		<li><%= link_to "Payments to You", balance_payments_path %></li>
+		<li class="active"><a>All</a></li>
+		<li><a>Pending</a></li>
+		<li><a>Completed</a></li>
 
 	</ul>
 
-	<div class="dasboard-panel-content">
+	<div class="dashboard-panel-content">
 
 		<% if current_user.purchases_of_my_work.count > 0 %>
 
-		<table class="sales-index">
-
 			<% current_user.purchases_of_my_work.reverse.each do |purchase| %>
 
-				<tr>
+				<%= link_to(purchase) do %>
 
-					<td>
+					<div class="sale-index">
 
-						<%= purchase.created_at.strftime("%b %d") %>
-					</td>
+						<div class="sale-index-image">
 
-					<td>
-						
-						<%= image_tag purchase.item_art.image.url, class: "small-item-image"%>
-						<br>
-						<%= purchase.item_art.name %>
+							<%= image_tag purchase.item_art.image.url, class: "small-item-image"%>
 
-					</td>
+						</div>
 
-					<td>
+						<div class="sale-index-content">
 
-						<%= number_to_currency(purchase.amount) %>
+						    <h4><%= purchase.item_art.name %></h4>
 
-					</td>
+							<p>Sold <%= purchase.created_at.strftime("%b %d") %> for <%= number_to_currency(purchase.amount) %></p>
 
-					<td>
+							<p><%= purchase.status_as_string %></p>
 
-						<%= purchase.status_as_string %>
+						</div>
 
-					</td>
+					</div>
 
-				</tr>
+					<br>
+
+				<% end %>
 
 			<%end%>
-
-		</table>
 
 		<%else%>
 
