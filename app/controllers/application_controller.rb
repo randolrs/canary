@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   Stripe.api_key = ENV['STRIPE_SECRET_KEY']
 
+  before_action :check_for_stripe_account, if: :user_signed_in?
+
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -34,6 +36,29 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_in, keys: registration_params)
     devise_parameter_sanitizer.permit(:account_update, keys: registration_params)
   
+  end
+
+  def check_for_stripe_account
+  
+    if current_user.is_artist
+
+      unless current_user.stripe_account_id
+
+        account = Stripe::Account.create({:country => "US", :managed => true})
+
+        current_user.update(:stripe_account_id => account.id)
+
+        account.tos_acceptance.date = Time.now.to_i
+
+        account.tos_acceptance.ip = request.remote_ip
+
+        account.save
+
+
+      end
+
+    end
+
   end
 
 

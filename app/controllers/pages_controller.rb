@@ -21,6 +21,48 @@ class PagesController < ApplicationController
 
 	end
 
+	def payment_settings
+
+		if user_signed_in?
+
+			account = Stripe::Account.retrieve(current_user.stripe_account_id)
+
+			@dob_object = account.legal_entity.dob
+
+			if @dob_object["month"].to_s.length == 1
+
+				@dob_month = "0" + @dob_object["month"].to_s
+
+			else
+
+				@dob_month = @dob_object["month"].to_s
+
+			end
+
+			if @dob_object["day"].to_s.length == 1 
+
+				@dob_day = "0" + @dob_object["day"].to_s
+
+			else
+
+				@dob_day = @dob_object["day"].to_s
+
+			end
+
+			@dob_year = @dob_object["year"].to_s
+
+
+			@firstName = account.legal_entity.first_name
+			@lastName = account.legal_entity.last_name
+
+		else
+
+			redirect_to root_path
+
+		end
+
+	end
+
 
 	def sales
 
@@ -120,6 +162,47 @@ class PagesController < ApplicationController
 		end
 
 		redirect_to root_path
+
+	end
+
+	def update_stripe_account
+
+		account = Stripe::Account.retrieve(current_user.stripe_account_id)
+
+		if params[:firstName]
+			account.legal_entity.first_name = params[:firstName].upcase
+		end
+
+		if params[:lastName]
+			account.legal_entity.last_name = params[:lastName].upcase
+		end
+
+		dobDate = params[:dobDate]
+
+		if dobDate
+
+			unless dobDate == ""
+
+			dobYear = dobDate[0..3]
+			dobMonth = dobDate[5..6]
+			dobDay = dobDate[8..10]
+
+			account.legal_entity.dob.day = dobDay
+			account.legal_entity.dob.month = dobMonth
+			account.legal_entity.dob.year = dobYear
+
+			end
+
+		end
+
+		account.save
+
+		redirect_to :back
+
+	end	
+
+	def bank_accounts
+
 
 	end
 

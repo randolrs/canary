@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   get 'settings/payments' => 'pages#payment_settings', as: 'payment_settings'
 
+  get 'settings/bank_accounts' => 'pages#bank_accounts', as: 'bank_accounts'
+
   get 'sales' => 'pages#sales', as: 'balance'
 
   get 'balance/payments' => 'pages#balance_payments', as: 'balance_payments'
@@ -34,6 +36,8 @@ Rails.application.routes.draw do
   post 'setup_user' => "pages#setup_user"
 
   get 'portfolio' => 'pages#my_work'
+
+  post 'update_stripe_account' => 'pages#update_stripe_account'
 
   get '/:display_name' => 'pages#profile', as: 'profile'
 
