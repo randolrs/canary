@@ -47,3 +47,56 @@
 
     }
 }
+
+
+.mobile-action-footer-container{
+
+    bottom: 0px;
+    position: fixed;
+    width: 100%;
+    background: #111;
+    z-index: 999;
+    padding: 0;
+
+    box-shadow: 0px -1px 1px #111;
+    border-top: 1px solid #000;
+
+
+    .mobile-action-footer-content{
+
+        ul{
+            
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: block;
+            text-align:center;
+
+            li{
+
+                display: inline-block;
+                text-align: center;
+                vertical-align: top;
+                width: 31%;
+
+                a{
+
+                    display: block;
+                    font-size: 18px;
+                    font-weight: 400;
+                    letter-spacing: 1.1px;
+                    padding: 15px 20px;
+                    color: #eee;
+
+                }
+
+                a:hover{
+                    cursor: pointer;
+                }
+
+            }
+
+        }
+
+    }
+}

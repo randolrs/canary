@@ -21,7 +21,8 @@
 	<body>
 
 		<%= render 'headers/header' %>
-		<%= render 'layouts/mobile_menu' %>
+
+		<%# render 'layouts/mobile_menu' %>
 
 		<div class="content-container">
 
@@ -32,6 +33,8 @@
 			<%= yield %>
 
 		</div>
+
+		<%= render 'layouts/mobile_action_footer' %>
 
 		<%= render 'layouts/footer' %>
 

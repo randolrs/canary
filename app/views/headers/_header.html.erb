@@ -1,4 +1,4 @@
-<div class="header-container mobile-only">
+<div class="header-container">
 
 	<div class="header-content">
 
@@ -60,7 +60,14 @@
 
 			<div class="mobile-menu-options">
 
-				<li><a class="mobile-button">Menu</a></li>
+				<!-- <li><a class="mobile-button">Menu</a></li> -->
+
+				<li class="mobile-only"><a href="<%= inbox_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li>
+
+				<li class="mobile-only"><a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></a></li>
+
+				<li class="mobile-only"><a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
+
 			</div>
 
 		</ul>

@@ -2,11 +2,11 @@
 
 	<ul>
 
-		<li class="dashboard-header" id="site-title">
+<!-- 		<li class="dashboard-header" id="site-title">
 				
-			<a class="title" href="<%= root_path %>">Artigami</a>
+			<a class="title" href="<%# root_path %>">Artigami</a>
 
-		</li>
+		</li> -->
 
 		<% if user_signed_in?%>
 
@@ -34,13 +34,7 @@
 
 				<li class="dashboard-option <% if @page=="balance" %>active<%end%>" id="balance" data-content-panel="balance-content">
 					
-					<a href="<%= balance_path %>"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Balance:</span><span style="color: green;">$20.00</span></a>
-
-				</li>
-
-				<li class="dashboard-option" id="profile" data-content-panel="profile-link">
-					
-					<a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%><%= current_user.display_name %></a>
+					<a href="<%= balance_path %>"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Sales</span></a>
 
 				</li>
 

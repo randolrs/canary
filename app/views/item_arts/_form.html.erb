@@ -2,7 +2,7 @@
 
 <div class="content">
 
-  <h1 class="centered light action-header">New Artwork</h1>
+  <h1 class="centered action-header">New Artwork</h1>
 
   <%= form_for(@item_art) do |f| %>
   <% if @item_art.errors.any? %>
@@ -61,13 +61,13 @@
 
     <%= f.text_area :description, placeholder: "A description of this piece.", class: "description"  %>
 
+  </div>
+
     <div class="button-container">
       
-      <%= f.submit "Publish", class: "button medium blue-background" %>
+      <%= f.submit "Publish", class: "button large blue-background" %>
       
     </div>
-
-  </div>
 
   <% end %>
 
