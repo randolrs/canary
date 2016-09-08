@@ -53,7 +53,21 @@ class PagesController < ApplicationController
 
 
 			@firstName = account.legal_entity.first_name
+
 			@lastName = account.legal_entity.last_name
+
+			account.legal_entity.address.country = params[:country]
+
+
+			@addressLine1 = account.legal_entity.address.line1
+
+			@addressLine2 = account.legal_entity.address.line2
+
+			@city = account.legal_entity.address.city
+
+			@postalCode = account.legal_entity.address.postal_code
+
+			@stateProvince = account.legal_entity.address.state
 
 		else
 
@@ -169,17 +183,17 @@ class PagesController < ApplicationController
 
 		account = Stripe::Account.retrieve(current_user.stripe_account_id)
 
-		if params[:firstName]
+		if params[:firstName].size > 0
 			account.legal_entity.first_name = params[:firstName].upcase
 		end
 
-		if params[:lastName]
+		if params[:lastName].size > 0
 			account.legal_entity.last_name = params[:lastName].upcase
 		end
 
 		dobDate = params[:dobDate]
 
-		if dobDate
+		if dobDate.size > 0
 
 			unless dobDate == ""
 
@@ -195,14 +209,111 @@ class PagesController < ApplicationController
 
 		end
 
+		if params[:last4].size > 0
+
+			account.legal_entity.ssn_last_4 = params[:last4]
+
+		end
+
+		if params[:addressLine1].size > 0
+
+			account.legal_entity.address.line1 = params[:addressLine1].upcase
+
+		end
+
+		if params[:addressLine2].size > 0
+
+			account.legal_entity.address.line2 = params[:addressLine2].upcase
+
+		end
+
+		if params[:city].size > 0
+
+			account.legal_entity.address.city = params[:city].upcase
+
+		end
+
+		if params[:postalCode].size > 0
+
+			account.legal_entity.address.postal_code = params[:postalCode]
+
+		end
+
+		if params[:stateProvince].size > 0
+
+			account.legal_entity.address.state = params[:stateProvince]
+
+		end
+
 		account.save
 
 		redirect_to :back
 
 	end	
 
+
 	def bank_accounts
 
+		account = Stripe::Account.retrieve(current_user.stripe_account_id)
+
+		@accounts = account.external_accounts.all(:object => "bank_account", :limit => 5)
+
+      	#@defaultaccount = @accounts.find {|x| x.default_for_currency}
+
+	end
+
+	def update_bank_account
+
+		if params[:newdefault]
+
+      		account = Stripe::Account.retrieve(current_user.stripe_account_id)
+
+      		bank_account = account.external_accounts.retrieve(params[:newdefault])
+
+      		bank_account.default_for_currency = true
+
+      		bank_account.save
+
+    	end
+
+    	redirect_to :back
+
+		rescue Stripe::StripeError => e
+	  		flash[:error] = e.message
+	  		redirect_to :back
+		
+
+	end
+
+	def new_bank_account
+
+		if params[:country] && params[:bankName] && params[:routingNumber] && params[:accountNumber]
+			
+			token = Stripe::Token.create(
+	    		:bank_account => {
+			    :country => params[:country],
+			    :bank_name => params[:bankName],
+			    :routing_number => params[:routingNumber],
+			    :account_number => params[:accountNumber],
+	  			},
+			)
+
+			account = Stripe::Account.retrieve(current_user.stripe_account_id)
+
+			bank_account = account.external_accounts.create({:external_account => token.id})
+
+			bank_account.metadata["display_name"] = params[:description]
+
+			bank_account.save
+
+		end
+
+		redirect_to :back
+
+		rescue Stripe::StripeError => e
+	  		flash[:error] = e.message
+	  		redirect_to :back
+	
 
 	end
 

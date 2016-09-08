@@ -7,8 +7,8 @@
 	<ul class="horizontal">
 
 		<li><%= link_to "Profile", settings_path %></li>
-		<li class="active"><%= link_to "Payment Information", payment_settings_path %></li>
-		<li><%= link_to "Payment Accounts", bank_accounts_path %></li>
+		<li class="active"><%= link_to "Personal", payment_settings_path %></li>
+		<li><%= link_to "Payments", bank_accounts_path %></li>
 
 	</ul>
 
@@ -37,6 +37,51 @@
 		    	<input type="date" max ="2010-01-01" min ="1905-01-01" name="dobDate" value="<%= @dob_year%>-<%= @dob_month%>-<%= @dob_day%>">
 
 			</div>
+
+			<br />
+
+			<div class="field">
+		      <label>SSN Last 4</label><br />
+		      <input type="text" placeholder="****" name="last4" value=<%=@last4%>></input>
+		    </div>
+
+
+		    <br />
+
+			<div class="field">
+		      <label>Address Line 1</label><br />
+		      <input type="text" placeholder="Address Line 1" name="addressLine1" value=<%= @addressLine1 %>></input>
+		    </div>
+
+		    <br />
+
+		    <div class="field">
+		      <label>Address Line 2</label><br />
+		      <input type="text" placeholder="Address Line 2" name="addressLine2" value=<%= @addressLine2 %>></input>
+		    </div>
+
+		    <br />
+
+		    <div class="field">
+		      <label>City</label><br />
+		      <input type="text" placeholder="City" name="city" value=<%= @city %>></input>
+		    </div>
+
+		    <br />
+
+		    <div class="field">
+		      <label>Postal Code</label><br />
+		      <input type="text" placeholder="Postal Code" name="postalCode" value=<%= @postalCode %>></input>
+		    </div>
+
+		    <br />
+
+		    <div class="field">
+		      <label>State/Province</label><br />
+		      <input type="text" placeholder="State/Province" name="stateProvince" value=<%= @stateProvince %>></input>
+		    </div>
+
+		    <br />
 
 		    <div class="actions">
 		      <input type="submit" value="Update" id="update-stripe-account" class="button blue-background large item-buy-action">

@@ -7,52 +7,95 @@
 	<ul class="horizontal">
 
 		<li><%= link_to "Profile", settings_path %></li>
-		<li><%= link_to "Payment Information", payment_settings_path %></li>
-		<li class="active"><%= link_to "Payment Accounts", bank_accounts_path %></li>
+		<li><%= link_to "Personal", payment_settings_path %></li>
+		<li class="active"><%= link_to "Payments", bank_accounts_path %></li>
 
 	</ul>
 
 	<div class="dashboard-panel-content">
 
-		<%= form_for(current_user, url: registration_path(current_user), html: { method: :put, class: "edit_user_settings" }) do |f| %>
+		<% if @defaultaccount %>
 
-		    <div class="field">
-		      <%= f.label :email %><br />
-		      <%= f.email_field :email %>
-		    </div>
+			<%= form_tag update_bank_account_path, id: 'bankAccountForm', class: 'edit_user_settings' do %>
 
-		    <br />
+			  		<b>Current Bank Account:</b> <br>
+			  	
+					<%= @defaultaccount.bank_name + " •••• •••• •••• " + @defaultaccount.last4 %>
 
-		    <div class="field">
-		      <%= f.label :display_name %><br />
-		      <%= f.text_field :display_name %>
-		    </div>
 
-		    <br />
+				<select name="newdefault"/>
+				     
+				    <option value selected="selected" disabled="disabled">update bank account</option>
+				      		
+				    <% @accounts.each do |account| %>
 
-		    <div class="field">
-		      <%= f.label "About Me" %><br />
-		      <%= f.text_area :about %>
-		    </div>
+						<option value=<%=account.id%>><%=account.bank_name%> <%=account.last4 %> <% if account.default_for_currency %> (default)<%end%>
 
-		    <br />
+					<%end%>
 
-		    <div class="field">
-		      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-		      <%= f.password_field :password, autocomplete: "off" %>
-		      <% if @minimum_password_length %>
-		        <br />
-		        <em><%= @minimum_password_length %> characters minimum</em>
-		      <% end %>
-		    </div>
+				</select>
 
-		    <br />
+				<br><br>
 
-		    <div class="actions">
-		      <%= f.submit "Update", class:"button medium blue-background" %>
-		    </div>
+				<button type="submit" class= "blue-background button medium">Update</button>
+
+	  		<% end %>
+
+  		<%end%>
+
+
+  		<%= form_tag new_bank_account_path, id: 'bankAccountForm', class: 'edit_user_settings' do %>
+
+			<table class="card-form">
+
+		      	<span class='payment-errors'></span>
+
+		      	<tr class="add-card-form-header">
+		      		<td class="add-card-header" colspan="2">
+		      			<b>Add New Bank Account</b>
+		      		</td>
+		      	</tr>
+		      	<tr>
+					<td><span>Bank Location</span></td>
+					<td><select name="country">
+		                <option value="US">United States</option>
+		                <option value="CAN">Canada</option>
+		            </select></td>
+				</tr>
+				<tr>
+					<td><span>Name of Banking Institution</span></td>
+					<td><input type="text" size="9" name="bankName"/></td>
+				</tr>
+				<tr>
+					<td><span>Routing Number</span></td>
+					<td><input type="text" size="9" name="routingNumber" autocomplete="off"></td>
+				</tr>
+				<tr>
+					<td><span>Account Number</span></td>
+					<td><input type="text" size="17" name="accountNumber" autocomplete="off"></td>
+				</tr>
+				<tr>
+					<td><span>Description</span></td>
+					<td><input type="text" size="9" name="description"/></td>
+				</tr>
+
+				 <tr>
+		      		<td class="add-card-action">
+		      			<button type="submit" class= "add-card-submit">Add Bank Account</button>
+
+		      		</td>
+
+		      		<td class="add-card-action">
+		      			<a id="addCardLink" class="cancel-card-submit" onclick="toggleModal();">cancel</a>
+		      		</td>
+		      	</tr>
+
+			</table>
+
 
   		<% end %>
+
+  				<%#render'bank_accounts/addbankaccountform'%>
 
   	</div>
 

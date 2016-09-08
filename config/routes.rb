@@ -39,6 +39,10 @@ Rails.application.routes.draw do
 
   post 'update_stripe_account' => 'pages#update_stripe_account'
 
+  post 'update_bank_account' => 'pages#update_bank_account'
+
+  post 'new_bank_account' => 'pages#new_bank_account'
+
   get '/:display_name' => 'pages#profile', as: 'profile'
 
   get '/:display_name/about' => 'pages#profile_about', as: 'profile_about'
