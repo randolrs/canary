@@ -1,0 +1,138 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sidebar-panel{
+
+	ul{
+        	
+    	list-style-type: none;
+	    margin: 0;
+	    padding: 0px;
+	    display: block;
+
+		li{
+
+			display: block;
+
+			background-color: #c02929;
+
+			border-bottom: 1px solid #aa2929;
+
+			a{
+
+	    		display: block;
+	    		font-size: 18px;
+	    		font-weight: 500;
+    			letter-spacing: 1.1px;
+    			padding: 12px 20px;
+                color: #fff;
+                text-shadow: 0px 1px 1px #111;
+
+    		}
+
+    		a.title{
+				font-weight: 600;
+				font-size: 32px;
+				font-family: 'Lobster', cursive;
+			}
+
+    		a.header-cta.purple{
+                text-shadow: 0px 1px 2px #222;
+                background-color: #AA076B;
+                background-image: -webkit-gradient(linear, left top, left bottom, from(#F20A98), to(#AA076B));
+                background-image: -webkit-linear-gradient(top, #F20A98, #AA076B);
+                background-image: -moz-linear-gradient(top, #F20A98, #AA076B);
+                background-image: -ms-linear-gradient(top, #F20A98, #AA076B);
+                background-image: -o-linear-gradient(top, #F20A98, #AA076B);
+                background-image: linear-gradient(top, #F20A98, #AA076B);
+                color: #fff;
+                border: 1px solid rgba(100, 0, 100, 0.5);
+                box-shadow: inset 0px 1px 2px 0px #FFaaff;
+            }
+
+
+    		a:hover{
+    			
+    		}
+
+    	}
+
+    	li:first-child{
+
+    	}
+
+    	li:last-child{
+    		
+    		
+    	}
+
+    	li.dashboard-header{
+			
+			border-bottom: none;
+
+			a.title{
+				font-weight: 600;
+				font-size: 32px;
+				font-family: 'Lobster', cursive;
+				text-shadow: 0px 2px 1px #111;
+			}
+
+			a:hover{
+				color: #fff;
+			}
+
+			
+    	}
+
+    	li.dashboard-header:hover{
+
+    		cursor: pointer;
+
+			box-shadow: none;
+
+			
+    	}
+
+
+    	li.active{
+
+    		background: #882929;
+
+    		a{
+    			
+    			font-weight: 600;
+    		}
+
+
+    	}
+
+    	li.mobile-only{
+			display: none;
+		}
+
+    	li:hover{
+    		
+    		cursor: pointer;
+
+    		box-shadow: none;
+
+    		background-color: #aa2929;
+
+    		a{
+    			
+
+    		}
+    	}
+
+    	li.active:hover{
+
+    		cursor: pointer;
+
+    		background-color: #882929;
+
+    	}
+
+    }
+	
+}

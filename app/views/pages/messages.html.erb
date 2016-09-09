@@ -1,20 +1,16 @@
 
 <% if user_signed_in? %>
 
-	<div class="dashboard-content">
+	<div class="sidebar-container">
 
-		<div class="content-column sidebar full-content">
+		<%= render 'pages/user/dashboard_side_panel' %>
 
-			<%= render 'pages/user/dashboard_side_panel' %>
-
-		</div>
+	</div>
 
 
-		<div class="content-column sidebar-content">
+	<div class="dashboard-container">
 
-			<%= render 'pages/user/messages' %>
-
-		</div>
+		<%= render 'pages/user/messages' %>
 
 	</div>
 

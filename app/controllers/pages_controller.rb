@@ -6,6 +6,8 @@ class PagesController < ApplicationController
 	def home
 
 		@page = "work"
+
+		@page_title = "Home"
 		
 	end
 
@@ -17,11 +19,17 @@ class PagesController < ApplicationController
 
 	def settings
 
+		@page_title = "Account Settings"
+
 		@page = "settings"
 
 	end
 
 	def payment_settings
+
+		@page_title = "Account Settings"
+
+		@page = "settings"
 
 		if user_signed_in?
 
@@ -82,6 +90,8 @@ class PagesController < ApplicationController
 
 		@page = "balance"
 
+		@page_title = "My Sales"
+
 	end
 
 	def balance_payments
@@ -101,11 +111,16 @@ class PagesController < ApplicationController
 
 		@page = "messages"
 
+		@page_title = "Messages"
+
+
 	end
 
 	def my_work
 
 		@page = "work"
+
+		@page_title = "My Portfolio"
 
 	end
 
@@ -253,6 +268,11 @@ class PagesController < ApplicationController
 
 
 	def bank_accounts
+
+		@page_title = "Account Settings"
+
+		@page = "settings"
+
 
 		account = Stripe::Account.retrieve(current_user.stripe_account_id)
 

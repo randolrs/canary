@@ -33,17 +33,6 @@ html, body{
 }
 
 
-.content-container{
-	height: auto;
-	width:100%;
-	min-height: 100%;
-	max-width:100%;
-  padding-top: 55px;
-  font-family: 'Lato', sans-serif;
-  background: rgba(255,255,255,0.98);
-  position: relative;
-
-}
 
 .blurred{
 	-webkit-filter: blur(3px);

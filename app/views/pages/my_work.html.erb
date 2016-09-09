@@ -1,22 +1,19 @@
 
 <% if user_signed_in? %>
 
-	<div class="dashboard-content">
+	<div class="sidebar-container">
 
-		<div class="content-column sidebar full-content">
-
-			<%= render 'pages/user/dashboard_side_panel' %>
-
-		</div>
-
-
-		<div class="content-column sidebar-content">
-
-			<%= render 'pages/user/my_work' %>
-
-		</div>
+		<%= render 'pages/user/dashboard_side_panel' %>
 
 	</div>
+
+
+	<div class="dashboard-container">
+
+		<%= render 'pages/user/my_work' %>
+
+	</div>
+
 
 <%end%>
 	

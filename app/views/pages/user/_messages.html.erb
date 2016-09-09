@@ -1,8 +1,8 @@
+<%= render 'pages/user/dashboard_header' %>
+
 <div class="dashboard-panel" id="messages-content">
 
 	<%= render 'pages/user/warnings' %>
-	
-	<h3 class="text-header-underline"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Inbox</h3>
 
 	<% if current_user.messages_to_me.count > 0 %>
 			
