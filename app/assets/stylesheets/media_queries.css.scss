@@ -25,12 +25,21 @@
 				display: none;
 			}
 
+			.context-header-container{
+				display: none;
+			}
+
 			.dashboard-container{
 
 				.dashboard-panel{
 	        		padding: 30px 10px;
 	        	}
 
+        	}
+
+        	.dashboard-header{
+
+        		text-align: center;
         	}
 
 			.content-container{

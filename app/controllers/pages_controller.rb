@@ -273,12 +273,11 @@ class PagesController < ApplicationController
 
 		@page = "settings"
 
-
 		account = Stripe::Account.retrieve(current_user.stripe_account_id)
 
 		@accounts = account.external_accounts.all(:object => "bank_account", :limit => 5)
 
-      	#@defaultaccount = @accounts.find {|x| x.default_for_currency}
+      	@defaultaccount = @accounts.find {|x| x.default_for_currency}
 
 	end
 
@@ -307,12 +306,13 @@ class PagesController < ApplicationController
 
 	def new_bank_account
 
-		if params[:country] && params[:bankName] && params[:routingNumber] && params[:accountNumber]
+		if params[:accountHolder] && params[:country] && params[:routingNumber] && params[:accountNumber]
 			
 			token = Stripe::Token.create(
 	    		:bank_account => {
 			    :country => params[:country],
-			    :bank_name => params[:bankName],
+			    :account_holder_name => params[:accountHolder],
+			    :account_holder_type => "individual",
 			    :routing_number => params[:routingNumber],
 			    :account_number => params[:accountNumber],
 	  			},

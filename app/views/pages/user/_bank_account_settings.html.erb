@@ -14,78 +14,51 @@
 
 		<% if @defaultaccount %>
 
-			<%= form_tag update_bank_account_path, id: 'bankAccountForm', class: 'edit_user_settings' do %>
+			<h3>Current Bank Account:</h3>
+  	
+			<p><%=@defaultaccount.bank_name + " •••• •••• •••• " + @defaultaccount.last4 %></p>
+			
+			<br>
 
-			  		<b>Current Bank Account:</b> <br>
-			  	
-					<%= @defaultaccount.bank_name + " •••• •••• •••• " + @defaultaccount.last4 %>
-
-
-				<select name="newdefault"/>
-				     
-				    <option value selected="selected" disabled="disabled">update bank account</option>
-				      		
-				    <% @accounts.each do |account| %>
-
-						<option value=<%=account.id%>><%=account.bank_name%> <%=account.last4 %> <% if account.default_for_currency %> (default)<%end%>
-
-					<%end%>
-
-				</select>
-
-				<br><br>
-
-				<button type="submit" class= "blue-background button medium">Update</button>
-
-	  		<% end %>
-
-  		<%end%>
-
+		<%end%>
 
   		<%= form_tag new_bank_account_path, id: 'bankAccountForm', class: 'edit_user_settings' do %>
 
-			<table class="card-form">
+			<table class="bank-account-form">
 
 		      	<span class='payment-errors'></span>
 
-		      	<tr class="add-card-form-header">
-		      		<td class="add-card-header" colspan="2">
-		      			<b>Add New Bank Account</b>
-		      		</td>
-		      	</tr>
 		      	<tr>
-					<td><span>Bank Location</span></td>
+					<td><b>Bank Location</b></td>
 					<td><select name="country">
 		                <option value="US">United States</option>
 		                <option value="CAN">Canada</option>
 		            </select></td>
 				</tr>
 				<tr>
-					<td><span>Name of Banking Institution</span></td>
-					<td><input type="text" size="9" name="bankName"/></td>
+					<td><b>Name on Account</b></td>
+					<td><input type="text" name="accountHolder"/></td>
 				</tr>
 				<tr>
-					<td><span>Routing Number</span></td>
+					<td><b>Routing Number</b></td>
 					<td><input type="text" size="9" name="routingNumber" autocomplete="off"></td>
 				</tr>
 				<tr>
-					<td><span>Account Number</span></td>
+					<td><b>Account Number</b></td>
 					<td><input type="text" size="17" name="accountNumber" autocomplete="off"></td>
 				</tr>
 				<tr>
-					<td><span>Description</span></td>
+					<td><b>Description</b></td>
 					<td><input type="text" size="9" name="description"/></td>
 				</tr>
 
 				 <tr>
-		      		<td class="add-card-action">
-		      			<button type="submit" class= "add-card-submit">Add Bank Account</button>
+		      		
+		      		<td colspan="2">
+		      			<button type="submit" class= "blue-background medium">Update Bank Account</button>
 
 		      		</td>
 
-		      		<td class="add-card-action">
-		      			<a id="addCardLink" class="cancel-card-submit" onclick="toggleModal();">cancel</a>
-		      		</td>
 		      	</tr>
 
 			</table>

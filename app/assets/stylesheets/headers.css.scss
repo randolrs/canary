@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html{
+
 body{
 
     .header-container{
@@ -101,5 +103,51 @@ body{
     .mobile-menu-options{
         display: none;
     }
+
+    .context-header-container{
+        background: #000;
+
+        .context-header-content{
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+
+            a{
+                line-height: 40px;
+                
+            }
+
+            a.return-home{
+                position:absolute;
+                left:0px;
+                background-color: #c02929;
+                color: #fff;
+                text-shadow: 0px 1px 1px #111;
+                padding: 0px 10px;
+
+            }
+
+            a.return-home:hover{
+                
+            }
+
+            a.title{
+                font-weight: 600;
+                font-size: 32px;
+                font-family: 'Lobster', cursive;
+                color: #fff;
+            }
+
+            a.title:hover{
+                cursor: pointer;
+            }
+
+
+
+
+        }
+    }
+
+}
 
 }
