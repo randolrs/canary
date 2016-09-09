@@ -38,6 +38,13 @@
 
 				</li>
 
+				<li class="dashboard-option" id="add-listing-cta" data-content-panel="settings-content">
+					
+					<a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "sidebar-profile-image"%><%= current_user.display_name %></a>
+
+				</li>
+
+
 
 <!-- 				<li class="dashboard-option <%# if @page=="views" %>active<%#end%>" id="views" data-content-panel="views-content">
 					
@@ -45,6 +52,11 @@
 
 				</li> -->
 
+				<li class="dashboard-option" id="add-listing-cta" data-content-panel="settings-content">
+					
+					<a class="green-background" href='<%=new_item_art_path%>'><span class="glyphicon glyphicon-plus"></span><span>Add New Artwork</span></a>
+
+				</li>
 
 				<li class="dashboard-option <% if @page=="settings" %>active<%end%>" id="account-settings" data-content-panel="settings-content">
 					
@@ -52,11 +64,7 @@
 
 				</li>
 
-				<li class="dashboard-option mobile-only" id="add-listing-cta" data-content-panel="settings-content">
-					
-					<a class="header-cta purple" href='<%=new_item_art_path%>'><span class="glyphicon glyphicon-plus"></span><span>Add New Artwork</span></a>
-
-				</li>
+				
 
 <!-- 				<li class="dashboard-option mobile-only" id="add-exhibition-cta" data-content-panel="settings-content">
 					
