@@ -22,11 +22,15 @@ class ChargesController < ApplicationController
 
 	  price = params[:amount]
 
+	  platform_fee = (price.to_i * 0.2).to_i
+
 	  charge = Stripe::Charge.create(
 	    :customer    => customer.id,
 	    :amount      => price,
 	    :description => 'Rails Stripe customer',
-	    :currency    => 'usd'
+	    :currency    => 'usd',
+	    :destination => @item_art.user.stripe_account_id,
+	    :application_fee => platform_fee
 	  )
 
 	purchase = Purchase.create(email: params[:stripeEmail], stripe_card_id: params[:stripeToken], 
