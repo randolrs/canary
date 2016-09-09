@@ -13,6 +13,11 @@
 				display: inherit;
 			}
 
+			.header-container.mobile-only{
+        		display: block;
+    		}
+
+
 			.sidebar-container{
 				display: none;
 			}

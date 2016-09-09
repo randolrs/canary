@@ -5,6 +5,10 @@
 html{
 
 body{
+    
+    .header-container.mobile-only{
+        display: none;
+    }
 
     .header-container{
         
@@ -14,8 +18,6 @@ body{
         background: #111;
         z-index: 999;
         padding: 0px 30px;
-
-        display: none;
 
 
         .header-content{
@@ -104,7 +106,7 @@ body{
         display: none;
     }
 
-    .context-header-container{
+    .context-header-container, .header-container{
         background: #000;
 
         .context-header-content{

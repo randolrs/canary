@@ -8,6 +8,10 @@ class PagesController < ApplicationController
 		@page = "work"
 
 		@page_title = "Home"
+
+		if user_signed_in?
+			@hide_header = true
+		end
 		
 	end
 
@@ -23,6 +27,10 @@ class PagesController < ApplicationController
 
 		@page = "settings"
 
+		if user_signed_in?
+			@hide_header = true
+		end
+
 	end
 
 	def payment_settings
@@ -30,6 +38,10 @@ class PagesController < ApplicationController
 		@page_title = "Account Settings"
 
 		@page = "settings"
+
+		if user_signed_in?
+			@hide_header = true
+		end
 
 		if user_signed_in?
 
@@ -92,11 +104,19 @@ class PagesController < ApplicationController
 
 		@page_title = "My Sales"
 
+		if user_signed_in?
+			@hide_header = true
+		end
+
 	end
 
 	def balance_payments
 
 		@page = "balance"
+
+		if user_signed_in?
+			@hide_header = true
+		end
 
 	end
 
@@ -113,6 +133,10 @@ class PagesController < ApplicationController
 
 		@page_title = "Messages"
 
+		if user_signed_in?
+			@hide_header = true
+		end
+
 
 	end
 
@@ -121,6 +145,10 @@ class PagesController < ApplicationController
 		@page = "work"
 
 		@page_title = "My Portfolio"
+
+		if user_signed_in?
+			@hide_header = true
+		end
 
 	end
 
@@ -198,6 +226,10 @@ class PagesController < ApplicationController
 
 		account = Stripe::Account.retrieve(current_user.stripe_account_id)
 
+		if user_signed_in?
+			@hide_header = true
+		end
+
 		if params[:firstName].size > 0
 			account.legal_entity.first_name = params[:firstName].upcase
 		end
@@ -272,6 +304,10 @@ class PagesController < ApplicationController
 		@page_title = "Account Settings"
 
 		@page = "settings"
+
+		if user_signed_in?
+			@hide_header = true
+		end
 
 		account = Stripe::Account.retrieve(current_user.stripe_account_id)
 
