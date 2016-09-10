@@ -39,8 +39,11 @@
 
 			.dashboard-container{
 
+				margin: 0px;
+				
 				.dashboard-panel{
 	        		padding: 30px 10px;
+	        		padding-top: 100px;
 	        	}
 
         	}
@@ -48,6 +51,7 @@
         	.dashboard-header{
 
         		text-align: center;
+        		display: block;
         	}
 
 			.content-container{

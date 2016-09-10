@@ -15,7 +15,7 @@ body{
         position: fixed;
         top: 0px;
         width: 100%;
-        background: #111;
+        background: #242424;
         z-index: 999;
         padding: 0px 30px;
 
@@ -107,7 +107,7 @@ body{
     }
 
     .context-header-container, .header-container{
-        background: #000;
+        background: #242424;
 
         .context-header-content{
             text-align: center;
@@ -122,7 +122,7 @@ body{
             a.return-home{
                 position:absolute;
                 left:0px;
-                background-color: #c02929;
+                background-color: #109121;
                 color: #fff;
                 text-shadow: 0px 1px 1px #111;
                 padding: 0px 10px;

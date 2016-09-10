@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
 	def home
 
-		@page = "work"
+		@page = "home"
 
 		@page_title = "Home"
 

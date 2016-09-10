@@ -15,10 +15,6 @@
 
 			display: block;
 
-			background-color: #c02929;
-
-			border-bottom: 1px solid #aa2929;
-
 			a{
 
 	    		display: block;
@@ -68,8 +64,16 @@
     	}
 
     	li.dashboard-header{
+
+            text-align: center;
 			
 			border-bottom: none;
+            padding: 20px 0px;
+
+            a{
+                display: inline-block;
+                padding: 5px;
+            }
 
 			a.title{
 				font-weight: 600;
@@ -77,6 +81,17 @@
 				font-family: 'Lobster', cursive;
 				text-shadow: 0px 2px 1px #111;
 			}
+
+            a.name{
+                font-size: 24px;
+            }
+
+            a.cta{
+
+                border-radius: 30px;
+                padding: 10px;
+                margin: 10px 0px;
+            }
 
 			a:hover{
 				color: #fff;
@@ -87,7 +102,7 @@
 
     	li.dashboard-header:hover{
 
-    		cursor: pointer;
+    		
 
 			box-shadow: none;
 
@@ -97,7 +112,11 @@
 
     	li.active{
 
-    		background: #882929;
+    	   background: #16c72e;
+            border-top: 1px solid #0a5c15;
+            border-bottom: 1px solid #0a5c15;
+            border-left: 5px solid #fff;
+            box-shadow: 0px 2px 1px #0a5c15;
 
     		a{
     			
@@ -111,13 +130,13 @@
 			display: none;
 		}
 
-    	li:hover{
+    	li.dashboard-option:hover{
     		
     		cursor: pointer;
 
     		box-shadow: none;
 
-    		background-color: #aa2929;
+    		background: #16c72e;
 
     		a{
     			
@@ -129,17 +148,14 @@
 
     		cursor: pointer;
 
-    		background-color: #882929;
-
     	}
 
     }
 
     .sidebar-profile-image{
-        width: 30px;
-        height: 30px;
-        border-radius: 45px;
-        margin-right: 5px;
+        width: 60px;
+        height: 60px;
+        border-radius: 60px;
         border: 2px solid #fff;
         box-shadow: 0px 1px 2px #222;
     }
