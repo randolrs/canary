@@ -14,13 +14,15 @@
 
 					<div class="message-sender">
 
-						<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%><span class="message-list-sender"><%= current_user.display_name %></span></span>
+						<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></span>
 
 					</div>
 
 					<div class="message-text">
-
-						<span class="message-list-subject"><%= message.subject %></span><span><%= message.body %></span>
+						
+						<span class="message-list-sender"><%= current_user.display_name %></span>
+						<br>
+						<span><%= message.body %></span>
 
 					</div>
 

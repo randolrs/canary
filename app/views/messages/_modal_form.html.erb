@@ -10,25 +10,10 @@
 
       <%= f.number_field :recipient_id, :value => @message_recipient.id, :hidden => true  %>
 
-<!--       <div class="field">
-        <%# f.label :sender_id %><br>
-        <%# f.number_field :sender_id %>
-      </div>
       <div class="field">
-        <%# f.label :recipient_id %><br>
-        <%# f.text_field :recipient_id %>
-      </div> -->
-
-
-
-      <div class="field">
-        <%= f.label :subject %><br>
-        <%= f.text_field :subject %>
-      </div>
-      <div class="field">
-        <%= f.label :body %><br>
         <%= f.text_area :body %>
       </div>
+      
       <div class="actions">
         <%= f.submit "Send", class: 'button red-background'  %>
       </div>

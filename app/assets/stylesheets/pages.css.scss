@@ -304,7 +304,9 @@ ul.horizontal{
 
 	li.active{
 		background: #fff;
-		border: 1px solid #ccc;
+		border: 1px solid #aaa;
+    	box-shadow: none;
+    	font-weight: 800;
 
 		a{
 			color: #111;

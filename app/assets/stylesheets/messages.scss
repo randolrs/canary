@@ -64,7 +64,6 @@ div.message{
 	padding: 10px;	
 	border: 1px solid #bbb;
     box-shadow: 0px 1px 1px #ccc;
-    margin-bottom: 10px;
     background: #fff;
 }
 
@@ -87,9 +86,8 @@ div.message-index{
 .message-sender, .message-text, .message-date, .message-action{
 	
 	display: table-cell;
-	width: 50%;
 	vertical-align: middle;
-	padding-right: 30px;
+	padding:5px;
 
 	span.message-list-subject{
 		font-weight: 600;
@@ -102,5 +100,13 @@ div.message-index{
 		font-size: 16px;
 	}
 
+}
+
+.message-sender, .message-action{
+	width:100px;
+}
+
+.message-text{
+	width: 80%;
 }
 
