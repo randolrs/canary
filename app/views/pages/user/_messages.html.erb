@@ -3,51 +3,53 @@
 <div class="dashboard-panel" id="messages-content">
 
 	<!-- <h3 class="dashboard-header-text"><%# @page_title %></h3> -->
+	
+	<div class="message-index-container">
 
-	<% if current_user.messages_to_me.count > 0 %>
-			
-		<% current_user.messages_to_me.each do |message| %>
+		<ul class="horizontal full-length">
 
-			<%= link_to(message) do %>
+			<li class="blue-background active"><%= link_to "Inbox", settings_path %></li><li class="blue-background"><%= link_to "Outbox", payment_settings_path %></li><li class="blue-background"><%= link_to "Payments", bank_accounts_path %></li>
+
+		</ul>
+
+		<% if current_user.messages_to_me.count > 0 %>
 				
-				<div class="message">
+			<% current_user.messages_to_me.each do |message| %>
 
-					<div class="message-sender">
+				<%= link_to(message) do %>
+					
+					<div class="message">
 
-						<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></span>
+						<div class="message-sender">
 
-					</div>
+							<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></span>
 
-					<div class="message-text">
-						
-						<span class="message-list-sender"><%= current_user.display_name %></span>
-						<br>
-						<span><%= message.body %></span>
+						</div>
 
-					</div>
+						<div class="message-text">
+							
+							<span class="message-list-sender"><%= current_user.display_name %></span>
+							<br>
+							<span><%= message.body %></span>
 
-					<div class="message-action">
-
-						<span><%= message.created_at.strftime("%b %d") %></span>
-
-						<span class="glyphicon glyphicon-trash"></span>
+						</div>
 
 					</div>
 
-				</div>
+				<%end%>
 
-			<%end%>
+			<% end%>
+
+		<% else %>
+
+			<div class="nothing-to-see-container">
+
+				<p>No incoming messages.</p>
+
+			</div>
 
 		<% end%>
 
-	<% else %>
-
-		<div class="nothing-to-see-container">
-
-			<p>No incoming messages.</p>
-
-		</div>
-
-	<% end%>
+	</div>
 
 </div>

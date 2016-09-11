@@ -7,7 +7,7 @@ class PagesController < ApplicationController
 
 		@page = "home"
 
-		@page_title = "Home"
+		@page_title = "Dashboard"
 
 		if user_signed_in?
 			@hide_header = true
@@ -131,7 +131,7 @@ class PagesController < ApplicationController
 
 		@page = "messages"
 
-		@page_title = "Messages"
+		@page_title = "Inbox"
 
 		if user_signed_in?
 			@hide_header = true
