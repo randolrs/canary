@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
 
         account = Stripe::Account.create({:country => "CA", :managed => true})
 
-        current_user.update(:stripe_account_id => account.id)
+        current_user.update(:stripe_account_id => account.id, :stripe_secret_key => account.keys.secret)
 
         account.tos_acceptance.date = Time.now.to_i
 

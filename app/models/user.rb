@@ -37,6 +37,12 @@ class User < ActiveRecord::Base
 
   end
 
+  def total_revenue
+
+    return self.purchases_of_my_work.sum("amount")
+
+  end
+
 
   def recent_activity
 
@@ -72,6 +78,24 @@ class User < ActiveRecord::Base
 
     return activity.sort_by { |k| k['created_at'] }.reverse
 
+
+  end
+
+  def stripe_balance
+
+      if self.stripe_secret_key
+
+        Stripe.api_key = self.stripe_secret_key
+
+        balance_object = Stripe::Balance.retrieve()
+
+        @user_stripe_balance = balance_object.available[0]['amount']
+
+        return balance_object.available[0]['amount']
+
+      end
+
+      return 0
 
   end
   

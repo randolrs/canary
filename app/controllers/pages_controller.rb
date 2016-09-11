@@ -9,6 +9,8 @@ class PagesController < ApplicationController
 
 		@page_title = "Dashboard"
 
+
+
 		if user_signed_in?
 			@hide_header = true
 		end

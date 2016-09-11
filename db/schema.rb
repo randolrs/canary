@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160907185931) do
+ActiveRecord::Schema.define(version: 20160911175348) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20160907185931) do
     t.datetime "image_updated_at"
     t.text     "about",                  default: ""
     t.string   "stripe_account_id"
+    t.string   "stripe_secret_key"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

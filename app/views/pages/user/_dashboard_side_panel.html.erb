@@ -5,6 +5,8 @@
 		<li class="dashboard-header" id="site-title">
 			
 			<a class="name" href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "sidebar-profile-image"%><br><%= current_user.display_name %></a>
+			<br>
+			<a>Balance: <%= number_to_currency(current_user.stripe_balance) %></a>
 
 			<a href='<%=new_item_art_path%>' class="cta red-background"><span class="glyphicon glyphicon-plus"></span><span>Add New Artwork</span></a>
 
