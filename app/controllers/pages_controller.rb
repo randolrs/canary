@@ -174,13 +174,13 @@ class PagesController < ApplicationController
 
 			else
 
-				@page_title = @user.display_name + " Profile"
+				@page_title = @user.display_name.possessive + " Profile"
 
 			end
 
 		else
 
-			@page_title = @user.display_name + " Profile"
+			@page_title = @user.display_name.possessive + " Profile"
 
 		end
 
