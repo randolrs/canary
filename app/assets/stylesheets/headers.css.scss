@@ -15,10 +15,9 @@ body{
         position: fixed;
         top: 0px;
         width: 100%;
-        background: #242424;
+        background: #fff;
+        box-shadow: 0px 2px 1px #999;
         z-index: 999;
-        padding: 0px 30px;
-
 
         .header-content{
 
@@ -42,13 +41,29 @@ body{
         	    		font-weight: 500;
             			letter-spacing: 1.1px;
             			padding: 5px 10px;
-                        color: #fff;
+                        color: #666;
                         margin: 0 5px;
                         line-height: 46px;
-                        text-shadow: 0px 2px 1px #000;
                         font-family: 'Lato', sans-serif;
 
             		}
+
+                    a.header-page-title{
+                        color: #222;
+                        font-weight: 600;
+                    }
+
+                    a.header-return-home{
+                        margin: 0px;
+                        padding: 5px 15px;
+
+                    }
+
+                    a.header-return-home:hover{
+                        background: #333;
+                        color:#fff;
+                        cursor: pointer;
+                    }
 
             		a.header-logo{
         	
@@ -100,6 +115,7 @@ body{
         margin: 0px 5px;
         border: 2px solid #fff;
         box-shadow: 0px 1px 2px #222;
+        vertical-align: top;
     }
 
     .mobile-menu-options{
@@ -107,7 +123,7 @@ body{
     }
 
     .context-header-container, .header-container{
-        background: #242424;
+   
 
         .context-header-content{
             text-align: center;

@@ -21,15 +21,22 @@
 
 				<ul class="header-left">
 
-					<li><%= link_to "Artagami", root_path, class: "header-logo" %></li>
+					<!-- <li><%#= link_to "Artagami", root_path, class: "header-logo" %></li> -->
+					<% unless @hide_return_to_home %>
+						
+						<li><a class="header-return-home" href="<%= root_path %>"><span class="glyphicon glyphicon-arrow-left"></span></a></li>
+
+					<%end%>
+
+					<li><a class="header-page-title"><%= @page_title %></a></li>
 
 				</ul>
 
 				<ul class="header-right">
 
-					<!-- <li class="mobile-only"><a href="<%# inbox_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li> -->
+					<li class="mobile-only"><a href="<%= inbox_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li>
 
-					<li class="mobile-only"><a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></a></li>
+					<li class="mobile-only"><a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "header-profile-image" %></a></li>
 
 					<li class="mobile-only"><a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
 

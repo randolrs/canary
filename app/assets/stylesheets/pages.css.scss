@@ -381,3 +381,39 @@ table.sales-index{
 		}
 	}
 }
+
+.squared-profile-image{
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px #222;
+    vertical-align: top;
+}
+
+.informational-header{
+	
+	padding: 10px;
+	background: #fcfcfc;
+
+	.column-container{
+		display: table-cell;
+		padding: 0px 10px;
+		vertical-align: middle;
+	}
+
+	.item-name{
+		font-weight: 800;
+		font-size: 20px;
+
+	}
+
+	.artist-name{
+		a{
+			color: green;
+			text-shadow: 0px 1px 1px #bbb;
+			font-size: 16px;
+		}
+		
+	}
+}
+

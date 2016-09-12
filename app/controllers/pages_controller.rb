@@ -9,6 +9,8 @@ class PagesController < ApplicationController
 
 		@page_title = "Dashboard"
 
+		@hide_return_to_home = true
+
 
 
 		if user_signed_in?
