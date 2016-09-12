@@ -194,6 +194,47 @@
     text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
 }
 
+.bright-blue-background{
+
+	background-color: #30e8bd;
+    border: 1px solid #109173;
+    box-shadow: inset 0px 1px 3px 0px #eee;
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
+}
+
+.bright-peach-background{
+
+	background-color: #ee8f66;
+    border: 1px solid #4f1091;
+    box-shadow: inset 0px 1px 3px 0px #eee;
+
+    a{
+    	color: #222;
+    	text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
+    }
+    
+}
+
+.bright-yellow-background{
+	 
+	background-color: #e8e230;
+    border: 1px solid #918d10;
+    box-shadow: inset 0px 1px 3px 0px #eee;
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
+}
+
+.bright-pink-background{
+	
+	background-color: #ee66aa;
+    border: 1px solid #911051;
+    box-shadow: inset 0px 1px 3px 0px #eee;
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
+ 
+}
+
 span.divider-text{
 	font-size: 30px;
     color: #999;
@@ -283,9 +324,7 @@ ul.horizontal{
            	color: #fff;
 		}
 
-		a.light{
-			color: #fff;
-		}
+
 
 		a.stats{
 			
@@ -326,6 +365,17 @@ ul.horizontal{
 		a{
 			color: #111;
 			text-shadow: none;
+		}
+	}
+
+	li.dark-text{
+
+
+		a{
+			color: #222;
+			text-shadow: 0px 1px 0px #ddd;
+			font-weight: 800;
+			
 		}
 	}
 
