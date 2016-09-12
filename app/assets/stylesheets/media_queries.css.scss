@@ -8,13 +8,19 @@
 	html body .header-container .header-content ul li a.header-page-title {
 			    font-size: 18px;
 			}
-			
+
 	html{
 
 		body{
 
 			.mobile-only{
 				display: inherit;
+			}
+
+			.dashboard-horizontal-item {
+			    display: block;
+			    width: auto;
+			    padding: 30px 20px;
 			}
 
 			.header-container.mobile-only{

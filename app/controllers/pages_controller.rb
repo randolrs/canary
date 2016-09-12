@@ -126,7 +126,13 @@ class PagesController < ApplicationController
 
 	def views
 
+		@page_title = "Views"
+
 		@page = "views"
+
+		if user_signed_in?
+			@hide_header = true
+		end
 
 
 	end

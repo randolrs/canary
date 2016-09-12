@@ -1,8 +1,6 @@
-<div class="dashboard-panel" id="views-content">
+<%= render 'pages/user/dashboard_header' %>
 
-	<%= render 'pages/user/warnings' %>
-	
-	<h3 class="text-header-underline">Views</h3>
+<div class="dashboard-panel" id="views-content">
 
 	<% if current_user.views.count > 0 %>
 		
