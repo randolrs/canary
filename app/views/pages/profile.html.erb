@@ -1,33 +1,40 @@
-<%= render 'headers/context_header' %>
+<%# render 'headers/context_header' %>
 
-<div class="profile-header">
+<div class="open-page-container">
 
-	<div class="profile-header-content">
+	<div class="profile-header">
 
-		<div class="profile-header-image">
+		<div class="profile-header-content">
 
-			<%= image_tag @user.image.url(:medium), class: "medium-profile-image"%>
+			<div class="profile-header-image">
 
-		</div>
+				<%= image_tag @user.image.url(:medium), class: "medium-profile-image"%>
 
+			</div>
 
-		<div class="profile-header-text">
+			<div class="profile-header-text">
 
-			<h2><%= @user.display_name %></h2>
+				<h2><%= @user.display_name %></h2>
 
-			<% if @user.about.length > 0 %>
+				<% if @user.about.length > 0 %>
 
-				<p class="about"><%= @user.about %></p>
-				
-			<%else%>
+					<p class="about"><%= @user.about %></p>
+					
+				<%else%>
 
-				<div class="nothing-to-see-container no-margin">
+					<div class="nothing-to-see-container no-margin">
 
-					<% if user_signed_in?%>
+						<% if user_signed_in?%>
 
-						<% if current_user.id == @user.id %>
-							
-							<p>You have not written a bio yet. <%= link_to "Go to Account Settings", settings_path, class: "warning-text-cta" %> to update bio.</p>
+							<% if current_user.is_me(@user) %>
+								
+								<p>You have not written a bio yet. <%= link_to "Go to Account Settings", settings_path, class: "warning-text-cta" %> to update bio.</p>
+
+							<%else%>
+
+								<p><%= @user.display_name %> has not written a bio yet.</p>
+
+							<%end%>
 
 						<%else%>
 
@@ -35,83 +42,79 @@
 
 						<%end%>
 
-					<%else%>
+					</div>
 
-						<p><%= @user.display_name %> has not written a bio yet.</p>
+				<%end%>
 
-					<%end%>
+			</div>
 
-				</div>
+			<% if user_signed_in? %>
+				<% unless current_user.id == @user.id %>
+				
+					<a class="message-modal modal-cta button medium red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Send Message</a>
+
+				<%end%>
 
 			<%end%>
 
 		</div>
 
-		<% if user_signed_in? %>
-			<% unless current_user.id == @user.id %>
-			
-				<a class="message-modal modal-cta button medium red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Send Message</a>
-
-			<%end%>
-
-		<%end%>
-
 	</div>
 
-</div>
+	<div class="profile-content">
 
-<div class="profile-content">
+		<div id="portfolio">
 
-	<div id="portfolio">
+			<% if @user.item_arts.count > 0 %>
 
-		<% if @user.item_arts.count > 0 %>
+				<% @user.item_arts.each do |item| %>
 
-			<% @user.item_arts.each do |item| %>
+					<%= link_to(item) do %>
+					
+						<div class="lightbox">
 
-				<%= link_to(item) do %>
-				
-					<div class="lightbox">
+							<%= image_tag item.image.url, class: "medium-item-image"%>
 
-						<%= image_tag item.image.url, class: "medium-item-image"%>
+						</div>
 
-					</div>
+					<% end %>
 
 				<% end %>
 
-			<% end %>
+			<%else%>
 
-		<%else%>
+				<div class="nothing-to-see-container">
 
-			<div class="nothing-to-see-container">
+					<p>
 
-				<p>
+						<% if user_signed_in?%>
 
-					<% if user_signed_in?%>
+							<% if current_user.id == @user.id %>
+								You have not shared any artwork yet. <%= link_to "Add Art Works", new_item_art_path, class: "warning-text-cta" %>
+							<%else%>
 
-						<% if current_user.id == @user.id %>
-							You have not shared any artwork yet. <%= link_to "Add Art Works", new_item_art_path, class: "warning-text-cta" %>
+								<%= @user.display_name%> has not shared any artwork yet.
+
+							<%end%>
+
 						<%else%>
 
 							<%= @user.display_name%> has not shared any artwork yet.
 
 						<%end%>
 
-					<%else%>
+					</p>
 
-						<%= @user.display_name%> has not shared any artwork yet.
-
-					<%end%>
-
-				</p>
-
-			</div>
+				</div>
 
 
 
-		<%end%>
+			<%end%>
+
+		</div>
+
 
 	</div>
-
 
 </div>
 

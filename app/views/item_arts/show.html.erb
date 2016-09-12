@@ -50,7 +50,7 @@
 
       <% unless @item_art.sold %>
       
-        <a id="item-buy-cta" class="button blue-background large item-buy-action">Buy for <%= number_to_currency(@item_art.price) %></a>
+        <a id="item-buy-cta" class="button green-background large item-buy-action">Buy for <%= number_to_currency(@item_art.price) %></a>
       
       <%else%>
 
@@ -60,7 +60,7 @@
 
     </div>
 
-    <h4 class="text-header-underline">About this Piece</h4>
+    <h4 class="text-header-underline">About</h4>
 
     <p><%= @item_art.description %></p>
 

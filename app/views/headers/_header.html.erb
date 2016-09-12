@@ -2,17 +2,6 @@
 
 	<% if user_signed_in?%>
 
-		<div class="context-header-content full-menu-options">
-
-			<a class="return-home" href="<%= root_path %>"><span class="glyphicon glyphicon-chevron-left" style="margin-right: 5px;"></span>Return to Dashboard</a>
-
-
-			<%= link_to "Artagami", root_path, class: "title" %>
-
-		</div>
-
-		<div class="mobile-menu-options">
-
 			<div class="header-content">
 
 			<% if user_signed_in? %>
@@ -24,7 +13,7 @@
 					<!-- <li><%#= link_to "Artagami", root_path, class: "header-logo" %></li> -->
 					<% unless @hide_return_to_home %>
 						
-						<li><a class="header-return-home" href="<%= root_path %>"><span class="glyphicon glyphicon-arrow-left"></span></a></li>
+						<li><a class="header-return-home" href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span></a></li>
 
 					<%end%>
 
@@ -45,8 +34,6 @@
 				<%end%>
 
 			<%end%>
-
-			</div>
 
 		</div>
 

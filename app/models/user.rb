@@ -98,5 +98,12 @@ class User < ActiveRecord::Base
       return 0
 
   end
+
+  def is_me(user)
+
+
+    return self.id == user.id
+
+  end
   
 end

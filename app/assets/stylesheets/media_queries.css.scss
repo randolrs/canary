@@ -5,6 +5,10 @@
 
 @media only screen and (max-width: 800px) {
 	
+	html body .header-container .header-content ul li a.header-page-title {
+			    font-size: 18px;
+			}
+			
 	html{
 
 		body{
@@ -27,7 +31,10 @@
 
 			.header-container{
 				display: block;
+
 			}
+
+			
 
 			.footer-container{
 				display: none;

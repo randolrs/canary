@@ -160,6 +160,24 @@ class PagesController < ApplicationController
 
 		@user = User.find_by_display_name(params[:display_name])
 
+		if user_signed_in?
+
+			if current_user.is_me(@user)
+
+				@page_title = "My Profile"
+
+			else
+
+				@page_title = @user.display_name + " Profile"
+
+			end
+
+		else
+
+			@page_title = @user.display_name + " Profile"
+
+		end
+
 		@message = Message.new
 
 		@message_recipient = @user

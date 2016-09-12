@@ -42,6 +42,8 @@ class ItemArtsController < ApplicationController
   # GET /item_arts/new
   def new
     @item_art = ItemArt.new
+
+    @page_title = "Add New Artwork"
   end
 
   # GET /item_arts/1/edit

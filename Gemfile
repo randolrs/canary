@@ -19,6 +19,8 @@ gem 'aws-sdk', '< 2.0'
 
 gem 'devise'
 
+gem 'possessive'
+
 gem 'masonry-rails', '~> 0.2.0'
 
 # Use SCSS for stylesheets
