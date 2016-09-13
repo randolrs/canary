@@ -16,7 +16,7 @@
 
   <%= render 'item_arts/show_header' %>
 
-  <div class="content-column primary">
+  <div class="content-column primary has-mobile-header">
 
     <%= image_tag @item_art.image.url, class: "item-art-main-image" %>
 
@@ -66,17 +66,13 @@
 
     <br>
 
-    <h4 class="text-header-underline">About the Artist</h4>
-
-    <p><a href="<%= profile_path(@item_art.user.display_name) %>"><%= image_tag @item_art.user.image.url(:medium), class: "header-profile-image"%><%= @item_art.user.display_name %></a></p>
-
-    <br>
+    <h4 class="text-header-underline">About <%= @item_art.user.display_name %></h4>
 
     <p><%= @item_art.user.about %></p>
 
     <div class="button-container">
     
-      <a class="message-modal modal-cta button large red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Message the Artist</a>
+      <a class="message-modal modal-cta button large red-frame">Contact</a>
     
     </div>
 

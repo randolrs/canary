@@ -73,7 +73,11 @@
 					
 						<div class="lightbox">
 
+							<h4><%= item.name %></h4>
+
 							<%= image_tag item.image.url, class: "medium-item-image"%>
+
+							<h4><%= number_to_currency(item.price)%></h4>
 
 						</div>
 

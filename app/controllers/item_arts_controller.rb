@@ -13,6 +13,8 @@ class ItemArtsController < ApplicationController
 
     @view = View.new
 
+    @page_title = "Artagami"
+
     @view.update(:item_art_id => @item_art.id, :visitor_ip => request.remote_ip)
 
     @view.save

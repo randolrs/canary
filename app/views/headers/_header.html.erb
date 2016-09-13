@@ -11,11 +11,9 @@
 				<ul class="header-left">
 
 					<!-- <li><%#= link_to "Artagami", root_path, class: "header-logo" %></li> -->
-					<% unless @hide_return_to_home %>
 						
-						<li><a class="header-return-home" href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span></a></li>
+					<li><a class="header-return-home" href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span></a></li>
 
-					<%end%>
 
 					<li><a class="header-page-title"><%= @page_title %></a></li>
 
