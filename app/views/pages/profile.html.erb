@@ -22,36 +22,29 @@
 					
 				<%else%>
 
-					<div class="nothing-to-see-container no-margin">
+					<% if user_signed_in?%>
 
-						<% if user_signed_in?%>
+						<% if current_user.is_me(@user) %>
+							
+							<div class="nothing-to-see-container no-margin">
 
-							<% if current_user.is_me(@user) %>
-								
 								<p>You have not written a bio yet. <%= link_to "Go to Account Settings", settings_path, class: "warning-text-cta" %> to update bio.</p>
 
-							<%else%>
-
-								<p><%= @user.display_name %> has not written a bio yet.</p>
-
-							<%end%>
-
-						<%else%>
-
-							<p><%= @user.display_name %> has not written a bio yet.</p>
+							</div>
 
 						<%end%>
 
-					</div>
+					<%end%>
 
 				<%end%>
 
 			</div>
 
 			<% if user_signed_in? %>
+				
 				<% unless current_user.id == @user.id %>
 				
-					<a class="message-modal modal-cta button medium red-background"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>Send Message</a>
+					<a class="message-modal modal-cta button medium red-frame">Contact</a>
 
 				<%end%>
 

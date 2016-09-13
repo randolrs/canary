@@ -28,7 +28,7 @@
 
         <div class="right">
 
-          <h4><%= number_to_currency(@item_art.price) %></h4>
+          <h4><%= number_to_currency(@item_art.price, precision: 0) %></h4>
 
       </div>
 
@@ -72,7 +72,7 @@
 
       <% unless @item_art.sold %>
       
-        <a id="item-buy-cta" class="button green-background large item-buy-action">Buy for <%= number_to_currency(@item_art.price) %></a>
+        <a id="item-buy-cta" class="button green-background large item-buy-action">Buy for <%= number_to_currency(@item_art.price, precision: 0) %></a>
       
       <%else%>
 
