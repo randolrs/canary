@@ -1,16 +1,14 @@
 <%= render 'pages/user/dashboard_header' %>
-
-<div class="dashboard-panel" id="settings-content">
-
-	<!-- <h3 class="dashboard-header-text"><%# @page_title %></h3> -->
 	
-	<ul class="horizontal full-length">
+	<div class="dashboard-fixed-header">
+		<ul class="horizontal full-length header">
 
-		<li class="blue-background "><%= link_to "Profile", settings_path %></li><li class="active blue-background"><%= link_to "Personal", payment_settings_path %></li><li class="blue-background"><%= link_to "Payments", bank_accounts_path %></li>
+			<li><%= link_to "Profile", settings_path %></li><li class="active"><%= link_to "Personal", payment_settings_path %></li><li><%= link_to "Payments", bank_accounts_path %></li>
 
-	</ul>
+		</ul>
+	</div>
 
-	<div class="dashboard-panel-content">
+	<div class="dashboard-item" id="payments">
 		
 		<%= form_tag update_stripe_account_path, id: 'stripeAccountForm', class: 'edit_user_settings' do %>
 
@@ -88,5 +86,3 @@
   		<% end %>
 
   	</div>
-
-</div>

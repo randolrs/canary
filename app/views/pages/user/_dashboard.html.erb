@@ -18,7 +18,7 @@
 
 			<tr>
 				<td><%= image_tag purchase.item_art.image.url, class: "small-item-image"%></td>
-				<td><%= purchase.item_art.name %> was purchased <%= purchase.created_at.strftime("%b %d") %> for <%= number_to_currency(purchase.amount) %>.<br>Status: <%= purchase.status_as_string %></td>
+				<td>"<%= purchase.item_art.name %>" was purchased <%= purchase.created_at.strftime("%b %d") %> for <%= number_to_currency(purchase.amount) %>.<br>Status: <%= purchase.status_as_string %></td>
 			</tr>
 
 		<%end%>

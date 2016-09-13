@@ -1,8 +1,10 @@
 <%= render 'pages/user/dashboard_header' %>
 	
-<div class="dashboard-item no-nav">
+
 
 	<% if current_user.messages_to_me.count > 0 %>
+
+	<div class="dashboard-item no-nav">
 			
 		<% current_user.messages_to_me.each do |message| %>
 
@@ -29,15 +31,20 @@
 			<%end%>
 
 		<% end%>
+	
+	</div>
 
 	<% else %>
 
-		<div class="nothing-to-see-container">
+		<div class="dashboard-item no-nav blank">
 
-			<p>No incoming messages.</p>
+			<div class="nothing-to-see-container">
 
+				<p>No incoming messages.</p>
+
+			</div>
+			
 		</div>
 
 	<% end%>
 
-</div>

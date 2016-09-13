@@ -1,16 +1,15 @@
 <%= render 'pages/user/dashboard_header' %>
 
-<div class="dashboard-panel" id="settings-content">
 
-	<!-- <h3 class="dashboard-header-text"><%# @page_title %></h3> -->
+	<div class="dashboard-fixed-header">
+		<ul class="horizontal full-length header">
 
-	<ul class="horizontal full-length">
+			<li><%= link_to "Profile", settings_path %></li><li><%= link_to "Personal", payment_settings_path %></li><li class="active"><%= link_to "Payments", bank_accounts_path %></li>
 
-		<li class="blue-background"><%= link_to "Profile", settings_path %></li><li class="blue-background"><%= link_to "Personal", payment_settings_path %></li><li class="active blue-background"><%= link_to "Payments", bank_accounts_path %></li>
+		</ul>
+	</div>
 
-	</ul>
-
-	<div class="dashboard-panel-content">
+	<div class="dashboard-item" id="bank-accounts">
 
 		<% if @defaultaccount %>
 
@@ -52,22 +51,13 @@
 					<td><input type="text" size="9" name="description"/></td>
 				</tr>
 
-				 <tr>
-		      		
-		      		<td colspan="2">
-		      			<button type="submit" class= "blue-background medium">Update Bank Account</button>
-
-		      		</td>
-
-		      	</tr>
 
 			</table>
 
+			<input type="submit" value="Update Bank Account" class= "blue-background medium">
 
   		<% end %>
 
   				<%#render'bank_accounts/addbankaccountform'%>
 
   	</div>
-
-</div>

@@ -166,9 +166,6 @@
 }
 
 .nothing-to-see-container{
-	background: #ccc;
-	border: 1px solid #666;
-	color: #333;
 	display: block;
 	border-radius: 2px;
 	padding: 10px;
@@ -176,6 +173,17 @@
 	max-width: 600px;
     margin: 25px auto;
     font-size: 20px;
+
+    p{
+
+    	background: #ccc;
+		border: 1px solid #666;
+		color: #333;
+		display: block;
+		border-radius: 2px;
+		padding: 10px;
+
+    }
 }
 
 .nothing-to-see-container.no-margin{
@@ -459,10 +467,17 @@ a.warning-text-cta:hover{
 	display: block;
     padding-top:106px;
     margin: 0 auto;
+
+    background: #fff;
 }
 
 .dashboard-item.no-nav{
 	padding-top: 56px;
+}
+
+.dashboard-item.blank{
+	background: none;
+	text-align: center;
 }
 
 span.badge-number{

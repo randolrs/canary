@@ -1,57 +1,53 @@
 <%= render 'pages/user/dashboard_header' %>
 
-<div class="dashboard-panel" id="settings-content">
+<div class="dashboard-fixed-header">
+	<ul class="horizontal full-length header">
 
-	<!-- <h3 class="dashboard-header-text"><%# @page_title %></h3> -->
-
-	<ul class="horizontal full-length">
-
-		<li class="blue-background active"><%= link_to "Profile", settings_path %></li><li class="blue-background"><%= link_to "Personal", payment_settings_path %></li><li class="blue-background"><%= link_to "Payments", bank_accounts_path %></li>
+		<li class="active"><%= link_to "Profile", settings_path %></li><li><%= link_to "Personal", payment_settings_path %></li><li><%= link_to "Payments", bank_accounts_path %></li>
 
 	</ul>
+</div>
 
-	<div class="dashboard-panel-content">
+<div class="dashboard-item" id="profile">
 
-		<%= form_for(current_user, url: registration_path(current_user), html: { method: :put, class: "edit_user_settings" }) do |f| %>
+	<%= form_for(current_user, url: registration_path(current_user), html: { method: :put, class: "edit_user_settings" }) do |f| %>
 
-		    <div class="field">
-		      <%= f.label :email %><br />
-		      <%= f.email_field :email %>
-		    </div>
+	    <div class="field">
+	      <%= f.label :email %><br />
+	      <%= f.email_field :email %>
+	    </div>
 
-		    <br />
+	    <br />
 
-		    <div class="field">
-		      <%= f.label :display_name %><br />
-		      <%= f.text_field :display_name %>
-		    </div>
+	    <div class="field">
+	      <%= f.label :display_name %><br />
+	      <%= f.text_field :display_name %>
+	    </div>
 
-		    <br />
+	    <br />
 
-		    <div class="field">
-		      <%= f.label "About Me" %><br />
-		      <%= f.text_area :about %>
-		    </div>
+	    <div class="field">
+	      <%= f.label "About Me" %><br />
+	      <%= f.text_area :about %>
+	    </div>
 
-		    <br />
+	    <br />
 
-		    <div class="field">
-		      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-		      <%= f.password_field :password, autocomplete: "off" %>
-		      <% if @minimum_password_length %>
-		        <br />
-		        <em><%= @minimum_password_length %> characters minimum</em>
-		      <% end %>
-		    </div>
+	    <div class="field">
+	      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+	      <%= f.password_field :password, autocomplete: "off" %>
+	      <% if @minimum_password_length %>
+	        <br />
+	        <em><%= @minimum_password_length %> characters minimum</em>
+	      <% end %>
+	    </div>
 
-		    <br />
+	    <br />
 
-		    <div class="actions">
-		      <%= f.submit "Update", class:"button medium blue-background" %>
-		    </div>
+	    <div class="actions">
+	      <%= f.submit "Update", class:"button medium blue-background" %>
+	    </div>
 
-  		<% end %>
-
-  	</div>
+		<% end %>
 
 </div>
