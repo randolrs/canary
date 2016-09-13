@@ -1,55 +1,43 @@
 <%= render 'pages/user/dashboard_header' %>
-
-<div class="dashboard-panel" id="messages-content">
-
-	<!-- <h3 class="dashboard-header-text"><%# @page_title %></h3> -->
 	
-	<div class="message-index-container">
+<div class="dashboard-item no-nav">
 
-		<ul class="horizontal full-length">
+	<% if current_user.messages_to_me.count > 0 %>
+			
+		<% current_user.messages_to_me.each do |message| %>
 
-			<li class="blue-background active"><%= link_to "Inbox", settings_path %></li><li class="blue-background"><%= link_to "Outbox", payment_settings_path %></li><li class="blue-background"><%= link_to "Payments", bank_accounts_path %></li>
-
-		</ul>
-
-		<% if current_user.messages_to_me.count > 0 %>
+			<%= link_to(message) do %>
 				
-			<% current_user.messages_to_me.each do |message| %>
+				<div class="message">
 
-				<%= link_to(message) do %>
-					
-					<div class="message">
+					<div class="message-sender">
 
-						<div class="message-sender">
-
-							<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></span>
-
-						</div>
-
-						<div class="message-text">
-							
-							<span class="message-list-sender"><%= current_user.display_name %></span>
-							<br>
-							<span><%= message.body %></span>
-
-						</div>
+						<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></span>
 
 					</div>
 
-				<%end%>
+					<div class="message-text">
+						
+						<span class="message-list-sender"><%= current_user.display_name %></span>
+						<br>
+						<span><%= message.body %></span>
 
-			<% end%>
+					</div>
 
-		<% else %>
+				</div>
 
-			<div class="nothing-to-see-container">
-
-				<p>No incoming messages.</p>
-
-			</div>
+			<%end%>
 
 		<% end%>
 
-	</div>
+	<% else %>
+
+		<div class="nothing-to-see-container">
+
+			<p>No incoming messages.</p>
+
+		</div>
+
+	<% end%>
 
 </div>
