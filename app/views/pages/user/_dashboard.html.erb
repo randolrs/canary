@@ -47,8 +47,9 @@
 </div>
 
 <div class="dashboard-item" id="works" style="display: none;">
-	
-	<% if current_user.item_arts.count > 0 %>
+	<div class="portfolio-container">
+
+		<% if current_user.item_arts.count > 0 %>
 			
 			<% current_user.item_arts.each do |item| %>
 
@@ -81,5 +82,7 @@
 			</div>
 
 		<%end%>
+
+	</div>
 
 </div>
