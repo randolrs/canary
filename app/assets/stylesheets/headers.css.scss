@@ -22,6 +22,12 @@ body{
 
         .header-content{
 
+            text-align: center;
+
+            form{
+                display: inline-block;
+            }
+
             ul{
             	
             	list-style-type: none;
@@ -98,6 +104,12 @@ body{
                     }
 
             	}
+
+            }
+
+            ul.header-left{
+
+                float: left;
 
             }
 
