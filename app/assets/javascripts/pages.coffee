@@ -6,6 +6,13 @@ ready = ->
 		
 	jQuery ->
 
+            $('.dashboard-nav-option').click (event), ->
+                  targetId = "#" + $(@).data("dashboard-item-id")
+                  $('body').find('.dashboard-nav-option').removeClass("active")
+                  $(@).addClass("active")
+                  $('body').find('.dashboard-item').hide()
+                  $('body').find(targetId).slideDown()
+
 		$("#i-am-artist").click (event), ->
 			$(@).parent().hide()
 			$(@).parent().find('#user_is_artist').prop('checked', true)
@@ -135,8 +142,6 @@ ready = ->
       	$('input#emailInput').keypress (event), ->
       		email = $(@).val()
       		$('span#confirm-email').text(email)
-
-
       		
 $(document).on('turbolinks:load', ready)
 

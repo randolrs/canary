@@ -438,6 +438,17 @@ a.warning-text-cta:hover{
 		padding-bottom: 20px;
 	}
 
+	tbody{
+		display: block;
+	}
+
+	tr{
+		display: block;
+		border-bottom: 1px solid #ddd;
+	}
+
+
+
 	td{
 		padding: 10px;
 	}
@@ -445,7 +456,6 @@ a.warning-text-cta:hover{
 
 .dashboard-item{
 	display: block;
-    max-width: 800px;
     padding-top:106px;
     margin: 0 auto;
 }
