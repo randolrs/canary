@@ -11,6 +11,8 @@
 </div>
 
 <div class="dashboard-item" id="sales">
+
+	<%= render 'pages/user/warnings' %>
 	
 	<table class="dashboard-table">
 
@@ -28,6 +30,8 @@
 </div>
 
 <div class="dashboard-item" id="views" style="display: none;">
+
+	<%= render 'pages/user/warnings' %>
 	
 	<table class="dashboard-table">
 
@@ -47,6 +51,9 @@
 </div>
 
 <div class="dashboard-item" id="works" style="display: none;">
+
+	<%= render 'pages/user/warnings' %>
+	
 	<div class="portfolio-container">
 
 		<% if current_user.item_arts.count > 0 %>
