@@ -23,38 +23,60 @@
 
   		<%= form_tag new_bank_account_path, id: 'bankAccountForm', class: 'edit_user_settings' do %>
 
-			<table class="bank-account-form">
+			<div class="field">
 
-		      	<span class='payment-errors'></span>
+				<p><b>Bank Location</b></p>
 
-		      	<tr>
-					<td><b>Bank Location</b></td>
-					<td><select name="country">
-		                <option value="US">United States</option>
-		                <option value="CAN">Canada</option>
-		            </select></td>
-				</tr>
-				<tr>
-					<td><b>Name on Account</b></td>
-					<td><input type="text" name="accountHolder"/></td>
-				</tr>
-				<tr>
-					<td><b>Routing Number</b></td>
-					<td><input type="text" size="9" name="routingNumber" autocomplete="off"></td>
-				</tr>
-				<tr>
-					<td><b>Account Number</b></td>
-					<td><input type="text" size="17" name="accountNumber" autocomplete="off"></td>
-				</tr>
-				<tr>
-					<td><b>Description</b></td>
-					<td><input type="text" size="9" name="description"/></td>
-				</tr>
+				<select name="country">
+		            <option value="US">United States</option>
+		           	<option value="CAN">Canada</option>
+		        </select>
 
+			</div>
 
-			</table>
+			<br>
 
-			<input type="submit" value="Update Bank Account" class= "blue-background medium">
+			<div class="field">
+
+				<p><b>Name on Account</b></p>
+
+				<input type="text" name="accountHolder"/>
+
+			</div>
+
+			<br>
+
+			<div class="field">
+
+				<p><b>Routing Number</b></p>
+
+				<input type="text" size="9" name="routingNumber" autocomplete="off">
+
+			</div>
+
+			<br>
+
+			<div class="field">
+
+				<p><b>Account Number</b></p>
+
+				<input type="text" size="17" name="accountNumber" autocomplete="off">
+
+			</div>
+
+			<br>
+
+			<div class="field">
+
+				<p><b>Description</b></p>
+
+				<input type="text" size="9" name="description"/>
+
+			</div>
+
+			<br>
+
+			<input type="submit" value="Add Bank Account" class= "blue-background medium">
 
   		<% end %>
 
