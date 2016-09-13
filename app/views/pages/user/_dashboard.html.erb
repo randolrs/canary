@@ -1,34 +1,23 @@
 
-	<!-- <h3 class="dashboard-header-text"><%# @page_title %></h3> -->
+<div class="dashboard-fixed-header">
+	<ul class="horizontal full-length header">
 
-<ul class="horizontal full-length">
+		<li class="active"><a href="<%= balance_path %>">Sales<span class="badge-number"><%= number_to_currency(current_user.total_revenue) %></span></a></li>
+		<li><a  href="<%= views_path %>">Views<span class="badge-number"><%= current_user.views.count %></span></a></li>
+		<li><a href="<%= portfolio_path %>">Works<span class="badge-number"><%= current_user.item_arts.count %></span></a></li>
 
-	<li class="bright-blue-background dark-text"><a href="<%= balance_path %>"><%= number_to_currency(current_user.total_revenue) %><br>Total Sales</a></li>
-	<li class="bright-peach-background dark-text"><a  href="<%= views_path %>"><%= current_user.views.count %><br>Unique Views</a></li>
-	<li class="bright-yellow-background dark-text"><a href="<%= portfolio_path %>"><%= current_user.item_arts.count %><br>Listed Works</a></li>
+	</ul>
+</div>
 
-</ul>
-
-<div class="dashboard-horizontal-item">
+<div class="dashboard-item" id="sales">
 	
 	<table class="dashboard-table">
-		
-		<th>Recent Sales</th>
-
-		<tr>
-			<td>Piece</td>
-			<td>Price</td>
-			<td>Purchase Date</td>
-			<td>Status</td>
-		</tr>
 
 		<% current_user.purchases_of_my_work.each do |purchase| %>
 
 			<tr>
-				<td><%= image_tag purchase.item_art.image.url, class: "small-item-image"%><br><%= purchase.item_art.name %></td>
-				<td><%= number_to_currency(purchase.amount) %></td>
-				<td><%= purchase.created_at.strftime("%b %d") %></td>
-				<td><%= purchase.status_as_string %></td>
+				<td><%= image_tag purchase.item_art.image.url, class: "small-item-image"%></td>
+				<td><%= purchase.item_art.name %> was purchased <%= purchase.created_at.strftime("%b %d") %> for <%= number_to_currency(purchase.amount) %>.<br>Status: <%= purchase.status_as_string %></td>
 			</tr>
 
 		<%end%>
@@ -37,15 +26,9 @@
 
 </div>
 
-<div class="dashboard-horizontal-item">
+<div class="dashboard-item" id="views">
+	
 	<table class="dashboard-table">
-
-		<th>Recent Views</th>
-
-		<tr>
-			<td>Piece</td>
-			<td>Date</td>
-		</tr>
 
 		<% current_user.views.each do |view| %>
 

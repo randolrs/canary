@@ -320,8 +320,6 @@ ul.horizontal{
             font-size: 18px;
             padding: 10px;
            	letter-spacing: 1.5px;
-           	text-shadow: 0px 1px 1px #111;
-           	color: #fff;
 		}
 
 
@@ -386,6 +384,39 @@ ul.horizontal.full-length{
 	li{
 		display: table-cell;
     	width: 500px;
+	}
+}
+
+ul.horizontal.header{
+	
+	background: #fff;
+
+	li{
+		border-top: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
+
+		a{
+			color: #777;
+		}
+
+	}
+
+	li.active{
+		border: none;
+		border-top: 1px solid #ddd;
+		border-bottom: 4px solid #8930e8;
+
+		a{
+			color: #8930e8;
+		}
+
+		span.badge-number{
+			background: #8930e8;
+			color: #fff;
+			border: none;
+			text-shadow: none;
+			box-shadow: 0px 1px 1px #aaa;
+		}
 	}
 }
 
