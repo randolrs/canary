@@ -64,7 +64,7 @@
 
     </div>
 
-    <h4 class="text-header-underline">About</h4>
+    <h4 class="text-header-underline">About "<%= @item_art.name %>"</h4>
 
     <p><%= @item_art.description %></p>
 
@@ -75,8 +75,16 @@
     <p><%= @item_art.user.about %></p>
 
     <div class="button-container">
-    
-      <a class="message-modal modal-cta button large red-frame">Contact <%= @item_art.user.display_name %></a>
+      
+      <% if user_signed_in?%>
+      
+        <a class="message-modal modal-cta button large red-frame">Contact <%= @item_art.user.display_name %></a>
+
+      <%else%>
+
+        <a class="button large red-frame">Email this to Me</a>
+
+      <%end%>
     
     </div>
 
