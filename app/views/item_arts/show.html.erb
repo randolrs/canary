@@ -18,12 +18,6 @@
 
   <div class="content-column primary has-mobile-header">
 
-    <%= image_tag @item_art.image.url, class: "item-art-main-image" %>
-
-  </div>
-
-  <div class="content-column secondary left-border">
-
     <div class="hide-on-mobile">
 
       <div class="left">
@@ -38,19 +32,43 @@
 
       </div>
 
+      <br>
+
     </div>
 
-    <p><%= @item_art.medium %></p>
+    <%= image_tag @item_art.image.url, class: "item-art-main-image" %>
 
-    <p><%= @item_art.height.to_i %> H X <%= @item_art.width.to_i %> W <% if @item_art.length %> X <%= @item_art.length.to_i %> L<%end%></p>
+    <div class="hide-on-mobile">
 
-    <br>
+      <div class="centered">
+
+        <p class="item-detail"><%= @item_art.medium %></p>
+
+        <p class="item-detail"><%= @item_art.height.to_i %> H X <%= @item_art.width.to_i %> W <% if @item_art.length %> X <%= @item_art.length.to_i %> L<%end%></p>
+
+      </div>
+      
+    </div>
+
+  </div>
+
+  <div class="content-column secondary left-border">
+
+    <div class="centered mobile-only">
+    
+      <p class="item-detail"><%= @item_art.medium %></p>
+
+      <p class="item-detail"><%= @item_art.height.to_i %> H X <%= @item_art.width.to_i %> W <% if @item_art.length %> X <%= @item_art.length.to_i %> L<%end%></p>
+
+      <br>
+
+    </div>
 
     <div class="item-side-panel" id="info">
 
 <!--     <p><%# @item_art.search_code %></p> -->
     
-    <div class="button-container hide-on-mobile">
+    <div class="hide-on-mobile">
 
       <% unless @item_art.sold %>
       
@@ -62,17 +80,27 @@
 
       <%end%>
 
+      <br>
+
     </div>
 
-    <h4 class="text-header-underline">About "<%= @item_art.name %>"</h4>
+    <% if @item_art.description.length > 0 %>
+    
+      <h4 class="text-header-underline">About "<%= @item_art.name %>"</h4>
 
-    <p><%= @item_art.description %></p>
+      <p><%= @item_art.description %></p>
 
-    <br>
+      <br>
 
-    <h4 class="text-header-underline">About <%= @item_art.user.display_name %></h4>
+    <%end%>
 
-    <p><%= @item_art.user.about %></p>
+    <% if @item_art.user.about.length > 0 %>
+
+      <h4 class="text-header-underline">About <%= @item_art.user.display_name %></h4>
+
+      <p><%= @item_art.user.about %></p>
+
+    <%end%>
 
     <div class="button-container">
       
