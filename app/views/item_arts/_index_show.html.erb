@@ -1,0 +1,32 @@
+<%= link_to(item) do %>
+
+	<div class="lightbox">
+
+		<%= image_tag item.image.url, class: "medium-item-image"%>
+
+        <h4><%= item.name %></h4>
+
+        <% if user_signed_in? %>
+	        
+	        <% if current_user.is_me(item.user) %>
+	      
+	        	<h4><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span><%= item.views.count %></h4>
+
+			<%end%>
+
+		<%end%>
+
+        <% unless item.sold %>
+      
+        	<a class="button green-background medium" style="margin: 0px;">Buy for <%= number_to_currency(item.price)%></a>
+      
+		<%else%>
+
+		    <a class="button green-background medium" style="margin: 0px;"><span class="glyphicon glyphicon-ok"  aria-hidden="true" style="margin-right: 5px;"></span>Sold</a>
+
+		<%end%>
+
+	</div>
+
+<% end %>
+

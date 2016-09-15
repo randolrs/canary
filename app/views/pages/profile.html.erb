@@ -28,7 +28,7 @@
 							
 							<div class="nothing-to-see-container no-margin">
 
-								<p>You have not written a bio yet. <%= link_to "Go to Account Settings", settings_path, class: "warning-text-cta" %> to update bio.</p>
+								<p class="red">You have not written an artist statement for your profile. <%= link_to "Go to Account Settings", settings_path, class: "warning-text-cta" %> to write your artist statement.</p>
 
 							</div>
 
@@ -62,19 +62,7 @@
 
 				<% @user.item_arts.each do |item| %>
 
-					<%= link_to(item) do %>
-					
-						<div class="lightbox">
-
-							<h4><%= item.name %></h4>
-
-							<%= image_tag item.image.url, class: "medium-item-image"%>
-
-							<h4><%= number_to_currency(item.price)%></h4>
-
-						</div>
-
-					<% end %>
+					<%= render :partial => 'item_arts/index_show', :locals => {:item => item} %>
 
 				<% end %>
 
@@ -82,7 +70,7 @@
 
 				<div class="nothing-to-see-container">
 
-					<p>
+					<p class="red">
 
 						<% if user_signed_in?%>
 

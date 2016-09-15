@@ -141,13 +141,14 @@
 	display: block;
 	font-size: 20px;
 	position: relative;
-	box-shadow: 0px 1px 2px #999;
 	margin-bottom: 25px;
 
 	.notice-content{
 		margin: 0 auto;
 		max-width: 1100px;
 		padding: 5px 20px;
+		background: #ffff99;
+		border-color: #F7F76A;
 	}
 
 	.glyphicon-exclamation-sign{
@@ -158,12 +159,14 @@
 .notice.yellow{
 	
 	background: #ffff99;
+	border-color: #F7F76A;
 
 }
 
 .notice.red{
 	
-	background: #ff9999;
+	background: #FFEDED;
+    border-color: #F76A6A;
 	
 }
 
@@ -178,13 +181,18 @@
 
     p{
 
-    	background: #ccc;
-		border: 1px solid #666;
 		color: #333;
 		display: block;
 		border-radius: 2px;
 		padding: 10px;
+		background: #ddd;
+    	border: 1px solid #999;
 
+    }
+
+    p.red{
+    	background: #FFEDED;
+    	border: 1px solid #F76A6A;
     }
 }
 
@@ -320,10 +328,11 @@ h3.dashboard-profile-header{
 	max-width: 31%;
     background: #fff;
     box-shadow: 0px 1px 3px #666;
-    border-radius: 2px;
+    border-radius: 5px;
     margin: 0 auto;
     vertical-align: top;
     margin: 5px;
+    margin-bottom: 20px;
     text-align: center;
 
     h4{
@@ -472,7 +481,7 @@ a.warning-text-cta:hover{
 
 .dashboard-item{
 	display: block;
-    padding-top:106px;
+    padding-top:125px;
     margin: 0 auto;
 
     background: #fff;

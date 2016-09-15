@@ -59,24 +59,8 @@
 		<% if current_user.item_arts.count > 0 %>
 			
 			<% current_user.item_arts.each do |item| %>
-
-				<%= link_to(item) do %>
 			
-					<div class="lightbox">
-						<h4><%= item.name %></h4>
-						<%= image_tag item.image.url, class: "medium-item-image"%>
-						
-						<h4><%= number_to_currency(item.price)%></h4>
-
-						<ul class="horizontal">
-							<li><a><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span><%= item.views.count %></a></li>
-							<li><a><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span><%= item.views.count %></a></li>
-							<li><a><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span><%= item.views.count %></a></li>
-
-						</ul>
-					</div>
-
-				<% end %>
+				<%= render :partial => 'item_arts/index_show', :locals => {:item => item} %>
 
 			<% end %>
 
@@ -84,7 +68,7 @@
 
 			<div class="nothing-to-see-container">
 
-				<p>You have not shared any artwork yet. <%= link_to "Add Art Works", new_item_art_path, class: "warning-text-cta" %></p>
+				<p class="red">You have not shared any artwork yet. <%= link_to "Add Art Works", new_item_art_path, class: "warning-text-cta" %></p>
 
 			</div>
 

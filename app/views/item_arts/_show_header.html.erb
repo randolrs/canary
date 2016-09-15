@@ -2,7 +2,7 @@
 
 	<div class="column-container"><%= image_tag @item_art.user.image.url(:medium), class: "squared-profile-image" %></div>
 
-	<div class="column-container"><span class="item-name"><%= @item_art.name %></span><br>by <span class="artist-name"><%= link_to @item_art.user.display_name, profile_path(@item_art.user.display_name)%></span></div>
+	<div class="column-container"><span class="item-name"><%= @item_art.name %></span><br><span style="font-size: 20px;">by </span><span class="artist-name"><%= link_to @item_art.user.display_name, profile_path(@item_art.user.display_name)%></span></div>
 
   	<div class="column-container cta">
 
