@@ -27,7 +27,7 @@ class PagesController < ApplicationController
 
 	def settings
 
-		@page_title = "Account Settings"
+		@page_title = "Settings"
 
 		@page = "settings"
 
@@ -39,7 +39,7 @@ class PagesController < ApplicationController
 
 	def payment_settings
 
-		@page_title = "Account Settings"
+		@page_title = "Settings"
 
 		@page = "settings"
 
@@ -329,7 +329,7 @@ class PagesController < ApplicationController
 
 	def bank_accounts
 
-		@page_title = "Account Settings"
+		@page_title = "Settings"
 
 		@page = "settings"
 
