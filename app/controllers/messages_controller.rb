@@ -15,6 +15,8 @@ class MessagesController < ApplicationController
 
     @new_message_recipient = current_user
 
+    @page_title = "Message"
+
   end
 
   # GET /messages/new

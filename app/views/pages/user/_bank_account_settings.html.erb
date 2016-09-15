@@ -11,17 +11,16 @@
 
 	<div class="dashboard-item" id="bank-accounts">
 
-		<% if @defaultaccount %>
-
-			<h3>Current Bank Account:</h3>
-  	
-			<p><%=@defaultaccount.bank_name + " •••• •••• •••• " + @defaultaccount.last4 %></p>
-			
-			<br>
-
-		<%end%>
 
   		<%= form_tag new_bank_account_path, id: 'bankAccountForm', class: 'edit_user_settings' do %>
+
+  			<% if @defaultaccount %>
+
+				<h3>Current Bank Account: <%=@defaultaccount.bank_name + " •••• •••• •••• " + @defaultaccount.last4 %></h3>
+				
+				<br>
+
+			<%end%>
 
 			<div class="field">
 
@@ -76,7 +75,7 @@
 
 			<br>
 
-			<input type="submit" value="Add Bank Account" class= "blue-background medium">
+			<input type="submit" value="<% if @defaultaccount %>Update Bank Account<%else%>Add Bank Account<%end%>" class= "blue-background medium">
 
   		<% end %>
 

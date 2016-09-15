@@ -22,6 +22,7 @@ class PagesController < ApplicationController
 
 	def about
 
+		@page_title = "About"
 
 	end
 
@@ -201,6 +202,8 @@ class PagesController < ApplicationController
 	end
 
 	def welcome
+
+		@page_title = "Welcome"
 
 		if user_signed_in?
 
