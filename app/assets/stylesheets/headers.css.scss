@@ -18,7 +18,8 @@ body{
         background: #fff;
         box-shadow: 0px 2px 1px #999;
         z-index: 999;
-        height: 56px;
+        height: 76px;
+        padding: 10px 0px;
 
         .header-content{
 
@@ -26,6 +27,24 @@ body{
 
             form{
                 display: inline-block;
+            }
+
+            .header-search-form{
+                margin: 8px 0px;
+
+                input, button{
+                    height: 40px;
+                }
+
+                input{
+                    text-align: center;
+                    font-size: 30px;
+                    width: 200px;
+                }
+
+                button{
+                    font-size: 28px;
+                }
             }
 
             ul{
@@ -75,9 +94,11 @@ body{
 
             		a.header-logo{
         	
-        				font-weight: 600;
+        				font-weight: 300;
                         font-size: 32px;
                         font-family: 'Lobster', cursive;
+                        color: #333;
+                        text-shadow: 0px 2px 1px #ccc;
 
         			}
 

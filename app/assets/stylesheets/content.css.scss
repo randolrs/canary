@@ -334,11 +334,10 @@ h3.dashboard-profile-header{
 
 section.home-primary{
 	width: 100%;
-	background: #000;
+	background: #fff;
 	position:relative;
 	padding: 50px 20px;
 	text-align: center;
-	border-bottom: 1px solid #222;
 
 	.dark-text-input{
 
@@ -351,7 +350,7 @@ section.home-primary{
 	    border: none;
 	    border-radius: 3px;
 	    background: #333;
-	    color: #fff;
+	    color: #aaa;
 	    padding: 10px 0px;
 
 	}
@@ -405,13 +404,13 @@ div.activity{
 	h2{
 		font-size: 60px;
 		margin-bottom: 20px;
-		color: #f9f;
+		color: #333;
 	}
 
 	p{
 		
 		font-size: 20px;
-    	color: #eee;
+    	color: #666;
     	margin-bottom: 20px;
     	text-align: justify;
     	letter-spacing: 0.5px;
