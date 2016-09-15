@@ -412,7 +412,7 @@ ul.horizontal.header{
 		border-bottom: 1px solid #ddd;
 
 		a{
-			color: #777;
+			color: #8930e8;
 		}
 
 	}
@@ -491,7 +491,7 @@ table.sales-index{
 	
 	padding: 10px;
 	background: #fff;
-	height: 100px;
+	height: 175px;
 	position: fixed;
 	width: 100%;
 	z-index: 99999;
@@ -501,12 +501,21 @@ table.sales-index{
 	.column-container{
 		display: table-cell;
 		padding: 0px 10px;
-		vertical-align: middle;
+		vertical-align: top;
 	}
 
 	.column-container.cta{
-		width: 100%;
-    	text-align: right;
+
+    	text-align: center;
+    	display: block;
+    	width: 100%;
+    	padding: 10px;
+
+    	.button.large{
+    		max-width: 100%;
+    		margin: 0px;
+    		margin-top: 10px;
+    	}
 	}
 
 	.item-name{

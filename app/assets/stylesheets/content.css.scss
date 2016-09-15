@@ -32,7 +32,7 @@
 
     	.left, .right{
     		display: table-cell;
-    		vertical-align: middle;
+    		vertical-align: top;
 
     		h1, h2, h3, h4{
     			margin: 0px;
@@ -246,8 +246,8 @@ h3.dashboard-profile-header{
 .medium-profile-image{
 	width: 150px;
 	height:150px;
-	border-radius: 150px;
-	border: 2px solid #fff;
+	border-radius: 5px;
+	box-shadow: 0px 1px 2px #222;
 }
 
 .medium-item-image{
@@ -479,7 +479,7 @@ a.warning-text-cta:hover{
 }
 
 .dashboard-item.no-nav{
-	padding-top: 56px;
+	padding-top: 76px;
 }
 
 .dashboard-item.blank{
