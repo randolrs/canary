@@ -43,12 +43,21 @@ Rails.application.routes.draw do
 
   post 'new_bank_account' => 'pages#new_bank_account'
 
+  #get '/order/start/create_customer' => 'charges#create_customer', as: 'create_customer'
+
+  post '/order/start/create_customer' => 'charges#create_customer', as: 'create_customer'
+
   get '/:display_name' => 'pages#profile', as: 'profile'
 
   get '/:display_name/about' => 'pages#profile_about', as: 'profile_about'
 
+  post '/order/start' => 'charges#start_checkout', as: 'start_checkout'
 
+  get '/order/:order_id/payment' => 'charges#start_order', as: 'start_order'
 
+  get 'order/:order_id/confirm' => 'charges#confirm_order', as: 'confirm_order'
+
+  post 'order/:order_id/confirm/purchase' => 'charges#confirm_purchase', as: 'confirm_purchase'
 
 
 

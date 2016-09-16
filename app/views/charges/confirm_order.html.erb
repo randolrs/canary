@@ -1,0 +1,65 @@
+<div class="content">
+
+	<div class="content-inner">
+
+		<% if flash[:error] %>
+
+		  <div class="notice red">
+
+		        <span class="glyphicon glyphicon-remove dismiss-parent"></span>
+
+		        <p class="notice-content red">
+		          <span class="glyphicon glyphicon-exclamation-sign"></span> <%= flash[:error] %>
+		        </p>
+
+		  </div>
+
+		<%end%>
+
+
+		<%= form_tag confirm_purchase_path(@order.id), id: 'chargeForm' do %>
+
+		<input type="hidden" name="order_id" value="<%= @order.id %>"></input>
+
+		<h4>Confirm your purchase</h4>
+		
+		<div class="order-item-list">
+
+			<div class="column-container">
+				<%= image_tag @order.order_item.item_art.image.url, class: "small-item-image"%>
+			</div>
+
+			<div class="column-container wide">
+				<h5><%= @order.order_item.item_art.name %></h5>
+				<p>by <span><%= @order.order_item.item_art.user.display_name %></span></p>
+			</div>
+
+			<div class="column-container">
+
+				<span class="price"><%= number_to_currency(@order.order_item.item_art.price) %></span>
+
+			</div>
+
+		</div>
+
+		<div>
+
+			<div class="column-container wide">
+				<h4>Total</h4>
+			</div>
+
+			<div class="column-container">
+
+				<span class="price"><%= number_to_currency(@order.subtotal) %></span>
+
+			</div>
+
+		</div>
+
+		<input type="submit" class="button stretch green-background" value="Confirm Order">
+
+		<% end %>
+
+	</div>
+
+</div>

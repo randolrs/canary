@@ -151,6 +151,11 @@
 		border-color: #F7F76A;
 	}
 
+	.notice-content.red{
+		background: #FFEDED;
+    	border: 1px solid #F76A6A;
+	}
+
 	.glyphicon-exclamation-sign{
 		color: red;
 	}
@@ -163,12 +168,7 @@
 
 }
 
-.notice.red{
-	
-	background: #FFEDED;
-    border-color: #F76A6A;
-	
-}
+
 
 .nothing-to-see-container{
 	display: block;
@@ -494,7 +494,7 @@ a.warning-text-cta:hover{
 	background: #fff;
 	display: block;
 	font-size: 18px;
-	padding: 20px;
+	
 
 	th{
 		font-size: 24px;
@@ -541,4 +541,99 @@ span.badge-number{
 	border-radius: 40px;
 	padding: 5px 10px;
 	box-shadow: 0px 1px 1px #aaa;
+}
+
+.content-inner{
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+	border: 1px solid #ddd;
+	box-shadow: 0px 2px 1px #ccc;
+	padding: 24px;
+	border-radius: 2px;
+
+}
+
+.input-container{
+	position: relative;	
+	margin-bottom: 15px;
+	clear: both;
+}
+
+
+input.cc-form{
+	padding: 6px 10px;
+	border: 1px solid #CFCBC8;
+	line-height: 24px;
+
+	
+} 
+
+input.cc-form.card-number, input.cc-form.card-name{
+	width: 100%;
+}
+
+input.card-cvc{
+	width: 70px;
+}
+
+select.cc-select{
+	padding: 6px 10px;
+    border: 1px solid #CFCBC8;
+    line-height: 24px;
+}   
+
+span.cc-icon {
+	position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 42px;
+    height: 24px;
+    margin-bottom: 0;
+    text-align: center;
+    color: #666;
+    font-size: 24px;
+}
+
+span.lock-icon{
+	position: absolute;
+	font-size: 24px;
+    right: 24px;
+    top: 3px;
+    color: #777;
+    line-height: 36px;
+}
+
+.input-group{
+	float: left;
+	padding-right: 10px;
+	margin-bottom: 15px;
+}
+
+.column-container{
+	display: table-cell;
+    vertical-align: top;
+    padding:10px;
+
+    h5{
+    	font-weight: 800;
+    	font-size: 20px;
+
+    }
+}
+
+.column-container.wide{
+	width: 600px;
+}
+
+span.price{
+	color: #78c042;
+	font-weight: 700;
+	text-shadow: 0px 1px 1px #bbb;
+	letter-spacing: 1px;
+	font-size: 20px;
+}
+
+.order-item-list{
+	border-bottom: 1px solid #ddd;
 }
