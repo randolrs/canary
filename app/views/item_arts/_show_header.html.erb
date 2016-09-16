@@ -6,15 +6,7 @@
 
   	<div class="column-container cta">
 
-	  	<% unless @item_art.sold %>
-	      
-	        <a id="item-buy-cta" class="button green-background large item-buy-action">Buy for <%= number_to_currency(@item_art.price, precision: 0) %></a>
-	      
-	      <%else%>
-
-	        <a class="button green-background medium"><span class="glyphicon glyphicon-ok"  aria-hidden="true" style="margin-right: 5px;"></span>Sold</a>
-
-		<%end%>
+	  	<%= render :partial => 'item_arts/buy_cta', :locals => {:item_art => @item_art} %>
 
 	</div>
 
