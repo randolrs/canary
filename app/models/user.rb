@@ -95,6 +95,8 @@ class User < ActiveRecord::Base
 
       end
 
+      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+
       return 0
 
   end
