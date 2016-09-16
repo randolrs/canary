@@ -67,10 +67,18 @@ div.message{
     background: #fff;
 }
 
-div.message:hover{
-	background: #bbf;
+div.message.sent-by-me{
+
+    background: #eee;
+
+    .message-text{
+    	text-align: right;
+    }
+}
+
+div.message.clickable:hover{
+	background: #ddd;
 	box-shadow: none;
-	border: 1px solid #f66;
 	cursor: pointer;
 }
 
@@ -87,7 +95,7 @@ div.message-index{
 	
 	display: table-cell;
 	vertical-align: middle;
-	padding:5px;
+	padding: 5px 15px;
 
 	span.message-list-subject{
 		font-weight: 600;
@@ -104,11 +112,13 @@ div.message-index{
 
 .message-sender, .message-action{
 	width:100px;
+	text-align: center;
 }
 
 .message-text{
-	width: 80%;
+	width: 900px;
 }
+
 
 
 

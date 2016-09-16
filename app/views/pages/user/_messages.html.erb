@@ -1,7 +1,5 @@
 <%= render 'pages/user/dashboard_header' %>
 	
-
-
 	<% if current_user.messages_to_me.count > 0 %>
 
 	<div class="dashboard-item no-nav">
@@ -10,17 +8,17 @@
 
 			<%= link_to(message) do %>
 				
-				<div class="message">
+				<div class="message clickable">
 
 					<div class="message-sender">
 
-						<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></span>
+						<span><%= image_tag message.sender.image.url(:medium), class: "header-profile-image"%></span>
 
 					</div>
 
 					<div class="message-text">
 						
-						<span class="message-list-sender"><%= current_user.display_name %></span>
+						<span class="message-list-sender"><%= message.sender.display_name %></span>
 						<br>
 						<span><%= message.body %></span>
 
