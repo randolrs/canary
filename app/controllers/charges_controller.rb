@@ -164,7 +164,7 @@ class ChargesController < ApplicationController
 
 			end
 
-			redirect_to purchase
+			redirect_to purchase_confirmation_path(purchase.id)
 
 
 		else

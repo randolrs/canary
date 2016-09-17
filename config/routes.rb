@@ -55,6 +55,8 @@ Rails.application.routes.draw do
 
   get '/order/:order_id/payment' => 'charges#start_order', as: 'start_order'
 
+  get '/purchase/:purchase_id/confirmation' => 'purchases#confirmation', as: 'purchase_confirmation'
+
   get 'order/:order_id/confirm' => 'charges#confirm_order', as: 'confirm_order'
 
   post 'order/:order_id/confirm/purchase' => 'charges#confirm_purchase', as: 'confirm_purchase'

@@ -1,0 +1,27 @@
+<div class="content">
+
+	<div class="content-inner centered">
+
+		<h1>That's all, thanks!</h1>
+
+		<p>Confirmation Number: <%= @purchase.id %></p>
+
+		<p>Price: <%= number_to_currency(@purchase.amount) %></p>
+
+		<h5>Create an account -- we're really cool.</H5>
+
+		<br>
+
+		<% if user_signed_in? %>
+
+			<a href="<%= root_path %>" class="button medium red-background">Return Home</a>
+
+		<%else%>
+
+			<a>Reom</a>
+
+		<%end%>
+
+	</div>
+
+</div>

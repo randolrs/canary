@@ -6,5 +6,12 @@ class PurchasesController < ApplicationController
 
   	end
 
+  	def confirmation
+
+  		@purchase = Purchase.find(params[:purchase_id])
+
+
+  	end
+
 
 end
