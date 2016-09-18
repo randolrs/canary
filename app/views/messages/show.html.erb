@@ -1,61 +1,12 @@
+<div class="message-container">
 
-
-
-<% if current_user.is_me(@message.sender) %>
-	
-	<div class="message sent-by-me">
-
-		<div class="message-text">
-			
-			<span><%= @message.body %></span>
-
-		</div>
-
-		<div class="message-sender">
-
-			<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></span>
-
-			<br>
-
-			<span class="message-list-sender"><%= @message.sender.display_name %></span>
-
-		</div>
-
-	</div>
-
-<%else%>
-
-	<div class="message">
-
-		<div class="message-sender">
-
-			<span><%= image_tag @message.sender.image.url(:medium), class: "header-profile-image"%></span>
-
-			<br>
-
-			<span class="message-list-sender"><%= @message.sender.display_name %></span>
-
-		</div>
-
-		<div class="message-text">
-			
-			<span><%= @message.body %></span>
-
-		</div>
-
-	</div>
-
-<%end%>
-
-<% @message.responses.each do |response| %>
-	
-	<% if current_user.id == response.sender_id%>
-
+	<% if current_user.is_me(@message.sender) %>
+		
 		<div class="message sent-by-me">
 
 			<div class="message-text">
 				
-				<span><%= response.body %></span>
+				<span><%= @message.body %></span>
 
 			</div>
 
@@ -65,7 +16,7 @@
 
 				<br>
 
-				<span class="message-list-sender"><%= response.sender.display_name %></span>
+				<span class="message-list-sender"><%= @message.sender.display_name %></span>
 
 			</div>
 
@@ -77,17 +28,17 @@
 
 			<div class="message-sender">
 
-				<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></span>
+				<span><%= image_tag @message.sender.image.url(:medium), class: "header-profile-image"%></span>
 
 				<br>
 
-				<span class="message-list-sender"><%= response.sender.display_name %></span>
+				<span class="message-list-sender"><%= @message.sender.display_name %></span>
 
 			</div>
 
 			<div class="message-text">
 				
-				<span><%= response.body %></span>
+				<span><%= @message.body %></span>
 
 			</div>
 
@@ -95,22 +46,72 @@
 
 	<%end%>
 
-<%end%>
+	<% @message.responses.each do |response| %>
+		
+		<% if current_user.id == response.sender_id%>
+
+			<div class="message sent-by-me">
+
+				<div class="message-text">
+					
+					<span><%= response.body %></span>
+
+				</div>
+
+				<div class="message-sender">
+
+					<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></span>
+
+					<br>
+
+					<span class="message-list-sender"><%= response.sender.display_name %></span>
+
+				</div>
+
+			</div>
+
+		<%else%>
+
+			<div class="message">
+
+				<div class="message-sender">
+
+					<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></span>
+
+					<br>
+
+					<span class="message-list-sender"><%= response.sender.display_name %></span>
+
+				</div>
+
+				<div class="message-text">
+					
+					<span><%= response.body %></span>
+
+				</div>
+
+			</div>
+
+		<%end%>
+
+	<%end%>
 
 
-<%= form_for(@new_message) do |f| %>
+	<%= form_for(@new_message) do |f| %>
 
-  <%= f.number_field :recipient_id, :value => @new_message_recipient.id, :hidden => true  %>
+	  <%= f.number_field :recipient_id, :value => @new_message_recipient.id, :hidden => true  %>
 
-  <%= f.number_field :parent_message_id, :value => @message.id, :hidden => true  %>
+	  <%= f.number_field :parent_message_id, :value => @message.id, :hidden => true  %>
 
-  <div class="field">
-    <label>Reply</label><br>
-    <%= f.text_area :body %>
-  </div>
+	  <div class="field">
+	    <label>Reply</label><br>
+	    <%= f.text_area :body %>
+	  </div>
 
-  <div class="actions">
-    <%= f.submit "Send", class: 'button red-background'  %>
-  </div>
+	  <div class="actions">
+	    <%= f.submit "Send", class: 'button red-background'  %>
+	  </div>
 
-<% end %>
+	<% end %>
+
+</div>

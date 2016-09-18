@@ -19,6 +19,7 @@
 				text-align: center;
     	
 			}
+
 			.mobile-only{
 				display: inherit;
 			}
@@ -201,6 +202,22 @@
 
 				}
 
+			}
+
+		}
+
+	}
+
+}
+
+@media only screen and (max-device-width: 800px) {
+
+	html{
+
+		body{
+			
+			.mobile-device-only{
+				display: inherit;
 			}
 
 		}
