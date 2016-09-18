@@ -15,8 +15,6 @@ body{
         position: fixed;
         top: 0px;
         width: 100%;
-        background: #fff;
-        box-shadow: 0px 2px 1px #999;
         z-index: 999;
         height: 76px;
         padding: 10px 0px;
@@ -67,8 +65,8 @@ body{
         	    		font-weight: 500;
             			letter-spacing: 1.1px;
             			padding: 5px 10px;
-                        color: #555;
-                        text-shadow: 0px 1px 0px #ccc;
+                        color: #fff;
+                        text-shadow: 0px 1px 1px #333;
                         margin: 0 5px;
                         line-height: 46px;
                         font-family: 'Lato', sans-serif;
@@ -76,10 +74,10 @@ body{
             		}
 
                     a.header-page-title{
-                        color: #222;
+                        color: #fff;
                         font-weight: 600;
                         font-size: 24px;
-                        text-shadow: none;
+                        text-shadow: 0px 1px 1px #333;
                     }
 
                     a.header-return-home{
@@ -98,8 +96,8 @@ body{
         				font-weight: 300;
                         font-size: 32px;
                         font-family: 'Lobster', cursive;
-                        color: #333;
-                        text-shadow: 0px 2px 1px #ccc;
+                        color: #fff;
+                        text-shadow: 0px 2px 1px #333;
 
         			}
 

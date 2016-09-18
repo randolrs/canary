@@ -10,8 +10,6 @@
 	bottom:0px;
 	height:100%;
 	width:100%;
-    background: rgba(255, 255, 255, 0.9);
-    display:none;
     vertical-overflow:hidden;
     z-index: 999999999999;
 
@@ -28,12 +26,12 @@
 	width:100%;
 	margin:0 auto;
 	z-index: 100;
-	background: #fff;
-	top:100px;
 	position:relative;
+    padding: 100px 20px;
 
-    box-shadow: 0px 0px 4px #0000ff;
-    border: 1px solid #ddddff;
+    box-shadow: none;
+    border: none;
+    background: none;
     border-radius: 2px;
 }
 
@@ -54,4 +52,37 @@ span.dismiss-modal:hover{
     webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 
+}
+
+.home-search-form{
+    top: 30%;
+    position: relative;
+
+    ::-webkit-input-placeholder {
+    color: #fff;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+       color: #fff;  
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: #fff;  
+    }
+
+    :-ms-input-placeholder {  
+       color: #fff;  
+    }
+}
+
+input.transparent{
+    background: none;
+    outline: none;
+}
+
+.search-code-input{
+    border: none;
+    border-bottom: 2px solid #fff;
+    padding: 10px;
+    color: #fff;
 }
