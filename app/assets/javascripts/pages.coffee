@@ -6,6 +6,12 @@ ready = ->
 		
 	jQuery ->
 
+            $(".email-me-modal").click (event), ->
+                  $('body').find('#email-me-modal').show()
+
+            $(".create-account-modal").click (event), ->
+                  $('body').find('#create-account-modal').show()
+                  
             $('.dashboard-nav-option').click (event), ->
                   targetId = "#" + $(@).data("dashboard-item-id")
                   $('body').find('.dashboard-nav-option').removeClass("active")

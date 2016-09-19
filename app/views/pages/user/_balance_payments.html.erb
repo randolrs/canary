@@ -1,38 +1,33 @@
 <%= render 'pages/user/dashboard_header' %>
 
-<div class="dashboard-panel" id="balance-content">
-
-	<%= render 'pages/user/warnings' %>
-	
-	<div class="left">
-
-        <h3>Balance</h3>
-
-      </div>
-
-      <div class="right">
-
-        <h4 style="color: green;"><%= number_to_currency(238) %></h4>
-
-    </div>
-
-    <h4 class="centered">Next Payment Date: Aug 3, 2016</h4>
-
-	<ul>
-
-		<li><%= link_to "Sales", balance_path %></li>
-		<li class="active"><%= link_to "Payments to You", balance_payments_path %></li>
-
-	</ul>
-
+<div class="dashboard-item no-nav" id="balance">
 
 	<div class="dasboard-panel-content">
 
-		<div class="nothing-to-see-container">
+		<h4 class="centered">Next Payment Date: Aug 3, 2016</h4>
 
-			<p>No payments yet.</p>
+		<% if @payments.count > 0 %>
 
-		</div>
+			<% @payments.each do |payment|%>
+
+				<div class="message">
+
+					<%= number_to_currency(payment.amount) %>
+
+				</div>
+
+			<%end%>
+
+
+		<%else%>
+
+			<div class="nothing-to-see-container">
+
+				<p>No payments yet.</p>
+
+			</div>
+
+		<%end%>
 
 	</div>
 

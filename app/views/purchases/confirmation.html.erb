@@ -8,8 +8,6 @@
 
 		<p>Price: <%= number_to_currency(@purchase.amount) %></p>
 
-		<h5>Create an account -- we're really cool.</H5>
-
 		<br>
 
 		<% if user_signed_in? %>
@@ -18,10 +16,12 @@
 
 		<%else%>
 
-			<a>Reom</a>
+			<a class="button medium modal-cta create-account-modal red-background">Create an Account</a>
 
 		<%end%>
 
 	</div>
 
 </div>
+
+<%= render 'modals/create_account' %>

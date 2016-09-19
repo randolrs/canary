@@ -119,8 +119,16 @@ class PagesController < ApplicationController
 
 		@page = "balance"
 
+		@page_title = "Balance"
+
+
+
 		if user_signed_in?
 			@hide_header = true
+
+			Stripe.api_key = current_user.stripe_secret_key
+			account = Stripe::Account.retrieve(current_user.stripe_account_id)
+			@payments = Stripe::Transfer.list
 		end
 
 	end
