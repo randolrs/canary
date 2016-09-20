@@ -2,7 +2,7 @@
 
 	<% if user_signed_in?%>
 
-			<div class="header-content">
+		<div class="header-content">
 
 			<% if user_signed_in? %>
 				
@@ -11,7 +11,7 @@
 					<ul class="header-left">
 
 						<!-- <li><%#= link_to "Artagami", root_path, class: "header-logo" %></li> -->
-							
+		
 						<li><a class="header-return-home" href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span></a></li>
 
 
@@ -32,10 +32,10 @@
 				<%else%>
 
 					<ul class="header-left">
-
-						<!-- <li><%#= link_to "Artagami", root_path, class: "header-logo" %></li> -->
 							
-						<li><%= link_to "Artagami", root_path, class: "header-logo" %></li>
+						<li class="mobile-only"><a href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span></a></li>
+
+						<li class="hide-on-mobile"><%= link_to "Artagami", root_path, class: "header-logo" %></li>
 
 					</ul>
 
