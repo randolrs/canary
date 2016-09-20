@@ -1,9 +1,31 @@
 <section class="home-primary">
 	<h2>Artwork recommended for you</h2>
+	
+	<% ItemArt.last(6).each do |item| %>
+		
+		<%= render :partial => 'item_arts/index_show', :locals => {:item => item, :image_only => true} %>
+
+	<%end%>
+
 </section>
 
 <section class="home-primary">
 	<h2>Artists worth exploring</h2>
+
+	<% User.last(6).each do |user| %>
+		
+		<%= link_to(profile_path(user.display_name)) do %>
+
+			<div class="lightbox">
+
+				<%= image_tag user.image.url(:medium), class: "medium-item-image"%>
+
+			</div>
+
+		<%end%>
+
+	<%end%>
+
 </section>
 
 <section class="home-primary">
