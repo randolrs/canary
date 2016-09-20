@@ -13,19 +13,21 @@
 <div class="dashboard-item" id="sales">
 
 	<%= render 'pages/user/warnings' %>
-	
-	<table class="dashboard-table">
 
-		<% current_user.purchases_of_my_work.each do |purchase| %>
+	<% current_user.purchases_of_my_work.each do |purchase| %>
+		
+		<a href="<%= purchase_path(purchase.id) %>">
 
-			<tr>
-				<td><%= image_tag purchase.item_art.image.url, class: "small-item-image"%></td>
-				<td>"<%= purchase.item_art.name %>" was purchased <%= purchase.created_at.strftime("%b %d") %> for <%= number_to_currency(purchase.amount, precision: 0) %>.<br>Status: <%= purchase.status_as_string %></td>
-			</tr>
+			<div class="dashboard-index clickable">
+				
+				<div><%= image_tag purchase.item_art.image.url, class: "small-item-image"%></div>
 
-		<%end%>
+				<div>"<%= purchase.item_art.name %>" was purchased <%= purchase.created_at.strftime("%b %d") %> for <%= number_to_currency(purchase.amount, precision: 0) %>.<br>Status: <%= purchase.status_as_string %></div>
+			</div>
 
-	</table>
+		</a>
+
+	<%end%>
 
 </div>
 

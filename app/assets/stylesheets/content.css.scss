@@ -76,7 +76,7 @@
 		width: 40%;
 		min-width: 40%;
 		background: #fff;
-		padding: 20px;
+		padding: 30px;
 		display: table-cell;
 	}
 
@@ -650,4 +650,21 @@ span.price{
 .large-input{
 	max-width: 600px;
     font-size: 30px;
+}
+
+.dashboard-index{
+	display: block;
+	border-bottom: 1px solid #bbb;
+
+
+	div{
+		display: table-cell;
+		padding: 10px;
+	}	
+}
+
+div.clickable:hover{
+	background: #eee;
+	box-shadow: none;
+	cursor: pointer;
 }
