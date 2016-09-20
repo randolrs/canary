@@ -62,7 +62,7 @@
 			
 			<% current_user.item_arts.each do |item| %>
 			
-				<%= render :partial => 'item_arts/index_show', :locals => {:item => item} %>
+				<%= render :partial => 'item_arts/index_show', :locals => {:item => item, :image_only => false} %>
 
 			<% end %>
 
