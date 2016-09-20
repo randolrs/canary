@@ -3,7 +3,7 @@
 	
 	<ul class="horizontal full-length header">
 
-		<li class="dashboard-nav-option active" data-dashboard-item-id="sales"><a >Sales<span class="badge-number"><%= number_to_currency(current_user.total_revenue, precision: 0) %></span></a></li>
+		<li class="dashboard-nav-option active" data-dashboard-item-id="sales"><a >Sales<span class="badge-number"><%= current_user.purchases_of_my_work.count %></span></a></li>
 		<li class="dashboard-nav-option" data-dashboard-item-id="views"><a>Views<span class="badge-number"><%= current_user.views.count %></span></a></li>
 		<li class="dashboard-nav-option" data-dashboard-item-id="works"><a>Works<span class="badge-number"><%= current_user.item_arts.count %></span></a></li>
 
