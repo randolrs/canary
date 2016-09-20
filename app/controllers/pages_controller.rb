@@ -7,14 +7,25 @@ class PagesController < ApplicationController
 
 		@page = "home"
 
-		@page_title = "Dashboard"
+		
 
 		@hide_return_to_home = true
 
 
 
 		if user_signed_in?
-			@hide_header = true
+			
+
+			if current_user.is_artist
+
+				@hide_header = true
+				@page_title = "Dashboard"
+
+			else
+
+				@page_title = "Artagami"
+
+			end
 		end
 		
 	end
@@ -42,7 +53,7 @@ class PagesController < ApplicationController
 
 		@page_title = "Settings"
 
-		@page = "settings"
+		@page = "payment settings"
 
 		if user_signed_in?
 			@hide_header = true
@@ -337,12 +348,24 @@ class PagesController < ApplicationController
 
 	end	
 
+	def purchases
+
+		if user_signed_in?
+			@hide_header = true
+			@page = "mypurchases"
+			@page_title = "My Purchases"
+		else
+			redirect_to root_path
+		end
+
+	end
+
 
 	def bank_accounts
 
 		@page_title = "Settings"
 
-		@page = "settings"
+		@page = "account settings"
 
 		if user_signed_in?
 			@hide_header = true

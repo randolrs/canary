@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   get 'settings' => 'pages#settings'
 
+  get 'my_purchases' => 'pages#purchases'
+
   get 'settings/payments' => 'pages#payment_settings', as: 'payment_settings'
 
   get 'settings/bank_accounts' => 'pages#bank_accounts', as: 'bank_accounts'

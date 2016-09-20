@@ -5,68 +5,22 @@
 
 <%else%>
 
-	<div class="sidebar-container">
+	<% if current_user.is_artist %>
 
 		<%= render 'pages/user/dashboard_side_panel' %>
 
-	</div>
+		<div class="dashboard-container">
 
+			<%= render 'pages/user/dashboard_header' %>
 
-	<div class="dashboard-container">
+			<%= render 'pages/user/dashboard' %>
 
-		<%= render 'pages/user/dashboard_header' %>
+		</div>
 
-		<%= render 'pages/user/dashboard' %>
+	<% else %>
 
-	</div>
+		<%= current_user.purchases.count %>
 
-<!-- 	<div class="dashboard-content">
-
-
-		<div class="content-column sidebar-content"> -->
-
-
-<!-- 			<h3><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span>Recent Stats</h3>
-
-			<div class="centered">
-
-				<ul class="horizontal">
-
-					<li><a>This Week</a></li>
-					<li><a>This Month</a></li>
-					<li><a>All Time</a></li>
-
-				</ul>
-
-				<br>
-
-				<ul class="horizontal">
-
-					<li><a class="stats" href="<%= portfolio_path %>"><span class="stats-header"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span>Views</span><br><span class="stats-data">23</span></a></li>
-					<li><a class="stats" href="<%= balance_path %>"><span class="stats-header"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span>Sales</span><br><span class="stats-data">$29.00</span></a></li>
-
-				</ul>
-
-			</div> -->
-
-			<%# current_user.recent_activity.each do |activity| %>
-
-<!-- 				<div class="activity">
-
-					<%# if activity['type'] == "view" %>
-						<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span>[Someone] viewed your work, <%# activity['object'].item_art.name %>, on <%# activity['created_at'].strftime("%b %d") %></p>
-					<%# elsif activity['type'] == "purchase" %>
-
-						<p class="sale"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span>[Someone] purchased your work, <%# activity['object'].item_art.name %>, on <%# activity['created_at'].strftime("%b %d") %></p>
-
-					<%#end%>
-
-				</div>	 -->			
-
-			<%#end%>
-
-<!-- 		</div>
-
-	</div> -->
+	<%end%>
 
 <%end%>

@@ -1,13 +1,6 @@
 <%= render 'pages/user/dashboard_header' %>
 
-
-	<div class="dashboard-fixed-header">
-		<ul class="horizontal full-length header">
-
-			<li><%= link_to "Profile", settings_path %></li><li><%= link_to "Personal", payment_settings_path %></li><li class="active"><%= link_to "Payments", bank_accounts_path %></li>
-
-		</ul>
-	</div>
+<%= render 'pages/user/settings_header' %>
 
 	<div class="dashboard-item" id="bank-accounts">
 

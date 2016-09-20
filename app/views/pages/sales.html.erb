@@ -1,18 +1,13 @@
 
 <% if user_signed_in? %>
 
-		<div class="sidebar-container">
+	<%= render 'pages/user/dashboard_side_panel' %>
 
-			<%= render 'pages/user/dashboard_side_panel' %>
+	<div class="dashboard-container">
 
-		</div>
+		<%= render 'pages/user/balance' %>
 
-
-		<div class="dashboard-container">
-
-			<%= render 'pages/user/balance' %>
-
-		</div>
+	</div>
 
 <%end%>
 	

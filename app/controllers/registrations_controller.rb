@@ -19,7 +19,22 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
 
+
+
     resource.save
+
+    if params[:purchase_id]
+
+        if Purchase.exists?(:id => params[:purchase_id])
+
+          @purchase = Purchase.find(params[:purchase_id])
+
+          @purchase.update(:user_id => resource.id)
+
+        end
+
+    end
+
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?

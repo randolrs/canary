@@ -156,7 +156,7 @@ class ChargesController < ApplicationController
 			)
 
 			purchase = Purchase.create(amount: price, description: charge.description, currency: charge.currency,
-	    	stripe_customer_id: @order.card_token, item_art_id: @item_art.id, artist_id: @item_art.user.id)
+	    	stripe_customer_id: @order.card_token, item_art_id: @item_art.id, artist_id: @item_art.user.id, order_id: @order.id)
 
 			if @order.user_id
 

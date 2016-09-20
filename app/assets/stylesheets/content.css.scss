@@ -390,7 +390,7 @@ section.home-primary.landing{
 	background: rgba(240, 240, 240, 0.8);
     height: 100%;
     display: block;
-    padding: 150px 30px;
+    padding: 120px 30px;
     min-height: 34em;
 
     .landing-content-container{
@@ -660,6 +660,7 @@ span.price{
 	div{
 		display: table-cell;
 		padding: 10px;
+		vertical-align: top;
 	}	
 }
 

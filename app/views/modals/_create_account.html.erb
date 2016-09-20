@@ -10,6 +10,10 @@
 
 			    <h2 class="light">Sign up</h2>
 
+			    <% if @purchase%>
+			    	<%= hidden_field_tag 'purchase_id', @purchase.id %>
+			    <%end%>
+
 			    <div class="field">
 			      <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
 			    </div>
@@ -23,7 +27,7 @@
 			    </div>
 
 			    <div class="actions">
-			      <%= f.submit "Sign up", class: "button medium orange-background" %>
+			      <%= f.submit "Create Account", class: "button medium orange-background" %>
 			    </div>
 
 			<% end %>
