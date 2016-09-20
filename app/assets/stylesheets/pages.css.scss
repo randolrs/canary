@@ -583,3 +583,31 @@ table.sales-index{
 	text-align: center;
 }
 
+.mobile-thumb-cta{
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+
+	display: none;
+	
+
+	span{
+		display: inline-block;
+		height: 50px;
+		width:50px;
+		line-height: 50px;
+		border-radius: 50px;
+		font-size: 20px;
+    	text-align: center;
+    	box-shadow: 0px 2px 2px #222;
+    	color: #fff;
+    	text-shadow: 0px -1px 1px #222;
+
+	}
+
+	span:hover{
+		cursor: pointer;
+
+	}
+}
+

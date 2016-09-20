@@ -18,6 +18,19 @@
 				border:none;
 			}
 
+			div.message-container{
+				padding: 0px;
+			}
+
+			div.message{
+				border: none;
+				border-bottom: 1px solid #ccc;
+			}
+
+			.mobile-thumb-cta{
+				display: inherit;
+			}
+
 			form.edit_user_settings{
 	
 				text-align: center;
