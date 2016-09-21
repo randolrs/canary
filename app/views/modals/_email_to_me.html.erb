@@ -6,7 +6,7 @@
 
 		<div class="simple-landing-container">
 
-			<%# form_tag email_to_me_path(item.id), id: 'emailMeForm' do %>
+			<%= form_tag email_to_me_path(item.id), id: 'emailMeForm' do %>
 
 				<input type="text" name="email" class=""></input>
 
@@ -14,7 +14,7 @@
 
 				<input type="submit" class="button large orange-background" value="Send Email">
 			   
-			<%# end %>
+			<% end %>
 
 		</div>
 

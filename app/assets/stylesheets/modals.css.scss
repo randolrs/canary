@@ -13,6 +13,7 @@
     display: none;
     vertical-overflow:hidden;
     z-index: 999999999999;
+    background: #fff;
 
 }
 
@@ -35,7 +36,7 @@
     border-radius: 2px;
 
     padding: 0px 20px;
-    top: 40%;
+    top: 100px;
 }
 
 span.dismiss-modal{

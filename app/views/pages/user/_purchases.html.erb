@@ -1,19 +1,39 @@
 <%= render 'pages/user/dashboard_header' %>
 
-<div class="dashboard-item no-nav">
+<% if current_user.purchases.count > 0 %>
 
-	<% current_user.purchases.each do |purchase| %>
-			
-		<a href="<%= purchase_path(purchase.id) %>">
+	<div class="dashboard-item no-nav">
 
-			<div class="dashboard-index clickable">
-				<div><%= image_tag purchase.item_art.image.url, class: "small-item-image"%></div>
+		<% current_user.purchases.each do |purchase| %>
+				
+			<a href="<%= purchase_path(purchase.id) %>">
 
-				<div>You purchased "<%= purchase.item_art.name %>" on <%= purchase.created_at.strftime("%b %d") %> for <%= number_to_currency(purchase.amount, precision: 0) %>.<br>Status: <%= purchase.status_as_string %></div>
+				<div class="dashboard-index clickable">
+					<div><%= image_tag purchase.item_art.image.url, class: "small-item-image"%></div>
+
+					<div>You purchased "<%= purchase.item_art.name %>" on <%= purchase.created_at.strftime("%b %d") %> for <%= number_to_currency(purchase.amount, precision: 0) %>.<br>Status: <%= purchase.status_as_string %></div>
+				</div>
+
+			</a>
+
+		<%end%>
+
+	</div>
+
+<%else%>
+
+	<div class="dashboard-item no-nav blank">
+
+			<div class="nothing-to-see-container">
+
+				<p>No purchases. Explore art you might like. [link]</p>
+
 			</div>
+			
+		</div>
 
-		</a>
+	</div>
+	
+<%end%>
 
-	<%end%>
 
-</div>

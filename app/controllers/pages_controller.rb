@@ -7,11 +7,7 @@ class PagesController < ApplicationController
 
 		@page = "home"
 
-		
-
 		@hide_return_to_home = true
-
-
 
 		if user_signed_in?
 			
@@ -179,6 +175,16 @@ class PagesController < ApplicationController
 		if user_signed_in?
 			@hide_header = true
 		end
+
+	end
+
+	def email_to_me
+
+		@item_art = ItemArt.find(params[:item_art_id])
+
+		UserMailer.email_to_me(@item_art, params[:email]).deliver_later
+
+		redirect_to :back
 
 	end
 
