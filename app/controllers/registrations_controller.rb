@@ -19,9 +19,9 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
 
-
-
     resource.save
+
+    
 
     if params[:purchase_id]
 
@@ -38,6 +38,7 @@ class RegistrationsController < Devise::RegistrationsController
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
+        UserMailer.welcome_email(resource).deliver_later
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)
