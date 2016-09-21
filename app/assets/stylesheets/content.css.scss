@@ -354,6 +354,11 @@ h3.dashboard-profile-header{
 .box {
   margin: 5px;
   width: 214px;
+  float: left;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  display: inline;
 }
 
 .box img {
