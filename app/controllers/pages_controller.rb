@@ -45,6 +45,18 @@ class PagesController < ApplicationController
 
 	end
 
+	def customer_payment_settings
+		
+		if user_signed_in?
+			@hide_header = true
+
+		else
+
+			redirect_to root_path
+		end
+		
+	end
+
 	def payment_settings
 
 		@page_title = "Settings"

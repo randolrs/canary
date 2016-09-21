@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920181842) do
+ActiveRecord::Schema.define(version: 20160921223157) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -95,6 +95,14 @@ ActiveRecord::Schema.define(version: 20160920181842) do
     t.datetime "updated_at",         null: false
     t.integer  "artist_id"
     t.integer  "order_id"
+    t.string   "ip_address"
+  end
+
+  create_table "stripe_user_customers", force: :cascade do |t|
+    t.string   "user_id"
+    t.string   "stripe_customer_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -122,6 +130,7 @@ ActiveRecord::Schema.define(version: 20160920181842) do
     t.text     "about",                  default: ""
     t.string   "stripe_account_id"
     t.string   "stripe_secret_key"
+    t.string   "stripe_customer_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

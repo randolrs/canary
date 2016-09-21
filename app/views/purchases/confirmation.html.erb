@@ -6,7 +6,13 @@
 
 		<p>Confirmation Number: <%= @purchase.id %></p>
 
+		<p>Stripe Customer ID: <%= @purchase.stripe_customer_id %></p>
+
 		<p>Price: <%= number_to_currency(@purchase.amount) %></p>
+
+		<p><%= @purchase.ip_address %></p>
+
+		<p><%= request.remote_ip %></p>
 
 		<br>
 
