@@ -21,11 +21,11 @@
 
 					<ul class="header-right">
 
-						<li class="mobile-only"><a href="<%= inbox_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li>
+						<li><a href="<%= inbox_path %>"><span class="glyphicon glyphicon-envelope mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Inbox</span></a></li>
 
-						<li class="mobile-only"><a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "header-profile-image" %></a></li>
+						<li><a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "header-profile-image" %></a></li>
 
-						<li class="mobile-only"><a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
+						<li><a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Settings</span></a></li>
 
 					</ul>
 
@@ -33,7 +33,7 @@
 
 					<ul class="header-left">
 							
-						<li class="mobile-only"><a href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span></a></li>
+						<li><a href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span></a></li>
 
 						<li><a class="header-page-title"><%= @page_title %></a></li>
 
@@ -41,11 +41,11 @@
 
 					<ul class="header-right">
 
-						<li class="mobile-only"><a href="<%= my_purchases_path %>"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></a></li>
+						<li><a href="<%= my_purchases_path %>"><span class="glyphicon glyphicon-shopping-cart mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">My Purchases</span></a></li>
 
-						<li class="mobile-only"><a href="<%= inbox_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li>
+						<li><a href="<%= inbox_path %>"><span class="glyphicon glyphicon-envelope mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Inbox</span></a></li>
 
-						<li class="mobile-only"><a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
+						<li><a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Settings</span></a></li>
 
 					</ul>
 

@@ -20,6 +20,10 @@
 				border:none;
 			}
 
+			section.home-primary{
+				padding: 20px;
+			}
+
 			div.message-container{
 				padding: 0px;
 			}
@@ -38,12 +42,14 @@
     	
 			}
 
-			.mobile-only{
-				display: inherit;
+			.mobile-only, .mobile-device-only{
+  
+  				display: inherit !important;
+
 			}
 
 			.hide-on-mobile{
-				display: none;
+				display: none !important;
 			}
 
 			.dashboard-horizontal-item {

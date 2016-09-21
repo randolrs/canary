@@ -77,6 +77,8 @@ div.actions{
 }
 
 .mobile-only, .mobile-device-only{
-  display: none;
+  
+  display: none !important;
+
 }
 
