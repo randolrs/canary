@@ -14,6 +14,8 @@ class PurchasesController < ApplicationController
 
   		@purchase = Purchase.find(params[:purchase_id])
 
+  		@customer_id = StripeUserCustomer.where(:user_id => current_user.id).last
+
   		#unless @purchase.ip_address == request.remote_ip
 
   			#redirect_to root_path

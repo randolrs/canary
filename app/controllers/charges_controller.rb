@@ -46,14 +46,14 @@ class ChargesController < ApplicationController
 
 		end
 
-		unless current_user.stripe_customer_id
+		unless StripeUserCustomer.exists?(:user_id => current_user.id)
 
 			stripe_user_customer = StripeUserCustomer.new
 
 			stripe_user_customer.update(:user_id => current_user.id, :stripe_customer_id => customer.id)
 			
 			stripe_user_customer.save
-			
+
 			#current_user.update(:stripe_customer_id => customer.id)
 
 		end

@@ -6,8 +6,8 @@
 	<div class="dashboard-container">
 
 		<%# render 'pages/user/payment_settings' %>
-
-		<p>Customer ID: <%= current_user.stripe_customer_id %></p>
+		<%= StripeUserCustomer.exists?(:user_id => current_user.id) %>
+		<p>Customer ID: <%= @customer_id  %></p>
 
 		<p>User ID: <%= current_user.id %></p>
 
