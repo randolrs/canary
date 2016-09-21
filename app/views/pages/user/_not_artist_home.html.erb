@@ -1,26 +1,32 @@
 <section class="home-primary">
+	
 	<h2>Artwork recommended for you</h2>
 	
-	<% ItemArt.last(6).each do |item| %>
-		
-		<%= render :partial => 'item_arts/index_show', :locals => {:item => item, :image_only => true} %>
+	<div id="portfolio" class="transitions-enabled">
+	
+		<% current_user.recommended_artwork(6).each do |item| %>
+			
+			<%= render :partial => 'item_arts/index_show', :locals => {:item => item, :image_only => true} %>
 
-	<%end%>
+		<%end%>
+
+	</div>
 
 </section>
 
 <section class="home-primary">
+	
 	<h2>Artists worth exploring</h2>
 
-	<% User.last(6).each do |user| %>
+	<% current_user.recommended_artists(6).each do |user| %>
 		
 		<%= link_to(profile_path(user.display_name)) do %>
 
-			<div class="lightbox">
+			
 
-				<%= image_tag user.image.url(:medium), class: "medium-item-image"%>
+				<%= image_tag user.image.url(:medium), class: "medium-profile-image"%>
 
-			</div>
+			
 
 		<%end%>
 

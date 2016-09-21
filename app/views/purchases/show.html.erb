@@ -1,2 +1,23 @@
-This is your purchase</p>
-<p>Your purchase is <%= @purchase.inspect %><
+<div class="content">
+
+	<h2>Purchase Details</h2>
+
+	<div class="dashboard-index no-border">
+
+		<div><%= image_tag @item_art.image.url, class: "small-item-image" %></div>
+
+		<div><%=@item_art.name%><br>by <%= @item_art.user.display_name %></div>
+
+	</div>
+
+	<br>
+
+	<p>Purchased on <%= @purchase.created_at.strftime("%b %d, %Y") %></p>
+
+	<p>Delivery Method: </p>
+	<p>Payment Method: </p>
+	<p>Order Total: <%= number_to_currency(@purchase.amount) %></p>
+	
+	<p>Status: <%= @purchase.status_as_string %></p>
+
+</div>

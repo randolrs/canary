@@ -23,6 +23,10 @@ class ItemArtsController < ApplicationController
 
     @message_recipient = @item_art.user
 
+    @artist = @item_art.user
+
+    @more_work_from_artist = @artist.more_work(@item_art.id, 3)
+
   end
 
   def search

@@ -4,6 +4,10 @@ class PurchasesController < ApplicationController
 		
     	@purchase = Purchase.find(params[:id])
 
+    	@item_art = @purchase.item_art
+
+    	@page_title = "My Purchases"
+
   	end
 
   	def confirmation

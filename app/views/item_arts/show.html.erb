@@ -22,21 +22,19 @@
 
       <div class="left">
 
-          <h2><%= @item_art.name %></h2>
+        <h2><%= @item_art.name %></h2>
 
-        </div>
+      </div>
 
-        <div class="right">
+      <div class="right">
 
-          <h4><%= number_to_currency(@item_art.price, precision: 0) %></h4>
+        <h4><%= number_to_currency(@item_art.price, precision: 0) %></h4>
 
       </div>
 
       <p>by <%= @item_art.user.display_name %></p>
       
       <br>
-
-
 
     </div>
 
@@ -111,6 +109,22 @@
       <%end%>
     
     </div>
+
+    <% if @more_work_from_artist.count > 0 %>
+    
+      <h4 class="text-header-underline">More Work by <%= @item_art.user.display_name %></h4>
+
+      <div class="centered">
+
+        <% @more_work_from_artist.each do |item| %>
+
+          <%= render :partial => 'item_arts/index_show', :locals => {:item => item, :image_only => true} %>
+
+        <% end %>
+
+      </div>
+
+    <%end%>
 
   </div>
 

@@ -9,4 +9,6 @@ class Purchase < ActiveRecord::Base
 		return "Awaiting Delivery"
 		
 	end
+
+	
 end

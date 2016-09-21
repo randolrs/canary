@@ -21,18 +21,13 @@
 
 		<input type="hidden" name="order_id" value="<%= @order.id %>"></input>
 
-		<h4>Enter your payment details</h4>
+		<h4>Enter your payment details<span class="glyphicon glyphicon-lock"></span></h4>
 
 		<label>Card number</label>
 
 		<div class="input-container">
 
-			<span class="glyphicon glyphicon-credit-card cc-icon"></span>
-
 			<input type="text" name="cardNumber" id="cardNumberInput" class="cc-form card-number" maxlength="18"></input>
-
-			<span class="glyphicon glyphicon-lock lock-icon"></span>
-
 
 		</div>
 

@@ -105,9 +105,26 @@ class User < ActiveRecord::Base
 
   def is_me(user)
 
-
     return self.id == user.id
 
+  end
+
+  def more_work(item, count)
+
+    return self.item_arts.where.not(id: item).last(count)
+
+  end
+
+  def recommended_artwork(count)
+
+    return ItemArt.last(count)
+    
+  end
+
+  def recommended_artists(count)
+
+    return User.where(:is_artist => true).last(count)
+    
   end
   
 end

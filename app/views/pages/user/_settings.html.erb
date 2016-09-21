@@ -27,13 +27,16 @@
 
 	   
 	    <br />
+	    <% if current_user.is_artist %>
+	    
+		    <div class="field">
+		      <%= f.label "Artist Statement" %><br />
+		      <%= f.text_area :about %>
+		    </div>
 
-	    <div class="field">
-	      <%= f.label "Artist Statement" %><br />
-	      <%= f.text_area :about %>
-	    </div>
+		    <br />
 
-	    <br />
+	    <%end%>
 
 	    <div class="field">
 	      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />

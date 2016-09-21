@@ -255,6 +255,7 @@ h3.dashboard-profile-header{
 .content{
 	margin: 0 auto;
 	padding: 30px;
+	font-size: 18px;
 }
 
 
@@ -348,6 +349,15 @@ h3.dashboard-profile-header{
     	padding: 15px 5px;
     	font-weight: 800;
     }
+}
+
+.box {
+  margin: 5px;
+  width: 214px;
+}
+
+.box img {
+  width: 100%;
 }
 
 section.home-primary{
@@ -670,6 +680,11 @@ span.price{
 		padding: 10px;
 		vertical-align: top;
 	}	
+
+}
+
+.dashboard-index.no-border{
+	border:none;
 }
 
 div.clickable:hover{
