@@ -19,6 +19,9 @@ ready = ->
                   $('body').find('.dashboard-item').hide()
                   $('body').find(targetId).slideDown()
 
+            $(".email-to-me-modal").click (event), ->
+                  $('body').find('#email-to-me-modal').show()
+
 		$("#i-am-artist").click (event), ->
 			$(@).parent().hide()
 			$(@).parent().find('#user_is_artist').prop('checked', true)

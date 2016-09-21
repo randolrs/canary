@@ -28,12 +28,14 @@
 	margin:0 auto;
 	z-index: 100;
 	position:relative;
-    padding: 100px 20px;
 
     box-shadow: none;
     border: none;
     background: none;
     border-radius: 2px;
+
+    padding: 0px 20px;
+    top: 40%;
 }
 
 span.dismiss-modal{

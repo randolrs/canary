@@ -207,8 +207,9 @@ span.dismiss-parent{
     right: 0px;
     font-size: 16px;
     font-weight: 200;
-    color: #333;
-    text-shadow: 0px 1px 2px #ccc;
+    color: #fff;
+    text-shadow: 0px 1px 2px #999;
+    z-index: 9999999;
 }
 
 span.dismiss-modal.light, span.dismiss-parent.light{
