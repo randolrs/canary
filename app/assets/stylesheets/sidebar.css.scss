@@ -23,7 +23,7 @@
     			letter-spacing: 1.1px;
     			padding: 12px 20px;
                 color: #fff;
-                text-shadow: 0px 1px 1px #111;
+                text-shadow: 0px 1px 1px #000;
 
     		}
 
@@ -110,10 +110,8 @@
 
     	li.active{
             
-            background: #16c72e;
-            border-top: 1px solid #0a5c15;
-            border-bottom: 1px solid #0a5c15;
-            box-shadow: 0px 2px 1px #0a5c15;
+            background: #222;
+            box-shadow: inset 0px 2px 1px #111;
 
     		a{
     			
