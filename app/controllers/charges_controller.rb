@@ -58,18 +58,26 @@ class ChargesController < ApplicationController
 
 	def create_customer
 
-		token = Stripe::Token.create(
-		  :card => {
-		    :number => params[:cardNumber],
-		    :exp_month => params[:expMonth],
-		    :exp_year => params[:expYear],
-		    :cvc => params[:cvc]
-		  },
-		)
+		if params[:payment_option] == "saved"
 
-	  	customer = Stripe::Customer.create(
-	    	:card  => token.id
-	  	)
+			customer = current_user.stripe_customer_object
+			
+		else
+
+			token = Stripe::Token.create(
+			  :card => {
+			    :number => params[:cardNumber],
+			    :exp_month => params[:expMonth],
+			    :exp_year => params[:expYear],
+			    :cvc => params[:cvc]
+			  },
+			)
+
+		  	customer = Stripe::Customer.create(
+		    	:card  => token.id
+		  	)
+
+		end
 	  	
 	  	@order = Order.find(params[:order_id])
 
@@ -127,6 +135,16 @@ class ChargesController < ApplicationController
 		if Order.exists?(:id => params[:order_id])
 
 			@order = Order.find(params[:order_id])
+
+		end
+
+		if user_signed_in?
+
+			if current_user.stripe_default_card_object
+
+				@user_with_card = true
+
+			end
 
 		end
 

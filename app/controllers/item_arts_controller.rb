@@ -59,34 +59,42 @@ class ItemArtsController < ApplicationController
   # POST /item_arts
   # POST /item_arts.json
   def create
-    @item_art = ItemArt.new(item_art_params)
-
-    @item_art.update(:user_id => current_user.id)
-
-    c = 0
     
-    until c==1 do
-      
-      search_code = (SecureRandom.urlsafe_base64 3).downcase
-      
-      unless ItemArt.where(:search_code => search_code).exists?
+    if current_user.is_artist
 
-        @item_art.update(:search_code => search_code)
+      @item_art = ItemArt.new(item_art_params)
 
-        c=1
+      @item_art.update(:user_id => current_user.id)
+
+      c = 0
+      
+      until c==1 do
+        
+        search_code = (SecureRandom.urlsafe_base64 3).downcase
+        
+        unless ItemArt.where(:search_code => search_code).exists?
+
+          @item_art.update(:search_code => search_code)
+
+          c=1
+
+        end
 
       end
 
-    end
-
-    respond_to do |format|
-      if @item_art.save
-        format.html { redirect_to @item_art, notice: 'Item art was successfully created.' }
-        format.json { render :show, status: :created, location: @item_art }
-      else
-        format.html { render :new }
-        format.json { render json: @item_art.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @item_art.save
+          format.html { redirect_to @item_art, notice: 'Item art was successfully created.' }
+          format.json { render :show, status: :created, location: @item_art }
+        else
+          format.html { render :new }
+          format.json { render json: @item_art.errors, status: :unprocessable_entity }
+        end
       end
+
+    else
+
+      redirect_to root_path
     end
   end
 

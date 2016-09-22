@@ -154,7 +154,8 @@
 }
 
 .blue-background{
-	text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
+	
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
     background-color: #02555D;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#0E6972), to(#02555D));
     background-image: -webkit-linear-gradient(top, #0E6972, #02555D);
@@ -616,5 +617,11 @@ table.sales-index{
 		cursor: pointer;
 
 	}
+}
+
+
+div#new-card-options{
+	margin-top: 15px;
+	padding: 0px 15px;
 }
 

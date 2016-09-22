@@ -138,9 +138,34 @@ class User < ActiveRecord::Base
     else
 
       return nil
-      
+
     end 
 
+  end
+
+  def stripe_default_card_object
+
+    customer = self.stripe_customer_object
+
+
+    if customer
+
+      card = customer.sources.retrieve(customer.default_source)
+
+      if card
+
+        return card
+
+      else
+
+        return nil
+        
+      end
+
+    else
+
+      return nil
+    end
 
   end
   

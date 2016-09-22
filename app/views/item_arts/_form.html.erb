@@ -18,7 +18,7 @@
 
     <div class="image-input-container centered">
       <h2>Upload a Photo of Your Art</h2>
-      <%= f.file_field :image, class: "form-control" %>
+      <%= f.file_field :image, required: true, class: "form-control" %>
 
     </div>
 
@@ -26,10 +26,10 @@
 
   <div class="content-column primary left-border">
 
-    <h2><%= f.text_field :name, placeholder: "Name/Title" %></h2>
+    <h2><%= f.text_field :name, placeholder: "Name/Title", required: true %></h2>
 
 
-    <%= f.text_field :medium, placeholder: "Medium", class: "medium" %>
+    <%= f.text_field :medium, placeholder: "Medium", required: true, class: "medium" %>
 
     <br>
     <br>
@@ -39,8 +39,8 @@
       <tr>
         
         <td>Dimensions:</td>
-        <td><%= f.text_field :height, placeholder: "Height (cm)", class: "dimension" %></td>
-        <td><%= f.text_field :width, placeholder: "Width (cm)", class: "dimension" %></td>
+        <td><%= f.text_field :height, placeholder: "Height (cm)", required: true, class: "dimension" %></td>
+        <td><%= f.text_field :width, placeholder: "Width (cm)", required: true, class: "dimension" %></td>
         <td><%= f.text_field :length, placeholder: "Length (cm)", class: "dimension" %></td>
         
       </tr>
@@ -49,14 +49,14 @@
 
     <br>
 
-    <%= f.text_field :price, placeholder: "Price", class: "price"  %>
+    <%= f.text_field :price, placeholder: "Price", required: true, class: "price"  %>
 
     <br>
     <br>
 
     <h4 class="text-header-underline">About this Piece</h4>
 
-    <%= f.text_area :description, placeholder: "A description of this piece.", class: "description"  %>
+    <%= f.text_area :description, required: true, placeholder: "A description of this piece.", class: "description"  %>
 
   </div>
 
