@@ -51,6 +51,8 @@ Rails.application.routes.draw do
 
   post '/order/start/create_customer' => 'charges#create_customer', as: 'create_customer'
 
+  post '/payments/new' => 'purchases#new_card', as: 'new_card'
+
   post 'email/item/:item_art_id' => 'pages#email_to_me', as: 'email_to_me'
   
   get '/:display_name' => 'pages#profile', as: 'profile'

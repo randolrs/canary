@@ -97,7 +97,7 @@
 
 					</li>
 
-					<li class="dashboard-option <% if @page=="settings" %>active<%end%>" id="account-settings" data-content-panel="settings-content">
+					<li class="dashboard-option <% if @page=="settings" or @page == "payment settings" %>active<%end%>" id="account-settings" data-content-panel="settings-content">
 						
 						<a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog" aria-hidden="true" style="margin-right: 5px;"></span><span>Account Settings</span></a>
 

@@ -9,6 +9,9 @@ ready = ->
             $(".email-me-modal").click (event), ->
                   $('body').find('#email-me-modal').show()
 
+            $(".new-card-modal").click (event), ->
+                  $('body').find('#new-card-modal').show()
+
             $(".create-account-modal").click (event), ->
                   $('body').find('#create-account-modal').show()
                   

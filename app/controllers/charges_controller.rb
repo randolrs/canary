@@ -7,6 +7,7 @@ class ChargesController < ApplicationController
 	  		@item_art = ItemArt.find(params[:itemArtID])
 		end
 
+
 		token = Stripe::Token.create(
 		  :card => {
 		    :number => params[:cardNumber],
@@ -43,18 +44,6 @@ class ChargesController < ApplicationController
 		if params[:user_id]
 
 			purchase.update(:user_id => params[:user_id])
-
-		end
-
-		unless StripeUserCustomer.exists?(:user_id => current_user.id)
-
-			stripe_user_customer = StripeUserCustomer.new
-
-			stripe_user_customer.update(:user_id => current_user.id, :stripe_customer_id => customer.id)
-			
-			stripe_user_customer.save
-
-			#current_user.update(:stripe_customer_id => customer.id)
 
 		end
 
@@ -175,9 +164,25 @@ class ChargesController < ApplicationController
 			purchase = Purchase.create(amount: price, description: charge.description, currency: charge.currency,
 	    	stripe_customer_id: @order.card_token, item_art_id: @item_art.id, artist_id: @item_art.user.id, order_id: @order.id)
 
-			if @order.user_id
 
-				purchase.update(:user_id => @order.user_id)
+			if user_signed_in?
+
+				unless StripeUserCustomer.exists?(:user_id => current_user.id)
+
+					stripe_user_customer = StripeUserCustomer.new
+
+					stripe_user_customer.update(:user_id => current_user.id, :stripe_customer_id => @order.card_token)
+				
+					stripe_user_customer.save
+
+				end
+
+
+				if @order.user_id
+
+					purchase.update(:user_id => @order.user_id)
+
+				end
 
 			end
 

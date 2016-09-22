@@ -132,6 +132,10 @@
 	color: #fff;
 }
 
+.button.right-margin{
+	margin-right: 15px;
+}
+
 .button.medium{
 	max-width: 300px;
 	width:100%;
@@ -254,7 +258,7 @@
 	background-color: #104891;
     border: 1px solid #0a2e5c;
     box-shadow: inset 0px 1px 3px 0px #1663c7;
-    color: #104891;
+    color: #fff;
     text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2);
 
     border-radius: 3px;

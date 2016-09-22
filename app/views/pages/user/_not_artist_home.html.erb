@@ -2,9 +2,9 @@
 	
 	<h2>Artwork recommended for you</h2>
 	
-	<div id="portfolio" class="transitions-enabled">
-	
-		<% current_user.recommended_artwork(6).each do |item| %>
+	<div class="portfolio">
+
+		<% current_user.recommended_artwork(10).each do |item| %>
 			
 			<%= render :partial => 'item_arts/index_show', :locals => {:item => item, :image_only => true} %>
 
@@ -18,19 +18,21 @@
 	
 	<h2>Artists worth exploring</h2>
 
-	<% current_user.recommended_artists(6).each do |user| %>
-		
-		<%= link_to(profile_path(user.display_name)) do %>
+	<div class="portfolio">
 
+		<% current_user.recommended_artists(6).each do |user| %>
 			
+			<%= link_to(profile_path(user.display_name)) do %>
 
-				<%= image_tag user.image.url(:medium), class: "medium-profile-image"%>
+				<div class="box">
+				<%= image_tag user.image.url(:medium), class: "medium-item-image"%>
+				</div>
 
-			
+			<%end%>
 
 		<%end%>
 
-	<%end%>
+	</div>
 
 </section>
 

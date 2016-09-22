@@ -6,8 +6,8 @@ ready = ->
 
 	$ ->
 
-		$('#portfolio').imagesLoaded ->
-			$('#portfolio').masonry
+		$('.portfolio').imagesLoaded ->
+			$('.portfolio').masonry
 				itemSelector: '.box'
 				isFitWidth: true
 

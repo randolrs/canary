@@ -96,11 +96,26 @@ form.new_item_art{
     width: 100%;
 }
 
-#portfolio{
+.portfolio{
 	text-align: center;
 	margin: 0 auto;
 	width: 100% !important;
 }
+
+.box {
+  margin: 5px;
+  width: 200px;
+  
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  display: inline;
+}
+
+.box img {
+  width: 100%;
+}
+
 
 input.dimension{
 	text-align: center;

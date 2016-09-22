@@ -48,13 +48,25 @@ class PagesController < ApplicationController
 	def customer_payment_settings
 		
 		if user_signed_in?
+
+			@page_title = "Settings"
+
+			@page = "payment settings"
+
 			@hide_header = true
+
+			@stripe_customer_object = current_user.stripe_customer_object
+
+			if @stripe_customer_object 
+
+				@customer_cards = Stripe::Customer.retrieve(@stripe_customer_object.id).sources.all(:object => "card")
+			end
 
 		else
 
 			redirect_to root_path
 		end
-		
+
 	end
 
 	def payment_settings

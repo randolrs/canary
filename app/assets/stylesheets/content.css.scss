@@ -351,19 +351,7 @@ h3.dashboard-profile-header{
     }
 }
 
-.box {
-  margin: 5px;
-  width: 214px;
-  float: left;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  display: inline;
-}
 
-.box img {
-  width: 100%;
-}
 
 section.home-primary{
 	width: 100%;
@@ -577,7 +565,7 @@ span.badge-number{
 
 .content-inner{
 	width: 100%;
-	max-width: 600px;
+	max-width: 400px;
 	margin: 0 auto;
 	border: 1px solid #ddd;
 	box-shadow: 0px 2px 1px #ccc;
@@ -678,6 +666,7 @@ span.price{
 .dashboard-index{
 	display: block;
 	border-bottom: 1px solid #bbb;
+	font-size: 18px;
 
 
 	div{
@@ -685,6 +674,18 @@ span.price{
 		padding: 10px;
 		vertical-align: top;
 	}	
+
+	div.wide{
+		width: 900px;
+	}
+
+	div.right{
+		text-align:right;
+	}
+
+	div.block{
+		display: block;
+	}
 
 }
 

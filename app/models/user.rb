@@ -126,5 +126,22 @@ class User < ActiveRecord::Base
     return User.where(:is_artist => true).last(count)
     
   end
+
+  def stripe_customer_object
+
+    if StripeUserCustomer.exists?(:user_id => self.id)
+    
+      stripe_customer_id = StripeUserCustomer.where(:user_id => self.id).last.stripe_customer_id
+
+      return Stripe::Customer.retrieve(stripe_customer_id)
+
+    else
+
+      return nil
+      
+    end 
+
+
+  end
   
 end
