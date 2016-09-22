@@ -24,4 +24,6 @@
 
 </div>
 
-<%= render 'modals/create_account' %>
+<% unless user_signed_in? %>
+	<%= render 'modals/create_account' %>
+<%end%>
