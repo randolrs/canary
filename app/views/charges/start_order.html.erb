@@ -16,6 +16,14 @@
 
 		<%end%>
 
+		<% if_user_signed_in? %>
+
+			<% if current_user.stripe_customer_object %>
+
+			<%end%>
+
+		<% end %>
+
 		<%= form_tag create_customer_path, id: 'chargeForm' do %>
 
 			<input type="hidden" name="order_id" value="<%= @order.id %>"></input>

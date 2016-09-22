@@ -64,5 +64,42 @@ class PurchasesController < ApplicationController
     redirect_to :back
     end
 
+    def new_default_card
+
+      if user_signed_in?
+
+        customer = current_user.stripe_customer_object
+
+        customer.default_source = params[:card_id]
+
+        customer.save
+
+        redirect_to :back
+
+      else
+
+        redirect_to root_path
+
+      end
+
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to :back
+    end
+
+    def delete_card
+
+      customer = current_user.stripe_customer_object
+      
+      customer.sources.retrieve(params[:card_id]).delete()
+
+      customer.save
+
+      redirect_to :back
+
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to :back
+    end
 
 end

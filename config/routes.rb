@@ -54,7 +54,12 @@ Rails.application.routes.draw do
   post '/payments/new' => 'purchases#new_card', as: 'new_card'
 
   post 'email/item/:item_art_id' => 'pages#email_to_me', as: 'email_to_me'
+
+  get 'payments/default/new/:card_id' => 'purchases#new_default_card', as: 'new_default_card'
   
+  get 'payments/default/delete/:card_id' => 'purchases#delete_card', as: 'delete_card'
+  
+
   get '/:display_name' => 'pages#profile', as: 'profile'
 
   get '/:display_name/about' => 'pages#profile_about', as: 'profile_about'

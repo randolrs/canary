@@ -11,27 +11,31 @@
 
 		<div class="dashboard-item">
 
-			<h3>Stored Payment Methods</h3>
+			<div class="padded-content">
 
-			<% if @customer_cards %>
+				<% if @customer_cards %>
 
-				<% @customer_cards.each do |card| %>
+					<h3>Stored Payment Methods</h3>
 
-					<div class="dashboard-index">
-						
-						<div><%=card.brand + " •••• •••• •••• " + card.last4 %></div>
-						<div><%= card.exp_month.to_s + "/" + card.exp_year.to_s %></div>
-						<div class="align-right block"><% if @stripe_customer_object.default_source == card.id %><a class="button green-background right-margin"><span class="glyphicon glyphicon-ok" style="margin-right: 5px;"></span>Default</a><%else%><a class="button bright-blue-background right-margin">Make Default</a><%end%><a class="button orange-background right-margin">Edit</a><a class="button red-frame">Delete</a></div>
+					<% @customer_cards.each do |card| %>
 
-					</div>
+						<div class="dashboard-index">
+							
+							<div><%=card.brand + " •••• •••• •••• " + card.last4 %></div>
+							<div><%= card.exp_month.to_s + "/" + card.exp_year.to_s %></div>
+							<div class="align-right block"><% if @stripe_customer_object.default_source == card.id %><a class="button green-background right-margin"><span class="glyphicon glyphicon-ok" style="margin-right: 5px;"></span>Default</a><%else%><a class="button bright-blue-background right-margin" href='<%= new_default_card_path(card.id) %>'>Make Default</a><%end%><a class="button red-frame" href='<%= delete_card_path(card.id) %>'>Delete</a></div>
+
+						</div>
+
+					<%end%>
 
 				<%end%>
 
-			<%end%>
+				<br><br>
 
-			<br><br>
+				<a class="button orange-background medium modal-cta new-card-modal">Add New Credit Card</a>
 
-			<a class="button green-background modal-cta new-card-modal">Add New Credit Card</a>
+			</div>
 
 		</div>
 

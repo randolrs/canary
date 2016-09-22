@@ -539,6 +539,7 @@ a.warning-text-cta:hover{
 
 .dashboard-item{
 	display: block;
+	padding: 0px 30px;
     padding-top:125px;
     margin: 0 auto;
 
@@ -666,6 +667,8 @@ span.price{
 .dashboard-index{
 	display: block;
 	border-bottom: 1px solid #bbb;
+	border-top: 1px solid #bbb;
+	margin-bottom: -1px;
 	font-size: 18px;
 
 
