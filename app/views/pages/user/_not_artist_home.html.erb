@@ -18,15 +18,13 @@
 	
 	<h2>Artists worth exploring</h2>
 
-	<div class="portfolio">
+	<div class="centered">
 
 		<% current_user.recommended_artists(6).each do |user| %>
 			
 			<%= link_to(profile_path(user.display_name)) do %>
 
-				<div class="box">
-				<%= image_tag user.image.url(:medium), class: "medium-item-image"%>
-				</div>
+				<%= image_tag user.image.url(:medium), class: "medium-profile-image"%>
 
 			<%end%>
 
@@ -36,10 +34,10 @@
 
 </section>
 
-<section class="home-primary">
+<!-- <section class="home-primary">
 	<h2>Browse our artwork</h2>
 </section>
 
 <section class="home-primary">
 	<h2>Browse our artists</h2>
-</section>
+</section> -->

@@ -61,11 +61,16 @@
 
 		</div>
 
-		<div style="display:none;" id="get-started-panel">
+		<div  id="get-started-panel">
 			
 			<h2>Thanks for answering those questions.  <br><br>Let's get started <span id="welcome-action"></span></h2>
 
 <!-- 			<input type="submit" class="button blue-background" value="Get Started"></input> -->
+
+			<div style="display:none;">
+				
+				<%= f.check_box :onboarded, {:checked=>true} %> 
+			</div>
 
 			<%= f.submit "Get Started", class: 'button medium blue-background' %>
 

@@ -6,7 +6,7 @@
 
     <%= form_for(@message) do |f| %>
 
-    <h2>Message to<%= image_tag @message_recipient.image.url(:medium), class: "header-profile-image"%><%= @message_recipient.display_name %></h2>
+    <h3>Message to <span><%= image_tag @message_recipient.image.url(:medium), class: "header-profile-image"%><%= @message_recipient.display_name %></span></h3>
 
       <%= f.number_field :recipient_id, :value => @message_recipient.id, :hidden => true  %>
 
