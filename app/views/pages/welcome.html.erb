@@ -7,7 +7,7 @@
 
 			<h2>Welcome to Artagami!</h2>
 			
-			<h2>Are You an Artist?</h2>
+			<h3>Are You an Artist?</h3>
 
 			<a class="button blue-background" id="i-am-artist">Yes</a>
 
@@ -33,7 +33,7 @@
 
 		<div style="display:none;" id="exhibition-panel">
 			
-			<h2>Awesome! We're so glad you're here.  <br><br> Do you already have a public exhibition of your art?</h2>
+			<h3>Awesome! We're so glad you're here.  <br><br> Do you already have a public exhibition of your art?</h3>
 
 			<a class="button blue-background" id="exhibition-yes">Yes</a>
 
@@ -43,11 +43,11 @@
 
 		<div style="display:none;" id="location-panel">
 			
-			<h2 style="display:none;" id="location-header-artist-has-exhibit">Very cool. We want to help you sell more art. <br><br> Where is your exhibition located?</h2>
+			<h3 style="display:none;" id="location-header-artist-has-exhibit">Very cool. We want to help you sell more art. <br><br> Where is your exhibition located?</h3>
 
-			<h2 style="display:none;" id="location-header-artist-no-exhibit">No problem. We'll help connect you with the perfect venue to showcase your art. <br><br> Where are you located?</h2>
+			<h3 style="display:none;" id="location-header-artist-no-exhibit">No problem. We'll help connect you with the perfect venue to showcase your art. <br><br> Where are you located?</h3>
 
-			<h2 style="display:none;" id="location-header-buyer">Thanks for checking us out! <br><br> Where are you located?</h2>
+			<h3 style="display:none;" id="location-header-buyer">Thanks for checking us out! <br><br> Where are you located?</h3>
 			
 			<%= f.collection_select(:home_city_id, City.all, :id, :name, :prompt => 'Select City') %>
 
@@ -63,12 +63,12 @@
 
 		<div  id="get-started-panel">
 			
-			<h2>Thanks for answering those questions.  <br><br>Let's get started <span id="welcome-action"></span></h2>
+			<h3>Thanks for answering those questions.  <br><br>Let's get started <span id="welcome-action"></span></h3>
 
 <!-- 			<input type="submit" class="button blue-background" value="Get Started"></input> -->
 
 			<div style="display:none;">
-				
+
 				<%= f.check_box :onboarded, {:checked=>true} %> 
 			</div>
 
