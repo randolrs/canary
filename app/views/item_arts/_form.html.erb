@@ -39,9 +39,9 @@
       <tr>
         
         <td>Dimensions:</td>
-        <td><%= f.text_field :height, placeholder: "Height (cm)", required: true, class: "dimension" %></td>
-        <td><%= f.text_field :width, placeholder: "Width (cm)", required: true, class: "dimension" %></td>
-        <td><%= f.text_field :length, placeholder: "Length (cm)", class: "dimension" %></td>
+        <td><%= f.number_field :height, placeholder: "Height (cm)", required: true, class: "dimension" %></td>
+        <td><%= f.number_field :width, placeholder: "Width (cm)", required: true, class: "dimension" %></td>
+        <td><%= f.number_field :length, placeholder: "Length (cm)", class: "dimension" %></td>
         
       </tr>
 
@@ -49,7 +49,7 @@
 
     <br>
 
-    <%= f.text_field :price, placeholder: "Price", required: true, class: "price"  %>
+    <%= f.number_field :price, placeholder: "Price", required: true, class: "price"  %>
 
     <br>
     <br>
