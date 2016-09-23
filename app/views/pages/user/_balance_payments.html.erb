@@ -3,16 +3,23 @@
 <div class="dashboard-item no-nav" id="balance">
 
 	<div class="dasboard-panel-content">
+		
 
 		<h4 class="centered">Next Payment Date: Aug 3, 2016</h4>
 
-		<% if @payments.count > 0 %>
+		<h4>Previous Payments to You</h4>
 
-			<% @payments.each do |payment|%>
+		<% if @stripe_transfers %>
+
+			<% @stripe_transfers.each do |transfer|%>
 
 				<div class="message">
 
-					<%= number_to_currency(payment.amount) %>
+					<%= number_to_currency(transfer.amount) %>
+
+					<%= transfer.date %>
+
+					<%= transfer.destination %>
 
 				</div>
 

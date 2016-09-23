@@ -2,7 +2,6 @@ class PagesController < ApplicationController
 
 	#skip_before_filter :verify_authenticity_token #####****this is a workaround with POSSIBLE SECURITY GAPS####***
 
-
 	def home
 
 		@page = "home"
@@ -155,9 +154,6 @@ class PagesController < ApplicationController
 		if user_signed_in?
 			@hide_header = true
 
-			Stripe.api_key = current_user.stripe_secret_key
-			account = Stripe::Account.retrieve(current_user.stripe_account_id)
-			@payments = Stripe::Transfer.list
 		end
 
 	end

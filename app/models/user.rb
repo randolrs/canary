@@ -91,15 +91,37 @@ class User < ActiveRecord::Base
 
         balance_object = Stripe::Balance.retrieve()
 
-        @user_stripe_balance = balance_object.available[0]['amount']
+        @user_stripe_balance = balance_object.available[0]['amount'] + balance_object.pending[0]['amount']
 
-        return balance_object.available[0]['amount']
+        Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+
+        return @user_stripe_balance
+
+      else
+
+        return 99
 
       end
 
-      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+  end
 
-      return 0
+  def stripe_transfers
+
+    if self.stripe_secret_key
+
+        Stripe.api_key = self.stripe_secret_key
+
+        @transfers =  Stripe::Transfer.list()
+
+        Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+
+        return @transfers
+
+      else
+
+        return nil
+
+      end
 
   end
 

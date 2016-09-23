@@ -23,6 +23,8 @@ gem 'sendgrid-ruby'
 
 gem 'possessive'
 
+gem 'activeadmin', github: 'activeadmin'
+
 gem 'masonry-rails', '~> 0.2.0'
 
 # Use SCSS for stylesheets
