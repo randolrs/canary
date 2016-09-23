@@ -14,7 +14,7 @@
 
 				<p><b>Bank Location</b></p>
 
-				<select name="country">
+				<select name="country" required>
 		            <option value="US">United States</option>
 		           	<option value="CAN">Canada</option>
 		        </select>
@@ -27,7 +27,7 @@
 
 				<p><b>Name on Account</b></p>
 
-				<input type="text" name="accountHolder"/>
+				<input type="text" name="accountHolder" required/>
 
 			</div>
 
@@ -37,7 +37,7 @@
 
 				<p><b>Routing Number</b></p>
 
-				<input type="text" size="9" name="routingNumber" autocomplete="off">
+				<input type="text" size="9" name="routingNumber" autocomplete="off" required>
 
 			</div>
 
@@ -47,7 +47,7 @@
 
 				<p><b>Account Number</b></p>
 
-				<input type="text" size="17" name="accountNumber" autocomplete="off">
+				<input type="text" size="17" name="accountNumber" autocomplete="off" required>
 
 			</div>
 

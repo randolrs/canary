@@ -4,8 +4,6 @@
 
 	<div class="modal-content">
 
-		<div class="content-inner">
-
 		<%= form_tag new_card_path, id: 'chargeForm' do %>
 
 			<h3><b>New Payment Method</b></h3>
@@ -14,7 +12,7 @@
 
 			<div class="input-container">
 
-				<input type="text" name="cardNumber" id="cardNumberInput" class="cc-form card-number" maxlength="18"></input>
+				<input type="text" name="cardNumber" id="cardNumberInput" class="cc-form card-number" maxlength="18" required></input>
 
 			</div>
 
@@ -27,7 +25,7 @@
 
 				<ul class="horizontal">
 
-					<li><select class="cc-select" name='expMonth' id='expireMM'>
+					<li><select class="cc-select" name='expMonth' id='expireMM' required>
 				    <option value=''>Month</option>
 				    <option value='01'>01</option>
 				    <option value='02'>02</option>
@@ -42,15 +40,15 @@
 				    <option value='11'>11</option>
 				    <option value='12'>12</option>
 					</select></li>
-					<li><select class="cc-select" name='expYear' id='expireYY'>
+					<li><select class="cc-select" name='expYear' id='expireYY' required>
 				    <option value=''>Year</option>
 				    <option value='16'>2016</option>
 				    <option value='17'>2017</option>
 				    <option value='18'>2018</option>
-				    <option value='18'>2019</option>
-				    <option value='18'>2020</option>
-				    <option value='18'>2021</option>
-				    <option value='18'>2022</option>
+				    <option value='19'>2019</option>
+				    <option value='20'>2020</option>
+				    <option value='21'>2021</option>
+				    <option value='22'>2022</option>
 					</select></li>
 
 				</ul>
@@ -60,7 +58,7 @@
 			<div class="input-group">
 				<label>Security Code</label>
 				<br>
-				<input type="text" name="cvc" class="cc-form card-cvc" maxlength="4"></input>
+				<input type="text" name="cvc" class="cc-form card-cvc" maxlength="4" required></input>
 			</div>
 
 			<br>
@@ -69,7 +67,7 @@
 
 				<label>Name on card</label>
 
-				<input type="text" name="nameOnCard" class="cc-form card-name"></input>
+				<input type="text" name="nameOnCard" class="cc-form card-name" required></input>
 
 			</div>
 
@@ -78,8 +76,6 @@
 			<input type="submit" class="button stretch blue-background" value="Save Credit Card">
 
 		<% end %>
-
-		</div>
 
 	</div>
 
