@@ -75,7 +75,7 @@
 						<% if user_signed_in?%>
 
 							<% if current_user.id == @user.id %>
-								You have not shared any artwork yet. <%= link_to "Add Art Works", new_item_art_path, class: "warning-text-cta" %>
+								You have not shared any artwork yet. <%= link_to "Add Artwork", new_item_art_path, class: "warning-text-cta" %>
 							<%else%>
 
 								<%= @user.display_name%> has not shared any artwork yet.
