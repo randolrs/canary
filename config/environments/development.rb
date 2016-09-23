@@ -10,6 +10,12 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = true
 
+  #echo "export SENDGRID_API_KEY=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" > sendgrid.env
+  #echo "sendgrid.env" >> .gitignore
+  #source ./sendgrid.env
+
+
+
   # Do not eager load code on boot.
   config.eager_load = false
 
