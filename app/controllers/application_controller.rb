@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(user)
 
+    if user_signed_in?
+
     	if current_user.onboarded
 
   			root_path
@@ -21,6 +23,8 @@ class ApplicationController < ActionController::Base
   			welcome_path
 
   		end
+
+    end
 
   end
 
