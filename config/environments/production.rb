@@ -23,7 +23,7 @@ Rails.application.configure do
    :port                 => 587,
    :user_name            => "legalinsiderinformation@gmail.com",
    :password             => "Secure10",
-   :authentication       => "yes",
+   :authentication       => "plain",
   :enable_starttls_auto => true
 }
 
