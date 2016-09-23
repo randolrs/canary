@@ -59,6 +59,10 @@ Rails.application.routes.draw do
   
   get 'payments/default/delete/:card_id' => 'purchases#delete_card', as: 'delete_card'
   
+  get 'accounts/default/new/:card_id' => 'purchases#new_default_account', as: 'new_default_account'
+  
+  get 'accounts/delete/:card_id' => 'purchases#delete_account', as: 'delete_account'
+  
 
   get '/:display_name' => 'pages#profile', as: 'profile'
 

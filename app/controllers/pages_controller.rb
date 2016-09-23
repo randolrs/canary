@@ -152,8 +152,6 @@ class PagesController < ApplicationController
 
 		@page_title = "Balance"
 
-
-
 		if user_signed_in?
 			@hide_header = true
 
@@ -401,7 +399,7 @@ class PagesController < ApplicationController
 			@hide_header = true
 		end
 
-		account = Stripe::Account.retrieve(current_user.stripe_account_id)
+		account = current_user.stripe_account_object
 
 		@accounts = account.external_accounts.all(:object => "bank_account", :limit => 5)
 

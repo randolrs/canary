@@ -5,7 +5,8 @@
 		<div class="message sent-by-me">
 
 			<div class="message-text">
-				
+				<span class="message-list-sender"><%= @message.sender.display_name %></span>
+				<br>
 				<span><%= @message.body %></span>
 
 			</div>
@@ -13,11 +14,7 @@
 			<div class="message-sender">
 
 				<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></span>
-
-				<br>
-
-				<span class="message-list-sender"><%= @message.sender.display_name %></span>
-
+				
 			</div>
 
 		</div>
@@ -30,14 +27,14 @@
 
 				<span><%= image_tag @message.sender.image.url(:medium), class: "header-profile-image"%></span>
 
-				<br>
-
-				<span class="message-list-sender"><%= @message.sender.display_name %></span>
+				
 
 			</div>
 
 			<div class="message-text">
-				
+
+				<span class="message-list-sender"><%= @message.sender.display_name %></span>
+				<br>
 				<span><%= @message.body %></span>
 
 			</div>
@@ -54,6 +51,8 @@
 
 				<div class="message-text">
 					
+					<span class="message-list-sender"><%= response.sender.display_name %></span>
+					<br>
 					<span><%= response.body %></span>
 
 				</div>
@@ -61,10 +60,6 @@
 				<div class="message-sender">
 
 					<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></span>
-
-					<br>
-
-					<span class="message-list-sender"><%= response.sender.display_name %></span>
 
 				</div>
 
@@ -78,14 +73,12 @@
 
 					<span><%= image_tag current_user.image.url(:medium), class: "header-profile-image"%></span>
 
-					<br>
-
-					<span class="message-list-sender"><%= response.sender.display_name %></span>
-
 				</div>
 
 				<div class="message-text">
 					
+					<span class="message-list-sender"><%= response.sender.display_name %></span>
+					<br>
 					<span><%= response.body %></span>
 
 				</div>

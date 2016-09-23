@@ -1,0 +1,65 @@
+<div class="modal-container" id="new-account-modal">
+
+	<span class="glyphicon glyphicon-remove dismiss-parent red"></span>
+
+	<div class="modal-content">
+
+		<div class="content-inner">
+
+			<h3>Bank Account Details</h3>
+
+		  	<%= form_tag new_bank_account_path, id: 'bankAccountForm', class: 'edit_user_settings' do %>
+
+			<div class="field">
+
+				<p><b>Bank Location</b></p>
+
+				<select name="country">
+		            <option value="US">United States</option>
+		           	<option value="CAN">Canada</option>
+		        </select>
+
+			</div>
+
+			<br>
+
+			<div class="field">
+
+				<p><b>Name on Account</b></p>
+
+				<input type="text" name="accountHolder"/>
+
+			</div>
+
+			<br>
+
+			<div class="field">
+
+				<p><b>Routing Number</b></p>
+
+				<input type="text" size="9" name="routingNumber" autocomplete="off">
+
+			</div>
+
+			<br>
+
+			<div class="field">
+
+				<p><b>Account Number</b></p>
+
+				<input type="text" size="17" name="accountNumber" autocomplete="off">
+
+			</div>
+
+			<br>
+
+			<input type="submit" value="<% if @defaultaccount %>Update Bank Account<%else%>Add Bank Account<%end%>" class= "orange-background medium">
+
+  		<% end %>
+
+
+		</div>
+
+	</div>
+
+</div>

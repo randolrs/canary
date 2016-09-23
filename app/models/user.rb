@@ -168,5 +168,22 @@ class User < ActiveRecord::Base
     end
 
   end
+
+
+  def stripe_account_object
+
+    if self.stripe_account_id
+
+      return Stripe::Account.retrieve(self.stripe_account_id)
+
+    else
+
+      return nil
+    end
+
+
+  rescue Stripe::AccountError => e
+      return nil
+  end
   
 end

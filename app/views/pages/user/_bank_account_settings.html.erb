@@ -4,74 +4,31 @@
 
 	<div class="dashboard-item" id="bank-accounts">
 
+		<div class="padded-content">
+			
+			<% if @accounts %>
 
-  		<%= form_tag new_bank_account_path, id: 'bankAccountForm', class: 'edit_user_settings' do %>
+				<h3>Current Payout Account:</h3>
 
-  			<% if @defaultaccount %>
+				<% @accounts.each do |account| %>
 
-				<h3>Current Bank Account: <%=@defaultaccount.bank_name + " •••• •••• •••• " + @defaultaccount.last4 %></h3>
-				
+					<div class="dashboard-index">
+						<div><%=account.bank_name + " account ending in " + account.last4 %></div>
+
+					</div>
+
+				<%end%>
+
 				<br>
 
 			<%end%>
 
-			<div class="field">
+			<a class="button green-background medium modal-cta new-account-modal"><%if @defaultaccount %>Update Payout Account<%else%>Add Bank Account<%end%></a>
 
-				<p><b>Bank Location</b></p>
-
-				<select name="country">
-		            <option value="US">United States</option>
-		           	<option value="CAN">Canada</option>
-		        </select>
-
-			</div>
-
-			<br>
-
-			<div class="field">
-
-				<p><b>Name on Account</b></p>
-
-				<input type="text" name="accountHolder"/>
-
-			</div>
-
-			<br>
-
-			<div class="field">
-
-				<p><b>Routing Number</b></p>
-
-				<input type="text" size="9" name="routingNumber" autocomplete="off">
-
-			</div>
-
-			<br>
-
-			<div class="field">
-
-				<p><b>Account Number</b></p>
-
-				<input type="text" size="17" name="accountNumber" autocomplete="off">
-
-			</div>
-
-			<br>
-
-			<div class="field">
-
-				<p><b>Description</b></p>
-
-				<input type="text" size="9" name="description"/>
-
-			</div>
-
-			<br>
-
-			<input type="submit" value="<% if @defaultaccount %>Update Bank Account<%else%>Add Bank Account<%end%>" class= "blue-background medium">
-
-  		<% end %>
+		</div>
 
   				<%#render'bank_accounts/addbankaccountform'%>
 
   	</div>
+
+<%= render'modals/new_account_modal'%>

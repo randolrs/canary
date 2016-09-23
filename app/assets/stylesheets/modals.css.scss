@@ -13,7 +13,7 @@
     display: none;
     vertical-overflow:hidden;
     z-index: 999999999999;
-    background: #fff;
+    background: rgba(30,30,30,0.95);
 
 }
 
@@ -36,7 +36,19 @@
     border-radius: 2px;
 
     padding: 0px 20px;
-    top: 100px;
+    top: 50px;
+}
+
+.modal-content.white{
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid #666;
+    box-shadow: 0px 1px 1px #333;
+    padding: 24px;
+    border-radius: 5px;
+    background: #fff;
+
 }
 
 span.dismiss-modal{

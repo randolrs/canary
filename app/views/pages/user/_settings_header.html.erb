@@ -1,7 +1,7 @@
 <div class="dashboard-fixed-header">
 	<ul class="horizontal full-length header">
 
-		<li <% if @page == "settings"%>class="active"<%end%>><%= link_to "Profile", settings_path %></li><% if current_user.is_artist %><li <% if @page == "payment settings"%>class="active"<%end%>><%= link_to "Personal", payment_settings_path %></li><li <% if @page == "account settings"%>class="active"<%end%>><%= link_to "Payments", bank_accounts_path %></li><%else%><li <% if @page == "payment settings"%>class="active"<%end%>><%= link_to "Payments", customer_payments_path %></li><%end%>
+		<li <% if @page == "settings"%>class="active"<%end%>><%= link_to "Profile", settings_path %></li><% if current_user.is_artist %><li <% if @page == "payment settings"%>class="active"<%end%>><%= link_to "Personal", payment_settings_path %></li><li <% if @page == "account settings"%>class="active"<%end%>><%= link_to "Payouts", bank_accounts_path %></li><%else%><li <% if @page == "payment settings"%>class="active"<%end%>><%= link_to "Payments", customer_payments_path %></li><%end%>
 
 	</ul>
 </div>

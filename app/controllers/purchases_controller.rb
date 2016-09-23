@@ -102,4 +102,18 @@ class PurchasesController < ApplicationController
       redirect_to :back
     end
 
+
+    def delete_account
+
+
+
+      redirect_to :back
+
+    rescue
+      
+      redirect_to :back
+    end
+
+
+
 end
