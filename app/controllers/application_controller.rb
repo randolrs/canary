@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def after_sign_in_path_for(user)
+  def after_sign_in_path_for(resource)
+
+    if resource.is_a?(AdminUser) 
+      admin_dashboard_path(resource)
+    end
 
     if user_signed_in?
 
@@ -26,7 +30,9 @@ class ApplicationController < ActionController::Base
 
     end
 
+
   end
+
 
   def after_sign_out_path_for(user)
       request.referrer
