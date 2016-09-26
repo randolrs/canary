@@ -29,6 +29,38 @@ class ItemArtsController < ApplicationController
 
   end
 
+  def direct_link
+
+    @item_art = ItemArt.search(params[:search_code])
+
+    if @item_art
+
+      @view = View.new
+
+      @page_title = "Artagami"
+
+      @view.update(:item_art_id => @item_art.id, :visitor_ip => request.remote_ip)
+
+      @view.save
+
+      @message = Message.new
+
+      @message_recipient = @item_art.user
+
+      @artist = @item_art.user
+
+      @more_work_from_artist = @artist.more_work(@item_art.id, 3)
+    
+
+
+    else
+
+      redirect_to root_path
+
+    end
+
+  end
+
   def search
 
     @item_art = ItemArt.search(params[:search])

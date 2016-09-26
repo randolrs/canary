@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#home'
 
+  get '/:search_code' => 'item_arts#direct_link', as: 'direct_link_to_item_art'
+
   get 'about' => 'pages#about'
 
   get 'welcome' => 'pages#welcome'
@@ -66,7 +68,7 @@ Rails.application.routes.draw do
   get 'accounts/delete/:card_id' => 'purchases#delete_account', as: 'delete_account'
   
 
-  get '/:display_name' => 'pages#profile', as: 'profile'
+  get 'artist/:display_name' => 'pages#profile', as: 'profile'
 
   get '/:display_name/about' => 'pages#profile_about', as: 'profile_about'
 
