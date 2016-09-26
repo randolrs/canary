@@ -12,7 +12,7 @@
 
 						<!-- <li><%#= link_to "Artagami", root_path, class: "header-logo" %></li> -->
 		
-						<li><a class="header-return-home" href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span></a></li>
+						<li><a class="header-return-home" href="<%= root_path %>"><% if @hide_return_to_home %><span class="glyphicon glyphicon-home"></span><%else%><span class="glyphicon glyphicon-arrow-left"></span><%end%></a></li>
 
 
 						<li><a class="header-page-title"><%= @page_title %></a></li>

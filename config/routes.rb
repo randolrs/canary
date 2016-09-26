@@ -21,19 +21,19 @@ Rails.application.routes.draw do
 
   get 'welcome' => 'pages#welcome'
 
-  get 'inbox' => 'pages#messages'
+  get '/dashboard/messages' => 'pages#messages', as: 'inbox'
 
   get 'views' => 'pages#views'
 
-  get 'settings' => 'pages#settings'
+  get '/dashboard/settings' => 'pages#settings', as: 'settings'
 
   get 'my_purchases' => 'pages#purchases'
 
-  get 'settings/accounts' => 'pages#payment_settings', as: 'payment_settings'
+  get '/dashboard/settings/accounts' => 'pages#payment_settings', as: 'payment_settings'
 
-  get 'settings/payments' => 'pages#customer_payment_settings', as: 'customer_payments'
+  get '/dashboard/settings/payments' => 'pages#customer_payment_settings', as: 'customer_payments'
 
-  get 'settings/bank_accounts' => 'pages#bank_accounts', as: 'bank_accounts'
+  get '/dashboard/settings/bank_accounts' => 'pages#bank_accounts', as: 'bank_accounts'
 
   get 'sales' => 'pages#sales', as: 'balance'
 
