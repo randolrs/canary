@@ -12,10 +12,6 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
 
-    if resource.is_a?(AdminUser) 
-      admin_dashboard_path(resource)
-    end
-
     if user_signed_in?
 
     	if current_user.onboarded
@@ -27,6 +23,11 @@ class ApplicationController < ActionController::Base
   			welcome_path
 
   		end
+
+
+    else
+
+      admin_dashboard_path(resource)
 
     end
 
