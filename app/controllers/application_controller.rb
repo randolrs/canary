@@ -14,16 +14,7 @@ class ApplicationController < ActionController::Base
 
     if user_signed_in?
 
-    	if current_user.onboarded
-
-  			root_path
-  			
-  		else
-
-  			welcome_path
-
-  		end
-
+  		root_path
 
     else
 
