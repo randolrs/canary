@@ -15,9 +15,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#home'
 
+  get 'about' => 'pages#about'
+  
   get '/:search_code' => 'item_arts#direct_link', as: 'direct_link_to_item_art'
 
-  get 'about' => 'pages#about'
+  
 
   get 'welcome' => 'pages#welcome'
 
