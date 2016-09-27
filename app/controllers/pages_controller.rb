@@ -21,6 +21,13 @@ class PagesController < ApplicationController
 				@page_title = "Artagami"
 
 			end
+
+		else
+
+			@hide_header_on_all_devices = true
+			@hide_header = true
+			@hide_footer = true
+
 		end
 		
 	end

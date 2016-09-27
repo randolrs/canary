@@ -10,6 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
   def new
     @hide_header = true
     @hide_footer = true
+    @hide_header_on_all_devices = true
     build_resource({})
     yield resource if block_given?
     respond_with resource
