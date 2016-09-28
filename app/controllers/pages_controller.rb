@@ -18,7 +18,7 @@ class PagesController < ApplicationController
 
 			else
 
-				@page_title = "Artagami"
+				@page_title = "ArtYam"
 
 			end
 
