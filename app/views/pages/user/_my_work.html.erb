@@ -1,25 +1,19 @@
 
-<div class="dashboard-panel" id="work-content">
+<div class="dashboard-item no-nav" id="works">
 
 	<%# render 'pages/user/warnings' %>
-
-	<!-- <h3 class="dashboard-header-text"><%# @page_title %></h3> -->
-
-	<div id="portfolio">
+	
+	<div class="portfolio-container">
 
 		<% if current_user.item_arts.count > 0 %>
 			
-			<% current_user.item_arts.each do |item| %>
-
-				<%= render :partial => 'item_arts/index_show', :locals => {:item => item} %>
-
-			<% end %>
+			<%= render :partial => 'item_arts/index_grid', :locals => {:items => current_user.item_arts, :image_only => true} %>
 
 		<%else%>
 
 			<div class="nothing-to-see-container">
 
-				<p>You have not shared any artwork yet. <%= link_to "Add Art Works", new_item_art_path, class: "warning-text-cta" %></p>
+				<p class="red">You have not shared any artwork yet. <%= link_to "Add Artwork", new_item_art_path, class: "warning-text-cta" %></p>
 
 			</div>
 

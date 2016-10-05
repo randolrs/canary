@@ -37,7 +37,9 @@ Rails.application.routes.draw do
 
   get '/dashboard/settings/bank_accounts' => 'pages#bank_accounts', as: 'bank_accounts'
 
-  get 'sales' => 'pages#sales', as: 'balance'
+  #get 'sales' => 'pages#sales', as: 'balance'
+
+  get 'dashboard/sales' => 'pages#sales', as: 'balance'
 
   get 'balance/payments' => 'pages#balance_payments', as: 'balance_payments'
 
@@ -45,7 +47,11 @@ Rails.application.routes.draw do
 
   post 'setup_user' => "pages#setup_user"
 
-  get 'portfolio' => 'pages#my_work'
+  #get 'portfolio' => 'pages#my_work'
+
+  get 'dashboard/inventory' => 'pages#my_work', as: 'portfolio'
+
+  get 'dashboard/engagement' => 'pages#engagement', as: 'engagement'
 
   post 'update_stripe_account' => 'pages#update_stripe_account'
 

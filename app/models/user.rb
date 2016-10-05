@@ -207,5 +207,10 @@ class User < ActiveRecord::Base
   rescue Stripe::AccountError => e
       return nil
   end
+
+  def is_gallery
+
+    return false
+  end
   
 end

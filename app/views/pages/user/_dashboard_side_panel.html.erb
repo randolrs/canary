@@ -1,6 +1,6 @@
 
 
-<div class="sidebar-container brand-gradient-background vertical">
+<div class="sidebar-container">
 
 	<div class="sidebar-panel">
 
@@ -42,18 +42,47 @@
 
 					</li>
 
-	<!-- <li class="dashboard-option <%# if @page=="work" %>active<%#end%>" id="work" data-content-panel="work-content">
+					<li class="dashboard-option <% if @page=="sales" %>active<%end%>" id="home" data-content-panel="home-content">
 						
-						<a href="<%# portfolio_path %>"><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right: 5px;"></span>My Portfolio</a>
+						<a href="<%= balance_path %>"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Sales</span></a>
 
 					</li>
 
-	<li class="dashboard-option <%# if @page=="home" %>active<%#end%>" id="home" data-content-panel="home-content">
+					<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="work" data-content-panel="work-content">
 						
-						<a href="<%# root_path %>"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span><span>Recent Stats</span></a>
+						<a href="<%= portfolio_path %>"><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right: 5px;"></span>Inventory</a>
 
-					</li> -->
+					</li>
 
+					<li class="dashboard-option <% if @page=="engagement" %>active<%end%>" id="home" data-content-panel="home-content">
+						
+						<a href="<%= engagement_path %>"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span><span>Engagement</span></a>
+
+					</li>
+
+					<% if current_user.is_gallery %>
+
+					<li class="dashboard-option <% if @page=="artists" %>active<%end%>" id="home" data-content-panel="home-content">
+						
+						<a href="<%# root_path %>"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span><span>Artists</span></a>
+
+					</li>
+
+					<li class="dashboard-option <% if @page=="customers" %>active<%end%>" id="home" data-content-panel="home-content">
+						
+						<a href="<%# root_path %>"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span><span>Customers</span></a>
+
+					</li>
+
+					
+
+					<li class="dashboard-option <% if @page=="submissions" %>active<%end%>" id="messages" data-content-panel="messages-content">
+						
+						<a href="<%= inbox_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span><span>Portfolio Submissions</span></a>
+
+					</li>
+
+					<%end%>
 
 					<li class="dashboard-option <% if @page=="messages" %>active<%end%>" id="messages" data-content-panel="messages-content">
 						

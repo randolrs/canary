@@ -1,0 +1,32 @@
+
+<% if user_signed_in? %>
+	
+	<%= render 'pages/user/dashboard_side_panel' %>
+
+	<div class="dashboard-container">
+
+		<%= render 'pages/user/dashboard_header' %>
+
+		<div class="dashboard-item no-nav" id="views">
+			
+			<table class="dashboard-table">
+
+				<% current_user.views.each do |view| %>
+
+					<tr>
+
+						<td><a><%= view.item_art.name %></a></td>
+						<td><a><%= view.created_at.strftime("%b %d") %></a></td>
+
+					</tr>
+
+				<% end%>
+
+			</table>
+
+		</div>
+
+	</div>
+
+<%end%>
+	

@@ -1,0 +1,27 @@
+<div class="image-grid">
+
+	<% items.each do |item| %>
+
+		<%= link_to(item) do %>
+
+			<div class="entry">
+				
+				<div class="image-container">
+					<%= image_tag item.image.url, class: "grid-image"%>
+				</div>
+
+				<div class="detail-container">
+
+					<h4><%= item.name %></h4>
+
+			        <h4><span>Status</span></h4>
+
+		    	</div>
+
+			</div>
+
+		<% end %>
+
+	<% end %>
+
+</div>

@@ -31,6 +31,15 @@ class PagesController < ApplicationController
 		
 	end
 
+	def engagement
+
+		@page_title = "Engagement"
+		
+		@hide_header = true
+
+	end
+
+
 
 	def about
 
@@ -194,7 +203,7 @@ class PagesController < ApplicationController
 
 		@page = "work"
 
-		@page_title = "My Portfolio"
+		@page_title = "Inventory"
 
 		if user_signed_in?
 			@hide_header = true

@@ -1,61 +1,22 @@
 <%= render 'pages/user/dashboard_header' %>
 
-<div class="dashboard-panel" id="balance-content">
+<div class="dashboard-item no-nav" id="sales">
 
 	<%= render 'pages/user/warnings' %>
 
-	<!-- <h3 class="dashboard-header-text"><%# @page_title %></h3> -->
+	<% current_user.purchases_of_my_work.each do |purchase| %>
+		
+		<a href="<%= purchase_path(purchase.id) %>">
 
-	<ul class="horizontal">
+			<div class="dashboard-index clickable">
+				
+				<div><%= image_tag purchase.item_art.image.url, class: "small-item-image"%></div>
 
-		<li class="active blue-background"><a>All</a></li><li class="blue-background"><a>Pending</a></li><li class="blue-background"><a>Completed</a></li>
-
-	</ul>
-
-	<div class="dashboard-panel-content">
-
-		<% if current_user.purchases_of_my_work.count > 0 %>
-
-			<% current_user.purchases_of_my_work.reverse.each do |purchase| %>
-
-				<%= link_to(purchase) do %>
-
-					<div class="sale-index">
-
-						<div class="sale-index-image">
-
-							<%= image_tag purchase.item_art.image.url, class: "small-item-image"%>
-
-						</div>
-
-						<div class="sale-index-content">
-
-						    <h4><%= purchase.item_art.name %></h4>
-
-							<p>Sold <%= purchase.created_at.strftime("%b %d") %> for <%= number_to_currency(purchase.amount) %></p>
-
-							<p><%= purchase.status_as_string %></p>
-
-						</div>
-
-					</div>
-
-					<br>
-
-				<% end %>
-
-			<%end%>
-
-		<%else%>
-
-			<div class="nothing-to-see-container">
-
-				<p>No sales yet.</p>
-
+				<div>"<%= purchase.item_art.name %>" was purchased <%= purchase.created_at.strftime("%b %d") %> for <%= number_to_currency(purchase.amount, precision: 0) %>.<br>Status: <%= purchase.status_as_string %></div>
 			</div>
 
-		<%end%>
+		</a>
 
-	</div>
+	<%end%>
 
 </div>
