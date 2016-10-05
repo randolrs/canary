@@ -8,7 +8,7 @@
 
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 		
@@ -38,7 +38,12 @@
 		<% if user_signed_in? %>
 
 			<% if current_user.is_artist %>
-				<%= render 'layouts/add_artwork_cta' %>
+
+				<%unless @hide_add_artwork_cta %>
+					
+					<%= render 'layouts/add_artwork_cta' %>
+
+				<%end%>
 			<%end%>
 
 		<%end%>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923201341) do
+ActiveRecord::Schema.define(version: 20160930165456) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 20160923201341) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "is_sample"
+    t.boolean  "is_visible"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -165,6 +167,7 @@ ActiveRecord::Schema.define(version: 20160923201341) do
     t.string   "stripe_account_id"
     t.string   "stripe_secret_key"
     t.string   "stripe_customer_id"
+    t.boolean  "is_admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

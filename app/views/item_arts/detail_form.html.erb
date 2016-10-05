@@ -1,5 +1,4 @@
 
-
 <div class="content">
 
   <%= form_for(@item_art) do |f| %>
@@ -15,20 +14,17 @@
     </div>
   <% end %>
 
-  <div class="content-column secondary">
+  <div class="content-column primary">
 
-    <div class="image-input-container centered">
-      <h2>Upload a Photo of Your Art</h2>
-      <%= f.file_field :image, required: true, class: "form-control" %>
-
-    </div>
-
-  </div>
-
-  <div class="content-column primary left-border">
+  	<h2 class="text-header-underline">Artwork Details</h2>
 
     <h2><%= f.text_field :name, placeholder: "Name/Title", required: true %></h2>
 
+    <% if current_user.is_admin %>
+    	Sample?
+    	<%= f.check_box :is_sample %>
+    	<br>
+    <%end%>
 
     <%= f.text_field :medium, placeholder: "Medium", required: true, class: "medium" %>
 
@@ -70,5 +66,3 @@
   <% end %>
 
 </div>
-
-

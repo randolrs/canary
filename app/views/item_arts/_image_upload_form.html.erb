@@ -1,0 +1,78 @@
+
+<section class="single-page-landing brand-gradient-background">
+
+  <div class="single-page-landing-container">
+
+    <%= form_for(@item_art) do |f| %>
+      <% if @item_art.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@item_art.errors.count, "error") %> prohibited this item_art from being saved:</h2>
+
+          <ul>
+          <% @item_art.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+  <div class="content-column secondary">
+
+    <div class="image-input-container centered">
+      <h2>Upload a Photo of Your Art</h2>
+      <%= f.file_field :image, required: true, class: "form-control" %>
+
+    </div>
+
+  </div>
+
+  <div class="button-container">
+      
+    <%= f.submit "Next", class: "button large orange-background" %>
+      
+  </div>
+
+  <% end %>
+
+
+  </div>
+
+
+</section>
+
+<div class="content">
+
+  <%= form_for(@item_art) do |f| %>
+  <% if @item_art.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item_art.errors.count, "error") %> prohibited this item_art from being saved:</h2>
+
+      <ul>
+      <% @item_art.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="content-column secondary">
+
+    <div class="image-input-container centered">
+      <h2>Upload a Photo of Your Art</h2>
+      <%= f.file_field :image, required: true, class: "form-control" %>
+
+    </div>
+
+  </div>
+
+  <div class="button-container">
+      
+    <%= f.submit "Next", class: "button large orange-background" %>
+      
+  </div>
+
+  <% end %>
+
+</div>
+
+

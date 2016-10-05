@@ -10,7 +10,6 @@ class PagesController < ApplicationController
 
 		if user_signed_in?
 			
-
 			if current_user.is_artist
 
 				@hide_header = true

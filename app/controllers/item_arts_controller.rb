@@ -13,7 +13,7 @@ class ItemArtsController < ApplicationController
 
     @view = View.new
 
-    @page_title = "Artagami"
+    @page_title = ""
 
     @view.update(:item_art_id => @item_art.id, :visitor_ip => request.remote_ip)
 
@@ -37,7 +37,7 @@ class ItemArtsController < ApplicationController
 
       @view = View.new
 
-      @page_title = "Artagami"
+      @page_title = ""
 
       @view.update(:item_art_id => @item_art.id, :visitor_ip => request.remote_ip)
 
@@ -50,7 +50,7 @@ class ItemArtsController < ApplicationController
       @artist = @item_art.user
 
       @more_work_from_artist = @artist.more_work(@item_art.id, 3)
-    
+
 
 
     else
@@ -82,6 +82,8 @@ class ItemArtsController < ApplicationController
     @item_art = ItemArt.new
 
     @page_title = "Add Artwork"
+
+    @hide_add_artwork_cta = true
   end
 
   # GET /item_arts/1/edit
@@ -102,7 +104,7 @@ class ItemArtsController < ApplicationController
       
       until c==1 do
         
-        search_code = (SecureRandom.urlsafe_base64 3).downcase
+        search_code = (SecureRandom.urlsafe_base64 1).downcase
         
         unless ItemArt.where(:search_code => search_code).exists?
 
@@ -116,7 +118,7 @@ class ItemArtsController < ApplicationController
 
       respond_to do |format|
         if @item_art.save
-          format.html { redirect_to @item_art, notice: 'Item art was successfully created.' }
+          format.html { redirect_to item_art_detail_form_path(@item_art.id), notice: 'Item art was successfully created.' }
           format.json { render :show, status: :created, location: @item_art }
         else
           format.html { render :new }
@@ -128,6 +130,14 @@ class ItemArtsController < ApplicationController
 
       redirect_to root_path
     end
+  end
+
+  def detail_form
+    
+    if params[:id]
+      @item_art = ItemArt.find(params[:id])
+    end
+
   end
 
   # PATCH/PUT /item_arts/1
@@ -162,6 +172,6 @@ class ItemArtsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_art_params
-      params.require(:item_art).permit(:user_id, :description, :name, :height, :width, :length, :venue_id, :price, :search_code, :image, :exhibition_id, :medium)
+      params.require(:item_art).permit(:user_id, :description, :name, :height, :width, :length, :venue_id, :price, :search_code, :image, :exhibition_id, :medium, :is_visible, :is_sample)
     end
 end

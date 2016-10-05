@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'about' => 'pages#about'
-  
+
   get '/:search_code' => 'item_arts#direct_link', as: 'direct_link_to_item_art'
 
   
@@ -69,7 +69,7 @@ Rails.application.routes.draw do
   
   get 'accounts/delete/:card_id' => 'purchases#delete_account', as: 'delete_account'
   
-
+  get 'artwork/new/add_details/:id' => 'item_arts#detail_form', as: 'item_art_detail_form'
   get 'artist/:display_name' => 'pages#profile', as: 'profile'
 
   get '/:display_name/about' => 'pages#profile_about', as: 'profile_about'

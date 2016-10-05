@@ -38,7 +38,7 @@
 
     </div>
 
-    <div style="display: block;">
+    <div class="item-main-image-container">
       <%= image_tag @item_art.image.url, class: "item-art-main-image" %>
     </div>
 
@@ -139,6 +139,6 @@
 
 <%else%>
   
-  <%= render :partial => 'modals/email_to_me', :locals => {:item => @item_art} %>
+  <%# render :partial => 'modals/email_to_me', :locals => {:item => @item_art} %>
 
 <%end%>
