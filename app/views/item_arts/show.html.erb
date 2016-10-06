@@ -116,11 +116,7 @@
 
       <div class="portfolio">
 
-        <% @more_work_from_artist.each do |item| %>
-
-          <%= render :partial => 'item_arts/index_show', :locals => {:item => item, :image_only => true} %>
-
-        <% end %>
+        <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist, :image_only => true, :columns => 2} %>
 
       </div>
 

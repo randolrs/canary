@@ -108,6 +108,10 @@ background: linear-gradient(to bottom, #1A2980 , #26D0CE); /* W3C, IE 10+/ Edge,
     
     display: table;
 
+    content: "";
+    clear: both;
+    display: block;
+
 
     .entry{
         display: table-cell;
@@ -136,5 +140,9 @@ background: linear-gradient(to bottom, #1A2980 , #26D0CE); /* W3C, IE 10+/ Edge,
         cursor: pointer;
         background: #efd;
         box-shadow: 0px 2px 2px #666;
+    }
+
+    .entry.col-2{
+        width: 50%;
     }
 }
