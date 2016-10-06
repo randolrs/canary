@@ -139,13 +139,37 @@ class User < ActiveRecord::Base
 
   def recommended_artwork(count)
 
-    return ItemArt.last(count)
+    @item_arts = Array.new
+
+    ItemArt.all.each do |item|
+
+      unless item.sold
+        @item_arts << item
+      end
+
+    end
+
+
+    return @item_arts.last(count)
+
+    # return ItemArt.all
     
   end
 
   def recommended_artists(count)
 
-    return User.where(:is_artist => true).last(count)
+    @artists = Array.new
+
+    User.where(:is_artist => true).each do |user|
+
+      if user.item_arts.count > 0 && user.display_name
+        @artists << user
+      end
+
+    end
+
+
+    return @artists
     
   end
 
