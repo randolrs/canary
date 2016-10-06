@@ -11,12 +11,11 @@
 			
 			<table class="dashboard-table">
 
-				<% current_user.views.each do |view| %>
+				<% current_user.views.reverse.each do |view| %>
 
 					<tr>
 
-						<td><a><%= view.item_art.name %></a></td>
-						<td><a><%= view.created_at.strftime("%b %d") %></a></td>
+						<td><a>Someone viewed your ArtYam page for <%= view.item_art.name %> on <%= view.created_at.strftime("%b %d") %></a></td>
 
 					</tr>
 

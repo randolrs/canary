@@ -10,7 +10,7 @@
     min-height: 100%;
     vertical-align: top;
     z-index: 9;
-    border-right: 1px solid #1A2980;
+    border-right: 1px solid #000;
     background: #111;
 
     .sidebar-panel{
@@ -79,7 +79,7 @@
                 text-align: center;
     			
     			border-bottom: none;
-                padding: 20px 0px;
+                padding: 20px;
 
                 a{
                     display: inline-block;
@@ -103,6 +103,7 @@
                     padding: 10px;
                     margin: 10px 0px;
                     letter-spacing: 2px;
+                    display: block;
                 }
 
     			a:hover{

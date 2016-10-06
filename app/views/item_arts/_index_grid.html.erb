@@ -10,14 +10,17 @@
 					<%= image_tag item.image.url, class: "grid-image"%>
 				</div>
 
-				<div class="detail-container">
+				<% unless image_only %>
 
-					<h4><%= item.name %></h4>
+					<div class="detail-container">
 
-			        <h4><span>Status</span></h4>
+						<h4><%= item.name %></h4>
 
-		    	</div>
+				        <h4><span>Status</span></h4>
 
+			    	</div>
+			    	
+		    	<%end%>
 			</div>
 
 		<% end %>

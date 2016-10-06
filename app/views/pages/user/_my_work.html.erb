@@ -7,7 +7,7 @@
 
 		<% if current_user.item_arts.count > 0 %>
 			
-			<%= render :partial => 'item_arts/index_grid', :locals => {:items => current_user.item_arts, :image_only => true, :columns => 3} %>
+			<%= render :partial => 'item_arts/index_grid', :locals => {:items => current_user.item_arts, :image_only => false, :columns => 3} %>
 
 		<%else%>
 

@@ -60,11 +60,7 @@
 
 			<% if @user.item_arts.count > 0 %>
 
-				<% @user.item_arts.each do |item| %>
-
-					<%= render :partial => 'item_arts/index_show', :locals => {:item => item, :image_only => true} %>
-
-				<% end %>
+				<%= render :partial => 'item_arts/index_grid', :locals => {:items => @user.item_arts, :image_only => true, :columns => 3} %>
 
 			<%else%>
 

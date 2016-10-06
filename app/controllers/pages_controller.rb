@@ -34,7 +34,9 @@ class PagesController < ApplicationController
 	def engagement
 
 		@page_title = "Engagement"
-		
+
+		@page = "engagement" 
+
 		@hide_header = true
 
 	end
@@ -150,9 +152,9 @@ class PagesController < ApplicationController
 
 	def sales
 
-		@page = "balance"
+		@page="sales"
 
-		@page_title = "My Sales"
+		@page_title = "Sales"
 
 		if user_signed_in?
 			@hide_header = true
