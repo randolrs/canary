@@ -22,7 +22,7 @@
 				<% if current_user.is_artist %>
 					
 					<br>
-					<a href="<%= balance_payments_path %>">Balance: <%= number_to_currency(current_user.stripe_balance) %></a>
+					<!-- <a href="<%# balance_payments_path %>">Balance: <%# number_to_currency(current_user.stripe_balance) %></a> -->
 
 					<a href='<%=new_item_art_path%>' class="cta orange-background"><span class="glyphicon glyphicon-plus"></span><span>Add Artwork</span></a>
 
@@ -42,23 +42,36 @@
 
 					</li>
 
-					<li class="dashboard-option <% if @page=="sales" %>active<%end%>" id="home" data-content-panel="home-content">
+					<li class="dashboard-option <% if @page=="home" %>active<%end%>" id="home" data-content-panel="home-content">
 						
-						<a href="<%= balance_path %>"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Sales</span></a>
+						<a href="<%= root_path %>"><span class="glyphicon glyphicon-dashboard" aria-hidden="true" style="margin-right: 5px;"></span>My Submissions</a>
+
+					</li>
+
+
+					<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="work" data-content-panel="work-content">
+						
+						<a href="<%= portfolio_path %>"><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right: 5px;"></span>Porfolio</a>
 
 					</li>
 
 					<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="work" data-content-panel="work-content">
 						
-						<a href="<%= portfolio_path %>"><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right: 5px;"></span>Inventory</a>
+						<a href="<%= portfolio_path %>"><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right: 5px;"></span>Galleries</a>
 
 					</li>
 
-					<li class="dashboard-option <% if @page=="engagement" %>active<%end%>" id="home" data-content-panel="home-content">
+<!-- 					<li class="dashboard-option <%# if @page=="sales" %>active<%#end%>" id="home" data-content-panel="home-content">
+						
+						<a href="<%# balance_path %>"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Sales</span></a>
+
+					</li>
+
+					<li class="dashboard-option <%# if @page=="engagement" %>active<%#end%>" id="home" data-content-panel="home-content">
 						
 						<a href="<%= engagement_path %>"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span><span>Engagement</span></a>
 
-					</li>
+					</li> -->
 
 					<% if current_user.is_gallery %>
 

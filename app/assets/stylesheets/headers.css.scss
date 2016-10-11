@@ -18,6 +18,8 @@ body{
         z-index: 999;
         height: 76px;
         padding: 10px 0px;
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0px 1px 1px #bbb;
 
         .header-content{
 
@@ -62,12 +64,11 @@ body{
         			a{
 
         	    		display: block;
-        	    		font-size: 20px;
+        	    		font-size: 24px;
         	    		font-weight: 500;
             			letter-spacing: 1.1px;
             			padding: 5px 10px;
-                        color: #fff;
-                        text-shadow: 0px 1px 1px #000;
+                        color: #666;
                         margin: 0 5px;
                         line-height: 46px;
                         font-family: 'Lato', sans-serif;
@@ -75,9 +76,10 @@ body{
             		}
 
                     a.header-page-title{
-                        color: #fff;
+                        color: #333;
+                        font-weight: 600;
                         font-size: 20px;
-                        text-shadow: 0px 1px 1px #000;
+                        
                     }
 
                     a.header-return-home{

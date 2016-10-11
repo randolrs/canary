@@ -235,6 +235,14 @@ class User < ActiveRecord::Base
   def is_gallery
 
     return false
+  
+  end
+
+  def submissions
+
+    return Submission.all.where(:artist_id => self.id)
+
+
   end
   
 end

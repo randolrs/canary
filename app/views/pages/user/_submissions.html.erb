@@ -1,0 +1,25 @@
+
+<div class="dashboard-item">
+	
+	<% if current_user.submissions.count > 0 %>
+
+		<%= current_user.submissions.each do |submission| %>
+
+			<%= link_to(purchase_path(purchase.id)) do %>
+
+				<div class="dashboard-index clickable">
+
+				</div>
+
+			<%end%>
+
+		<%end%>
+
+	<%else%>
+
+		<p>Nickle</p>
+
+	<%end%>
+	
+
+</div>

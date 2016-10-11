@@ -1,5 +1,15 @@
 
-<div class="dashboard-item no-nav" id="works">
+<div class="dashboard-fixed-header mobile-only">
+				
+	<ul class="horizontal full-length header ">
+
+		<li <% if @page == "home"%>class="active"<%end%>><%= link_to "My Submissions", root_path %></li><% if current_user.is_artist %><li <% if @page == "portfolio"%>class="active"<%end%>><%= link_to "Portfolio", portfolio_path %></li><%end%>
+
+	</ul>
+
+</div>
+
+<div class="dashboard-item" id="works">
 
 	<%# render 'pages/user/warnings' %>
 	

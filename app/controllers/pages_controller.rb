@@ -203,9 +203,9 @@ class PagesController < ApplicationController
 
 	def my_work
 
-		@page = "work"
+		@page = "portfolio"
 
-		@page_title = "Inventory"
+		@page_title = "Portfolio"
 
 		if user_signed_in?
 			@hide_header = true

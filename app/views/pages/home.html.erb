@@ -19,13 +19,15 @@
 				
 				<ul class="horizontal full-length header ">
 
-					<li <% if @page == "settings"%>class="active"<%end%>><%= link_to "Sales", balance_path %></li><% if current_user.is_artist %><li <% if @page == "payment settings"%>class="active"<%end%>><%= link_to "Inventory", portfolio_path %></li><li <% if @page == "account settings"%>class="active"<%end%>><%= link_to "Engagement", engagement_path %></li><%else%><li <% if @page == "payment settings"%>class="active"<%end%>><%= link_to "Payments", customer_payments_path %></li><%end%>
+					<li <% if @page == "home"%>class="active"<%end%>><%= link_to "My Submissions", root_path %></li><% if current_user.is_artist %><li <% if @page == "payment settings"%>class="active"<%end%>><%= link_to "Portfolio", portfolio_path %></li><%end%>
 
 				</ul>
 
 			</div>
 
-			<%= render 'pages/user/dashboard' %>
+			<%= render 'pages/user/submissions' %>
+
+			<%# render 'pages/user/dashboard' %>
 
 		</div>
 
