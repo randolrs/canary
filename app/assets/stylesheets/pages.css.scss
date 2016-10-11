@@ -366,6 +366,16 @@ table.form-table{
 	    max-width: 500px;
 	}
 
+	input.form-control.full-screen{
+		position: absolute;
+	    right: 0px;
+	    height: 100%;
+	    width: 100%;
+	    max-width: 100%;
+	    top: 0px;
+	    opacity: 0;
+	}
+
 	input.form-control:hover{
 		cursor: pointer;
 	}
