@@ -125,6 +125,7 @@
     display: inline-block;
     margin: 0px auto 15px 0px;
     text-align: center;
+    z-index: 99999999999;
 }
 
 .button:hover{
@@ -349,6 +350,10 @@ table.form-table{
 	background: none;
     border: none;
 
+    .glyphicon{
+    	font-size: 60px;
+    }
+
 	h2{
 		
 		margin-bottom: 20px;
@@ -374,6 +379,8 @@ table.form-table{
 	    max-width: 100%;
 	    top: 0px;
 	    opacity: 0;
+
+	    z-index: 88888;
 	}
 
 	input.form-control:hover{

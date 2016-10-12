@@ -82,5 +82,9 @@ div.actions{
 
 }
 
+a.cta:hover{
+  cursor: pointer;
+}
+
 
 

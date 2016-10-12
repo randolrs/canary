@@ -18,6 +18,9 @@ ready = ->
             $(".create-account-modal").click (event), ->
                   $('body').find('#create-account-modal').show()
 
+            $(".new-artwork-image-modal").click (event), ->
+                  $('body').find('#new-artwork-image-modal').show()
+
             $('input#saved_card_option').click (event), ->
                   $('div#new-card-options').slideUp()
                   $('div#new-card-options').find('input').prop('required',false)

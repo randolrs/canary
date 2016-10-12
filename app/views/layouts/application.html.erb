@@ -43,6 +43,8 @@
 					
 					<%= render 'layouts/add_artwork_cta' %>
 
+					<%= render :partial => 'modals/new_artwork_image', :locals => {:item_art => ItemArt.new } %>
+
 				<%end%>
 			<%end%>
 
