@@ -126,6 +126,11 @@
     margin: 0px auto 15px 0px;
     text-align: center;
     z-index: 99999999999;
+    position: relative;
+}
+
+.button.default-off{
+	display: none;
 }
 
 .button:hover{

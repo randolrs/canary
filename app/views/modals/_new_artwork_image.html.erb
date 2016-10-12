@@ -23,12 +23,14 @@
 		      <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
 
 		      <h2>Click to Upload a Photo of Your Artwork</h2>
-		      <%= f.file_field :image, required: true, class: "form-control full-screen" %>
+		      
+		      <%= f.file_field :image, required: true, class: "form-control full-screen artwork-image-input" %>
 
 		    </div>
 
+		        <img id="image_upload_preview" src="http://placehold.it/100x100" alt="your image" />
 		        
-		      <%= f.submit "Continue", class: "button large blue-background" %>
+		      <%= f.submit "Continue", class: "button large blue-background artwork-image-submit default-off" %>
 		        
 
 		  <% end %>

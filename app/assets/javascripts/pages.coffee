@@ -21,6 +21,16 @@ ready = ->
             $(".new-artwork-image-modal").click (event), ->
                   $('body').find('#new-artwork-image-modal').show()
 
+            $("input.artwork-image-input").change (event), ->
+                  alert($(@).val())
+                  if $(@).val() != ""
+                        alert('boss')
+                        $("input.artwork-image-submit").show()
+                        $('#image_upload_preview').attr('src', $(@).val())
+
+            $(".button").click (event), ->
+                  event.stopPropagation()
+
             $('input#saved_card_option').click (event), ->
                   $('div#new-card-options').slideUp()
                   $('div#new-card-options').find('input').prop('required',false)
@@ -172,4 +182,6 @@ ready = ->
       		$('span#confirm-email').text(email)
       		
 $(document).on('turbolinks:load', ready)
+
+$(document).on('page:load', ready)
 
