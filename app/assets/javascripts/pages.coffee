@@ -23,9 +23,15 @@ ready = ->
 
             $("input.artwork-image-input").change (event), ->
                   alert($(@).val())
+                  input = event.target
+                  reader = new FileReader()
+                  file = input.files[0]
+                  alert(file)
+                  path = reader.readAsDataURL(file)
+                  alert(path)
                   if $(@).val() != ""
-                        alert('boss')
                         $("input.artwork-image-submit").show()
+                        imageFile = reader.readAsDataURL($(@).file)
                         $('#image_upload_preview').attr('src', $(@).val())
 
             $(".button").click (event), ->
