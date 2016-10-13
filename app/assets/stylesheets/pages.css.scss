@@ -125,7 +125,7 @@
     display: inline-block;
     margin: 0px auto 15px 0px;
     text-align: center;
-    z-index: 99999999999;
+    z-index: 99;
     position: relative;
 }
 
@@ -651,3 +651,23 @@ div#new-card-options{
 	padding: 0px 15px;
 }
 
+.fill-container{
+	position: absolute;
+    top: 0px;
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.clear{
+	opacity: 0;
+}
+
+.hover-only{
+	display: none;
+}
+
+.hover-only:hover{
+	display: block;
+	cursor: pointer;
+}

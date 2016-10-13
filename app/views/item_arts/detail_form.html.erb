@@ -15,12 +15,25 @@
       </div>
     <% end %>
 
-    <div>
+    <div style="padding: 10px;">
 
-      <%= image_tag @item_art.image.url, class: "item-art-medium-image" %>
+      
 
     	<h2>Add Details</h2>
 
+      <br>
+
+      <label>Image</label>
+
+      <br>
+
+      <div style="position:relative; display: inline-block;">
+        <%= image_tag @item_art.image.url, class: "item-art-medium-image" %>
+        <%= f.file_field :image, class: "form-control clickable fill-container clear" %>
+        <!-- <div class="fill-container hover-only" style="background: red;">Hey</div> -->
+      </div>
+
+      <br>
       <br>
 
       <label>Name</label>
