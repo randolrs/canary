@@ -96,6 +96,12 @@ form.new_item_art{
     width: 100%;
 }
 
+.item-art-medium-image{
+	box-shadow: 0px 2px 2px #666;
+	max-width: 300px;
+    width: 100%;
+}
+
 .portfolio{
 	text-align: center;
 	margin: 0 auto;
@@ -114,6 +120,14 @@ form.new_item_art{
 
 .box img {
   width: 100%;
+}
+
+textarea.description{
+	resize: none;
+	display: block;
+	max-width: 400px;
+	width: 100%;
+	height: 200px;
 }
 
 

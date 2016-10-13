@@ -2,66 +2,82 @@
 <div class="content">
 
   <%= form_for(@item_art) do |f| %>
-  <% if @item_art.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item_art.errors.count, "error") %> prohibited this item_art from being saved:</h2>
+    
+    <% if @item_art.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@item_art.errors.count, "error") %> prohibited this item_art from being saved:</h2>
 
-      <ul>
-      <% @item_art.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @item_art.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+
+      <%= image_tag @item_art.image.url, class: "item-art-medium-image" %>
+
+    	<h2>Add Details</h2>
+
+      <br>
+
+      <label>Name</label>
+
+      <br>
+
+      <%= f.text_field :name, placeholder: "Name/Title", required: true %>
+
+      <br>
+      <br>
+
+      <label>Medium</label>
+
+      <br>
+
+      <%= f.text_field :medium, placeholder: "Medium", required: true, class: "medium" %>
+
+      <br>
+      <br>
+
+      <label>Dimensions (inches)</label>
+
+      <br>
+
+      <%= f.number_field :height, placeholder: "Height", required: true, class: "dimension" %>
+
+      <%= f.number_field :width, placeholder: "Width", required: true, class: "dimension" %>
+
+      <%= f.number_field :length, placeholder: "Length", class: "dimension" %>
+
+      <br>
+      <br>
+
+      <label>Price</label>
+
+      <br>
+
+      <%= f.number_field :price, placeholder: "Price", required: true, class: "price"  %>
+
+      <br>
+      <br>
+
+      <label>Description of this Piece</label>
+
+      <br>
+
+      <%= f.text_area :description, required: true, placeholder: "A description of this piece.", class: "description"  %>
+
     </div>
-  <% end %>
-
-  <div class="content-column primary">
-
-  	<h2 class="text-header-underline">Artwork Details</h2>
-
-    <h2><%= f.text_field :name, placeholder: "Name/Title", required: true %></h2>
 
     <% if current_user.is_admin %>
-    	Sample?
-    	<%= f.check_box :is_sample %>
-    	<br>
+      Sample?
+      <%= f.check_box :is_sample %>
+      <br>
     <%end%>
 
-    <%= f.text_field :medium, placeholder: "Medium", required: true, class: "medium" %>
-
-    <br>
-    <br>
-
-    <table class="dimension-table">
-
-      <tr>
-        
-        <td>Dimensions:</td>
-        <td><%= f.number_field :height, placeholder: "Height (cm)", required: true, class: "dimension" %></td>
-        <td><%= f.number_field :width, placeholder: "Width (cm)", required: true, class: "dimension" %></td>
-        <td><%= f.number_field :length, placeholder: "Length (cm)", class: "dimension" %></td>
-        
-      </tr>
-
-    </table>
-
-    <br>
-
-    <%= f.number_field :price, placeholder: "Price", required: true, class: "price"  %>
-
-    <br>
-    <br>
-
-    <h4 class="text-header-underline">About this Piece</h4>
-
-    <%= f.text_area :description, required: true, placeholder: "A description of this piece.", class: "description"  %>
-
-  </div>
-
-    <div class="button-container">
-      
-      <%= f.submit "Add to My Portfolio", class: "button large orange-background" %>
-      
-    </div>
+    <%= f.submit "Save Details", class: "button large bright-blue-background" %>
 
   <% end %>
 

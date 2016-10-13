@@ -20,19 +20,19 @@
 
 		    <div class="image-input-container">
 		      
-		      <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+		      <span id="image-input-header-upload" class="glyphicon glyphicon-upload" aria-hidden="true"></span><h2 id="image-input-header-check" style="display: none; "><span class="glyphicon glyphicon-ok" aria-hidden="true" style="margin-right: 5px; color: #31A231;"></span>Image Successfully Uploaded.</h2>
 
-		      <h2>Click to Upload a Photo of Your Artwork</h2>
+		      <h2 id="image-input-header-text">Click to Upload a Photo of Your Artwork</h2>
 		      
 		      <%= f.file_field :image, required: true, class: "form-control full-screen artwork-image-input" %>
 
 		    </div>
 
-		        <img id="image_upload_preview" src="http://placehold.it/100x100" alt="your image" />
+<!-- 		        <img id="image_upload_preview" src="http://placehold.it/100x100" alt="your image" /> -->
 
 		        <br>
 
-		      <%= f.submit "Continue", class: "button large blue-background artwork-image-submit default-off" %>
+		      <%= f.submit "Save & Continue", class: "button large bright-blue-background artwork-image-submit default-off" %>
 		        
 
 		  <% end %>

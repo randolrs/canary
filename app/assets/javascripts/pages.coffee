@@ -22,17 +22,11 @@ ready = ->
                   $('body').find('#new-artwork-image-modal').show()
 
             $("input.artwork-image-input").change (event), ->
-                  alert($(@).val())
-                  input = event.target
-                  reader = new FileReader()
-                  file = input.files[0]
-                  alert(file)
-                  path = reader.readAsDataURL(file)
-                  alert(path)
                   if $(@).val() != ""
-                        $("input.artwork-image-submit").show()
-                        imageFile = reader.readAsDataURL($(@).file)
-                        $('#image_upload_preview').attr('src', $(@).val())
+                        $("#image-input-header-upload").hide()
+                        $("#image-input-header-text").hide()
+                        $("#image-input-header-check").show()
+                        $("input.artwork-image-submit").slideDown()
 
             $(".button").click (event), ->
                   event.stopPropagation()
