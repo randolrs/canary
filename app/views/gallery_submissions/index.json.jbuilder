@@ -1,0 +1,1 @@
+json.array! @gallery_submissions, partial: 'gallery_submissions/gallery_submission', as: :gallery_submission

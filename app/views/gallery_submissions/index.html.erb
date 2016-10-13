@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Gallery Submissions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Gallery</th>
+      <th>Collection</th>
+      <th>Additional description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gallery_submissions.each do |gallery_submission| %>
+      <tr>
+        <td><%= gallery_submission.user_id %></td>
+        <td><%= gallery_submission.gallery_id %></td>
+        <td><%= gallery_submission.collection_id %></td>
+        <td><%= gallery_submission.additional_description %></td>
+        <td><%= link_to 'Show', gallery_submission %></td>
+        <td><%= link_to 'Edit', edit_gallery_submission_path(gallery_submission) %></td>
+        <td><%= link_to 'Destroy', gallery_submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gallery submission', new_gallery_submission_path %>

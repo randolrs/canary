@@ -1,0 +1,54 @@
+
+<div class="content">
+
+	<h2 class="centered">Select a Gallery</h2>
+	
+	<div class="portfolio-container">
+
+		<%# if current_user.item_arts.count > 0 %>
+			
+			<div class="image-grid">
+
+				<% Gallery.all.each do |gallery| %>
+
+					<%= link_to(gallery_submission_setup_path(gallery.id)) do %>
+
+						<div class="entry">
+
+							<div class="outline">
+							
+								<div class="image-container">
+									<%# image_tag gallery.image.url, class: "grid-image"%>
+								</div>
+
+								<div class="detail-container">
+
+									<h4><%= gallery.name %></h4>
+
+								    <h4><span>Select</span></h4>
+
+							    </div>
+
+							</div>
+
+						</div>
+
+					<% end %>
+
+				<% end %>
+
+			</div>
+
+		<%#else%>
+
+<!-- 			<div class="nothing-to-see-container">
+
+				<p class="red">You have not shared any artwork yet. <%# link_to "Add Artwork", new_item_art_path, class: "warning-text-cta" %></p>
+
+			</div> -->
+
+		<%#end%>
+
+	</div>
+
+</div>

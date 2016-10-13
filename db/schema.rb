@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011010407) do
+ActiveRecord::Schema.define(version: 20161013185142) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -52,6 +52,20 @@ ActiveRecord::Schema.define(version: 20161011010407) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "collection_items", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "collection_id"
+    t.integer  "item_art_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "collections", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "exhibitions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "city_id"
@@ -66,6 +80,40 @@ ActiveRecord::Schema.define(version: 20161011010407) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "city"
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.string   "name"
+    t.string   "city"
+    t.string   "state_province"
+    t.string   "country"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "number_of_images"
+    t.boolean  "include_artist_statement"
+    t.boolean  "require_additional_description"
+  end
+
+  create_table "gallery_submission_formats", force: :cascade do |t|
+    t.integer  "gallery_id"
+    t.integer  "number_of_images"
+    t.boolean  "include_artist_statement"
+    t.boolean  "require_additional_description"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  create_table "gallery_submissions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "gallery_id"
+    t.integer  "collection_id"
+    t.text     "additional_description"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "item_arts", force: :cascade do |t|

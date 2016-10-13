@@ -1,0 +1,68 @@
+<%= form_for(@gallery) do |f| %>
+  <% if @gallery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
+
+      <ul>
+      <% @gallery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+
+  <br>
+
+
+  <div class="field">
+    <%= f.label :state_province %><br>
+    <%= f.text_field :state_province %>
+  </div>
+
+  <br>
+
+
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= f.label :number_of_images %><br>
+    <%= f.number_field :number_of_images %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= f.label :include_artist_statement %><br>
+    <%= f.check_box :include_artist_statement %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= f.label :require_additional_description %><br>
+    <%= f.check_box :require_additional_description %>
+  </div>
+
+  <br>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

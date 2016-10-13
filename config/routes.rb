@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :gallery_submissions
+  resources :galleries
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :messages
@@ -90,8 +92,13 @@ Rails.application.routes.draw do
 
   post 'order/:order_id/confirm/purchase' => 'charges#confirm_purchase', as: 'confirm_purchase'
 
+  get 'submissions/select_gallery' => 'gallery_submissions#select_gallery', as: 'select_gallery'
 
+  get 'gallery/submission/format/:id/new' => 'galleries#submission_format', as: 'gallery_submission_format'
 
+  get 'gallery/submission/format/save' => 'galleries#submission_format_save', as: 'gallery_submission_formats'
+  
+  get 'gallery/submission/setup/:gallery_id' => 'gallery_submissions#setup', as: 'gallery_submission_setup'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

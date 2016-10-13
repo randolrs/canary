@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gallery_id: 1
+  number_of_images: 1
+  include_artist_statement: false
+  require_additional_description: false
+
+two:
+  gallery_id: 1
+  number_of_images: 1
+  include_artist_statement: false
+  require_additional_description: false

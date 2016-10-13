@@ -1,0 +1,1 @@
+json.partial! "gallery_submissions/gallery_submission", gallery_submission: @gallery_submission

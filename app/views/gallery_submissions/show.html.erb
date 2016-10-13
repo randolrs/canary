@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @gallery_submission.user_id %>
+</p>
+
+<p>
+  <strong>Gallery:</strong>
+  <%= @gallery_submission.gallery_id %>
+</p>
+
+<p>
+  <strong>Collection:</strong>
+  <%= @gallery_submission.collection_id %>
+</p>
+
+<p>
+  <strong>Additional description:</strong>
+  <%= @gallery_submission.additional_description %>
+</p>
+
+<%= link_to 'Edit', edit_gallery_submission_path(@gallery_submission) %> |
+<%= link_to 'Back', gallery_submissions_path %>

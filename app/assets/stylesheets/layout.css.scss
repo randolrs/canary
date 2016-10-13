@@ -125,7 +125,7 @@ background: linear-gradient(to bottom, #1A2980 , #26D0CE); /* W3C, IE 10+/ Edge,
         }
 
         .detail-container{
-            height: 50px;
+            
         }
 
         img.grid-image{
@@ -138,8 +138,12 @@ background: linear-gradient(to bottom, #1A2980 , #26D0CE); /* W3C, IE 10+/ Edge,
 
     .entry:hover{
         cursor: pointer;
-        background: #efd;
         
+        
+    }
+
+    .outline{
+        border: 2px solid #ddd;
     }
 
     .entry.col-2{
