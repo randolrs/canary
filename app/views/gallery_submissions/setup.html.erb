@@ -1,11 +1,17 @@
 <div class="content">
 
-  <h2 class="centered instructions">Select Artwork to Submit to <span style="color: blue;"><%= @gallery.name %></span></h2>
+  <ul class="horizontal centered step-header">
+    
+    <li><a class="step" href="<%= select_gallery_path %>">Select Gallery</a></li>
+    <li><span class="glyphicon glyphicon-arrow-right"></span></li>
+    <li><span class="step active">Choose Artwork</span></li>
+    <li><span class="glyphicon glyphicon-arrow-right"></span></li>
+    <li><span class="step">Confirm & Pay</span></li>
+
+  </ul>
   
   <%= form_tag create_collection_path(@gallery_submission.id) do %>
   <%# form_for(@gallery_submission) do |f| %>
-
-    <input type="submit" value="Save"/>
 
     <table class="select-item-table">
 
@@ -39,6 +45,11 @@
         </tbody>
 
     </table>
+
+
+    <div class="button-container">
+      <input type="submit" class="button medium green-background" value="Continue"/>
+    </div>
 
   <%end%>
 

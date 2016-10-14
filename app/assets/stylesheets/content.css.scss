@@ -713,3 +713,30 @@ div.clickable:hover{
 	box-shadow: none;
 	cursor: pointer;
 }
+
+.step-header{
+	font-weight: 400;
+    font-size: 1.2em;
+
+    li{
+    	padding: 5px 20px;
+
+    	a.step{
+    		font-size: 1.2em;
+    	}
+
+    	span{
+    		font-size: 1.2em;
+    	}
+    }
+
+    .active{
+    	color: #F56400;
+    	font-weight: 700;
+    }
+
+    .glyphicon{
+    	color: #666;
+    	font-size: 1.2em;
+    }
+}
