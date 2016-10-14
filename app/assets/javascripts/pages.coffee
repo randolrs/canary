@@ -18,6 +18,11 @@ ready = ->
             $(".create-account-modal").click (event), ->
                   $('body').find('#create-account-modal').show()
 
+            $("tr.green-on-click").click (event), ->
+                  $(@).toggleClass("green-background-and-hover")
+                  checkbox = $(@).find('.select-item-checkbox')
+                  checkbox.prop('checked', !checkbox.prop('checked'))
+
             $(".new-artwork-image-modal").click (event), ->
                   $('body').find('#new-artwork-image-modal').show()
 

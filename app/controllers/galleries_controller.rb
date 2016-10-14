@@ -17,9 +17,6 @@ class GalleriesController < InheritedResources::Base
 	end
 
 
-
-
-
   private
 
     def gallery_params

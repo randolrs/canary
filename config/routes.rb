@@ -92,6 +92,10 @@ Rails.application.routes.draw do
 
   post 'order/:order_id/confirm/purchase' => 'charges#confirm_purchase', as: 'confirm_purchase'
 
+  post 'submission/:submission_id/collection/create' => 'gallery_submissions#create_collection', as: 'create_collection'
+
+  get 'submission/:submission_id/confirm' => 'gallery_submissions#confirm_submission', as: 'confirm_submission'
+
   get 'submissions/select_gallery' => 'gallery_submissions#select_gallery', as: 'select_gallery'
 
   get 'gallery/submission/format/:id/new' => 'galleries#submission_format', as: 'gallery_submission_format'

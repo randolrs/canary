@@ -6,6 +6,8 @@ class ItemArt < ActiveRecord::Base
 
 	has_many :purchases
 
+	has_many :collection_items
+
 	has_attached_file :image, 
 	:styles => { :medium => "100x100#", :small => "70x70#", :thumb => "30x30#"},
 	:default_url => 'missing_item_:style.png',

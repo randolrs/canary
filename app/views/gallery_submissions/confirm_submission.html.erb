@@ -1,11 +1,11 @@
 <div class="content">
 
-  <h2 class="centered instructions">Select Artwork to Submit to <span style="color: blue;"><%= @gallery.name %></span></h2>
+  <h2 class="centered instructions">Confirm Portfolio Submission to <span style="color: blue;"><%= @gallery.name %></span></h2>
   
-  <%= form_tag create_collection_path(@gallery_submission.id) do %>
+  <%# form_tag create_collection_path(@gallery_submission.id) do %>
   <%# form_for(@gallery_submission) do |f| %>
 
-    <input type="submit" value="Save"/>
+    <input type="submit" class="button medium green-background" value="Save"/>
 
     <table class="select-item-table">
 
@@ -21,17 +21,16 @@
         </thead>
 
         <tbody>
-        
-          <% current_user.item_arts.all.each do |item| %>
 
-            <tr class="outlined clickable green-on-click">
+          <% @collection.items.each do |item| %>
+
+            <tr class="outlined">
 
               <td><%= image_tag item.image.url, class: "small-image"%></td>
               <td><%= item.name %></td>
               <td><%= item.medium %></td>
               <td><%= number_to_currency(item.price, precision: 0) %></td>
-              <td class="default-off"><input class="select-item-checkbox" name="item[<%=item.id%>]" type="checkbox"/></td>
-
+              
             </tr>
 
           <%end%>
@@ -40,6 +39,6 @@
 
     </table>
 
-  <%end%>
+  <%#end%>
 
 </div>
