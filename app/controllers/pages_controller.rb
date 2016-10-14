@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 			if current_user.is_artist
 
 				@hide_header = true
-				@page_title = "Dashboard"
+				@page_title = "My Submissions"
 
 			else
 
@@ -51,7 +51,7 @@ class PagesController < ApplicationController
 
 	def settings
 
-		@page_title = "Settings"
+		@page_title = "Account Settings"
 
 		@page = "settings"
 
@@ -203,7 +203,7 @@ class PagesController < ApplicationController
 
 	def my_work
 
-		@page = "portfolio"
+		@page = "work"
 
 		@page_title = "Portfolio"
 

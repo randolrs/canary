@@ -1,6 +1,14 @@
 class GallerySubmission < ActiveRecord::Base
 
-	has_many :collections
+	has_one :collection
 
 	belongs_to :gallery
+
+	belongs_to :user
+
+	def status
+
+		return "Sent"
+	end
+
 end

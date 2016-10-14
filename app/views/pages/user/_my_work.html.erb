@@ -3,7 +3,7 @@
 				
 	<ul class="horizontal full-length header ">
 
-		<li <% if @page == "home"%>class="active"<%end%>><%= link_to "My Submissions", root_path %></li><% if current_user.is_artist %><li <% if @page == "portfolio"%>class="active"<%end%>><%= link_to "Portfolio", portfolio_path %></li><%end%>
+		<li <% if @page == "home"%>class="active"<%end%>><%= link_to "My Submissions", root_path %></li><% if current_user.is_artist %><li <% if @page == "work"%>class="active"<%end%>><%= link_to "Portfolio", portfolio_path %></li><%end%>
 
 	</ul>
 
@@ -11,24 +11,41 @@
 
 <div class="dashboard-item" id="works">
 
-	<%# render 'pages/user/warnings' %>
-	
-	<div class="portfolio-container">
+	<table class="select-item-table">
 
-		<% if current_user.item_arts.count > 0 %>
-			
-			<%= render :partial => 'item_arts/index_grid', :locals => {:items => current_user.item_arts, :image_only => false, :columns => 3} %>
+        <thead>
 
-		<%else%>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Medium</th>
+            <th>Price</th>
+          </tr>
 
-			<div class="nothing-to-see-container">
+        </thead>
 
-				<p class="red">You have not shared any artwork yet. <%= link_to "Add Artwork", new_item_art_path, class: "warning-text-cta" %></p>
+        <tbody>
+        
+          <% current_user.item_arts.all.each do |item| %>
+          	
+          	<%= link_to(root_path) do %>
+	            
+	            <tr class="outlined clickable">
 
-			</div>
+	              <td><%= image_tag item.image.url, class: "small-image"%></td>
+	              <td><%= item.name %></td>
+	              <td><%= item.medium %></td>
+	              <td><%= number_to_currency(item.price, precision: 0) %></td>
+	              <td class="default-off"><input class="select-item-checkbox" name="item[<%=item.id%>]" type="checkbox"/></td>
 
-		<%end%>
+	            </tr>
 
-	</div>
+            <%end%>
+
+          <%end%>
+
+        </tbody>
+
+    </table>
 
 </div>

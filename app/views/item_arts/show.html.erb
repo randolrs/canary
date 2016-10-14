@@ -32,7 +32,7 @@
 
       </div>
 
-      <p>by <%= @item_art.user.display_name %></p>
+      <p>by <%= link_to @item_art.user.display_name, profile_path(@item_art.user.display_name) %></p>
       
       <br>
 

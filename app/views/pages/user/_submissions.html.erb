@@ -1,24 +1,39 @@
 
 <div class="dashboard-item">
 	
-	<% if current_user.submissions.count > 0 %>
+	<% if current_user.gallery_submissions.count > 0 %>
 
-		<%= current_user.submissions.each do |submission| %>
+		<table class="select-item-table">
 
-			<%= link_to(purchase_path(purchase.id)) do %>
+	        <thead>
 
-				<div class="dashboard-index clickable">
+	          <tr>
+	            <th>Gallery</th>
+	            <th>Submission Date</th>
+	            <th># of Pieces Submitted</th>
+	            <th>Status</th>
+	          </tr>
 
-					<div>image</div>
+	        </thead>
 
-					<div>"string</div>
+	        <tbody>
+	        
+	          <% current_user.gallery_submissions.each do |submission| %>
+		            
+	            <tr class="outlined clickable">
 
+	              <td><%= submission.gallery.name %></td>
+	              <td><%= submission.created_at.strftime("%b %d, %Y") %></td>
+	              <td><%= submission.collection.items.count %></td>
+	              <td><%= submission.status %></td>
 
-				</div>
+	            </tr>
 
-			<%end%>
+	          <%end%>
 
-		<%end%>
+	        </tbody>
+
+	    </table>
 
 	<%else%>
 
@@ -26,5 +41,7 @@
 
 	<%end%>
 	
-
 </div>
+
+
+<%= render 'layouts/new_submission_cta' %>

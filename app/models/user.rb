@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
     has_many :collections
 
+    has_many :gallery_submissions
+
     has_many :views, :through => :item_arts
 
 	has_attached_file :image, 

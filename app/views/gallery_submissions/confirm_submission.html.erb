@@ -2,21 +2,24 @@
 
   <ul class="horizontal centered step-header">
     
-    <li><a class="step" href="<%= select_gallery_path %>">Select Gallery</a></li>
-    <li><span class="glyphicon glyphicon-arrow-right"></span></li>
-    <li><a class="step" href="<%= gallery_submission_setup_path(@gallery.id) %>" >Choose Artwork</a></li>
-    <li><span class="glyphicon glyphicon-arrow-right"></span></li>
-    <li><span class="active step">Confirm & Pay</a></li>
+    <li><span class="glyphicon glyphicon glyphicon-ok circular-number"></span><a class="step" href="<%= select_gallery_path %>">Select Gallery</a></li>
+    <li><span class="glyphicon glyphicon glyphicon-ok circular-number"></span><a class="step" href="<%= gallery_submission_setup_path(@gallery.id) %>" >Choose Artwork</a></li>
+    <li><span class="circular-number">3</span><br><span class="active step">Confirm & Pay</a></li>
 
   </ul>
   
   <%# form_tag create_collection_path(@gallery_submission.id) do %>
   <%# form_for(@gallery_submission) do |f| %>
-
+  
     <div class="button-container">
-      <input type="submit" class="button medium green-background" value="Confirm and Pay"/>
+      <input type="submit" class="button medium green-background" value="Submit for $5"/>
     </div>
-    
+
+
+    <h4 class="centered">Your Submission to <span style="color: blue;"><%= @gallery_submission.gallery.name %></span>:</h4>
+
+    <br>
+
     <table class="select-item-table">
 
         <thead>
@@ -50,7 +53,7 @@
     </table>
 
     <div class="button-container">
-      <input type="submit" class="button medium green-background" value="Confirm and Pay"/>
+      <input type="submit" class="button medium green-background" value="Submit for $5"/>
     </div>
 
   <%#end%>

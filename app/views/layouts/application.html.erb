@@ -35,21 +35,6 @@
 
 		</div>
 
-		<% if user_signed_in? %>
-
-			<% if current_user.is_artist %>
-
-				<%unless @hide_add_artwork_cta %>
-					
-					<%= render 'layouts/add_artwork_cta' %>
-
-					<%= render :partial => 'modals/new_artwork_image', :locals => {:item_art => ItemArt.new } %>
-
-				<%end%>
-			<%end%>
-
-		<%end%>
-
 		<% unless @hide_footer %>
 
 			<%= render 'layouts/footer' %>

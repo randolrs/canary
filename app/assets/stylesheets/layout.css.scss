@@ -16,7 +16,7 @@
 }
 
 .content-container.open-page{
-    padding-top: 76px;
+    padding-top: 66px;
 }
 
 
@@ -57,12 +57,12 @@ background: linear-gradient(to bottom, #1A2980 , #26D0CE); /* W3C, IE 10+/ Edge,
 
     .dashboard-header{
         
-        padding: 10px 25px;
+        padding: 5px 25px;
         color: #fff;
         background: #fff;
         border-bottom: 1px solid #ddd;
         position:fixed;
-        height: 76px;
+        height: 66px;
         width: 100%;
 
         z-index: 99;
@@ -98,7 +98,7 @@ background: linear-gradient(to bottom, #1A2980 , #26D0CE); /* W3C, IE 10+/ Edge,
 
 .dashboard-fixed-header{
     position: fixed;
-    top: 76px;
+    top: 66px;
     z-index: 999;
 
 }

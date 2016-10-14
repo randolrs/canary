@@ -20,7 +20,7 @@ class GalleriesController < InheritedResources::Base
   private
 
     def gallery_params
-      params.require(:gallery).permit(:name, :city, :state_province, :country)
+      params.require(:gallery).permit(:name, :city, :state_province, :country, :number_of_images, :include_artist_statement, :require_additional_description)
     end
 end
 
