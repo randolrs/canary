@@ -1,0 +1,82 @@
+<div class="modal-container" id="checkout-modal">
+
+	<div class="modal-content">
+
+		<span class="glyphicon glyphicon-remove dismiss-modal"></span>
+
+		<%= form_tag submission_checkout_path, id: 'chargeForm' do %>
+
+			<h3><b>Payment Method</b></h3>
+
+			<label>Card number</label>
+
+			<div class="input-container">
+
+				<input type="text" name="cardNumber" id="cardNumberInput" class="cc-form card-number" maxlength="18" required></input>
+
+			</div>
+
+
+			<div class="input-group">
+
+				<label>Expiration Date</label>
+
+				<br>
+
+				<ul class="horizontal">
+
+					<li><select class="cc-select" name='expMonth' id='expireMM' required>
+				    <option value=''>Month</option>
+				    <option value='01'>01</option>
+				    <option value='02'>02</option>
+				    <option value='03'>03</option>
+				    <option value='04'>04</option>
+				    <option value='05'>05</option>
+				    <option value='06'>06</option>
+				    <option value='07'>07</option>
+				    <option value='08'>08</option>
+				    <option value='09'>09</option>
+				    <option value='10'>10</option>
+				    <option value='11'>11</option>
+				    <option value='12'>12</option>
+					</select></li>
+					<li><select class="cc-select" name='expYear' id='expireYY' required>
+				    <option value=''>Year</option>
+				    <option value='16'>2016</option>
+				    <option value='17'>2017</option>
+				    <option value='18'>2018</option>
+				    <option value='19'>2019</option>
+				    <option value='20'>2020</option>
+				    <option value='21'>2021</option>
+				    <option value='22'>2022</option>
+					</select></li>
+
+				</ul>
+
+			</div>
+
+			<div class="input-group">
+				<label>Security Code</label>
+				<br>
+				<input type="text" name="cvc" class="cc-form card-cvc" maxlength="4" required></input>
+			</div>
+
+			<br>
+
+			<div class="input-container">
+
+				<label>Name on card</label>
+
+				<input type="text" name="nameOnCard" class="cc-form card-name" required></input>
+
+			</div>
+
+			<br>
+
+			<input type="submit" class="button stretch blue-background" value="Pay <%= number_to_currency(total_cost) %>">
+
+		<% end %>
+
+	</div>
+
+</div>

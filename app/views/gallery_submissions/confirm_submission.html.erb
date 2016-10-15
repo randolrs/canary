@@ -10,13 +10,13 @@
   
   <%# form_tag create_collection_path(@gallery_submission.id) do %>
   <%# form_for(@gallery_submission) do |f| %>
-  
+
     <div class="button-container">
-      <input type="submit" class="button medium green-background" value="Submit for $5"/>
+      <input type="submit" class="button large green-background modal-cta checkout-modal-cta" value="Submit Portfolio for $9"/>
     </div>
 
 
-    <h4 class="centered">Your Submission to <span style="color: blue;"><%= @gallery_submission.gallery.name %></span>:</h4>
+    <h4 class="centered">Your Portfolio Submission to <span style="color: blue;"><%= @gallery_submission.gallery.name %></span>:</h4>
 
     <br>
 
@@ -53,9 +53,11 @@
     </table>
 
     <div class="button-container">
-      <input type="submit" class="button medium green-background" value="Submit for $5"/>
+      <input type="submit" class="button large green-background" value="Submit Portfolio for $9"/>
     </div>
 
   <%#end%>
 
 </div>
+
+<%= render :partial => 'modals/checkout_modal', :locals => {:total_cost => 9} %>

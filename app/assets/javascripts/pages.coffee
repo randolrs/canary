@@ -12,6 +12,9 @@ ready = ->
             $(".new-card-modal").click (event), ->
                   $('body').find('#new-card-modal').show()
 
+            $(".checkout-modal-cta").click (event), ->
+                  $('body').find('#checkout-modal').slideDown()
+
             $(".new-account-modal").click (event), ->
                   $('body').find('#new-account-modal').show()
 

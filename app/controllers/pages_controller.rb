@@ -231,7 +231,7 @@ class PagesController < ApplicationController
 
 			if current_user.is_me(@user)
 
-				@page_title = "My Profile"
+				@page_title = "My Public Profile"
 
 			else
 

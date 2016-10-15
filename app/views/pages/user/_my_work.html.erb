@@ -26,7 +26,7 @@
 
         <tbody>
         
-          <% current_user.item_arts.all.each do |item| %>
+          <% current_user.item_arts.all.reverse.each do |item| %>
           	
           	<%= link_to(root_path) do %>
 	            

@@ -65,6 +65,10 @@ Rails.application.routes.draw do
 
   post '/payments/new' => 'purchases#new_card', as: 'new_card'
 
+  post '/submission/:submission_id/checkout' => 'purchases#submission_checkout', as: 'submission_checkout'
+
+  get '/checkout/success/:purchase_id' => 'purchases#checkout_success', as: 'checkout_success'
+
   post 'email/item/:item_art_id' => 'pages#email_to_me', as: 'email_to_me'
 
   get 'payments/default/new/:card_id' => 'purchases#new_default_card', as: 'new_default_card'

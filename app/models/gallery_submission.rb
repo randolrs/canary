@@ -8,7 +8,16 @@ class GallerySubmission < ActiveRecord::Base
 
 	def status
 
-		return "Sent"
+		unless self.paid
+
+			return "Draft"
+
+		else
+
+			return "Sent to Gallery"
+
+		end
+		
 	end
 
 end

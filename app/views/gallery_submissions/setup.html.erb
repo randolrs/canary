@@ -10,12 +10,12 @@
 
   <%= form_tag create_collection_path(@gallery_submission.id) do %>
 
-  
+
     <div class="button-container">
-      <input type="submit" class="button medium green-background" value="Next"/>
+      <input type="submit" class="button large bright-blue-background" value="Next"/>
     </div>
 
-  <h4 class="centered">Choose <%= @gallery_submission.gallery.number_of_images %> Pieces to Submit to <span style="color: blue;"><%= @gallery_submission.gallery.name %></span>:</h4>
+  <h4 class="centered">Choose Up to <%= @gallery_submission.gallery.number_of_images %> Pieces to Submit to <span style="color: blue;"><%= @gallery_submission.gallery.name %></span>:</h4>
 
   <br>
 
@@ -54,7 +54,7 @@
 
 
     <div class="button-container">
-      <input type="submit" class="button medium green-background" value="Next"/>
+      <input type="submit" class="button large bright-blue-background" value="Next"/>
     </div>
 
   <%end%>

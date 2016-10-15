@@ -140,8 +140,6 @@ class ItemArtsController < ApplicationController
     
     @return_home_only = true
 
-    @page_title = "Return to Dashboard"
-
   end
 
   # PATCH/PUT /item_arts/1
@@ -149,7 +147,7 @@ class ItemArtsController < ApplicationController
   def update
     respond_to do |format|
       if @item_art.update(item_art_params)
-        format.html { redirect_to my_work_path, notice: 'Item art was successfully updated.' }
+        format.html { redirect_to portfolio_path, notice: 'Item art was successfully updated.' }
         format.json { render :show, status: :ok, location: @item_art }
       else
         format.html { render :edit }
