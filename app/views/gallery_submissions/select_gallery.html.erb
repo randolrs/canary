@@ -15,7 +15,7 @@
 			
 			<div class="image-grid">
 
-				<% Gallery.all.each do |gallery| %>
+				<% current_user.galleries_for_submission.all.each do |gallery| %>
 
 					<%= link_to(gallery_submission_setup_path(gallery.id)) do %>
 

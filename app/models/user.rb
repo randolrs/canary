@@ -242,10 +242,12 @@ class User < ActiveRecord::Base
   
   end
 
-  def submissions
 
-    return Submission.all.where(:artist_id => self.id)
+  def galleries_for_submission
 
+    user_gallery_submission_array = self.gallery_submissions.pluck(:gallery_id)
+
+    return Gallery.where.not(id: user_gallery_submission_array)
 
   end
   
