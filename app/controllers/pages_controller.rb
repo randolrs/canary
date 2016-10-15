@@ -41,6 +41,15 @@ class PagesController < ApplicationController
 
 	end
 
+	def login
+
+		@hide_header = true
+		@hide_header_on_all_devices = true
+		@hide_footer = true
+
+
+	end
+
 
 
 	def about

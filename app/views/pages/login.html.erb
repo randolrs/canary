@@ -1,6 +1,7 @@
+
 <div class="simple-landing-container">
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(:user, :url => session_path(:user)) do |f| %>
 
     <h2>ArtYam</h2>
 
@@ -25,7 +26,7 @@
 
     <br>
     
-    <%= render "devise/shared/links" %>
+    <%# render "devise/shared/links" %>
 
   <% end %>
 

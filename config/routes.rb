@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get 'about' => 'pages#about'
 
+  get 'login' => 'pages#login'
+
   get '/:search_code' => 'item_arts#direct_link', as: 'direct_link_to_item_art'
 
   get 'welcome' => 'pages#welcome'
