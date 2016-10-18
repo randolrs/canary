@@ -15,17 +15,19 @@
 
 			<%= render 'pages/user/dashboard_header' %>
 
-			<div class="dashboard-fixed-header mobile-only">
-				
-				<ul class="horizontal full-length header ">
+			<%= render 'pages/user/dashboard_fixed_header' %>
 
-					<li <% if @page == "home"%>class="active"<%end%>><%= link_to "Sales", root_path %></li><li <% if @page == "payment settings"%>class="active"<%end%>><%= link_to "Portfolio", portfolio_path %></li><li <% if @page == "home"%>class="active"<%end%>><%= link_to "Submissions", root_path %></li>
-
-				</ul>
-
+			<div id="sales" style="display:none;">
+				<%= render 'pages/user/balance' %>
 			</div>
 
-			<%= render 'pages/user/submissions' %>
+			<div id="portfolio" style="display:none;">
+				<%= render 'pages/user/my_work' %>
+			</div>
+
+			<div id="submissions">
+				<%= render 'pages/user/submissions' %>
+			</div>
 
 			<%# render 'pages/user/dashboard' %>
 

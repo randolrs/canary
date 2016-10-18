@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 			if current_user.is_artist
 
 				@hide_header = true
-				@page_title = "My Submissions"
+				@page_title = "Home"
 
 			else
 

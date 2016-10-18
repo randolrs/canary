@@ -1,20 +1,27 @@
 
-<div class="dashboard-fixed-header mobile-only">
-				
-	<ul class="horizontal full-length header ">
-
-		<li <% if @page == "home"%>class="active"<%end%>><%= link_to "My Submissions", root_path %></li><% if current_user.is_artist %><li <% if @page == "work"%>class="active"<%end%>><%= link_to "Portfolio", portfolio_path %></li><%end%>
-
-	</ul>
-
-</div>
-
-
 <div class="dashboard-item" id="works">
   
   <%= render :partial => 'item_arts/index_grid', :locals => {:items =>  current_user.item_arts, :image_only => false, :columns => 3} %>
 
+  <% if user_signed_in? %>
+
+    <% if current_user.is_artist %>
+
+      <%unless @hide_add_artwork_cta %>
+        
+        <%= render 'layouts/add_artwork_cta' %>
+
+        <%= render :partial => 'modals/new_artwork_image', :locals => {:item_art => ItemArt.new } %>
+
+      <%end%>
+      
+    <%end%>
+
+  <%end%>
+
 </div>
+
+
 
 
 

@@ -7,23 +7,11 @@
 
 		<%= render 'pages/user/dashboard_header' %>
 
+		<%= render 'pages/user/dashboard_fixed_header' %>
+
 		<%= render 'pages/user/my_work' %>
 
-		<% if user_signed_in? %>
 
-			<% if current_user.is_artist %>
-
-				<%unless @hide_add_artwork_cta %>
-					
-					<%= render 'layouts/add_artwork_cta' %>
-
-					<%= render :partial => 'modals/new_artwork_image', :locals => {:item_art => ItemArt.new } %>
-
-				<%end%>
-				
-			<%end%>
-
-		<%end%>
 
 	</div>
 

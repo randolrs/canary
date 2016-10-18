@@ -1,0 +1,9 @@
+<div class="dashboard-fixed-header mobile-only">
+				
+	<ul class="horizontal full-length header ">
+
+		<li <% if @page == "home"%>class="active"<%end%>><%= link_to "Sales", balance_path %></li><li <% if @page == "payment settings"%>class="active"<%end%>><%= link_to "Portfolio", portfolio_path %></li><li <% if @page == "home"%>class="active"<%end%>><%= link_to "Submissions", root_path %></li>
+
+	</ul>
+
+</div>
