@@ -44,12 +44,11 @@
 
 					</li> -->
 
-					<li class="dashboard-option <% if @page=="home" %>active<%end%>" id="home" data-content-panel="home-content">
+					<li class="dashboard-option <% if @page=="sales" %> active <%end%>" id="home" data-content-panel="home-content">
 						
-						<a href="<%= root_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>My Submissions</a>
+						<a href="<%= balance_path %>"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Sales</span></a>
 
 					</li>
-
 
 					<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="work" data-content-panel="work-content">
 						
@@ -57,13 +56,14 @@
 
 					</li>
 
-<!-- 					<li class="dashboard-option <%# if @page=="sales" %>active<%#end%>" id="home" data-content-panel="home-content">
+
+					<li class="dashboard-option <% if @page=="home" %>active<%end%>" id="home" data-content-panel="home-content">
 						
-						<a href="<%# balance_path %>"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Sales</span></a>
+						<a href="<%= root_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>My Submissions</a>
 
 					</li>
 
-					<li class="dashboard-option <%# if @page=="engagement" %>active<%#end%>" id="home" data-content-panel="home-content">
+<!-- 					<li class="dashboard-option <%# if @page=="engagement" %>active<%#end%>" id="home" data-content-panel="home-content">
 						
 						<a href="<%= engagement_path %>"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span><span>Engagement</span></a>
 

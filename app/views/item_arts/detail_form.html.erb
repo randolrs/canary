@@ -15,11 +15,7 @@
       </div>
     <% end %>
 
-    <div style="padding: 10px;">
-
-      
-
-    	<h2>Add Details</h2>
+    	<h2>Artwork Details</h2>
 
       <br>
 
@@ -81,8 +77,6 @@
       <br>
 
       <%= f.text_area :description, required: true, placeholder: "A description of this piece.", class: "description"  %>
-
-    </div>
 
     <% if current_user.is_admin %>
       Sample?

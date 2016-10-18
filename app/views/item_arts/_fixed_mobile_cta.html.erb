@@ -1,0 +1,17 @@
+
+<% unless item_art.sold %>
+      
+    <%= form_tag start_checkout_path do %>
+
+  		<input type="hidden" name="itemID" value="<%= item_art.id %>">
+
+  		<input type="submit" value="Buy for <%= number_to_currency(item_art.price, precision: 0) %>" class="button green-background item-buy-action fixed-bottom-cta">
+
+	<%end%>
+  
+  <%else%>
+
+    <a class="button green-background large"><span class="glyphicon glyphicon-ok"  aria-hidden="true" style="margin-right: 5px;"></span>Sold</a>
+    
+<%end%>
+

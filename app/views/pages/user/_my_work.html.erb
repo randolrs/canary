@@ -9,43 +9,12 @@
 
 </div>
 
+
 <div class="dashboard-item" id="works">
-
-	<table class="select-item-table">
-
-        <thead>
-
-          <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Medium</th>
-            <th>Price</th>
-          </tr>
-
-        </thead>
-
-        <tbody>
-        
-          <% current_user.item_arts.all.reverse.each do |item| %>
-          	
-          	<%= link_to(root_path) do %>
-	            
-	            <tr class="outlined clickable">
-
-	              <td><%= image_tag item.image.url, class: "small-image"%></td>
-	              <td><%= item.name %></td>
-	              <td><%= item.medium %></td>
-	              <td><%= number_to_currency(item.price, precision: 0) %></td>
-	              <td class="default-off"><input class="select-item-checkbox" name="item[<%=item.id%>]" type="checkbox"/></td>
-
-	            </tr>
-
-            <%end%>
-
-          <%end%>
-
-        </tbody>
-
-    </table>
+  
+  <%= render :partial => 'item_arts/index_grid', :locals => {:items =>  current_user.item_arts, :image_only => false, :columns => 3} %>
 
 </div>
+
+
+

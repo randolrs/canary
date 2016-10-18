@@ -2,21 +2,30 @@
 
 	<% items.each do |item| %>
 
-		<%= link_to(item) do %>
+		<%= link_to(item_art_detail_form_path(item.id)) do %>
 
 			<div class="entry <% if columns == 2 %>col-2<%end%>">
 				
 				<div class="image-container">
 					<%= image_tag item.image.url, class: "grid-image"%>
+
+<!-- 					<%# unless image_only %>
+
+					<div class="detail-container">
+
+						<h4><i><%#= item.name %></i></h4>
+
+			    	</div>
+			    	
+		    		<%#end%> -->
+
 				</div>
 
 				<% unless image_only %>
 
 					<div class="detail-container">
 
-						<h4><%= item.name %></h4>
-
-				        <h4><span>Status</span></h4>
+						<h4><i><%= item.name %></i></h4>
 
 			    	</div>
 			    	

@@ -19,7 +19,7 @@
 				
 				<ul class="horizontal full-length header ">
 
-					<li <% if @page == "home"%>class="active"<%end%>><%= link_to "My Submissions", root_path %></li><% if current_user.is_artist %><li <% if @page == "payment settings"%>class="active"<%end%>><%= link_to "Portfolio", portfolio_path %></li><%end%>
+					<li <% if @page == "home"%>class="active"<%end%>><%= link_to "Sales", root_path %></li><li <% if @page == "payment settings"%>class="active"<%end%>><%= link_to "Portfolio", portfolio_path %></li><li <% if @page == "home"%>class="active"<%end%>><%= link_to "Submissions", root_path %></li>
 
 				</ul>
 
