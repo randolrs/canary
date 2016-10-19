@@ -21,6 +21,8 @@
       <%= f.submit "Create Account", class: "button medium orange-background" %>
     </div>
 
+    <%= hidden_field_tag 'is_artist', true %>
+
   <% end %>
 
   <p class="centered"><%= link_to "Login", login_path %></p>

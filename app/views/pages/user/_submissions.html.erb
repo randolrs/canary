@@ -1,6 +1,8 @@
 
 <div class="dashboard-item">
 
+	<%= render 'pages/user/warnings' %>
+
 	<% if current_user.gallery_submissions.count > 0 %>
 
 	<% current_user.gallery_submissions.reverse.each do |submission| %>
@@ -23,7 +25,14 @@
 
 	<%else%>
 
-		<p>Nickle</p>
+
+		<% if current_user.item_arts.count > 0 %>
+
+			<h3 class="centered">You have not submitted your portfolio to any galleries.</h3>
+
+			<div class="centered"><a href="<%= select_gallery_path %>" class="cta bright-blue-background"><span class="glyphicon glyphicon-plus"></span><span>New Submission</span></a></div>
+
+		<%end%>
 
 	<%end%>
 	

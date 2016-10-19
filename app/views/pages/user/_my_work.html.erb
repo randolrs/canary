@@ -1,23 +1,11 @@
 
 <div class="dashboard-item" id="works">
   
+  <%= render 'pages/user/warnings' %>
+  
   <%= render :partial => 'item_arts/index_grid', :locals => {:items =>  current_user.item_arts, :image_only => false, :columns => 3} %>
-
-  <% if user_signed_in? %>
-
-    <% if current_user.is_artist %>
-
-      <%unless @hide_add_artwork_cta %>
-        
-        <%= render 'layouts/add_artwork_cta' %>
-
-        <%= render :partial => 'modals/new_artwork_image', :locals => {:item_art => ItemArt.new } %>
-
-      <%end%>
-      
-    <%end%>
-
-  <%end%>
+   
+  <%= render 'layouts/add_artwork_cta' %>
 
 </div>
 

@@ -36,6 +36,14 @@ class RegistrationsController < Devise::RegistrationsController
 
     end
 
+    if params[:is_artist]
+
+        resource.update(:is_artist => true)
+
+        resource.save
+
+    end
+
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?

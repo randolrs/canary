@@ -2,39 +2,66 @@
 
 	<% items.each do |item| %>
 
-		<%= link_to(item_art_detail_form_path(item.id)) do %>
+		<div class="entry <% if columns == 2 %>col-2<%end%>">
+			
+			<% if user_signed_in? %>
 
-			<div class="entry <% if columns == 2 %>col-2<%end%>">
+				<% if current_user.is_me(item.user) %>
+
+					<%= link_to(item_art_detail_form_path(item.id)) do %>
+
+						<div class="image-container">
+
+							<%= image_tag item.image.url, class: "grid-image"%>
+
+						</div>
+
+					<% end %>
+
+				<%else%>
+
+					<%= link_to(direct_link_to_item_art_path(item.search_code)) do %>
+
+						<div class="image-container">
+
+							<%= image_tag item.image.url, class: "grid-image"%>
+
+						</div>
+
+					<% end %>
+
+				<%end%>
+
+
+			<%else%>
+
+				<%= link_to(direct_link_to_item_art_path(item.search_code)) do %>
+
+					<div class="image-container">
+
+						<%= image_tag item.image.url, class: "grid-image"%>
+
+					</div>
+
+				<% end %>
+
+			<%end%>
+			
 				
-				<div class="image-container">
-					<%= image_tag item.image.url, class: "grid-image"%>
 
-<!-- 					<%# unless image_only %>
+			<% unless image_only %>
 
-					<div class="detail-container">
+				<div class="detail-container">
 
-						<h4><i><%#= item.name %></i></h4>
+					<h4><i><%= item.name %></i></h4>
 
-			    	</div>
-			    	
-		    		<%#end%> -->
+					<h4><a href="<%= direct_link_to_item_art_path(item.search_code) %>">ArtYam.com<span style="color: red;"><%= direct_link_to_item_art_path(item.search_code) %></span></a></h4>
 
-				</div>
+		    	</div>
 
-				<% unless image_only %>
+	    	<%end%>
 
-					<div class="detail-container">
-
-						<h4><i><%= item.name %></i></h4>
-
-						<h4><%= direct_link_to_item_art_path(item.search_code) %></h4>
-
-			    	</div>
-			    	
-		    	<%end%>
-			</div>
-
-		<% end %>
+		</div>
 
 	<% end %>
 

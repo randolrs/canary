@@ -1,5 +1,19 @@
-<div class="mobile-thumb-cta">
+<% if user_signed_in? %>
 
-		<a class="new-artwork-image-modal modal-cta" <%# new_item_art_path %>><span class="orange-background glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+	<% if current_user.is_artist %>
 
-</div>
+	  <%unless @hide_add_artwork_cta %>
+
+		<div class="mobile-thumb-cta">
+
+				<a class="new-artwork-image-modal modal-cta" <%# new_item_art_path %>><span class="orange-background glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+
+		</div>
+
+		<%= render :partial => 'modals/new_artwork_image', :locals => {:item_art => ItemArt.new } %>
+
+	  <%end%>
+	  
+	<%end%>
+
+<%end%>

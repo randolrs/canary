@@ -30,5 +30,13 @@ class ItemArt < ActiveRecord::Base
 
   	end
 
+  	def direct_show_url
+
+  		url = "ArtYam" + direct_link_to_item_art_path(self.search_code).upcase.to_s
+  		
+  		return url
+
+  	end
+
 
 end

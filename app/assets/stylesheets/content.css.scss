@@ -145,6 +145,7 @@
 	font-size: 20px;
 	position: relative;
 	margin-bottom: 25px;
+	box-shadow: 0px 2px 2px #999;
 
 	.notice-content{
 		margin: 0 auto;
@@ -499,6 +500,7 @@ a.warning-text-cta{
 
 a.warning-text-cta:hover{
 	color: #66b;
+	cursor: pointer;
 }
 
 .dashboard-panel-content{
@@ -574,9 +576,9 @@ span.badge-number{
 
 .content-inner{
 	width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     margin: 0 auto;
-    border: 1px solid #666;
+    border: 1px solid #bbb;
     box-shadow: 0px 1px 1px #333;
     padding: 24px;
     border-radius: 5px;
@@ -658,6 +660,10 @@ span.lock-icon{
 
 .column-container.wide{
 	width: 600px;
+}
+
+.column-container.vertically-centered{
+	vertical-align: middle;
 }
 
 span.price{
