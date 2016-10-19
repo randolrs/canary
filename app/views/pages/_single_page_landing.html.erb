@@ -28,9 +28,7 @@
 
 		<h2>What is ArtYam?</h2>
 
-		<p>ArtYam is ... that .. bridges the gap between art collectors and non-traditional art displays such as restaurants and cafes. artists the ability to engage art collectors through their art displays by setting up secure payment processing, streamlined contact forms, and 3-minute checkout ...</p>
-
-		<p>Using ArtYam artists can create mobile-friendly web pages landing pages for their art displays in galleries, cafes, and restaurants that engage art collectors in real-time with additional information about their artwork and themselves. ArtYam's 3-minute checkout process and follow-up ... ...</p>
+		<p>ArtYam quickly creates mobile-friendly web pages for artwork that bridge the gap between art collectors and non-traditional art displays such as restaurants and cafes. ArtYam web pages inlcude secure payment processing, streamlined contact forms, and 3-minute checkout process that engages art collectors and increases sales.</p>
 
 	</div>
 
@@ -42,13 +40,11 @@
 
 		<h2>How Does it Work?</h2>
 
-		<p><b>1. Create a Page for Your Artwork</b> | Upload a photo of your art and provide basic information about the artwork, including as the title, medium, dimensions, and price. Creating an artwork page generates a short, readable URL to include in your art displays, social media, etc. <%= link_to "ArtYam.com/" + ItemArt.last.search_code, direct_link_to_item_art_path(ItemArt.last.search_code) %></p>
+		<p><b>1. Create a Page for Your Artwork</b> | Upload a photo of your artwork and provide a few basic details that art collectors want to know (dimensions, description of the piece, etc.). ArtYam automatically generates a short, shareable link to this information that can be included in art displays (such as <%= link_to "ArtYam.com/" + ItemArt.last.search_code, direct_link_to_item_art_path(ItemArt.last.search_code) %>)</p>
 
-		<p><b>2. Include ArtYam URL in Your Art Display</b> | Art collectors can quickly access the page you created for your artwork including 3-minute checkout....</p>
+		<p><b>2. Share your ArtYam Links in your Art Displays</b> | Using your short, readable ArtYam links, art collectors can access additional information about your artwork on any mobile device and buy your artwork in less than 3 minutes.</p>
 
-		<p><b>3. Purchase</b> | After accessing additional information about your artwork on ArtYam a collector may purchase ... using our fast, secure payment process.</p>
-
-		<p><b>4. We Pay You</b> | We pay you directly within 2 days using your preferred payment method.</p>
+		<p><b>3. We Sell Your Art anf Pay You</b> | We process payments online from any major credit cards on your behalf and remit payment to you via direct deposit.</p>
 
 	</div>
 
@@ -60,7 +56,9 @@
 
 		<h2>Why Use ArtYam?</h2>
 
-		<p>ArtYam provides an additional layer of engagement to art displays in galleries, cafe, and restaurants, where ... staff are not necessarily trained to sell art and probably don't know much about the artwork or the artist ...  Artist cannot always be present at their art displays. ArtYam bridges this gap by providing art collectors fast access to additional information about the artwork and the artist, in the artists own words. Seamless integration with commerce as well purchase it if they like what they see.</p>
+		<p>ArtYam adds engagement to your art displays in galleries, cafe, and restaurants, where staff are not necessarily trained to sell your art and probably don't know much about your artwork or you. We understand artist are not usually present at their art displays so we designed ArtYam to bridge the gap between art collectors and artists by  providing fast access to additional information about you and your artwork, in your own words, seamlessly integrated with online payment processing capabilities.  No other company provides solutions these specifically tailored for artists.</p>
+
+		<a href="<%= signup_path %>" class="cta orange-background button large">Signup</a>
 
 	</div>
 
