@@ -2,7 +2,7 @@
 				
 	<ul class="horizontal full-length header ">
 
-		<li <% if @page == "home"%>class="active"<%end%>><%= link_to "Sales", balance_path %></li><li <% if @page == "payment settings"%>class="active"<%end%>><%= link_to "Portfolio", portfolio_path %></li><li <% if @page == "home"%>class="active"<%end%>><%= link_to "Submissions", root_path %></li>
+		<li class="dashboard-nav-option active" data-dashboard-item-id="sales"><a>Sales</a></li><li class="dashboard-nav-option" data-dashboard-item-id="portfolio"><a>Portfolio</a></li><li class="dashboard-nav-option" data-dashboard-item-id="submissions"><a>Submissions</a></li>
 
 	</ul>
 

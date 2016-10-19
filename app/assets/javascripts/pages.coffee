@@ -12,6 +12,7 @@ ready = ->
             $(".new-card-modal").click (event), ->
                   $('body').find('#new-card-modal').show()
 
+
             $(".checkout-modal-cta").click (event), ->
                   $('body').find('#checkout-modal').slideDown()
 
@@ -53,7 +54,7 @@ ready = ->
                   targetId = "#" + $(@).data("dashboard-item-id")
                   $('body').find('.dashboard-nav-option').removeClass("active")
                   $(@).addClass("active")
-                  $('body').find('.dashboard-item').hide()
+                  $('body').find('.dashboard-view').hide()
                   $('body').find(targetId).slideDown()
 
             $(".email-to-me-modal").click (event), ->

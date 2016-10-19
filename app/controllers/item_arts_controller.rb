@@ -139,6 +139,7 @@ class ItemArtsController < ApplicationController
     end
     
     @return_home_only = true
+    @page_title = "Artwork Details"
 
   end
 

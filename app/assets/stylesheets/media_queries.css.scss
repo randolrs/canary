@@ -63,8 +63,12 @@
 			}
 
 			.dashboard-item{
-				padding: 10px;
+				padding: 00px;
 			    padding-top:50px;
+
+			    .dashboard-index{
+			    	margin:0px;
+			    }
 			}
 
 			.dashboard-item.no-nav {
@@ -114,7 +118,7 @@
 
 			.content-container{
 
-  				padding-top: 76px;
+  				padding-top: 56px;
   			
 			}
 

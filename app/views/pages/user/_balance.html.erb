@@ -4,16 +4,20 @@
 
 	<% current_user.purchases_of_my_work.each do |purchase| %>
 		
-		<a href="<%= purchase_path(purchase.id) %>">
+		<% if purchase.item_art %>
 
-			<div class="dashboard-index clickable">
-				
-				<div><%= image_tag purchase.item_art.image.url, class: "small-item-image"%></div>
+			<a href="<%= purchase_path(purchase.id) %>">
 
-				<div>"<%= purchase.item_art.name %>" was purchased <%= purchase.created_at.strftime("%b %d") %> for <%= number_to_currency(purchase.amount, precision: 0) %>.<br>Status: <%= purchase.status_as_string %></div>
-			</div>
+				<div class="dashboard-index clickable">
+					
+					<div><%= image_tag purchase.item_art.image.url, class: "small-item-image"%></div>
 
-		</a>
+					<div>"<%= purchase.item_art.name %>" was purchased <%= purchase.created_at.strftime("%b %d") %> for <%= number_to_currency(purchase.amount, precision: 0) %>.<br>Status: <%= purchase.status_as_string %></div>
+				</div>
+
+			</a>
+
+		<%end%>
 
 	<%end%>
 

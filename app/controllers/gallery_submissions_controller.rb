@@ -4,7 +4,7 @@ class GallerySubmissionsController < InheritedResources::Base
 
 		@return_home_only = true
 
-		@page_title = ""
+		@page_title = "Gallery Submission"
 
 		if user_signed_in?
 
@@ -47,7 +47,7 @@ class GallerySubmissionsController < InheritedResources::Base
 
 		@return_home_only = true
 
-		@page_title = ""
+		@page_title = "Gallery Submission"
 
 		@gallery_submission = GallerySubmission.find(params[:submission_id])
 
@@ -98,7 +98,7 @@ class GallerySubmissionsController < InheritedResources::Base
 
 		@return_home_only = true
 
-		@page_title = ""
+		@page_title = "Gallery Submission"
 
 
 	end
@@ -109,7 +109,7 @@ class GallerySubmissionsController < InheritedResources::Base
 
 			@return_home_only = true
 
-			@page_title = ""
+			@page_title = "Gallery Submission"
 
 			@gallery_submission = GallerySubmission.find(params[:submission_id])
 

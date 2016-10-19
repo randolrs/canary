@@ -1,39 +1,25 @@
 
 <div class="dashboard-item">
-	
+
 	<% if current_user.gallery_submissions.count > 0 %>
 
-		<table class="select-item-table">
+	<% current_user.gallery_submissions.reverse.each do |submission| %>
 
-	        <thead>
+		<a href="<%= root_path %>">
 
-	          <tr>
-	            <th>Gallery</th>
-	            <th>Submission Date</th>
-	            <th># of Pieces Submitted</th>
-	            <th>Status</th>
-	          </tr>
+			<div class="dashboard-index clickable">
+				
+				<span>You Submitted <%= submission.collection.items.count %> to <%= submission.gallery.name %> on <%= submission.created_at.strftime("%b %d, %Y") %>.</span>
 
-	        </thead>
+				<br>
 
-	        <tbody>
-	        
-	          <% current_user.gallery_submissions.each do |submission| %>
-		            
-	            <tr class="outlined clickable">
+				<span>Status: <%= submission.status %></span>
 
-	              <td><%= submission.gallery.name %></td>
-	              <td><%= submission.created_at.strftime("%b %d, %Y") %></td>
-	              <td><%= submission.collection.items.count %></td>
-	              <td><%= submission.status %></td>
+			</div>
 
-	            </tr>
+		</a>
 
-	          <%end%>
-
-	        </tbody>
-
-	    </table>
+	<%end%>
 
 	<%else%>
 

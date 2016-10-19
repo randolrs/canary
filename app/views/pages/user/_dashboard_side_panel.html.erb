@@ -44,22 +44,22 @@
 
 					</li> -->
 
-					<li class="dashboard-option <% if @page=="sales" %> active <%end%>" id="home" data-content-panel="home-content">
+					<li class="dashboard-option dashboard-nav-option active" id="home"data-dashboard-item-id="sales">
 						
-						<a href="<%= balance_path %>"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Sales</span></a>
+						<a><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Sales</span></a>
 
 					</li>
 
-					<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="work" data-content-panel="work-content">
+					<li class="dashboard-option dashboard-nav-option" id="work"data-dashboard-item-id="portfolio">
 						
-						<a href="<%= portfolio_path %>"><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right: 5px;"></span>Portfolio</a>
+						<a><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right: 5px;"></span>Portfolio</a>
 
 					</li>
 
 
-					<li class="dashboard-option <% if @page=="home" %>active<%end%>" id="home" data-content-panel="home-content">
+					<li class="dashboard-option dashboard-nav-option" data-dashboard-item-id="submissions">
 						
-						<a href="<%= root_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>My Submissions</a>
+						<a><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>My Submissions</a>
 
 					</li>
 
