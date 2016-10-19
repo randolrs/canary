@@ -22,11 +22,10 @@
 				<% if current_user.is_artist %>
 					
 					<br>
-					<!-- <a href="<%# balance_payments_path %>">Balance: <%# number_to_currency(current_user.stripe_balance) %></a> -->
 
 					<a <%#new_item_art_path%> class="cta orange-background new-artwork-image-modal modal-cta"><span class="glyphicon glyphicon-plus"></span><span>Add Artwork</span></a>
 
-					<a href="<%= select_gallery_path %>" class="cta bright-blue-background"><span class="glyphicon glyphicon-plus"></span><span>New Submission</span></a>
+					<!-- <a href="<%# select_gallery_path %>" class="cta bright-blue-background"><span class="glyphicon glyphicon-plus"></span><span>New Submission</span></a> -->
 
 				<%end%>
 
@@ -44,24 +43,30 @@
 
 					</li> -->
 
-					<li class="dashboard-option dashboard-nav-option active" id="home"data-dashboard-item-id="sales">
+					<li class="dashboard-option dashboard-nav-option sales-view <% if @page=="home" %>active<%end%>" id="home" data-dashboard-item-id="sales-view">
 						
-						<a><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Sales</span></a>
+						<a href="<%= root_path %>"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span><span>Dashboard</span></a>
 
 					</li>
 
-					<li class="dashboard-option dashboard-nav-option" id="work"data-dashboard-item-id="portfolio">
+					<li class="dashboard-option dashboard-nav-option balance-view <% if @page=="balance_payments" %>active<%end%>" id="balance">
 						
-						<a><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right: 5px;"></span>Portfolio</a>
+						<a href="<%= balance_payments_path %>"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>Balance: <%= number_to_currency(current_user.stripe_balance) %></span></a>
 
 					</li>
 
+<!-- 					<li class="dashboard-option dashboard-nav-option portfolio-view <%# if @default_view == "Portfolio"%>active<%#end%>" id="work"data-dashboard-item-id="portfolio-view">
+						
+						<a <%#unless @page=="home" %>href="<%# root_path(view: "portfolio") %>"<%#end%>><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right: 5px;"></span>Portfolio</a>
 
-					<li class="dashboard-option dashboard-nav-option" data-dashboard-item-id="submissions">
+					</li> -->
+
+
+<!-- 					<li class="dashboard-option dashboard-nav-option" data-dashboard-item-id="submissions-view">
 						
 						<a><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>My Submissions</a>
 
-					</li>
+					</li> -->
 
 <!-- 					<li class="dashboard-option <%# if @page=="engagement" %>active<%#end%>" id="home" data-content-panel="home-content">
 						

@@ -50,6 +50,10 @@
 
 			.item-main-image-container{
 				padding: 10px 20px;
+
+				img.item-art-main-image{
+					max-width: 400px;
+				}
 			}
 
 			.hide-on-mobile{
@@ -204,6 +208,10 @@
 					padding-top: 175px;
 				}
 
+			}
+
+			.content.has-fixed-bottom-cta{
+				padding-bottom: 70px;
 			}
 
 			.dashboard-content{

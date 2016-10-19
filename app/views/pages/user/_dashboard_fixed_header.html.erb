@@ -1,8 +1,8 @@
-<div class="dashboard-fixed-header mobile-only">
+<div class="dashboard-fixed-header">
 				
 	<ul class="horizontal full-length header ">
 
-		<li class="dashboard-nav-option active" data-dashboard-item-id="sales"><a>Sales</a></li><li class="dashboard-nav-option" data-dashboard-item-id="portfolio"><a>Portfolio</a></li><li class="dashboard-nav-option" data-dashboard-item-id="submissions"><a>Submissions</a></li>
+		<li class="dashboard-nav-option-sub portfolio-view active" data-dashboard-item-id="portfolio-view"><a>Portfolio<span class="badge-number"><%= current_user.item_arts.count %></span></a></li><li class="dashboard-nav-option-sub sales-view" data-dashboard-item-id="sales-view"><a>Sales<span class="badge-number"><%= current_user.purchases_of_my_work.count %></span></a></li><!-- <li class="dashboard-nav-option" data-dashboard-item-id="submissions-view"><a>Submissions</a></li> -->
 
 	</ul>
 

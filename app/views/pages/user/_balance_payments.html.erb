@@ -2,40 +2,35 @@
 
 <div class="dashboard-item no-nav" id="balance">
 
-	<div class="dasboard-panel-content">
-		
+	<%= render 'pages/user/warnings' %>
+	
+	<h4>Previous Payments to You</h4>
 
-		<h4 class="centered">Next Payment Date: Aug 3, 2016</h4>
+	<% if @stripe_transfers %>
 
-		<h4>Previous Payments to You</h4>
+		<% @stripe_transfers.each do |transfer|%>
 
-		<% if @stripe_transfers %>
+			<div class="message">
 
-			<% @stripe_transfers.each do |transfer|%>
+				<%= number_to_currency(transfer.amount) %>
 
-				<div class="message">
+				<%= transfer.date %>
 
-					<%= number_to_currency(transfer.amount) %>
-
-					<%= transfer.date %>
-
-					<%= transfer.destination %>
-
-				</div>
-
-			<%end%>
-
-
-		<%else%>
-
-			<div class="nothing-to-see-container">
-
-				<p>No payments yet.</p>
+				<%= transfer.destination %>
 
 			</div>
 
 		<%end%>
 
-	</div>
+
+	<%else%>
+
+		<div class="nothing-to-see-container">
+
+			<p>No payments yet.</p>
+
+		</div>
+
+	<%end%>
 
 </div>

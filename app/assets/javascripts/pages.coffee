@@ -49,10 +49,12 @@ ready = ->
                   $('div#new-card-options').find('input').prop('required',true)
                   $('div#new-card-options').find('select').prop('required',true)
                   
-            $('.dashboard-nav-option').click (event), ->
+            $('.dashboard-nav-option-sub').click (event), ->
                   targetId = "#" + $(@).data("dashboard-item-id")
-                  $('body').find('.dashboard-nav-option').removeClass("active")
+                  classId = "." + $(@).data("dashboard-item-id")
+                  $('body').find('.dashboard-nav-option-sub').removeClass("active")
                   $(@).addClass("active")
+                  $('body').find(classId).addClass("active")
                   $('body').find('.dashboard-view').hide()
                   $('body').find(targetId).slideDown()
 

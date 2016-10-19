@@ -90,6 +90,10 @@ body{
                         font-weight: 600;
                         font-size: 20px;
 
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
                     }
 
                     a.header-return-home:hover{

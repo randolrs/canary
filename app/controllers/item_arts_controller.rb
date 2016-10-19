@@ -37,7 +37,7 @@ class ItemArtsController < ApplicationController
 
       @view = View.new
 
-      @page_title = ""
+      @page_title = @item_art.name + " by " + @item_art.user.display_name
 
       @view.update(:item_art_id => @item_art.id, :visitor_ip => request.remote_ip)
 

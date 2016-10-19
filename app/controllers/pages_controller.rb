@@ -13,7 +13,17 @@ class PagesController < ApplicationController
 			if current_user.is_artist
 
 				@hide_header = true
-				@page_title = "Home"
+				@page_title = "Dashboard"
+
+				if params[:view]
+
+					if params[:view] == "Portfolio"
+
+						@default_view = "Portfolio"
+
+					end
+
+				end
 
 			else
 
@@ -182,7 +192,7 @@ class PagesController < ApplicationController
 
 	def balance_payments
 
-		@page = "balance"
+		@page = "balance_payments"
 
 		@page_title = "Balance"
 

@@ -4,6 +4,8 @@ class GallerySubmissionsController < InheritedResources::Base
 
 		@return_home_only = true
 
+		@step_title = "select_artwork"
+
 		@page_title = "Gallery Submission"
 
 		if user_signed_in?
@@ -48,6 +50,8 @@ class GallerySubmissionsController < InheritedResources::Base
 		@return_home_only = true
 
 		@page_title = "Gallery Submission"
+
+		@step_title = "select_artwork"
 
 		@gallery_submission = GallerySubmission.find(params[:submission_id])
 
@@ -100,6 +104,8 @@ class GallerySubmissionsController < InheritedResources::Base
 
 		@page_title = "Gallery Submission"
 
+		@step_title = "select_gallery"
+
 
 	end
 
@@ -110,6 +116,8 @@ class GallerySubmissionsController < InheritedResources::Base
 			@return_home_only = true
 
 			@page_title = "Gallery Submission"
+
+			@step_title = "confirm_pay"
 
 			@gallery_submission = GallerySubmission.find(params[:submission_id])
 
