@@ -23,8 +23,8 @@ class PagesController < ApplicationController
 
 		else
 
-			@hide_header_on_all_devices = true
-			@hide_header = true
+			#@hide_header_on_all_devices = true
+			#@hide_header = true
 			@hide_footer = true
 
 		end
@@ -47,6 +47,15 @@ class PagesController < ApplicationController
 		@hide_header_on_all_devices = true
 		@hide_footer = true
 
+
+	end
+
+	def signup
+
+		@hide_header = true
+		@hide_header_on_all_devices = true
+		@hide_footer = true
+		
 
 	end
 
