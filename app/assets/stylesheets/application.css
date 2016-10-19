@@ -51,7 +51,7 @@ html, body{
 }
 
 .centered{
-  text-align: center;
+  text-align: center !important;
 }
 
 div.actions{
