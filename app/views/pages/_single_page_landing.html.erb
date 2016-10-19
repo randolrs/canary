@@ -32,8 +32,14 @@
 
 		<p>It's less work than a Facebook post and it can get you paid!</p>
 
-		<img></img>
-		<p class="centered"><%= link_to "ArtYam.com/" + ItemArt.last.search_code, direct_link_to_item_art_path(ItemArt.last.search_code) %> </p>
+		<%= link_to direct_link_to_item_art_path("62b1") do %>
+			
+			<div>
+				<img class="home-page-sample-artwork" src="assets/home-page-sample-artwork.jpg"></img>
+				<p class="centered"><%= link_to "ArtYam.com/62b1", direct_link_to_item_art_path("62b1") %> </p>
+			</div>
+
+		<%end%>
 
 	</div>
 
