@@ -31,7 +31,7 @@ class ItemArtsController < ApplicationController
 
   def direct_link
 
-    @item_art = ItemArt.search(params[:search_code])
+    @item_art = ItemArt.search(params[:search_code].downcase)
 
     if @item_art
 
@@ -104,7 +104,7 @@ class ItemArtsController < ApplicationController
       
       until c==1 do
         
-        search_code = (SecureRandom.urlsafe_base64 1).downcase
+        search_code = (SecureRandom.hex(2)).downcase
         
         unless ItemArt.where(:search_code => search_code).exists?
 
