@@ -2,11 +2,15 @@
 
 	<div class="content-inner centered">
 
-		<h1>That's all, thanks!</h1>
+		<h2>That's all, thanks!</h2>
 
 		<p>Confirmation Number: <%= @purchase.id %></p>
 
 		<p>Price: <%= number_to_currency(@purchase.amount) %></p>
+
+		<p><b>Pickup Instructions:</b></p>
+
+		<p><%= @purchase.item_art.pickup_instructions %></p>
 
 		<br>
 

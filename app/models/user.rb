@@ -250,5 +250,32 @@ class User < ActiveRecord::Base
     return Gallery.where.not(id: user_gallery_submission_array)
 
   end
+
+  def pickup_instruction_count
+
+    @item_arts_with_pickup_instructions = self.item_arts.where.not(:pickup_instructions => nil)
+
+    return @item_arts_with_pickup_instructions.last
+
+  end
+
+
+  def last_pickup_instructions
+
+    @item_arts_with_pickup_instructions = self.item_arts.where.not(:pickup_instructions => nil)
+
+    if @item_arts_with_pickup_instructions.count > 0
+
+      @last_item_art_with_pickup_instructions = @item_arts_with_pickup_instructions.order("created_at").last
+
+      return @last_item_art_with_pickup_instructions.pickup_instructions
+
+    else
+
+      return nil
+
+    end
+
+  end
   
 end

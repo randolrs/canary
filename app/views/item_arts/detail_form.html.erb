@@ -26,7 +26,6 @@
       <div style="position:relative; display: inline-block;">
         <%= image_tag @item_art.image.url, class: "item-art-medium-image" %>
         <%= f.file_field :image, class: "form-control clickable fill-container clear" %>
-        <!-- <div class="fill-container hover-only" style="background: red;">Hey</div> -->
       </div>
 
       <br>
@@ -85,15 +84,31 @@
 
       <br>
 
-      <%= f.text_area :pickup_instructions, required: true, placeholder: "<% if current_user.last_pickup_instruction %> <%= current_user.last_pickup_instruction %> <% else %> <%= Briefly explain who the buyer should contact in order to take possession of this piece (e.g., you, venue manager, etc.).%> <% end %>", class: "description"  %>
+      <% if @item_art.pickup_instructions %>
 
-      
+        <%= f.text_area :pickup_instructions, required: true, class: "description" %>
+
+      <%else%>
+
+        <% if @last_pickup_instructions %>
+
+          <%= f.text_area :pickup_instructions, required: true, placeholder: @last_pickup_instructions, class: "description" %>
+
+        <%else%>
+
+          <%= f.text_area :pickup_instructions, required: true, placeholder: "Briefly explain who the buyer should contact in order to take possession of this piece (e.g., you, venue manager, etc.).", class: "description" %>
+
+        <%end%>
+
+      <%end%>
 
     <% if current_user.is_admin %>
       Sample?
       <%= f.check_box :is_sample %>
       <br>
     <%end%>
+
+    <br><br>
 
     <%= f.submit "Save Details", class: "button large bright-blue-background" %>
 

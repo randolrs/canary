@@ -136,14 +136,39 @@ class ItemArtsController < ApplicationController
 
   def detail_form
     
-    if params[:id]
-      @item_art = ItemArt.find(params[:id])
-    end
-    
-    @return_home_only = true
-    @page_title = "Artwork Details"
+    if user_signed_in?
+      
+      if params[:id]
+        
+        @item_art = ItemArt.find(params[:id])
 
-    @main_SEO_title = @page_title
+      else
+
+        redirect_to root_path
+
+      end
+      
+      if @item_art.user_id == current_user.id
+      
+        @return_home_only = true
+
+        @page_title = "Artwork Details"
+
+        @main_SEO_title = @page_title
+
+        @last_pickup_instructions = current_user.last_pickup_instructions
+
+      else
+
+        redirect_to root_path
+
+      end
+
+    else
+
+      redirect_to root_path
+
+    end
 
   end
 
@@ -179,6 +204,6 @@ class ItemArtsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_art_params
-      params.require(:item_art).permit(:user_id, :description, :name, :height, :width, :length, :venue_id, :price, :search_code, :image, :exhibition_id, :medium, :is_visible, :is_sample)
+      params.require(:item_art).permit(:user_id, :description, :name, :height, :width, :length, :venue_id, :price, :search_code, :image, :exhibition_id, :medium, :is_visible, :is_sample, :pickup_instructions)
     end
 end
