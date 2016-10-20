@@ -6,119 +6,119 @@ ready = ->
 		
 	jQuery ->
 
-            $(".email-me-modal").click (event), ->
+            $(".email-me-modal").click (window.event), ->
                   $('body').find('#email-me-modal').show()
 
-            $(".new-card-modal").click (event), ->
+            $(".new-card-modal").click (window.event), ->
                   $('body').find('#new-card-modal').show()
 
-            $(".checkout-modal-cta").click (event), ->
+            $(".checkout-modal-cta").click (window.event), ->
                   $('body').find('#checkout-modal').slideDown()
 
-            $(".new-account-modal").click (event), ->
+            $(".new-account-modal").click (window.event), ->
                   $('body').find('#new-account-modal').show()
 
-            $(".create-account-modal").click (event), ->
+            $(".create-account-modal").click (window.event), ->
                   $('body').find('#create-account-modal').show()
 
-            $("tr.green-on-click").click (event), ->
+            $("tr.green-on-click").click (window.event), ->
                   $(@).toggleClass("green-background-and-hover")
                   checkbox = $(@).find('.select-item-checkbox')
                   checkbox.prop('checked', !checkbox.prop('checked'))
 
-            $(".new-artwork-image-modal").click (event), ->
+            $(".new-artwork-image-modal").click (window.event), ->
                   $('body').find('#new-artwork-image-modal').show()
 
-            $("input.artwork-image-input").change (event), ->
+            $("input.artwork-image-input").change (window.event), ->
                   if $(@).val() != ""
                         $("#image-input-header-upload").hide()
                         $("#image-input-header-text").hide()
                         $("#image-input-header-check").show()
                         $("input.artwork-image-submit").slideDown()
 
-            $(".button").click (event), ->
-                  event.stopPropagation()
+            $(".button").click (window.event), ->
+                  window.event.stopPropagation()
 
-            $('input#saved_card_option').click (event), ->
+            $('input#saved_card_option').click (window.event), ->
                   $('div#new-card-options').slideUp()
                   $('div#new-card-options').find('input').prop('required',false)
                   $('div#new-card-options').find('select').prop('required',false)
 
-            $('input#new_card_option').click (event), ->
+            $('input#new_card_option').click (window.event), ->
                   $('div#new-card-options').slideDown()
                   $('div#new-card-options').find('input').prop('required',true)
                   $('div#new-card-options').find('select').prop('required',true)
                   
-            $('.dashboard-nav-option-sub').click (event), ->
+            $('.dashboard-nav-option-sub').click (window.event), ->
                   targetId = "#" + $(@).data("dashboard-item-id")
                   classId = "." + $(@).data("dashboard-item-id")
                   $('body').find('.dashboard-nav-option-sub').removeClass("active")
                   $(@).addClass("active")
                   $('body').find(classId).addClass("active")
                   $('body').find('.dashboard-view').hide()
-                  $('body').find(targetId).slideDown()
+                  $('body').find(targetId).show()
 
-            $(".email-to-me-modal").click (event), ->
+            $(".email-to-me-modal").click (window.event), ->
                   $('body').find('#email-to-me-modal').show()
 
-		$("#i-am-artist").click (event), ->
+		$("#i-am-artist").click (window.event), ->
 			$(@).parent().hide()
 			$(@).parent().find('#user_is_artist').prop('checked', true)
 			$('body').find('#exhibition-panel').fadeIn()
 
-		$("#i-am-buyer").click (event), ->
+		$("#i-am-buyer").click (window.event), ->
 			$(@).parent().hide()
 			$(@).parent().find('#user_is_buyer').prop('checked', true)
 			locationPanel = $('body').find('#location-panel')
 			locationPanel.find('#location-header-buyer').show()
 			locationPanel.fadeIn()
 
-		$("#exhibition-yes").click (event), ->
+		$("#exhibition-yes").click (window.event), ->
 			$(@).parent().hide()
 			locationPanel = $('body').find('#location-panel')
 			locationPanel.find('#location-header-artist-has-exhibit').show()
 			locationPanel.fadeIn()
 
-		$("#exhibition-no").click (event), ->
+		$("#exhibition-no").click (window.event), ->
 			$(@).parent().hide()
 			locationPanel = $('body').find('#location-panel')
 			locationPanel.find('#location-header-artist-no-exhibit').show()
 			locationPanel.fadeIn()
 
-		$("#location-continue").click (event), ->
+		$("#location-continue").click (window.event), ->
 			$(@).parent().hide()
 			getStartedPanel = $('body').find('#get-started-panel')
 			getStartedPanel.find('#welcome-action').text("adding your exhibition to our network.")
 			getStartedPanel.fadeIn()
 
-		$(".message-modal").click (event), ->
+		$(".message-modal").click (window.event), ->
 			$('body').find('#message-modal').show()
 
-		$(".modal-cta").click (event), ->
+		$(".modal-cta").click (window.event), ->
 			contentContainer = $('body').find(".content")
 			contentContainer.addClass('blurred')
 			$('body').addClass('no-scroll')
 
-		$("span.dismiss-modal").click (event), ->
+		$("span.dismiss-modal").click (window.event), ->
 			modal = $('body').find(".modal-container")
 			contentContainer = $('body').find(".content")
 			contentContainer.removeClass('blurred')
 			$('body').removeClass('no-scroll')
 			modal.hide()
 
-		$("span.dismiss-parent").click (event), ->
+		$("span.dismiss-parent").click (window.event), ->
 			$(@).parent().slideUp()
 
-		$(".modal-container").click (event), ->
+		$(".modal-container").click (window.event), ->
 			contentContainer = $('body').find(".content")
 			contentContainer.removeClass('blurred')
 			$('body').removeClass('no-scroll')
 			$(@).hide()
 
-		$(".modal-content").click (event), ->
-			event.stopPropagation()
+		$(".modal-content").click (window.event), ->
+			window.event.stopPropagation()
 
-		$("a.mobile-button").click (event), ->
+		$("a.mobile-button").click (window.event), ->
 			contentContainer = $('body').find(".content")
 			contentContainer.addClass('blurred')
 			$('body').addClass('no-scroll')
@@ -129,21 +129,21 @@ ready = ->
       		itemSelector: '.box'
       		isFitWidth: true
 
-      	$('#item-buy-cta').click (event), ->
+      	$('#item-buy-cta').click (window.event), ->
       		paymentDetailForm = $('body').find(".item-side-panel#payment-detail-form")
       		$('body').find(".item-side-panel").slideUp()
       		paymentDetailForm.slideDown()
 
-      	$('#payment-detail-continue').click (event), ->
-      		event.stopPropagation()
+      	$('#payment-detail-continue').click (window.event), ->
+      		window.event.stopPropagation()
       		deliveryOptionForm = $('body').find(".item-side-panel#delivery-option-form")
       		$(@).parent(".purchase-step-content").slideUp()
       		$(@).hide()
       		$(@).parent().parent(".item-side-panel").addClass("clickable")
       		deliveryOptionForm.slideDown()
 
-      	$('#delivery-option-continue').click (event), ->
-      		event.stopPropagation()
+      	$('#delivery-option-continue').click (window.event), ->
+      		window.event.stopPropagation()
       		confirmPurchaseForm = $('body').find(".item-side-panel#confirm-purchase-form")
       		last4 = $('input#cardNumberInput').val().slice(-4)
       		$('span#confirm-last-4').text(last4)
@@ -160,38 +160,20 @@ ready = ->
       			$('p#pickup-option-confirm').show()
       		confirmPurchaseForm.slideDown()
 
-      	$('#delivery-yes').click (event), ->
+      	$('#delivery-yes').click (window.event), ->
       		$('body').find("#pickup-contact-details").slideUp()
       		$('body').find("#delivery-option-details").slideDown()
       		$('p#pickup-option-confirm').hide()
       		$('p#delivery-option-confirm').show()
 
-      	$('#delivery-pickup').click (event), ->
+      	$('#delivery-pickup').click (window.event), ->
       		$('body').find("#delivery-option-details").slideUp()
       		$('body').find("#pickup-contact-details").slideDown()
       		$('p#delivery-option-confirm').hide()
       		$('p#pickup-option-confirm').show()
 
-      	$("div.click-to-open").click (event), ->
+      	$("div.click-to-open").click (window.event), ->
       		$(@).find(".purchase-step-content").slideDown()
-
-      	$('input#cardNumberInput').keypress (event), ->
-      		last4 = $(@).val().slice(-4)
-      		$('span#confirm-last-4').text(last4)
-
-      	$('input#fullNameInput').keypress (event), ->
-      		fullName = $(@).val()
-      		$('span#confirm-name').text(fullName)
-
-      	$('input#addressInput').keypress (event), ->
-      		address = $(@).val()
-      		$('span#confirm-address').text(address)
-
-      	$('input#emailInput').keypress (event), ->
-      		email = $(@).val()
-      		$('span#confirm-email').text(email)
       		
 $(document).on('turbolinks:load', ready)
-
-$(document).on('page:load', ready)
 
