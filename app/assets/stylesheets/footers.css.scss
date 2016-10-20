@@ -5,11 +5,15 @@
 .footer-container{
     
     bottom: 0px;
+    left:0px;
+    right: 0px;
     width: 100%;
     background: #111;
     border-top: 1px solid #112;
     z-index: 999;
     padding: 5px 30px;
+    height:40px;
+    position: absolute;
 
     .footer-content{
 
