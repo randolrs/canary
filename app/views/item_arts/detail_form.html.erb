@@ -50,6 +50,15 @@
       <br>
       <br>
 
+      <label>Description of this Piece</label>
+
+      <br>
+
+      <%= f.text_area :description, required: true, placeholder: "A description of this piece.", class: "description"  %>
+
+      <br>
+      <br>
+
       <label>Dimensions (inches)</label>
 
       <br>
@@ -72,11 +81,13 @@
       <br>
       <br>
 
-      <label>Description of this Piece</label>
+      <label>Pickup Instruction</label>
 
       <br>
 
-      <%= f.text_area :description, required: true, placeholder: "A description of this piece.", class: "description"  %>
+      <%= f.text_area :pickup_instructions, required: true, placeholder: "<% if current_user.last_pickup_instruction %> <%= current_user.last_pickup_instruction %> <% else %> <%= Briefly explain who the buyer should contact in order to take possession of this piece (e.g., you, venue manager, etc.).%> <% end %>", class: "description"  %>
+
+      
 
     <% if current_user.is_admin %>
       Sample?

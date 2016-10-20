@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015005309) do
+ActiveRecord::Schema.define(version: 20161020210002) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -130,16 +130,17 @@ ActiveRecord::Schema.define(version: 20161015005309) do
     t.integer  "venue_id"
     t.decimal  "price"
     t.string   "search_code"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "exhibit_id"
-    t.string   "medium",             default: ""
+    t.string   "medium",              default: ""
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.boolean  "is_sample"
     t.boolean  "is_visible"
+    t.text     "pickup_instructions"
   end
 
   create_table "messages", force: :cascade do |t|

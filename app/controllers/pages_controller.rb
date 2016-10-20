@@ -15,6 +15,8 @@ class PagesController < ApplicationController
 				@hide_header = true
 				@page_title = "Dashboard"
 
+				@main_SEO_title = @page_title
+
 				if params[:view]
 
 					if params[:view] == "Portfolio"
@@ -57,6 +59,8 @@ class PagesController < ApplicationController
 		@hide_header_on_all_devices = true
 		@hide_footer = true
 
+		@main_SEO_title = "Login"
+
 
 	end
 
@@ -65,6 +69,8 @@ class PagesController < ApplicationController
 		@hide_header = true
 		@hide_header_on_all_devices = true
 		@hide_footer = true
+
+		@main_SEO_title = "Signup"
 		
 
 	end
@@ -75,11 +81,15 @@ class PagesController < ApplicationController
 
 		@page_title = "About"
 
+		@main_SEO_title = @page_title
+
 	end
 
 	def settings
 
 		@page_title = "Account Settings"
+
+		@main_SEO_title = @page_title
 
 		@page = "settings"
 
@@ -195,6 +205,8 @@ class PagesController < ApplicationController
 		@page = "balance_payments"
 
 		@page_title = "Balance"
+
+		@main_SEO_title = "Balance"
 
 		if user_signed_in?
 			@hide_header = true

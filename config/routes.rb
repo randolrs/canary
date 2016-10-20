@@ -23,6 +23,10 @@ Rails.application.routes.draw do
 
   get 'signup' => 'pages#signup'
 
+  get '/settings' => 'pages#settings', as: 'settings'
+
+  get 'balance' => 'pages#balance_payments', as: 'balance_payments'
+
   get '/:search_code' => 'item_arts#direct_link', as: 'direct_link_to_item_art'
 
   get 'welcome' => 'pages#welcome'
@@ -30,8 +34,6 @@ Rails.application.routes.draw do
   get '/dashboard/messages' => 'pages#messages', as: 'inbox'
 
   get 'views' => 'pages#views'
-
-  get '/dashboard/settings' => 'pages#settings', as: 'settings'
 
   get 'my_purchases' => 'pages#purchases'
 
@@ -44,8 +46,6 @@ Rails.application.routes.draw do
   #get 'sales' => 'pages#sales', as: 'balance'
 
   get 'dashboard/sales' => 'pages#sales', as: 'balance'
-
-  get 'balance/payments' => 'pages#balance_payments', as: 'balance_payments'
 
   get 'item_search' => 'item_arts#search'
 

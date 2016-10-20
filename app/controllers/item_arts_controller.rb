@@ -39,6 +39,8 @@ class ItemArtsController < ApplicationController
 
       @page_title = @item_art.name + " by " + @item_art.user.display_name
 
+      @main_SEO_title = @page_title
+
       @view.update(:item_art_id => @item_art.id, :visitor_ip => request.remote_ip)
 
       @view.save
@@ -140,6 +142,8 @@ class ItemArtsController < ApplicationController
     
     @return_home_only = true
     @page_title = "Artwork Details"
+
+    @main_SEO_title = @page_title
 
   end
 
