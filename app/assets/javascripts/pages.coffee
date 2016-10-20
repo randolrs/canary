@@ -107,7 +107,7 @@ ready = ->
 			modal.hide()
 
 		$("span.dismiss-parent").click (window.event), ->
-			$(@).parent().slideUp()
+			$(@).parent().hide()
 
 		$(".modal-container").click (window.event), ->
 			contentContainer = $('body').find(".content")

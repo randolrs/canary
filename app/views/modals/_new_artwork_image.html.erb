@@ -1,42 +1,39 @@
-<div id="new-artwork-image-modal" style="display: none;">
 
-	<div class="modal-content full-screen centered">
+<div class="modal-content full-screen centered" id="new-artwork-image-modal" style="display: none;">
 
-		<span class="glyphicon glyphicon-remove dismiss-modal dismiss-parent"></span>
+	<span class="glyphicon glyphicon-remove dismiss-modal dismiss-parent"></span>
 
-		  <%= form_for(item_art) do |f| %>
+	  <%= form_for(item_art) do |f| %>
 
-		    <% if item_art.errors.any? %>
-		      <div id="error_explanation">
-		        <h2><%= pluralize(item_art.errors.count, "error") %> prohibited this item_art from being saved:</h2>
+	    <% if item_art.errors.any? %>
+	      <div id="error_explanation">
+	        <h2><%= pluralize(item_art.errors.count, "error") %> prohibited this item_art from being saved:</h2>
 
-		        <ul>
-		        <% item_art.errors.full_messages.each do |message| %>
-		          <li><%= message %></li>
-		        <% end %>
-		        </ul>
-		      </div>
-		    <% end %>
+	        <ul>
+	        <% item_art.errors.full_messages.each do |message| %>
+	          <li><%= message %></li>
+	        <% end %>
+	        </ul>
+	      </div>
+	    <% end %>
 
-		    <div class="image-input-container">
-		      
-		      <span id="image-input-header-upload" class="glyphicon glyphicon-upload" aria-hidden="true"></span><h2 id="image-input-header-check" style="display: none; "><span class="glyphicon glyphicon-ok" aria-hidden="true" style="margin-right: 5px; color: #31A231;"></span>Image Successfully Uploaded.</h2>
+	    <div class="image-input-container">
+	      
+	      <span id="image-input-header-upload" class="glyphicon glyphicon-upload" aria-hidden="true"></span><h2 id="image-input-header-check" style="display: none; "><span class="glyphicon glyphicon-ok" aria-hidden="true" style="margin-right: 5px; color: #31A231;"></span>Image Successfully Uploaded.</h2>
 
-		      <h2 id="image-input-header-text">Click to Upload a Photo of Your Artwork</h2>
-		      
-		      <%= f.file_field :image, required: true, class: "form-control full-screen artwork-image-input" %>
+	      <h2 id="image-input-header-text">Click to Upload a Photo of Your Artwork</h2>
+	      
+	      <%= f.file_field :image, required: true, class: "form-control full-screen artwork-image-input" %>
 
-		    </div>
+	    </div>
 
 <!-- 		        <img id="image_upload_preview" src="http://placehold.it/100x100" alt="your image" /> -->
 
-		        <br>
+	        <br>
 
-		      <%= f.submit "Save & Continue", class: "button large bright-blue-background artwork-image-submit default-off" %>
-		        
+	      <%= f.submit "Save & Continue", class: "button large bright-blue-background artwork-image-submit default-off" %>
+	        
 
-		  <% end %>
-
-	</div>
+	  <% end %>
 
 </div>

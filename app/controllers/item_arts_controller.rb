@@ -148,7 +148,7 @@ class ItemArtsController < ApplicationController
   def update
     respond_to do |format|
       if @item_art.update(item_art_params)
-        format.html { redirect_to portfolio_path, notice: 'Item art was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Item art was successfully updated.' }
         format.json { render :show, status: :ok, location: @item_art }
       else
         format.html { render :edit }
