@@ -12,9 +12,9 @@
 
 			<a href="<%= signup_path %>" class="cta orange-background button large">I'm an Artist</a>
 
-			<br>
+			<!-- <br>
 
-			<a href="<%= about_path %>" class="cta red-frame button large">Learn More</a>
+			<a href="<%# about_path %>" class="cta red-frame button large">Learn More</a> -->
 
 		</div>
 
@@ -26,11 +26,21 @@
 
 	<div class="landing-content-container">
 
+		<h3>What does ArtYam do?</h3>
+
+		<p>ArtYam helps artists create more profitable public art displays by engaging art collectors with convenient access to additional information about artwork and the artist as well as streamlined contact forms and secure online purchasing options.</p>
+
+	</div>
+
+</section>
+
+<section class="home-primary">
+
+	<div class="landing-content-container">
+
 		<h3>Get Setup in 3 Minutes</h3>
 
-		<p>Upload a photo of your artwork with a few basic details and ArtYam generates a custom web page that accepts major credit cards on your behalf. ArtYam provides a short, readable link to your custom web pages that you can include in your public displays to engage art collectors with more information about your artwork, yourself, and a secure checkout process.</p>
-
-		<p>It's less work than a Facebook post and it can get you paid!</p>
+		<p>Upload a photo of your artwork with a few basic details and ArtYam generates custom web pages that can accept credit card payments on your behalf.  ArtYam provides short links to your custom artwork pages that can be easily included in your public art displays in order to engage art collectors with more information about your artwork, yourself, and secure online purchasing options.</p>
 
 		<%= link_to direct_link_to_item_art_path("62b1") do %>
 			
@@ -49,7 +59,7 @@
 
 	<div class="landing-content-container">
 
-		<h3>Built Around Your Life</h3>
+		<h3>ArtYam is Built Around Your Life</h3>
 
 		<p>ArtYam is easily accessible from any computer or your mobile device, allowing you to track sales and engagement while at your gallery, home, or on the road.</p>
 
@@ -57,41 +67,16 @@
 
 </section>
 
-<section class="home-primary">
-
-	<div class="landing-content-container">
-
-		<h3>What is ArtYam?</h3>
-
-		<p>ArtYam is an eCommerce platform that quickly creates mobile-friendly web pages for your art displays that engage art collectors with additional information about your artwork as well as secure payment processing, streamlined contact forms, and 3-minute checkout process that [increases sales].</p>
-
-	</div>
-
-</section>
 
 <section class="home-primary">
 
 	<div class="landing-content-container">
 
-		<h3>How Does it Work?</h3>
+		<h3>Is ArtYam for me?</h3>
 
-		<p><b>1. You Create a Page for Your Artwork</b> | Upload a photo of your artwork and provide a few basic details that art collectors want to know (dimensions, description of the piece, etc.). ArtYam automatically generates a short, shareable link to this information that can be included in art displays (such as <%= link_to "ArtYam.com/" + ItemArt.last.search_code, direct_link_to_item_art_path(ItemArt.last.search_code) %>).  It's less work than a Facebook post and you ....</p>
+		<p>ArtYam is ideal for artists with public art displays in galleries, cafes, and restaurants, especially where employees are not necessarily trained to sell art and do not know much about the artwork or the artist.</p> 
 
-		<p><b>2. Share your ArtYam Links in your Art Displays</b> | Using your short, readable ArtYam links, art collectors can access additional information about your artwork on any mobile device and buy your artwork in less than 3 minutes.</p>
-
-		<p><b>3. We Sell Your Art and Pay You</b> | We process payments online from any major credit cards on your behalf and remit payment to you via direct deposit.</p>
-
-	</div>
-
-</section>
-
-<section class="home-primary">
-
-	<div class="landing-content-container">
-
-		<h3>Why Use ArtYam?</h3>
-
-		<p>ArtYam adds engagement to your art displays in galleries, cafe, and restaurants, where staff are not necessarily trained to sell your art and probably don't know much about your artwork or you. We understand artist are not usually present at their art displays so we designed ArtYam to bridge the gap between art collectors and artists by  providing fast access to additional information about you and your artwork, in your own words, seamlessly integrated with online payment processing capabilities.  No other company provides solutions these specifically tailored for artists.</p>
+		<p>We designed ArtYam to facilitate direct communication between artists and art collectors by providing easy access to additional information about you and your artwork, seamlessly integrated with online purchasing options.  ArtYam is the only company that provides these solutions specifically tailored for the needs of artists.</p>
 
 		<a href="<%= signup_path %>" class="cta orange-background button large">Signup</a>
 
