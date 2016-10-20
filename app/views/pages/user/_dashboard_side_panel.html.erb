@@ -126,6 +126,8 @@
 
 					</li>
 
+					<li class="dashboard-option"><a data-method="delete" href='<%= destroy_user_session_path%>'>Logout</a></li>
+
 				<% else %>
 
 					<li class="dashboard-option <% if @page=="mypurchases" %>active<%end%>" id="home" data-content-panel="home-content">
