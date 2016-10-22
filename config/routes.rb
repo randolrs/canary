@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
   get 'balance' => 'pages#balance_payments', as: 'balance_payments'
 
+  get 'billing' => 'billing#billing_information', as: 'billing_information'
+
   get '/:search_code' => 'item_arts#direct_link', as: 'direct_link_to_item_art'
 
   get 'welcome' => 'pages#welcome'
@@ -66,6 +68,8 @@ Rails.application.routes.draw do
   #get '/order/start/create_customer' => 'charges#create_customer', as: 'create_customer'
 
   post '/order/start/create_customer' => 'charges#create_customer', as: 'create_customer'
+
+  post '/billing/initialize' => 'billiing#initialize', as: 'billing_initialize'
 
   post '/payments/new' => 'purchases#new_card', as: 'new_card'
 

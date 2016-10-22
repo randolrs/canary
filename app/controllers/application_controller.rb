@@ -14,7 +14,18 @@ class ApplicationController < ActionController::Base
 
     if user_signed_in?
 
-  		root_path
+      if current_user.billing_initiated
+
+  		  root_path
+
+      else
+
+        billing_information_path
+
+
+      end
+
+
 
     else
 
