@@ -43,6 +43,14 @@ class PagesController < ApplicationController
 		
 	end
 
+	def billing_initiate 
+
+		@hide_header = true
+		@hide_header_on_all_devices = true
+
+	end
+
+
 	def engagement
 
 		@page_title = "Engagement"
@@ -303,21 +311,44 @@ class PagesController < ApplicationController
 
 	def welcome
 
+		# @page_title = "Welcome"
+
+		# if user_signed_in?
+
+		# 	if current_user.onboarded
+
+		# 		redirect_to root_path
+		# 	else
+
+
+		# 	end
+
+		# else
+
+		# 	redirect_to root_path
+		# end
+
+
+	end
+
+	def user_welcome
+
 		@page_title = "Welcome"
+
+		@hide_header = true
+		@hide_header_on_all_devices = true
 
 		if user_signed_in?
 
-			if current_user.onboarded
+			if current_user.display_name
 
-				redirect_to root_path
-			else
-
+				#redirect_to root_path
 
 			end
 
 		else
 
-			redirect_to root_path
+			#redirect_to root_path
 		end
 
 

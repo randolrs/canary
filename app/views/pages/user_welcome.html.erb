@@ -1,0 +1,44 @@
+<div class="full-centered-container">
+
+	<div class="full-centered-content">
+
+		<h4 class="centered box-header">Welcome! Thanks for signing up.</h4>
+
+		<h4 class="centered box-header">Enter the name that should appear along with your artwork below:</h4>
+		
+		<div class="centered">
+
+			<% if flash[:error] %>
+
+				<div class="notice red">
+
+					<span class="glyphicon glyphicon-remove dismiss-parent"></span>
+
+						<p class="notice-content red">
+						  <span class="glyphicon glyphicon-exclamation-sign"></span> <%= flash[:error] %>
+						</p>
+
+				</div>
+
+			<%end%>
+
+			<%= form_for(current_user, url: registration_path(current_user), html: { method: :put, class: "edit_user_settings" }) do |f| %>
+
+
+			    <div class="field">
+			      <%= f.label :display_name %><br />
+			      <%= f.text_field :display_name, :required => true, :autofocus => true, class:"clear-input centered" %>
+			    </div>
+
+
+			    <div class="actions">
+			      <%= f.submit "Get Started", class:"button large orange-background" %>
+			    </div>
+
+			<% end %>
+
+		</div>
+
+	</div>
+
+</div>

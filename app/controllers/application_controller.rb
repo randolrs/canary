@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   before_action :check_for_stripe_account, if: :user_signed_in?
 
+  before_action :check_for_billing_information, if: :user_signed_in?
+
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -16,7 +18,7 @@ class ApplicationController < ActionController::Base
 
       if current_user.billing_initiated
 
-  		  root_path
+  		  #root_path
 
       else
 
@@ -50,6 +52,19 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: registration_params)
   
   end
+
+  
+  def check_for_billing_information
+
+      unless current_user.billing_initiated
+
+        #redirect_to billing_information_path
+
+      end
+
+  end
+
+
 
   def check_for_stripe_account
   

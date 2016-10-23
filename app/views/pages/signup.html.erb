@@ -3,18 +3,13 @@
 
   <%= form_for(:user, :url => registration_path(:user)) do |f| %>
 
-    <h2>ArtYam</h2>
+    <h3>ArtYam Account Signup</h3>
+    <h4>$9/month</h4>
 
     <div class="field">
       <label>Email</label>
       <br>
       <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
-    </div>
-    
-    <div class="field">
-      <label>Display Name</label>
-      <br>
-      <%= f.text_field :display_name, placeholder: "Display Name" %>
     </div>
 
     <div class="field">

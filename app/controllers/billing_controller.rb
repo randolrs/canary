@@ -8,13 +8,34 @@ class BillingController < InheritedResources::Base
 
 	end
 
-	def initialize
+	def initiate
 
-		
+		token = Stripe::Token.create(
+			:card => {
+				:number => params[:cardNumber],
+				:exp_month => params[:expMonth],
+				:exp_year => params[:expYear],
+				:cvc => params[:cvc]
+			},
+		)
 
+		customer = Stripe::Customer.create(
+			:card  => token.id
+		)
+
+
+		Stripe::Subscription.create(
+  		:customer => customer.id,
+  		:plan => "beta"
+		)
+
+
+		redirect_to welcome_path
+
+	rescue Stripe::CardError => e
+	  flash[:error] = e.message
+	  redirect_to @item_art
 	end
-
-	
 
 end
 

@@ -28,7 +28,7 @@
 
 					<div class="input-container">
 
-						<input type="text" name="cardNumber" id="cardNumberInput" class="cc-form card-number" maxlength="18"></input>
+						<input type="text" name="cardNumber" id="cardNumberInput" class="cc-form card-number" maxlength="18" required></input>
 
 					</div>
 
@@ -41,7 +41,7 @@
 
 						<ul class="horizontal">
 
-							<li><select class="cc-select" name='expMonth' id='expireMM'>
+							<li><select class="cc-select" name='expMonth' id='expireMM' required>
 						    <option value=''>Month</option>
 						    <option value='01'>01</option>
 						    <option value='02'>02</option>
@@ -74,7 +74,7 @@
 					<div class="input-group">
 						<label>Security Code</label>
 						<br>
-						<input type="text" name="cvc" class="cc-form card-cvc" maxlength="4"></input>
+						<input type="text" name="cvc" class="cc-form card-cvc" maxlength="4" required></input>
 					</div>
 
 					<br>
@@ -83,20 +83,27 @@
 
 						<label>Name on card</label>
 
-						<input type="text" name="nameOnCard" class="cc-form card-name"></input>
+						<input type="text" name="nameOnCard" class="cc-form card-name" required></input>
 
 					</div>
 
-					<br>
-
-					<button class="button stretch blue-background">Create Account</button>
+					
 
 				</div>
 
-			<% end %>
+			
 	
 		</div>
 
+			<br>
+
+			<div class="centered">
+
+				<button class="button large blue-background">Create Account</button>
+
+			</div>
+
+			<% end %>
 	</div>
 
 </div>

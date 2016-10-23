@@ -17,7 +17,11 @@
 			
 			<li class="dashboard-header" id="site-title">
 
-				<a class="name" <% if current_user.is_artist %>href="<%= profile_path(current_user.display_name) %>"<%end%>><%= image_tag current_user.image.url(:medium), class: "sidebar-profile-image"%><br><%= current_user.display_name %></a>
+				<% if current_user.display_name %>
+				
+					<a class="name" href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "sidebar-profile-image"%><br><%= current_user.display_name %></a>
+
+				<%end%>
 
 				<% if current_user.is_artist %>
 					
