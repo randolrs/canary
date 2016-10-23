@@ -9,17 +9,17 @@
     <div class="field">
       <label>Email</label>
       <br>
-      <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+      <%= f.email_field :email, autofocus: true, placeholder: "Email", :required => true %>
     </div>
 
     <div class="field">
       <label>Password</label>
       <br>
-      <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Password", required: true, :required => true %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Create Account", class: "button medium orange-background" %>
+      <%= f.submit "Next", class: "button medium orange-background" %>
     </div>
 
     <%= hidden_field_tag 'is_artist', true %>
