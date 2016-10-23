@@ -44,7 +44,7 @@ class BillingController < InheritedResources::Base
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
-	  redirect_to @item_art
+	  redirect_to :back
 	end
 
 end
