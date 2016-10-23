@@ -18,12 +18,19 @@ class ApplicationController < ActionController::Base
 
       if current_user.billing_initiated
 
-  		  #root_path
+        if current_user.display_name
+
+  		    root_path
+        
+        else
+
+          welcome_path
+
+        end
 
       else
 
         billing_information_path
-
 
       end
 

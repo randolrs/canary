@@ -11,9 +11,9 @@
 	height:100%;
 	width:100%;
     display: none;
-    vertical-overflow:hidden;
     z-index: 999999999999;
     background: rgba(30,30,30,0.95);
+    overflow: scroll;
 
 }
 
@@ -28,7 +28,7 @@
 .modal-content{
 	max-width:500px;
 	width:100%;
-	margin:0 auto;
+	margin: 25px auto;
 	z-index: 100;
 	position:relative;
 
@@ -36,7 +36,6 @@
     border-radius: 2px;
 
     padding: 0px 20px;
-    top: 50px;
 
     border: 1px solid #666;
     box-shadow: 0px 1px 1px #333;
@@ -52,6 +51,8 @@
     top: 0px;
     bottom: 0px;
     position: fixed;
+    margin: 0px;
+    border: none;
 }
 
 .modal-content.white{

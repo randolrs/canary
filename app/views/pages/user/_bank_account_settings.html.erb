@@ -6,9 +6,9 @@
 
 		<div class="padded-content">
 			
-			<% if @accounts.count > 0 %>
+			<p><b>Current Bank Account where You Receive Payments:</b></p>
 
-				<h3>Current Payout Account:</h3>
+			<% if @accounts.count > 0 %>
 
 				<% @accounts.each do |account| %>
 
@@ -16,9 +16,13 @@
 
 				<%end%>
 
-				<br>
+			<%else%>
+
+				<p>No bank account on file, please update.</p>
 
 			<%end%>
+
+			<br>
 
 			<a class="button green-background medium modal-cta new-account-modal"><%if @defaultaccount %>Update Payout Account<%else%>Add Bank Account<%end%></a>
 

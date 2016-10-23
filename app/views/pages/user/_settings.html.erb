@@ -1,8 +1,8 @@
 <%= render 'pages/user/dashboard_header' %>
 
-<%# render 'pages/user/settings_header' %>
+<%= render 'pages/user/settings_header' %>
 
-<div class="dashboard-item no-nav" id="profile">
+<div class="dashboard-item" id="profile">
 
 	<%= form_for(current_user, url: registration_path(current_user), html: { method: :put, class: "edit_user_settings" }) do |f| %>
 
@@ -50,7 +50,7 @@
 	    <br />
 
 	    <div class="actions">
-	      <%= f.submit "Update", class:"button medium orange-background" %>
+	      <%= f.submit "Update", class:"button medium bright-blue-background" %>
 	    </div>
 
 		<% end %>

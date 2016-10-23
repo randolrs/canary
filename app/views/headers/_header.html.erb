@@ -40,7 +40,7 @@
 								<% if current_user.display_name %>
 									
 									<a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "header-profile-image" %></a>
-									
+
 								<%end%>
 							</li>
 
@@ -51,6 +51,8 @@
 							<li>
 								<a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Account Settings</span></a>
 							</li>
+
+
 
 						</ul>
 
@@ -73,6 +75,8 @@
 						<li><a href="<%= inbox_path %>"><span class="glyphicon glyphicon-envelope mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Inbox</span></a></li>
 
 						<li><a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Settings</span></a></li>
+
+						<li><a data-method="delete" href='<%= destroy_user_session_path%>'>Logout</a></li>
 
 					</ul>
 

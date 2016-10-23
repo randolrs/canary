@@ -29,8 +29,18 @@ class BillingController < InheritedResources::Base
   		:plan => "beta"
 		)
 
+		current_user.update(:billing_initiated => true)
 
-		redirect_to welcome_path
+		unless current_user.display_name
+
+			redirect_to welcome_path
+
+		else
+
+
+			root_path
+
+		end
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message

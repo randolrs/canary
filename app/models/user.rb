@@ -103,7 +103,7 @@ class User < ActiveRecord::Base
 
       else
 
-        return 99
+        return 0
 
       end
 
