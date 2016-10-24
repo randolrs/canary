@@ -17,6 +17,8 @@
 		
 						<li><a class="header-return-home" href="<%= root_path %>"><% if @hide_return_to_home %><span class="glyphicon glyphicon-home" style="margin-right: 15px;"></span>Home<%else%><span class="glyphicon glyphicon-arrow-left" style="margin-right: 15px;"></span><%= @page_title %><%end%></a></li>
 
+						<li><a>Environment: <%=Rails.env%>ere<%= Stripe.api_key %>2266</a></li>
+
 					</ul>
 
 					<% unless @return_home_only or !@hide_return_to_home %>

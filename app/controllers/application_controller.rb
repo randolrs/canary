@@ -87,7 +87,7 @@ class ApplicationController < ActionController::Base
 
       unless current_user.stripe_account_id
 
-        account = Stripe::Account.create({:country => "CA", :managed => true})
+        account = Stripe::Account.create({:country => "US", :managed => true})
 
         current_user.update(:stripe_account_id => account.id, :stripe_secret_key => account.keys.secret)
 
