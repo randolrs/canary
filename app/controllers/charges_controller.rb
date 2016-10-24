@@ -125,31 +125,39 @@ class ChargesController < ApplicationController
 
 	def start_checkout
 
-		@order = Order.new
-
-		@page_title = "Checkout"
-
 		@item = ItemArt.find(params[:itemID])
 
-		@order_item = OrderItem.new
+		unless @item.is_sample
 
-		if user_signed_in?
+			@order = Order.new
 
-			@order.update(:user_id => current_user.id)
+			@page_title = "Checkout"
 
-		end
+			@order_item = OrderItem.new
 
-		@order.update(:status => "Pending")
+			if user_signed_in?
 
-		if @order.save
+				@order.update(:user_id => current_user.id)
 
-			@order_item.update(:order_id => @order.id, :item_id => @item.id)
-
-			if @order_item.save
-				redirect_to start_order_path(@order.id)
-			else
-				redirect_to :back
 			end
+
+			@order.update(:status => "Pending")
+
+			if @order.save
+
+				@order_item.update(:order_id => @order.id, :item_id => @item.id)
+
+				if @order_item.save
+					redirect_to start_order_path(@order.id)
+				else
+					redirect_to :back
+				end
+			else
+
+				redirect_to :back
+
+			end
+
 		else
 
 			redirect_to :back

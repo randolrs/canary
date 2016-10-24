@@ -51,7 +51,15 @@ class ItemArtsController < ApplicationController
 
       @artist = @item_art.user
 
-      @more_work_from_artist = @artist.more_work(@item_art.id, 3)
+      unless @item_art.is_sample
+        
+        @more_work_from_artist = @artist.more_work(@item_art.id, 3)
+
+      else
+
+        @more_work_from_artist = ItemArt.where(:is_sample => true).last(3)
+
+      end
 
 
 
