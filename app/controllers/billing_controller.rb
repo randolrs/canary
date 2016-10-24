@@ -24,12 +24,18 @@ class BillingController < InheritedResources::Base
 		)
 
 
-		Stripe::Subscription.create(
+		plan = Stripe::Subscription.create(
   		:customer => customer.id,
   		:plan => "beta"
 		)
 
 		current_user.update(:billing_initiated => true)
+
+		billing_record = StripeBillingUserSubscription.new
+
+		billing_record.update(:stripe_customer_id => customer.id, :user_id => current_user.id, :plan_id => plan.id, :active => true)
+
+		billing_record.save
 
 		unless current_user.display_name
 

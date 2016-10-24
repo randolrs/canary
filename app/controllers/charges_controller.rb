@@ -73,9 +73,37 @@ class ChargesController < ApplicationController
 			  },
 			)
 
-		  	customer = Stripe::Customer.create(
-		    	:card  => token.id
-		  	)
+			####Need to fix this to create StripeUserCustomer model and/or add to existing
+
+			if user_signed_in?
+
+				if current_user.stripe_customer_object
+
+					customer = current_user.stripe_customer_object
+
+			  		customer.sources.create({:source => token.id})
+
+			  	else
+
+			  		customer = Stripe::Customer.create(
+			    		:card  => token.id
+			  		)
+
+			  		stripe_user_customer = StripeUserCustomer.new
+
+					stripe_user_customer.update(:user_id => current_user.id, :stripe_customer_id => customer.id)
+					
+					stripe_user_customer.save
+
+			  	end
+
+			else
+
+				customer = Stripe::Customer.create(
+			    	:card  => token.id
+			  	)
+
+			end
 
 		end
 	  	
@@ -166,7 +194,9 @@ class ChargesController < ApplicationController
 
 			@item_art = @order.order_item.item_art
 
-			stripe_price = (@order.subtotal.to_i*100)
+			price = @order.subtotal.to_i
+
+			stripe_price = price*100
 
 		  	processing_fee = (stripe_price * 0.03).to_i
 
@@ -179,22 +209,11 @@ class ChargesController < ApplicationController
 			:application_fee => processing_fee
 			)
 
-			purchase = Purchase.create(amount: stripe_price, description: charge.description, currency: charge.currency,
+			purchase = Purchase.create(amount: price, description: charge.description, currency: charge.currency,
 	    	stripe_customer_id: @order.card_token, item_art_id: @item_art.id, artist_id: @item_art.user.id, order_id: @order.id)
 
 
 			if user_signed_in?
-
-				unless StripeUserCustomer.exists?(:user_id => current_user.id)
-
-					stripe_user_customer = StripeUserCustomer.new
-
-					stripe_user_customer.update(:user_id => current_user.id, :stripe_customer_id => @order.card_token)
-				
-					stripe_user_customer.save
-
-				end
-
 
 				if @order.user_id
 
@@ -205,7 +224,6 @@ class ChargesController < ApplicationController
 			end
 
 			redirect_to purchase_confirmation_path(purchase.id)
-
 
 		else
 

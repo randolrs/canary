@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022003138) do
+ActiveRecord::Schema.define(version: 20161024043939) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -185,6 +185,16 @@ ActiveRecord::Schema.define(version: 20161022003138) do
     t.integer  "artist_id"
     t.integer  "order_id"
     t.string   "ip_address"
+  end
+
+  create_table "stripe_billing_user_subscriptions", force: :cascade do |t|
+    t.integer  "stripe_customer_id"
+    t.integer  "user_id"
+    t.integer  "stripe_plan_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "plan_id"
+    t.boolean  "active"
   end
 
   create_table "stripe_user_customers", force: :cascade do |t|

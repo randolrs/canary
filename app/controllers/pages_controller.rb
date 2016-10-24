@@ -12,19 +12,34 @@ class PagesController < ApplicationController
 			
 			if current_user.is_artist
 
-				@hide_header = true
-				@page_title = "Dashboard"
+				if current_user.billing_initiated
 
-				@main_SEO_title = @page_title
+					if current_user.display_name
 
-				if params[:view]
+						@hide_header = true
+						@page_title = "Dashboard"
 
-					if params[:view] == "Portfolio"
+						@main_SEO_title = @page_title
 
-						@default_view = "Portfolio"
+						if params[:view]
+
+							if params[:view] == "Portfolio"
+
+								@default_view = "Portfolio"
+
+							end
+
+						end
+
+					else
+
+						redirect_to welcome_path
 
 					end
 
+				else
+
+					redirect_to billing_information_path
 				end
 
 			else
