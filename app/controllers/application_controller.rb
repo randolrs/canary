@@ -42,14 +42,11 @@ class ApplicationController < ActionController::Base
 
       end
 
-
-
     else
 
       admin_dashboard_path(resource)
 
     end
-
 
   end
 
