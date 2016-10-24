@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
     if user_signed_in?
 
-      if current_user.billing_initiated
+      if current_user.billing_initiated or current_user.is_admin
 
         if current_user.display_name
 
