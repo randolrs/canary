@@ -96,7 +96,9 @@
 
 				<li><%= link_to "ArtYam", root_path, class: "header-logo" %></li>
 
-				<li><a>Environment: <%=Rails.env%></a></li>
+				<% if user_signed_in? %>
+				<li><a>Environment: <%=Rails.env%> ere<%= ENV['STRIPE_SECRET_KEY'] %>2266</a></li>
+				<%end%>
 
 			</ul>
 
