@@ -111,7 +111,9 @@ class ChargesController < ApplicationController
 
 	  	@order.update(:card_token => customer.id)
 
-	  	redirect_to confirm_order_path(@order.id)
+	  	redirect_to add_contact_information_to_order_path(@order.id)
+	  	
+	  	#redirect_to confirm_order_path(@order.id)
 
 
 	rescue Stripe::CardError => e
@@ -177,6 +179,62 @@ class ChargesController < ApplicationController
 		end
 
 	end
+
+
+
+	def add_contact_information
+
+		if params[:order_id]
+
+			if Order.where(:id => params[:order_id]).exists?
+
+				@order = Order.find(params[:order_id])
+
+			else
+
+				root_path
+
+			end
+
+		else
+
+			root_path
+
+		end
+
+	end
+
+
+
+	def update_contact_information
+
+		if params[:order_id]
+
+			if Order.where(:id => params[:order_id]).exists?
+
+				@order = Order.find(params[:order_id])
+
+				@order.update(:contact_email => params[:email], :contact_full_name => params[:fullName])
+
+				redirect_to confirm_order_path(@order.id)
+
+			else
+
+				root_path
+
+			end
+
+		else
+
+			root_path
+
+		end
+
+		
+	end
+
+
+
 
 	def confirm_order
 

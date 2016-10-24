@@ -21,7 +21,7 @@
 
 		<input type="hidden" name="order_id" value="<%= @order.id %>"></input>
 
-		<h4>Confirm your purchase</h4>
+		<h4>Confirm Your Order</h4>
 		
 		<div class="order-item-list">
 
@@ -42,7 +42,7 @@
 
 		</div>
 
-		<div>
+		<div style="display: none;">
 
 			<div class="column-container wide">
 				<h4>Total</h4>
@@ -55,6 +55,18 @@
 			</div>
 
 		</div>
+
+		<br>
+
+		<span><b>Contact Email:</b> <%= @order.contact_email %></span>
+
+		<br>
+
+		<span><b>Contact Name:</b> <%= @order.contact_full_name %></span>
+
+		<br>
+
+		<br>
 
 		<input type="submit" class="button stretch green-background" value="Confirm Order">
 

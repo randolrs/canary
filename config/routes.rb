@@ -61,6 +61,8 @@ Rails.application.routes.draw do
 
   get 'dashboard/engagement' => 'pages#engagement', as: 'engagement'
 
+
+
   post 'update_stripe_account' => 'pages#update_stripe_account'
 
   post 'update_bank_account' => 'pages#update_bank_account'
@@ -70,6 +72,8 @@ Rails.application.routes.draw do
   #get '/order/start/create_customer' => 'charges#create_customer', as: 'create_customer'
 
   post '/order/start/create_customer' => 'charges#create_customer', as: 'create_customer'
+
+  post '/order/update_contact/:order_id/' => 'charges#update_contact_information', as: 'update_contact_for_order'
 
   post '/billing/initialize' => 'billing#initiate', as: 'billing_initialize'
 
@@ -97,6 +101,8 @@ Rails.application.routes.draw do
   post '/order/start' => 'charges#start_checkout', as: 'start_checkout'
 
   get '/order/:order_id/payment' => 'charges#start_order', as: 'start_order'
+
+  get '/order/:order_id/contact' => 'charges#add_contact_information', as: 'add_contact_information_to_order'
 
   get '/purchase/:purchase_id/confirmation' => 'purchases#confirmation', as: 'purchase_confirmation'
 
