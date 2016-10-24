@@ -95,7 +95,7 @@ class User < ActiveRecord::Base
 
         balance_object = Stripe::Balance.retrieve()
 
-        @user_stripe_balance = balance_object.available[0]['amount'] + balance_object.pending[0]['amount']
+        @user_stripe_balance = (balance_object.available[0]['amount'] + balance_object.pending[0]['amount']) / 100
 
         Stripe.api_key = ENV['STRIPE_SECRET_KEY']
 

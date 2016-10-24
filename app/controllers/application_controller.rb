@@ -99,7 +99,6 @@ class ApplicationController < ActionController::Base
 
         account.save
 
-
       end
 
     end

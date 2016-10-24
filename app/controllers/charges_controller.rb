@@ -213,6 +213,10 @@ class ChargesController < ApplicationController
 
 		end
 
+	rescue Stripe::RequestError => e
+		flash[:error] = e.message
+		redirect_to :back
+
 	rescue Stripe::CardError => e
 		flash[:error] = e.message
 		redirect_to :back
