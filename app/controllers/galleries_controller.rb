@@ -13,7 +13,6 @@ class GalleriesController < InheritedResources::Base
 			@gallery_submission_format = GallerySubmissionFormat.new
 		end
 
-
 	end
 
 
