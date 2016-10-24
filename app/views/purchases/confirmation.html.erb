@@ -6,7 +6,7 @@
 
 		<p>Confirmation Number: <%= @purchase.id %></p>
 
-		<p>Price: <%= number_to_currency(@purchase.amount) %></p>
+		<p>Price: <%= number_to_currency(@purchase.amount/100) %></p>
 
 		<p><b>Pickup Instructions:</b></p>
 

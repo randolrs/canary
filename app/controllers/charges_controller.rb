@@ -21,9 +21,9 @@ class ChargesController < ApplicationController
 	    :card  => token.id
 	  )
 
-	  price = params[:amount]
+	  price = (@item_art.price * 100).to_i
 
-	  platform_fee = (price.to_i * 0.2).to_i
+	  #platform_fee = (price.to_i * 0.2).to_i
 
 	  charge = Stripe::Charge.create(
 	    :customer    => customer.id,
@@ -166,20 +166,19 @@ class ChargesController < ApplicationController
 
 			@item_art = @order.order_item.item_art
 
-			price = @order.subtotal.to_i
+			stripe_price = (@order.subtotal.to_i*100)
 
-		  	platform_fee = (price.to_i * 0.2).to_i
+		  	#platform_fee = (price.to_i * 0.2).to_i
 
 			charge = Stripe::Charge.create(
 			:customer    => @order.card_token,
-			:amount      => price,
+			:amount      => stripe_price,
 			:description => 'Rails Stripe customer',
 			:currency    => 'usd',
-			:destination => @item_art.user.stripe_account_id,
-			:application_fee => platform_fee
+			:destination => @item_art.user.stripe_account_id
 			)
 
-			purchase = Purchase.create(amount: price, description: charge.description, currency: charge.currency,
+			purchase = Purchase.create(amount: stripe_price, description: charge.description, currency: charge.currency,
 	    	stripe_customer_id: @order.card_token, item_art_id: @item_art.id, artist_id: @item_art.user.id, order_id: @order.id)
 
 
