@@ -5,7 +5,7 @@ Rails.application.configure do
   config.cache_classes = true
 
   #force ssl
-  
+
   config.force_ssl = true
 
   config.action_mailer.default_url_options = { host: 'http://tranquil-cove-65569.herokuapp.com/' }
@@ -22,14 +22,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
-  config.action_mailer.smtp_settings = {
-   :address              => "smtp.gmail.com",
-   :port                 => 587,
-   :user_name            => "legalinsiderinformation@gmail.com",
-   :password             => "Secure10",
-   :authentication       => "plain",
-  :enable_starttls_auto => true
-}
+
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
