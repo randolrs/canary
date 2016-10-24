@@ -184,6 +184,8 @@ class ChargesController < ApplicationController
 
 	def add_contact_information
 
+		@page_title = "Checkout"
+		
 		if params[:order_id]
 
 			if Order.where(:id => params[:order_id]).exists?
