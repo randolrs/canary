@@ -17,7 +17,7 @@
 		
 						<li><a class="header-return-home" href="<%= root_path %>"><% if @hide_return_to_home %><span class="glyphicon glyphicon-home" style="margin-right: 15px;"></span>Home<%else%><span class="glyphicon glyphicon-arrow-left" style="margin-right: 15px;"></span><%= @page_title %><%end%></a></li>
 
-						<li><a>Environment: <%=Rails.env%></a></li>
+						<li><a>Environment: <%=Rails.env%>ere<%= ENV['STRIPE_SECRET_KEY'] %>2266</a></li>
 
 					</ul>
 
@@ -95,10 +95,6 @@
 			<ul class="header-left">
 
 				<li><%= link_to "ArtYam", root_path, class: "header-logo" %></li>
-
-				<% if user_signed_in? %>
-				<li><a>Environment: <%=Rails.env%> ere<%= ENV['STRIPE_SECRET_KEY'] %>2266</a></li>
-				<%end%>
 
 			</ul>
 
