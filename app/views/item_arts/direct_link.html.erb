@@ -130,9 +130,6 @@
 
       <div class="portfolio">
 
-        <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => true, :columns => 3} %>
-
-
         <% unless @item_art.is_sample && @item_art.sample_name %>
 
           <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => true, :columns => 3} %>
