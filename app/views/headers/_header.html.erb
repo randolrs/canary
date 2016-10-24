@@ -35,14 +35,15 @@
 								<a class="new-artwork-image-modal modal-cta clickable"><span class="glyphicon glyphicon-plus mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Add Artwork</span></a>
 							</li>
 
-							<li>
+							<% if current_user.display_name && current_user.display_name.length > 0 %>
 
-								<% if current_user.display_name %>
-									
+								<li>
+		
 									<a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "header-profile-image" %></a>
 
-								<%end%>
-							</li>
+								</li>
+
+							<%end%>
 
 							<li>
 								<a class="clickable" href="<%= balance_payments_path %>"><span class="glyphicon glyphicon-usd mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Balance: <%= number_to_currency(current_user.stripe_balance) %></span></a>

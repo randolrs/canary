@@ -12,9 +12,9 @@ class PagesController < ApplicationController
 			
 			if current_user.is_artist
 
-				#if current_user.billing_initiated or current_user.is_admin
+				if current_user.billing_initiated or current_user.is_admin
 
-					#if current_user.display_name or current_user.is_admin
+					if current_user.display_name or current_user.is_admin
 
 						@hide_header = true
 						@page_title = "Dashboard"
@@ -31,16 +31,16 @@ class PagesController < ApplicationController
 
 						end
 
-					#else
+					else
 
-						#redirect_to welcome_path
+						redirect_to welcome_path
 
-					#end
+					end
 
-				#else
+				else
 
-					#redirect_to billing_information_path
-				#end
+					redirect_to billing_information_path
+				end
 
 			else
 

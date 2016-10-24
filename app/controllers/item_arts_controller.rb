@@ -37,7 +37,16 @@ class ItemArtsController < ApplicationController
 
       @view = View.new
 
-      @page_title = @item_art.name + " by " + @item_art.user.display_name
+      unless @item_art.is_sample && @item_art.sample_name
+
+        @page_title = @item_art.name + " by " + @item_art.user.display_name
+
+
+      else
+
+        @page_title = @item_art.name + " by " + @item_art.sample_name
+
+      end
 
       @main_SEO_title = @page_title
 

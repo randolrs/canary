@@ -17,7 +17,7 @@
 			
 			<li class="dashboard-header" id="site-title">
 
-				<% if current_user.display_name %>
+				<% if current_user.display_name && current_user.display_name.length > 0 %>
 				
 					<a class="name" href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "sidebar-profile-image"%><br><%= current_user.display_name %></a>
 
