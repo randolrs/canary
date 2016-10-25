@@ -111,7 +111,9 @@ class ChargesController < ApplicationController
 
 	  	@order.update(:card_token => customer.id)
 
-	  	redirect_to add_contact_information_to_order_path(@order.id)
+	  	#redirect_to add_contact_information_to_order_path(@order.id)
+
+	  	redirect_to confirm_order_path(@order.id)
 	  	
 	  	#redirect_to confirm_order_path(@order.id)
 
@@ -148,7 +150,8 @@ class ChargesController < ApplicationController
 				@order_item.update(:order_id => @order.id, :item_id => @item.id)
 
 				if @order_item.save
-					redirect_to start_order_path(@order.id)
+					redirect_to add_contact_information_to_order(@order.id)
+					#redirect_to start_order_path(@order.id)
 				else
 					redirect_to :back
 				end
@@ -226,7 +229,7 @@ class ChargesController < ApplicationController
 
 				@order.update(:contact_email => params[:email], :contact_full_name => params[:fullName])
 
-				redirect_to confirm_order_path(@order.id)
+				redirect_to start_order_path(@order.id)
 
 			else
 
