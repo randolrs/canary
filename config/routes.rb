@@ -94,7 +94,11 @@ Rails.application.routes.draw do
   get 'accounts/delete/:card_id' => 'purchases#delete_account', as: 'delete_account'
   
   get 'artwork/new/add_details/:id' => 'item_arts#detail_form', as: 'item_art_detail_form'
+  
   get 'artist/:display_name' => 'pages#profile', as: 'profile'
+
+  get 'blog/selling-your-art-in-cafes-restaurants-and-more' => 'blog#selling_your_art', as: 'selling_your_art'
+  
 
   get '/:display_name/about' => 'pages#profile_about', as: 'profile_about'
 

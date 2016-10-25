@@ -465,6 +465,12 @@ html{
 	    		font-weight: 800;
 	    	}
 
+	    	h4{
+	            font-size: 2em;
+	            text-shadow: 0px 3px 2px rgba(0,0,0,0.5);
+	            
+            }
+
 	    	p{
 
 	    	}
@@ -520,8 +526,15 @@ html{
 			font-size: 60px;
 			margin-bottom: 20px;
 			color: #222;
-	    	text-shadow: 0px 2px 2px #aaa;
+	    	text-shadow: 0px 3px 2px rgba(200,200,200,0.5);
 		}
+
+		h4{
+
+			font-size: 2em;
+			text-shadow: 0px 1px 1px rgba(200,200,200,0.5);
+	            
+        }
 
 		p{
 			
