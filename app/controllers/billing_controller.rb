@@ -26,7 +26,7 @@ class BillingController < InheritedResources::Base
 
 		plan = Stripe::Subscription.create(
   		:customer => customer.id,
-  		:plan => "beta"
+  		:plan => "standard"
 		)
 
 		current_user.update(:billing_initiated => true)
