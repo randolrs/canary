@@ -503,26 +503,25 @@ ul.horizontal.header{
 	background: #fff;
 
 	li{
-		border-top: 1px solid #ddd;
+	
 		border-bottom: 1px solid #ddd;
 
 		a{
-			color: #004e92;
+			color: rgba(50,50,150,1);
 		}
 
 	}
 
 	li.active{
 		border: none;
-		border-top: 1px solid #ddd;
-		border-bottom: 4px solid #004e92;
+		border-bottom: 4px solid rgba(50,50,150,1);
 
 		a{
-			color: #004e92;
+			color: rgba(50,50,150,1);
 		}
 
 		span.badge-number{
-			background: #004e92;
+			background: rgba(50,50,150,1);
 			color: #fff;
 			border: none;
 			text-shadow: none;
