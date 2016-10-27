@@ -126,7 +126,7 @@ class PagesController < ApplicationController
 		
 		if user_signed_in?
 
-			@page_title = "Settings"
+			@page_title = "Account Settings"
 
 			@page = "payment settings"
 
@@ -148,7 +148,7 @@ class PagesController < ApplicationController
 
 	def payment_settings
 
-		@page_title = "Settings"
+		@page_title = "Account Settings"
 
 		@page = "payment settings"
 
@@ -490,7 +490,7 @@ class PagesController < ApplicationController
 
 	def bank_accounts
 
-		@page_title = "Settings"
+		@page_title = "Account Settings"
 
 		@page = "account settings"
 
