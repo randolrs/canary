@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   get '/login/affiliates' => 'pages#login_for_affiliates', as: 'login_for_affiliates'
 
-  get '/affiliates/settings' => 'pages#affiliates/settings', as: 'settings_for_affiliates'
+  #get '/affiliates/settings' => 'pages#affiliates/settings', as: 'settings_for_affiliates'
 
 
   get '/dashboard/messages' => 'pages#messages', as: 'inbox'
