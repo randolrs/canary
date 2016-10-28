@@ -230,13 +230,13 @@
 }
 
 .red-background{
-	background-color: #BB1D15;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#DD3B33), to(#BB1D15));
-    background-image: -webkit-linear-gradient(top, #DD3B33, #BB1D15);
-    background-image: -moz-linear-gradient(top, #DD3B33, #BB1D15);
-    background-image: -ms-linear-gradient(top, #DD3B33, #BB1D15);
-    background-image: -o-linear-gradient(top, #DD3B33, #BB1D15);
-    background-image: linear-gradient(top, #DD3B33, #BB1D15);
+	background-color: #F00000;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#F00000), to(#DC281E));
+    background-image: -webkit-linear-gradient(top, #F00000 , #DC281E);
+    background-image: -moz-linear-gradient(top, #F00000 , #DC281E);
+    background-image: -ms-linear-gradient(top, #F00000 , #DC281E);
+    background-image: -o-linear-gradient(top, #F00000 , #DC281E);
+    background-image: linear-gradient(top, #F00000 , #DC281E);
     border: 1px solid #990A02;
     box-shadow: inset 0px 1px 3px 0px #F3655E;
     color: #fff;
@@ -503,7 +503,7 @@ ul.horizontal.header{
 	background: #fff;
 
 	li{
-	
+
 		border-bottom: 1px solid #ddd;
 
 		a{

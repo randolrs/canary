@@ -6,6 +6,8 @@ class PagesController < ApplicationController
 
 		@page = "home"
 
+		session[:message] = "Hey Friend" 
+
 		@hide_return_to_home = true
 
 		if user_signed_in?
