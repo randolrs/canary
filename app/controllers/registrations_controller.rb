@@ -18,6 +18,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    
     build_resource(sign_up_params)
 
     resource.save
@@ -39,6 +40,20 @@ class RegistrationsController < Devise::RegistrationsController
     if params[:is_artist]
 
         resource.update(:is_artist => true)
+
+        if session[:affiliate_id]
+          resource.update(:affiliate_id => true)
+        end
+
+        resource.save
+
+    end
+
+    if params[:is_affiliate]
+
+        my_referral_code = (SecureRandom.hex(2)).downcase
+
+        resource.update(:is_affiliate => true, :my_referral_code => my_referral_code)
 
         resource.save
 

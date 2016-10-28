@@ -89,6 +89,18 @@ class PagesController < ApplicationController
 
 	end
 
+	def login_for_affiliates
+
+		@hide_header = true
+		@hide_header_on_all_devices = true
+		@hide_footer = true
+
+		@main_SEO_title = "Login"
+
+
+	end
+
+
 	def signup
 
 		@hide_header = true
@@ -96,6 +108,17 @@ class PagesController < ApplicationController
 		@hide_footer = true
 
 		@main_SEO_title = "Signup"
+		
+
+	end
+
+	def signup_for_affiliates
+
+		@hide_header = true
+		@hide_header_on_all_devices = true
+		@hide_footer = true
+
+		@main_SEO_title = "Affiliate Signup"
 		
 
 	end

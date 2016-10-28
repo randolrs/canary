@@ -14,7 +14,7 @@
 					<ul class="header-left">
 		
 						<li><a class="header-return-home" href="<%= root_path %>"><% if @hide_return_to_home %><span class="glyphicon glyphicon-home" style="margin-right: 15px;"></span>Home<%else%><span class="glyphicon glyphicon-arrow-left" style="margin-right: 15px;"></span><%= @page_title %><%end%></a></li>
-						<li><a>50: <%= session[:answer] %></a></li>
+						<li><a>50: <%= session[:affiliate_id] %></a></li>
 
 					</ul>
 
@@ -58,7 +58,7 @@
 
 					<%end%>
 
-				<%else%>
+				<%elsif current_user.is_buyer %>
 
 					<ul class="header-left">
 							
@@ -79,6 +79,31 @@
 						<li><a data-method="delete" href='<%= destroy_user_session_path%>'>Logout</a></li>
 
 					</ul>
+
+				<%elsif current_user.is_affiliate %>
+
+					<ul class="header-left">
+							
+						<li><a href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span></a></li>
+
+						<li><a class="header-page-title"><%= @page_title %></a></li>
+
+					</ul>
+
+					<ul class="header-right">
+
+						<li><a href="<%= root_path %>"><span class="glyphicon glyphicon-stats mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Dashboard</span></a></li>
+
+						<li><a href="<%= root_path %>"><span class="glyphicon glyphicon-usd mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Payouts</span></a></li>
+
+						<li><a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Settings</span></a></li>
+
+						<li><a data-method="delete" href='<%= destroy_user_session_path%>'>Logout</a></li>
+
+					</ul>
+
+
+				<%else%>
 
 				<%end%>
 

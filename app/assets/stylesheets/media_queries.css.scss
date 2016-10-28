@@ -315,6 +315,27 @@
 
 			}
 
+			div.table-stats{
+
+				div.table-entry{
+					
+					width:100%;
+					float:left;
+					padding:0px 10px;
+					margin-top: -1px;
+
+					div.table-data{
+						padding: 15px;
+						border: 1px solid #bbb;
+						background: #fff;
+						box-shadow: 0px 2px 1px rgba(100,100,100,0.4);
+
+					}
+
+				}
+			}
+
+
 
 
 		}

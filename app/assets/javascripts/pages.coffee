@@ -26,6 +26,10 @@ ready = ->
                   checkbox = $(@).find('.select-item-checkbox')
                   checkbox.prop('checked', !checkbox.prop('checked'))
 
+            $('.affiliate-summary-option').click (window.event), ->
+                  $(@).addClass("selected")
+                  alert("hey")
+
             $(".new-artwork-image-modal").click (window.event), ->
                   $('body').find('#new-artwork-image-modal').show()
 

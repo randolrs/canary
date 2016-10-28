@@ -16,6 +16,8 @@ class ApplicationController < ActionController::Base
 
   before_action :check_for_billing_information, if: :user_signed_in?
 
+  before_action :check_for_affiliate
+
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -24,22 +26,30 @@ class ApplicationController < ActionController::Base
 
     if user_signed_in?
 
-      if current_user.billing_initiated or current_user.is_admin
+      if current_user.is_artist
 
-        if current_user.display_name
+        if current_user.billing_initiated or current_user.is_admin
 
-  		    root_path
-        
+          if current_user.display_name
+
+    		    root_path
+          
+          else
+
+            welcome_path
+
+          end
+
         else
 
-          welcome_path
+          billing_information_path
 
         end
 
-      else
+      elsif current_user.is_affiliate
 
-        billing_information_path
-
+        root_path
+        
       end
 
     else
@@ -52,7 +62,17 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_out_path_for(user)
-      request.referrer
+      root_path
+  end
+
+  def check_for_affiliate
+
+    if params[:affid]
+
+      session[:affiliate_id] = params[:affid]
+
+    end
+
   end
 
 

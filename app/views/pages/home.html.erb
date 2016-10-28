@@ -33,6 +33,10 @@
 
 		</div>
 
+	<% elsif current_user.is_affiliate %>
+
+		<%= render 'pages/affiliate/dashboard' %>
+
 	<% else %>
 
 		<%= render 'pages/user/not_artist_home' %>

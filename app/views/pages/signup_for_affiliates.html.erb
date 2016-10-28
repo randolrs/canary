@@ -1,0 +1,34 @@
+
+<div class="simple-landing-container">
+
+  <%= form_for(:user, :url => registration_path(:user)) do |f| %>
+
+    <h3>ArtYam Affiliate Signup</h3>
+
+    <br>
+
+    <div class="field">
+      <label>Email</label>
+      <br>
+      <%= f.email_field :email, autofocus: true, placeholder: "Email", :required => true %>
+    </div>
+
+    <div class="field">
+      <label>Password</label>
+      <br>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Password", required: true, :required => true %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Next", class: "button medium orange-background" %>
+    </div>
+
+    <%= hidden_field_tag 'is_affiliate', true %>
+
+  <% end %>
+
+  <p class="centered"><%= link_to "Affiliate Login", login_for_affiliates_path %></p>
+
+  
+
+</div>

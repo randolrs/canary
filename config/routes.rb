@@ -33,7 +33,9 @@ Rails.application.routes.draw do
 
   get '/:search_code' => 'item_arts#direct_link', as: 'direct_link_to_item_art'
 
-  
+  get '/signup/affiliates' => 'pages#signup_for_affiliates', as: 'signup_for_affiliates'
+
+  get '/login/affiliates' => 'pages#login_for_affiliates', as: 'login_for_affiliates'
 
   get '/dashboard/messages' => 'pages#messages', as: 'inbox'
 
