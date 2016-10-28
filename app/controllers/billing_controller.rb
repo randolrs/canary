@@ -1,4 +1,4 @@
-class BillingController < InheritedResources::Base
+class BillingController < ApplicationController
 
 	def billing_information
 

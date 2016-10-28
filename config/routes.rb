@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   get '/affiliates/dashboard' => 'affiliates#dashboard', as: 'affiliate_dashboard'
 
   get '/dashboard/messages' => 'pages#messages', as: 'inbox'
-  
+
   get 'views' => 'pages#views'
 
   get 'my_purchases' => 'pages#purchases'
@@ -80,6 +80,9 @@ Rails.application.routes.draw do
   #get '/order/start/create_customer' => 'charges#create_customer', as: 'create_customer'
 
   post '/order/start/create_customer' => 'charges#create_customer', as: 'create_customer'
+
+  post '/stripe/webhook/artyam' => 'stripe#webhook', as: 'stripe_webhook'
+
 
   post '/order/update_contact/:order_id/' => 'charges#update_contact_information', as: 'update_contact_for_order'
 

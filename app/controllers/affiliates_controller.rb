@@ -1,4 +1,4 @@
-class AffiliatesController < InheritedResources::Base
+class AffiliatesController < ApplicationController
 
 	def dashboard
 
