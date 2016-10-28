@@ -37,6 +37,18 @@ class BillingController < InheritedResources::Base
 
 		billing_record.save
 
+		if AffiliateSignup.where(:user_id => current_user.id).exists?
+
+			affiliate_signup = AffiliateSignup.where(:user_id => current_user.id).last
+
+			affiliate_commission = AffiliateCommission.new
+
+			commission_amount = 2
+
+			affiliate_commission.update(:user_id => current_user.id, :affiliate_id => affiliate_signup.affiliate_id, :amount => commission_amount, :recurring => false)
+
+		end
+
 		unless current_user.display_name
 
 			redirect_to welcome_path

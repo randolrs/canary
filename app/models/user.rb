@@ -57,11 +57,73 @@ class User < ActiveRecord::Base
 
   end
 
-  def affiliate_referrals
+  def affiliate_referrals(time_period)
 
-    return AffiliateReferral.where(:affiliate_id => self.id)
+    all_affiliate_referrals = AffiliateReferral.where(:affiliate_id => self.id)
+    
+    if time_period == "this-month"
+
+      return all_affiliate_referrals.where(:created_at=> Time.now.beginning_of_month..Time.now.end_of_month)
+
+    elsif time_period == "this-year"
+
+      return all_affiliate_referrals.where(:created_at=> Time.now.beginning_of_year..Time.now.end_of_year)
+
+    else
+
+      return all_affiliate_referrals
+
+    end
 
   end
+
+
+  def affiliate_signups(time_period)
+
+    #all_affiliate_signups = AffiliateSignup.where(:affiliate_id => self.id)
+
+    all_affiliate_signups = AffiliateSignup.where(:affiliate_id => self.id)
+    
+    if time_period == "this-month"
+
+      return all_affiliate_signups.where(:created_at=> Time.now.beginning_of_month..Time.now.end_of_month)
+
+    elsif time_period == "this-year"
+
+      return all_affiliate_signups.where(:created_at=> Time.now.beginning_of_year..Time.now.end_of_year)
+
+    else
+
+      return all_affiliate_signups
+
+    end
+
+  end
+
+
+
+  def affiliate_commissions(time_period)
+
+    #all_affiliate_signups = AffiliateSignup.where(:affiliate_id => self.id)
+
+    all_affiliate_commissions = AffiliateCommission.where(:affiliate_id => self.id)
+    
+    if time_period == "this-month"
+
+      return all_affiliate_commissions.where(:created_at=> Time.now.beginning_of_month..Time.now.end_of_month)
+
+    elsif time_period == "this-year"
+
+      return all_affiliate_commissions.where(:created_at=> Time.now.beginning_of_year..Time.now.end_of_year)
+
+    else
+
+      return all_affiliate_commissions
+
+    end
+
+  end
+
 
 
   def recent_activity

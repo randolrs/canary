@@ -41,10 +41,6 @@ class RegistrationsController < Devise::RegistrationsController
 
         resource.update(:is_artist => true)
 
-        if session[:affiliate_id]
-          resource.update(:affiliate_id => true)
-        end
-
         resource.save
 
     end
@@ -61,8 +57,28 @@ class RegistrationsController < Devise::RegistrationsController
 
     yield resource if block_given?
     if resource.persisted?
+
       if resource.active_for_authentication?
         #UserMailer.welcome_email(resource).deliver_later
+
+        if params[:is_artist]
+
+            if AffiliateReferral.where(:ip_address => request.remote_ip).exists?
+
+              affiliate_referral = AffiliateReferral.where(:ip_address => request.remote_ip).first
+
+              resource.update(:affiliate_id => affiliate_referral.affiliate_id)
+              
+              affiliate_signup = AffiliateSignup.new
+
+              affiliate_signup.update(:user_id => resource.id, :affiliate_id => affiliate_referral.affiliate_id, :affiliate_referral_id => affiliate_referral.id)
+              
+              affiliate_signup.save
+
+            end
+
+        end
+
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)

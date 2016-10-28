@@ -909,6 +909,18 @@ html{
 		div.table-data:hover{
 			cursor: pointer;
 		}
+
+		table{
+			
+			width: 100%;
+			text-align: justify;
+
+			tr{
+				td{
+					padding:10px;
+				}
+			}
+		}
 	}
 
 

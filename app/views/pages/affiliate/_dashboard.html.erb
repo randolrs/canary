@@ -21,13 +21,13 @@
 		<div class="table-stats affiliate-summary" id="this-month">
 
 			<div class="table-entry">
-				<div class="table-data"><h4>Clicks</h4><h4>128</h4></div>
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="referrals"><h4>Referrals</h4><h4>128</h4></div>
 			</div>
 			<div class="table-entry">
-				<div class="table-data"><h4>Signups</h4><h4>45</h4></div>
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="subscribers"><h4>Signups</h4><h4>45</h4></div>
 			</div>
 			<div class="table-entry">
-				<div class="table-data"><h4>Commissions</h4><h4>$520</h4></div>
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="commissions"><h4>Commissions</h4><h4>$520</h4></div>
 			</div>
 
 		</div>
@@ -35,13 +35,13 @@
 		<div class="table-stats affiliate-summary default-off" id="this-year">
 
 			<div class="table-entry">
-				<div class="table-data"><h4>Clicks</h4><h4>434</h4></div>
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="referrals"><h4>Referrals</h4><h4>434</h4></div>
 			</div>
 			<div class="table-entry">
-				<div class="table-data"><h4>Signups</h4><h4>66</h4></div>
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="subscribers"><h4>Signups</h4><h4>66</h4></div>
 			</div>
 			<div class="table-entry">
-				<div class="table-data"><h4>Commissions</h4><h4>$2554</h4></div>
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="commissions"><h4>Commissions</h4><h4>$2554</h4></div>
 			</div>
 
 		</div>
@@ -49,13 +49,13 @@
 		<div class="table-stats affiliate-summary default-off" id="all-time">
 
 			<div class="table-entry">
-				<div class="table-data"><h4>Clicks</h4><h4>76767</h4></div>
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="referrals"><h4>Referrals</h4><h4>76767</h4></div>
 			</div>
 			<div class="table-entry">
-				<div class="table-data"><h4>Signups</h4><h4>1899</h4></div>
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="subscribers"><h4>Signups</h4><h4>1899</h4></div>
 			</div>
 			<div class="table-entry">
-				<div class="table-data"><h4>Commissions</h4><h4>$6554</h4></div>
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="commissions"><h4>Commissions</h4><h4>$6554</h4></div>
 			</div>
 
 		</div>
@@ -63,21 +63,88 @@
 		<br>
 		<br>
 
-		<div class="table-stats">
+		<div class="table-stats affiliate-stats referrals">
 
 			<table>
+
 				<tr>
 					<th>Date</th>
 					<th>IP Address</th>
 					<th>Referral URL</th>
 				</tr>
 
-				<% current_user.affiliate_referrals.each do |affiliate_referral| %>
+				<% current_user.affiliate_referrals("this-month").each do |affiliate_referral| %>
+				
+					<tr class="affiliate-stat-row this-month">
+						<td><%= affiliate_referral.created_at %></td>
+						<td><%= affiliate_referral.ip_address %></td>
+						<td><%= affiliate_referral.referral_url %></td>
+					</tr>
+
+				<%end%>
+
+				<% current_user.affiliate_referrals("this-year").each do |affiliate_referral| %>
+					
+					<tr class="affiliate-stat-row this-year default-off">
+						<td><%= affiliate_referral.created_at %></td>
+						<td><%= affiliate_referral.ip_address %></td>
+						<td><%= affiliate_referral.referral_url %></td>
+					</tr>
+
+				<%end%>
+
+				<% current_user.affiliate_referrals("all-time").each do |affiliate_referral| %>
+					
+					<tr class="affiliate-stat-row all-time default-off">
+						<td><%= affiliate_referral.created_at %></td>
+						<td><%= affiliate_referral.ip_address %></td>
+						<td><%= affiliate_referral.referral_url %></td>
+					</tr>
+
+				<%end%>
+
+
+			</table>
+
+		</div>
+
+		<div class="table-stats affiliate-stats subscribers default-off">
+
+			<table>
+				
 				<tr>
-					<td><%= affiliate_referral.created_at %></td>
-					<td><%= affiliate_referral.ip_address %></td>
-					<td><%= affiliate_referral.referral_url %></td>
+					<th>Date</th>
+					<th>Channel</th>
+					<th>Referral URL</th>
 				</tr>
+
+				<% current_user.affiliate_signups("all-time").each do |affiliate_signup| %>
+				
+					<tr class="affiliate-stat-row this-month">
+
+						<td><%= affiliate_signup.created_at %></td>
+						
+					</tr>
+
+				<%end%>
+
+				<% current_user.affiliate_signups("all-time").each do |affiliate_signup| %>
+					
+					<tr class="affiliate-stat-row this-year default-off">
+						
+						<td><%= affiliate_signup.created_at %></td>
+
+					</tr>
+
+				<%end%>
+
+				<% current_user.affiliate_signups("all-time").each do |affiliate_signup| %>
+					
+					<tr class="affiliate-stat-row all-time default-off">
+
+						<td><%= affiliate_signup.created_at %></td>
+
+					</tr>
 
 				<%end%>
 
@@ -85,26 +152,51 @@
 
 		</div>
 
-		<div class="table-stats">
+		<div class="table-stats affiliate-stats commissions default-off">
 
 			<table>
+				
 				<tr>
 					<th>Date</th>
-					<th>Channel</th>
-					<th>Referral URL</th>
 					<th>Type</th>
+					<th>Amount</th>
 				</tr>
 
-				<tr>
-					<td>August 31, 2010</td>
-					<td>None</td>
-					<td>http://ArtSpot.com</td>
-					<td>Recurring</td>
-				</tr>
+				<% current_user.affiliate_commissions("this-month").each do |affiliate_commission| %>
+				
+					<tr class="affiliate-stat-row this-month">
+						<td><%= affiliate_commission.created_at %></td>
+						<td><%= affiliate_commission.recurring %></td>
+						<td><%= affiliate_commission.amount %></td>
+					</tr>
+
+				<%end%>
+
+				<% current_user.affiliate_commissions("this-year").each do |affiliate_commission| %>
+					
+					<tr class="affiliate-stat-row this-year default-off">
+						<td>666</td>
+						<td>IP in the house</td>
+						<td>bonny.com</td>
+					</tr>
+
+				<%end%>
+
+				<% current_user.affiliate_commissions("all-time").each do |affiliate_commission| %>
+					
+					<tr class="affiliate-stat-row all-time default-off">
+						<td>all time</td>
+						<td>thanksgiving</td>
+						<td>sorry</td>
+					</tr>
+
+				<%end%>
 
 			</table>
 
 		</div>
+
+
 
 	</div>
 

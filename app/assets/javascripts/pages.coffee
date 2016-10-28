@@ -27,8 +27,19 @@ ready = ->
                   checkbox.prop('checked', !checkbox.prop('checked'))
 
             $('.affiliate-summary-option').click (window.event), ->
+                  $('.affiliate-summary-option').removeClass("selected")
                   $(@).addClass("selected")
-                  alert("hey")
+                  targetId = "#" + $(@).data("time-option")
+                  targetClass = "." + $(@).data("time-option")
+                  $('body').find('.affiliate-summary').hide()
+                  $('body').find(targetId).show()
+                  $('body').find('.affiliate-stat-row').hide()
+                  $('body').find(targetClass).show()
+
+            $('.affiliate-stats-header').click (window.event), ->
+                  targetClass = "." + $(@).data("affiliate-stat-section")
+                  $('.affiliate-stats').hide()
+                  $('body').find(targetClass).show()
 
             $(".new-artwork-image-modal").click (window.event), ->
                   $('body').find('#new-artwork-image-modal').show()
