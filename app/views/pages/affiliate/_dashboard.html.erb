@@ -68,14 +68,14 @@
 			<table>
 				<tr>
 					<th>Date</th>
-					<th>Channel</th>
+					<th>IP Address</th>
 					<th>Referral URL</th>
 				</tr>
 
 				<% current_user.affiliate_referrals.each do |affiliate_referral| %>
 				<tr>
 					<td><%= affiliate_referral.created_at %></td>
-					<td>None</td>
+					<td><%= affiliate_referral.ip_address %></td>
 					<td><%= affiliate_referral.referral_url %></td>
 				</tr>
 
