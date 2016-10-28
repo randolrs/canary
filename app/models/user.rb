@@ -49,6 +49,20 @@ class User < ActiveRecord::Base
 
   end
 
+  def affiliate_link
+
+    affiliate_link = "https://www.ArtYam.com?affid=" + self.my_referral_code
+    
+    return affiliate_link
+
+  end
+
+  def affiliate_referrals
+
+    return AffiliateReferral.where(:affiliate_id => self.id)
+
+  end
+
 
   def recent_activity
 

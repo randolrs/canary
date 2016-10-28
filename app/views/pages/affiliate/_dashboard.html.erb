@@ -2,6 +2,8 @@
 
 	<h2>Affiliate Dashboard</h2>
 
+	<p>Your Affiliate Link: <a href="<%= current_user.affiliate_link %>"><%= current_user.affiliate_link %></a></p>
+
 	<br>
 
 	<div class="centered">
@@ -70,11 +72,14 @@
 					<th>Referral URL</th>
 				</tr>
 
+				<% current_user.affiliate_referrals.each do |affiliate_referral| %>
 				<tr>
-					<td>August 31, 2010</td>
+					<td><%= affiliate_referral.created_at %></td>
 					<td>None</td>
-					<td>http://ArtSpot.com</td>
+					<td><%= affiliate_referral.referral_url %></td>
 				</tr>
+
+				<%end%>
 
 			</table>
 

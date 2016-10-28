@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
       elsif current_user.is_affiliate
 
         root_path
-        
+
       end
 
     else
@@ -69,7 +69,17 @@ class ApplicationController < ActionController::Base
 
     if params[:affid]
 
-      session[:affiliate_id] = params[:affid]
+      affiliateReferral = AffiliateReferral.new
+
+      if User.where(:my_referral_code => params[:affid]).exists? && !AffiliateReferral.where(:ip_address => request.remote_ip).exists?
+
+        affiliateReferral.update(:ip_address => request.remote_ip, :referral_url => request.referrer, :affiliate_id => User.where(:my_referral_code => params[:affid]).last.id)
+
+        affiliateReferral.save
+
+        session[:affiliate_id] = params[:affid]
+
+      end
 
     end
 

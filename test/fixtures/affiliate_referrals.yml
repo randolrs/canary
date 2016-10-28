@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ip_address: MyString
+  referral_url: MyString
+  affiliate_id: MyString
+
+two:
+  ip_address: MyString
+  referral_url: MyString
+  affiliate_id: MyString
