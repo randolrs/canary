@@ -14,7 +14,7 @@ class StripeController < ApplicationController
 
     #stripe_event.update(:stripe_id => event.id)
 
-    stripe_event.update(:stripe_id => event_json.id)
+    stripe_event.update(:stripe_id => event_json["data"]["object"]["id"])
 
     stripe_event.save
 
