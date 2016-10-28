@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
 
       elsif current_user.is_affiliate
 
-        root_path
+        affiliate_dashboard_path
 
       end
 

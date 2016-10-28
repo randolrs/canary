@@ -39,6 +39,9 @@ Rails.application.routes.draw do
 
   get '/dashboard/messages' => 'pages#messages', as: 'inbox'
 
+  get '/affiliates/dashboard' => 'pages#affiliate_dashboard', as: 'affiliate_dashboard'
+
+
   get 'views' => 'pages#views'
 
   get 'my_purchases' => 'pages#purchases'

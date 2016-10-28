@@ -61,9 +61,7 @@
 
 					<ul class="header-left">
 							
-						<li><a href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span></a></li>
-
-						<li><a class="header-page-title"><%= @page_title %></a></li>
+						<li><a class="header-return-home" href="<%= root_path %>"><% if @hide_return_to_home %><span class="glyphicon glyphicon-home" style="margin-right: 15px;"></span>Home<%else%><span class="glyphicon glyphicon-arrow-left" style="margin-right: 15px;"></span><%= @page_title %><%end%></a></li>
 
 					</ul>
 
@@ -83,15 +81,11 @@
 
 					<ul class="header-left">
 							
-						<li><a href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span></a></li>
-
-						<li><a class="header-page-title"><%= @page_title %></a></li>
+						<li><a class="header-return-home" href="<%= root_path %>"><% if @hide_return_to_home %><span class="glyphicon glyphicon-home" style="margin-right: 15px;"></span>Home<%else%><span class="glyphicon glyphicon-arrow-left" style="margin-right: 15px;"></span><%= @page_title %><%end%></a></li>
 
 					</ul>
 
 					<ul class="header-right">
-
-						<li><a href="<%= root_path %>"><span class="glyphicon glyphicon-stats mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Dashboard</span></a></li>
 
 						<li><a href="<%= root_path %>"><span class="glyphicon glyphicon-usd mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Payouts</span></a></li>
 

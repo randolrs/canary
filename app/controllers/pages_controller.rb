@@ -44,6 +44,10 @@ class PagesController < ApplicationController
 					redirect_to billing_information_path
 				end
 
+			elsif current_user.is_affiliate
+
+				redirect_to affiliate_dashboard_path
+
 			else
 
 				@page_title = "ArtYam"
@@ -77,6 +81,15 @@ class PagesController < ApplicationController
 		@hide_header = true
 
 	end
+
+	def affiliate_dashboard
+
+		@page_title = "Affiliate Dashboard"
+
+		@hide_return_to_home = true
+
+	end
+
 
 	def login
 
