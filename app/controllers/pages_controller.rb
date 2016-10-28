@@ -90,6 +90,11 @@ class PagesController < ApplicationController
 
 	end
 
+	# def affiliates/settings
+
+		
+	# end
+
 
 	def login
 
