@@ -18,12 +18,11 @@ class StripeController < ApplicationController
 
     stripe_event.save
 
-    status 200
+    head :ok
 
 
     rescue Stripe::CardError => e
-      flash[:error] = e.message
-      redirect_to :back
+      head :internal_server_error
     end
 
 end
