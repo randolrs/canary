@@ -1,0 +1,202 @@
+<div class="content">
+
+	<h2>Affiliate Dashboard</h2>
+	<br>
+	<p>Your Affiliate Link:</p>
+	<p><a style="color: red;" href="<%= current_user.affiliate_link %>"><%= current_user.affiliate_link %></a></p>
+
+	<br>
+
+	<div class="centered">
+
+		<ul class="horizontal">
+
+			<li class="selected affiliate-summary-option" data-time-option="this-month"><a>This Month</a></li>
+			<li class="affiliate-summary-option" data-time-option="this-year"><a>This Year</a></li>
+			<li class="affiliate-summary-option" data-time-option="all-time"><a>All Time</a></li>
+
+		</ul>
+
+		<br>
+
+		<div class="table-stats affiliate-summary" id="this-month">
+
+			<div class="table-entry">
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="referrals"><h4>Referrals</h4><h4><%= current_user.affiliate_referrals("this-month").count %></h4></div>
+			</div>
+			<div class="table-entry">
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="subscribers"><h4>Signups</h4><h4><%= current_user.affiliate_signups("this-month").count %></h4></div>
+			</div>
+			<div class="table-entry">
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="commissions"><h4>Commissions</h4><h4><%= number_to_currency(current_user.affiliate_commissions("this-month").sum(:amount)) %></h4></div>
+			</div>
+
+		</div>
+
+		<div class="table-stats affiliate-summary default-off" id="this-year">
+
+			<div class="table-entry">
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="referrals"><h4>Referrals</h4><h4><%= current_user.affiliate_referrals("this-year").count %></h4></div>
+			</div>
+			<div class="table-entry">
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="subscribers"><h4>Signups</h4><h4><%= current_user.affiliate_signups("this-year").count %></h4></div>
+			</div>
+			<div class="table-entry">
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="commissions"><h4>Commissions</h4><h4><%= number_to_currency(current_user.affiliate_commissions("this-year").sum(:amount)) %></h4></div>
+			</div>
+
+		</div>
+
+		<div class="table-stats affiliate-summary default-off" id="all-time">
+
+			<div class="table-entry">
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="referrals"><h4>Referrals</h4><h4><%= current_user.affiliate_referrals("all-time").count %></h4></div>
+			</div>
+			<div class="table-entry">
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="subscribers"><h4>Signups</h4><h4><%= current_user.affiliate_signups("all-time").count %></h4></div>
+			</div>
+			<div class="table-entry">
+				<div class="table-data affiliate-stats-header" data-affiliate-stat-section="commissions"><h4>Commissions</h4><h4><%= number_to_currency(current_user.affiliate_commissions("all-time").sum(:amount)) %></h4></div>
+			</div>
+
+		</div>
+
+		<br>
+		<br>
+
+		<div class="table-stats affiliate-stats referrals">
+
+			<table>
+
+				<tr>
+					<th>Date</th>
+					<th>IP Address</th>
+					<th>Referral URL</th>
+				</tr>
+
+				<% current_user.affiliate_referrals("this-month").each do |affiliate_referral| %>
+				
+					<tr class="affiliate-stat-row this-month">
+						<td><%= affiliate_referral.created_at.strftime("%b %d, %Y") %></td>
+						<td><%= affiliate_referral.ip_address %></td>
+						<td><%= affiliate_referral.referral_url %></td>
+					</tr>
+
+				<%end%>
+
+				<% current_user.affiliate_referrals("this-year").each do |affiliate_referral| %>
+					
+					<tr class="affiliate-stat-row this-year default-off">
+						<td><%= affiliate_referral.created_at.strftime("%b %d, %Y") %></td>
+						<td><%= affiliate_referral.ip_address %></td>
+						<td><%= affiliate_referral.referral_url %></td>
+					</tr>
+
+				<%end%>
+
+				<% current_user.affiliate_referrals("all-time").each do |affiliate_referral| %>
+					
+					<tr class="affiliate-stat-row all-time default-off">
+						<td><%= affiliate_referral.created_at.strftime("%b %d, %Y") %></td>
+						<td><%= affiliate_referral.ip_address %></td>
+						<td><%= affiliate_referral.referral_url %></td>
+					</tr>
+
+				<%end%>
+
+
+			</table>
+
+		</div>
+
+		<div class="table-stats affiliate-stats subscribers default-off">
+
+			<table>
+				
+				<tr>
+					<th>Date</th>
+					<th>Channel</th>
+					<th>Referral URL</th>
+				</tr>
+
+				<% current_user.affiliate_signups("all-time").each do |affiliate_signup| %>
+				
+					<tr class="affiliate-stat-row this-month">
+
+						<td><%= affiliate_signup.created_at.strftime("%b %d, %Y") %></td>
+						
+					</tr>
+
+				<%end%>
+
+				<% current_user.affiliate_signups("all-time").each do |affiliate_signup| %>
+					
+					<tr class="affiliate-stat-row this-year default-off">
+						
+						<td><%= affiliate_signup.created_at.strftime("%b %d, %Y") %></td>
+
+					</tr>
+
+				<%end%>
+
+				<% current_user.affiliate_signups("all-time").each do |affiliate_signup| %>
+					
+					<tr class="affiliate-stat-row all-time default-off">
+
+						<td><%= affiliate_signup.created_at.strftime("%b %d, %Y") %></td>
+
+					</tr>
+
+				<%end%>
+
+			</table>
+
+		</div>
+
+		<div class="table-stats affiliate-stats commissions default-off">
+
+			<table>
+				
+				<tr>
+					<th>Date</th>
+					<th>Type</th>
+					<th>Amount</th>
+				</tr>
+
+				<% current_user.affiliate_commissions("this-month").each do |affiliate_commission| %>
+				
+					<tr class="affiliate-stat-row this-month">
+						<td><%= affiliate_commission.created_at.strftime("%b %d, %Y") %></td>
+						<td><%= affiliate_commission.recurring %></td>
+						<td><%= affiliate_commission.amount %></td>
+					</tr>
+
+				<%end%>
+
+				<% current_user.affiliate_commissions("this-year").each do |affiliate_commission| %>
+					
+					<tr class="affiliate-stat-row this-year default-off">
+						<td><%= affiliate_commission.created_at.strftime("%b %d, %Y") %></td>
+						<td><%= affiliate_commission.recurring %></td>
+						<td><%= affiliate_commission.amount %></td>
+					</tr>
+
+				<%end%>
+
+				<% current_user.affiliate_commissions("all-time").each do |affiliate_commission| %>
+					
+					<tr class="affiliate-stat-row all-time default-off">
+						<td><%= affiliate_commission.created_at.strftime("%b %d, %Y") %></td>
+						<td><%= affiliate_commission.recurring %></td>
+						<td><%= affiliate_commission.amount %></td>
+					</tr>
+
+				<%end%>
+
+			</table>
+
+		</div>
+
+	</div>
+
+</div>

@@ -71,9 +71,9 @@ class ApplicationController < ActionController::Base
 
       affiliateReferral = AffiliateReferral.new
 
-      if User.where(:my_referral_code => params[:affid]).exists?
+      # allows repeats if User.where(:my_referral_code => params[:affid]).exists?
 
-      # elimanates duplicates if User.where(:my_referral_code => params[:affid]).exists? && !AffiliateReferral.where(:ip_address => request.remote_ip).exists?
+      if User.where(:my_referral_code => params[:affid]).exists? && !AffiliateReferral.where(:ip_address => request.remote_ip).exists?
 
 
         affiliateReferral.update(:ip_address => request.remote_ip, :referral_url => request.referrer, :affiliate_id => User.where(:my_referral_code => params[:affid]).last.id)

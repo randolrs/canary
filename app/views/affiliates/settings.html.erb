@@ -1,14 +1,14 @@
 <div class="content">
 
 	<%= form_for(current_user, url: registration_path(current_user), html: { method: :put, class: "edit_user_settings" }) do |f| %>
-		
+
 	    <div class="field">
 	      <%= f.label :email %><br />
 	      <%= f.email_field :email %>
 	    </div>
 
 	    <br />
-	    XXXX
+
 	    <div class="field">
 	      <%= f.label :my_referral_code %><br />
 	      <%= f.text_field :my_referral_code %>
@@ -28,7 +28,7 @@
 	    <br />
 
 	    <div class="actions">
-	      <%= f.submit "Update", class:"button large bright-blue-background" %>
+	      <%= f.submit "Update", class:"button large orange-background" %>
 	    </div>
 
 	<% end %>

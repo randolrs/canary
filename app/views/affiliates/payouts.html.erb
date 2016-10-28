@@ -1,0 +1,30 @@
+
+<div class="content">
+
+	<div class="padded-content">
+		
+		<p><b>Current Bank Account where You Receive Payments:</b></p>
+
+		<%# if @accounts.count > 0 %>
+
+			<%# @accounts.each do |account| %>
+
+				<div><%#account.bank_name + " account ending in " + account.last4 %></div>
+
+			<%#end%>
+
+		<%#else%>
+
+			<p>No bank account on file, please update.</p>
+
+		<%#end%>
+
+		<br>
+
+		<a class="button green-background medium modal-cta new-account-modal"><%#if @defaultaccount %>Update Payout Account<%#else%>Add Bank Account<%#end%></a>
+
+	</div>
+
+</div>
+
+<%= render'modals/new_account_modal'%>
