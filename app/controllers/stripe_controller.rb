@@ -14,7 +14,7 @@ class StripeController < ApplicationController
 
     #stripe_event.update(:stripe_id => event.id)
 
-    stripe_event.update(:stripe_id => 21)
+    stripe_event.update(:stripe_id => "test_21")
 
     stripe_event.save
 
