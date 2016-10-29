@@ -26,7 +26,7 @@ class StripeController < ApplicationController
     if event_json['livemode'] == false
 
 
-
+      event = Stripe::Event.retrieve(event_json["id"])
       stripe_event_id = event_json["id"]
 
       live = false
@@ -61,6 +61,8 @@ class StripeController < ApplicationController
           end
 
         end
+
+        
 
       elsif event.type == "invoice.payment_succeeded"
 
