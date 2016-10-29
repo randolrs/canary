@@ -69,6 +69,29 @@ class PagesController < ApplicationController
 		@hide_header = true
 		@hide_header_on_all_devices = true
 
+		if user_signed_in?
+
+			if current_user.is_artist
+
+				if current_user.billing_active
+
+					redirect_to root_path
+
+				end
+
+			else
+
+				redirect_to root_path
+
+			end
+
+		else
+
+			redirect_to root_path
+
+		end
+		
+
 	end
 
 
