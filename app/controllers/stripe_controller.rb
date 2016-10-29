@@ -4,13 +4,15 @@ class StripeController < ApplicationController
 
     def webhook
   
-      Stripe.api_key = "sk_test_xyxH2ODPhyoDwYtnrtPsPRYK"
-      
+      #Stripe.api_key = "sk_test_xyxH2ODPhyoDwYtnrtPsPRYK"
+
     # Retrieve the request's body and parse it as JSON
 
-    event_json = JSON.parse(request.body.read)
+    # only for live event_json = JSON.parse(request.body.read)
 
-    event = Stripe::Event.retrieve(event_json["id"])
+    #event = Stripe::Event.retrieve(event_json["id"])
+
+    event = Stripe::Event.retrieve("evt_00000000000000") #test only
 
     StripeEvent.create(id: event.id)
 
@@ -39,7 +41,7 @@ class StripeController < ApplicationController
     #stripe_event.save
 
     head :ok
-    Stripe.api_key = ENV['STRIPE_SECRET_KEY_LIVE']
+    #Stripe.api_key = ENV['STRIPE_SECRET_KEY_LIVE']
 
     rescue
       head :internal_server_error
