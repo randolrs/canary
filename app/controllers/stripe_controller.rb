@@ -8,7 +8,7 @@ class StripeController < ApplicationController
 
     else
 
-      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+      Stripe.api_key = ENV['STRIPE_SECRET_KEY_TEST']
 
     end
 
@@ -25,9 +25,10 @@ class StripeController < ApplicationController
 
     if event_json['livemode'] == false
 
-      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+      Stripe.api_key = ENV['STRIPE_SECRET_KEY_TEST']
 
       event = Stripe::Event.retrieve(event_json["id"])
+      
       stripe_event_id = event_json["id"]
 
       live = false
