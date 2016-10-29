@@ -4,7 +4,7 @@ class StripeController < ApplicationController
 
     def webhook
   
-
+      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
     # Retrieve the request's body and parse it as JSON
 
     event_json = JSON.parse(request.body.read)
@@ -38,7 +38,7 @@ class StripeController < ApplicationController
     #stripe_event.save
 
     head :ok
-
+    Stripe.api_key = ENV['STRIPE_SECRET_KEY_LIVE']
 
     rescue
       head :internal_server_error
