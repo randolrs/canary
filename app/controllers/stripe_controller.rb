@@ -12,7 +12,7 @@ class StripeController < ApplicationController
 
     end
 
-  
+
 
     def webhook
 
@@ -22,8 +22,6 @@ class StripeController < ApplicationController
 
 
     if event_json['livemode'] == false
-
-      Stripe.api_key = "sk_test_xyxH2ODPhyoDwYtnrtPsPRYK"
 
       stripe_event_id = event_json["id"]
 
