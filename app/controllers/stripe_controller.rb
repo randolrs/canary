@@ -41,7 +41,7 @@ class StripeController < ApplicationController
 
     end
 
-    
+
 
     if event.type == "invoice.payment_failed"
 
@@ -85,6 +85,8 @@ class StripeController < ApplicationController
     stripe_event.update(:stripe_id => stripe_event_id, :live => live)
 
     stripe_event.save
+
+    Stripe.api_key = ENV['STRIPE_SECRET_KEY_LIVE']
 
     head :ok
 
