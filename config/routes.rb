@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   get '/settings' => 'pages#settings', as: 'settings'
 
+  get '/affiliates' => 'affiliates#landing_page', as: 'affiliate_landing_page'
+
   get 'welcome' => 'pages#user_welcome'
 
   get 'balance' => 'pages#balance_payments', as: 'balance_payments'
