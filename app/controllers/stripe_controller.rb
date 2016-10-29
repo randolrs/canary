@@ -25,6 +25,7 @@ class StripeController < ApplicationController
 
     if event_json['livemode'] == false
 
+      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
 
       event = Stripe::Event.retrieve(event_json["id"])
       stripe_event_id = event_json["id"]
@@ -62,7 +63,7 @@ class StripeController < ApplicationController
 
         end
 
-        
+
 
       elsif event.type == "invoice.payment_succeeded"
 
