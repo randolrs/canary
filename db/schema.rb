@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028231817) do
+ActiveRecord::Schema.define(version: 20161029015946) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -227,8 +227,9 @@ ActiveRecord::Schema.define(version: 20161028231817) do
 
   create_table "stripe_events", force: :cascade do |t|
     t.string   "stripe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "stripe_customer_id"
   end
 
   create_table "stripe_user_customers", force: :cascade do |t|

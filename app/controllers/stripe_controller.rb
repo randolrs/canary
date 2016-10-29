@@ -16,14 +16,14 @@ class StripeController < ApplicationController
 
     stripe_event = StripeEvent.new
 
-    stripe_event.update(:stripe_id => event_json['id'])
+    stripe_event.update(:stripe_id => event_json['id'], :stripe_customer_id => event_json['data']['object']['customer'])
 
     #stripe_event.update(:id => "tester_time_666")
 
     stripe_event.save
 
 
-    # if event_json["type"] == "invoice.payment_failed"
+    if event_json["type"] == "invoice.payment_failed"
 
     #   if StripeCustomer.where(:stripe_customer_id => event.data.object.customer).exists?
 
@@ -39,7 +39,7 @@ class StripeController < ApplicationController
 
     #   end
 
-    # end
+    end
 
     #stripe_event.update(:stripe_id => event.id)
 
