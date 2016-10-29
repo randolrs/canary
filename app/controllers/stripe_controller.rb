@@ -14,11 +14,11 @@ class StripeController < ApplicationController
 
     #event = Stripe::Event.retrieve("evt_00000000000000") #test only
 
-    #StripeEvent.create(id: event_json["id"])
-
     stripe_event = StripeEvent.new
 
-    stripe_event.update(:id => event_json["id"])
+    #stripe_event.update(:id => event_json["id"])
+
+    stripe_event.update(:id => "tester_time_666")
 
     stripe_event.save
 
