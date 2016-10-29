@@ -2,6 +2,18 @@ class StripeController < ApplicationController
 
     protect_from_forgery :except => :webhook
 
+    if Rails.env == "production"
+  
+      Stripe.api_key = ENV['STRIPE_SECRET_KEY_LIVE']
+
+    else
+
+      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+
+    end
+
+  
+
     def webhook
 
     # Retrieve the request's body and parse it as JSON
