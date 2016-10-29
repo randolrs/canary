@@ -23,23 +23,23 @@ class StripeController < ApplicationController
     stripe_event.save
 
 
-    if event_json["type"] == "invoice.payment_failed"
+    # if event_json["type"] == "invoice.payment_failed"
 
-      if StripeCustomer.where(:stripe_customer_id => event.data.object.customer).exists?
+    #   if StripeCustomer.where(:stripe_customer_id => event.data.object.customer).exists?
 
-        stripe_customer = StripeCustomer.where(:stripe_customer_id => event.data.object.customer).last
+    #     stripe_customer = StripeCustomer.where(:stripe_customer_id => event.data.object.customer).last
 
-        if User.where(stripe_customer.user_id).exists?
+    #     if User.where(stripe_customer.user_id).exists?
           
-          user = User.find(stripe_customer.user_id)
+    #       user = User.find(stripe_customer.user_id)
 
-          user.update(:billing_active => false)
+    #       user.update(:billing_active => false)
 
-        end
+    #     end
 
-      end
+    #   end
 
-    end
+    # end
 
     #stripe_event.update(:stripe_id => event.id)
 
