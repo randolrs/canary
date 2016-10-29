@@ -10,13 +10,13 @@ class StripeController < ApplicationController
 
     event_json = JSON.parse(request.body.read)
 
-    event = Stripe::Event.retrieve(event_json["id"])
+    #event = Stripe::Event.retrieve(event_json["id"])
 
     #event = Stripe::Event.retrieve("evt_00000000000000") #test only
 
     stripe_event = StripeEvent.new
 
-    stripe_event.update(:id => event.id)
+    stripe_event.update(:id => event_json['id'])
 
     #stripe_event.update(:id => "tester_time_666")
 
