@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161029034340) do
+ActiveRecord::Schema.define(version: 20161029044540) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -167,6 +167,7 @@ ActiveRecord::Schema.define(version: 20161029034340) do
     t.boolean  "is_visible"
     t.text     "pickup_instructions"
     t.string   "sample_name"
+    t.boolean  "is_set_to_sold"
   end
 
   create_table "messages", force: :cascade do |t|

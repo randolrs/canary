@@ -26,6 +26,23 @@ ready = ->
                   checkbox = $(@).find('.select-item-checkbox')
                   checkbox.prop('checked', !checkbox.prop('checked'))
 
+            $(".mark-as-sold").click (window.event), ->
+                  itemID = $(@).data('item-id')
+                  $me = $(@)
+                  $.ajax
+                        url: "/item_art/mark_as_sold/#{itemID}"
+                        type: "GET"
+                        success: (data) ->
+                              console.log(data)
+                              if data.now_sold
+                                    $me.text('Sold')
+                                    $me.addClass('grey-background')
+                                    $me.removeClass('green-background')
+                              else
+                                    $me.text('Mark as Sold')
+                                    $me.addClass('green-background')
+                                    $me.removeClass('grey-background')
+
             $('.affiliate-summary-option').click (window.event), ->
                   $('.affiliate-summary-option').removeClass("selected")
                   $(@).addClass("selected")

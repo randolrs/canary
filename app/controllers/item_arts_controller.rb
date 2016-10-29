@@ -109,6 +109,35 @@ class ItemArtsController < ApplicationController
   def edit
   end
 
+  def mark_as_sold
+
+
+    if params[:itemID]
+
+      @item = ItemArt.where(id: params[:itemID]).first
+
+      if @item.is_set_to_sold
+
+        @item.update(:is_set_to_sold => false)
+
+        respond_to do |format|
+          format.js { render json: { :now_sold => false } , content_type: 'text/json' }
+        end
+
+      else
+
+        @item.update(:is_set_to_sold => true)
+
+        respond_to do |format|
+          format.js { render json: { :now_sold => true } , content_type: 'text/json' }
+        end
+
+      end
+        
+    end
+    
+  end
+
   # POST /item_arts
   # POST /item_arts.json
   def create

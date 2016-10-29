@@ -83,6 +83,7 @@ Rails.application.routes.draw do
 
   post '/stripe/webhook/artyam' => 'stripe#webhook', as: 'stripe_webhook'
 
+  get 'item_art/mark_as_sold/:itemID' => 'item_arts#mark_as_sold', as: 'mark_as_sold'
 
   post '/order/update_contact/:order_id/' => 'charges#update_contact_information', as: 'update_contact_for_order'
 

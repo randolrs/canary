@@ -1,4 +1,4 @@
-<% unless item_art.sold %>
+<% unless item_art.sold or item_art.is_set_to_sold %>
 	      
     <%= form_tag start_checkout_path do %>
 

@@ -229,6 +229,22 @@
     
 }
 
+.grey-background{
+	
+    box-shadow: inset 0px 1px 1px 0px rgba(200,200,200,0.3);
+    border: 1px solid #999;
+    color:#333;
+    text-transform: none;
+    background: -webkit-linear-gradient(#bbb, #999);
+    background: -moz-linear-gradient(#bbb, #999);
+    background: -o-linear-gradient(#bbb, #999);
+    background: linear-gradient(#bbb, #999);
+    text-shadow: 0 -1px 1px rgba(200,200,200,0.2);
+
+    border-radius: 3px;
+    
+}
+
 .red-background{
 	background-color: #F00000;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#F00000), to(#DC281E));
@@ -691,3 +707,12 @@ div#new-card-options{
 	display: block;
 	cursor: pointer;
 }
+
+a.mark-as-sold{
+	padding: 5px 25px;
+}
+
+a.mark-as-sold:hover{
+	color: #fff;
+}
+
