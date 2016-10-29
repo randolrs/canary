@@ -4,19 +4,19 @@ class StripeController < ApplicationController
 
     def webhook
   
-      Stripe.api_key = "sk_test_xyxH2ODPhyoDwYtnrtPsPRYK"
+    #Stripe.api_key = "sk_test_xyxH2ODPhyoDwYtnrtPsPRYK"
 
     # Retrieve the request's body and parse it as JSON
 
-    # only for live event_json = JSON.parse(request.body.read)
+    event_json = JSON.parse(request.body.read)
 
     #event = Stripe::Event.retrieve(event_json["id"])
 
-    event = Stripe::Event.retrieve("evt_00000000000000") #test only
+    #event = Stripe::Event.retrieve("evt_00000000000000") #test only
 
-    StripeEvent.create(id: event.id)
+    StripeEvent.create(id: event_json["id"])
 
-    if event.type == "invoice.payment_failed"
+    if event_json["type"] == "invoice.payment_failed"
 
       if StripeCustomer.where(:stripe_customer_id => event.data.object.customer).exists?
 
