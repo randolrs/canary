@@ -8,7 +8,7 @@ class StripeController < ApplicationController
 
     # Retrieve the request's body and parse it as JSON
 
-    event_json = JSON.parse(request.body.read)
+    #event_json = JSON.parse(request.body.read)
 
     #event = Stripe::Event.retrieve(event_json["id"])
 
@@ -51,7 +51,7 @@ class StripeController < ApplicationController
     #Stripe.api_key = ENV['STRIPE_SECRET_KEY_LIVE']
 
     rescue
-      head :internal_server_error
+      head :conflict
     end
 
 end
