@@ -4,7 +4,8 @@ class StripeController < ApplicationController
 
     def webhook
   
-      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+      Stripe.api_key = "sk_test_xyxH2ODPhyoDwYtnrtPsPRYK"
+      
     # Retrieve the request's body and parse it as JSON
 
     event_json = JSON.parse(request.body.read)
