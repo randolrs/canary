@@ -14,7 +14,14 @@ class StripeController < ApplicationController
 
     #event = Stripe::Event.retrieve("evt_00000000000000") #test only
 
-    StripeEvent.create(id: event_json["id"])
+    #StripeEvent.create(id: event_json["id"])
+
+    stripe_event = StripeEvent.new
+
+    stripe_event.update(:id => event_json["id"])
+
+    stripe_event.save
+
 
     if event_json["type"] == "invoice.payment_failed"
 
