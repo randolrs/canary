@@ -21,24 +21,17 @@ class StripeController < ApplicationController
     event_json = JSON.parse(request.body.read)
 
 
-
-
     if event_json['livemode'] == false
 
       Stripe.api_key = ENV['STRIPE_SECRET_KEY_TEST']
 
       event = Stripe::Event.retrieve(event_json["id"])
-      
+
       stripe_event_id = event_json["id"]
 
       live = false
 
-
-
-
     else
-
-
 
       event = Stripe::Event.retrieve(event_json["id"])
 
@@ -46,39 +39,21 @@ class StripeController < ApplicationController
 
       live = true
 
+    end
 
-
-      if event.type == "invoice.payment_failed"
-
-        stripe_customer_id = event.data.object.customer
-
-        if StripeUserCustomer.where(:stripe_customer_id => stripe_customer_id).exists?
     
-          if User.where(:id => stripe_user_customer.user_id).exists?
 
-            user = User.where(:id => stripe_user_customer.user_id).last
+    if event.type == "invoice.payment_failed"
 
-            user.update(:billing_active => false)
+      stripe_customer_id = event.data.object.customer
 
-          end
+      if StripeUserCustomer.where(:stripe_customer_id => stripe_customer_id).exists?
+  
+        if User.where(:id => stripe_user_customer.user_id).exists?
 
-        end
+          user = User.where(:id => stripe_user_customer.user_id).last
 
-
-
-      elsif event.type == "invoice.payment_succeeded"
-
-        stripe_customer_id = event.data.object.customer
-
-        if StripeUserCustomer.where(:stripe_customer_id => stripe_customer_id).exists?
-    
-          if User.where(:id => stripe_user_customer.user_id).exists?
-
-            user = User.where(:id => stripe_user_customer.user_id).last
-
-            user.update(:billing_active => true)
-
-          end
+          user.update(:billing_active => false)
 
         end
 
@@ -86,10 +61,23 @@ class StripeController < ApplicationController
 
 
 
+    elsif event.type == "invoice.payment_succeeded"
 
+      stripe_customer_id = event.data.object.customer
+
+      if StripeUserCustomer.where(:stripe_customer_id => stripe_customer_id).exists?
+  
+        if User.where(:id => stripe_user_customer.user_id).exists?
+
+          user = User.where(:id => stripe_user_customer.user_id).last
+
+          user.update(:billing_active => true)
+
+        end
+
+      end
 
     end
-
 
 
     stripe_event = StripeEvent.new
