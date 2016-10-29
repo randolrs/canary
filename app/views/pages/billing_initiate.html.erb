@@ -2,7 +2,15 @@
 
 	<div class="full-centered-content">
 
-		<h4 class="centered box-header">Enter Your Billing Information</h4>
+		<% if current_user.billing_initiated %>
+
+			<h4 class="centered box-header">Please Update Your Billing Information</h4>
+
+		<%else%>
+
+			<h4 class="centered box-header">Enter Your Billing Information</h4>
+
+		<%end%>
 		
 		<div class="box-content">
 
@@ -95,11 +103,20 @@
 
 			<div class="centered">
 
-				<button class="button large blue-background">Create Account</button>
+				<% if current_user.billing_initiated %>
+
+					<button class="button large bright-blue-background">Update</button>
+
+				<%else%>
+
+					<button class="button large bright-blue-background">Create Account</button>
+
+				<%end%>
+
 
 			</div>
 
-			<% end %>
+		<% end %>
 
 
 		<div class="centered">
