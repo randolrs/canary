@@ -1,8 +1,16 @@
 <div class="full-centered-container">
 
 	<div class="full-centered-content">
+		
+		<% if current_user.billing_initiated %>
 
-		<h4 class="centered box-header">Enter Your Billing Information</h4>
+			<h4 class="centered box-header">Please Update Your Billing Information</h4>
+
+		<%else%>
+
+			<h4 class="centered box-header">Enter Your Billing Information</h4>
+
+		<%end%>
 		
 		<div class="box-content">
 

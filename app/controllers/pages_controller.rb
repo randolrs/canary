@@ -14,7 +14,7 @@ class PagesController < ApplicationController
 			
 			if current_user.is_artist
 
-				if current_user.billing_initiated or current_user.is_admin
+				if (current_user.billing_initiated && current_user.billing_active) or current_user.is_admin
 
 					if current_user.display_name or current_user.is_admin
 
@@ -92,7 +92,7 @@ class PagesController < ApplicationController
 
 	# def affiliates/settings
 
-		
+
 	# end
 
 

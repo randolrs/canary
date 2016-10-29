@@ -29,7 +29,7 @@ class BillingController < ApplicationController
   		:plan => "standard"
 		)
 
-		current_user.update(:billing_initiated => true, :stripe_subscription_customer_id => customer.id)
+		current_user.update(:billing_initiated => true, :billing_active => true, :stripe_subscription_customer_id => customer.id)
 
 		stripe_user_customer = StripeUserCustomer.new
 
