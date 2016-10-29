@@ -16,7 +16,7 @@ class StripeController < ApplicationController
 
     stripe_event = StripeEvent.new
 
-    stripe_event.update(:id => event_json['id'])
+    stripe_event.update(:stripe_id => event_json['id'])
 
     #stripe_event.update(:id => "tester_time_666")
 
