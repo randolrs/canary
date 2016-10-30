@@ -14,6 +14,9 @@ class PagesController < ApplicationController
 
 			if current_user.is_artist
 
+				
+
+
 				if !(current_user.trial_expired && !current_user.billing_active) or current_user.is_admin
 
 					if current_user.display_name or current_user.is_admin
@@ -44,6 +47,11 @@ class PagesController < ApplicationController
 
 					redirect_to billing_information_path
 				end
+
+
+
+
+
 
 			elsif current_user.is_affiliate
 

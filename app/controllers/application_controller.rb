@@ -73,22 +73,17 @@ class ApplicationController < ActionController::Base
       root_path
   end
 
+
+
+
   def check_if_trial_expired
 
-
-    if current_user.trial_end_date
-
-      if Time.now < current_user.trial_end_date
-
-        billing_information_path
-
-      end
-
-
-    end
+    
 
 
   end
+
+
 
 
 
