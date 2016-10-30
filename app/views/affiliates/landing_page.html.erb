@@ -10,7 +10,7 @@
 
 			<br>
 
-			<a href="<%= signup_for_affiliates_path %>" class="cta red-background button large">Signup</a>
+			<a href="<%= signup_for_affiliates_path %>" class="cta red-background button large">Signup to Be An Affiliate</a>
 
 		</div>
 
@@ -24,7 +24,7 @@
 
 		<h3>What does ArtYam do?</h3>
 
-		<p>ArtYam helps artists sell more art in non-gallery venues like cafes, retail shops, restaurants, banks, hospitals, etc.  ArtYam gives artists control of their marketing in any venue by engaging collectors with information about the themselves and their artwork, as well as the ability to instantly purchase their artwork online.</p>
+		<p>ArtYam helps artists sell more art in non-gallery venues like cafes, retail shops, restaurants, banks, hospitals, etc.  ArtYam puts artists in control of their marketing in any venue by giving them the tools to directly engage art collectors with information about themselves and their artwork through online tear sheets.  ArtYam also provides payment processing capabilities that enable art collectors to instantly buy an artist's work online commission-free.</p>
 
 	</div>
 
@@ -43,27 +43,27 @@
 
 		<ol class="landing-page-list">
 			
-			<li>Lack of staff incentive and knowledge</li>
+			<li><span class="red-text">Challenge #1:</span> Venue staff often lack the incentive and/or knowledge to sell art</li>
 
-			<p>For most non-gallery venues, selling art is not their primary business; therefore, the venue staff very little incentive to sell an artist's work or even know anything about it.  This means many missed opportunities to convert a potential buyer from "interested" to "buying".</p>
+			<p>For most non-gallery venues, selling art is not their primary business; therefore, the venue staff have very little incentive to sell an artist's work or even know anything about it.  This means many missed opportunities to convert a potential buyer from "interested" to "buying" because they cannot get more information about the artist or their work.</p>
 
-			<p>ArtYam solves this problem by creating online tear sheets  that provide potential buyers with instant access to additional information about artists and their work as well as online purchasing options.</p>
-
-			<br>
-
-			<li>Lack of ability to engage potential buyers after they leave the venue</li>
-
-			<p>Traditional advice on engaging collectors after they leave a venue where an artist's work is displayed is to provide something for the collector to take with them, such as a business card or printed promotional material.  However, most artists know these printed materials are ineffective because they have a tendency to get misplaced, either by the venue or the potential buyer.</p>
-
-			<p>ArtYam solves this problem by giving art collectors the ability to email a detailed tear sheet for an artist's work to themselves to review later. Additionally, the ability to capture collectors' emails means artists can followup with them in the future about new shows, etc.</p>
+			<p><span class="green-text paragraph-intro">Solution:</span> ArtYam creates online tear sheets that provide potential buyers with instant access to additional information about artists and their work. These tear sheets provide information that simply cannot fit on printed placards below a display.</p>
 
 			<br>
 
-			<li>No instant purchasing options</li>
+			<li><span class="red-text">Challenge #2:</span> It's difficult to engage potential buyers after they leave the venue</li>
 
-			<p> Artists frequently lose sales between the time an art collector contacts them through traditional channels (like email) and when the artist redirects them to a third party payment processor like Paypal or SquareUp. Collectors may lose interest or simply forget to complete the transaction.</p>  
+			<p>Traditional advice on engaging collectors after they leave a venue where an artist's work is displayed is to provide something for the collector to take with them, such as a business card or printed promotional material.  However, these printed materials  have limited effectiveness because they have a tendency to get misplaced, either by the venue or the potential buyer.</p>
 
-			<p>ArtYam solves this problem by giving collectors the ability to instantly buy an artist's work online with any major credit card.</p>
+			<p><span class="green-text paragraph-intro">Solution:</span> ArtYam gives art collectors the ability to email to themselves a detailed tear sheet for an artist's work in order to review later. Additionally, ArtYam sends follow-up emails to determine if a collector is still interested in buying the piece.</p>
+
+			<br>
+
+			<li><span class="red-text">Challenge #3:</span> No instant purchasing options</li>
+
+			<p>Artists frequently lose sales between the time an art collector contacts them through traditional channels (like email) and when the artist redirects them to a third party payment processor, like Paypal or SquareUp. Collectors may lose interest or simply forget to complete the transaction.</p>  
+
+			<p><span class="green-text paragraph-intro">Solution:</span> ArtYam gives collectors the option to buy an artist's work on-the-spot with any major credit card through the artwork's easily accessible online tear sheet.</p>
 
 		</ol>
 
@@ -78,20 +78,35 @@
 
 		<h3>How does ArtYam work?</h3>
 
-		<p><b>1. Artists create ArtYam tear sheets for their artwork.</b> Artists upload a photo of their work to ArtYam along with a few basic details, such as the title and a description.  ArtYam then generates an online tear sheet for the artwork where collectors can learn more about the artwork and the artist, as well as buy the piece online. Setting up an ArtYam tear sheet takes about three minutes.</p>
+		<br>
 
-		<%= link_to direct_link_to_item_art_path("62b1") do %>
+		<ol class="landing-page-list">
 			
-			<div>
-				<img class="home-page-sample-artwork" src="https://s3.amazonaws.com/canaryair/home-page-sample-artwork-page.jpg"></img>
-				<p class="centered"><%= link_to "ArtYam.com/62b1", direct_link_to_item_art_path("62b1") %> </p>
-			</div>
+			<li>Artists create ArtYam tear sheets for their artwork.</li>
 
-		<%end%>
+			<p>Artists upload a photo of their work to ArtYam along with a few basic details, such as the title and a description.  ArtYam then generates an online tear sheet for the artwork where collectors can learn more about the artwork and the artist, as well as buy the piece online. Setting up an ArtYam tear sheet takes about three minutes.</p>
 
-		<p><b>2.ArtYam provides a short link to the artist's tear sheet that is easy to include in displays.</b> Artists include their ArtYam links (i.e. <%= link_to "ArtYam.com/62b1", direct_link_to_item_art_path("62b1") %>) in the placard for their display, typically below the title, dimensions, and price.  This makes the ArtYam tear sheet for the piece instantly accessible to anyone that sees the piece.</p>
+			<%= link_to direct_link_to_item_art_path("62b1") do %>
+			
+				<div>
+					<img class="home-page-sample-artwork" src="https://s3.amazonaws.com/canaryair/home-page-sample-artwork-page.jpg"></img>
+					<p class="centered"><%= link_to "ArtYam.com/62b1", direct_link_to_item_art_path("62b1") %> </p>
+				</div>
 
-		<p><b>3. ArtYam tear sheets engage art collectors.</b> In addition to providing additional information about the artwork and the artist, ArtYam tear sheets give art collectors the ability to email the tear sheet to themselves to review later and purchase the art instantly using any major credit card. ArtYam forwards all relevant buyer contact information to the artist and remits proceeds from sales to the artist within 2 business days.</p>
+			<%end%>
+
+
+			<li>ArtYam provides a short, readable links to the artist's tear sheets that they include along with the placard in their display.</li>
+
+			<p>Artists include their ArtYam links (i.e. <%= link_to "ArtYam.com/62b1", direct_link_to_item_art_path("62b1") %>) in the placard for their display, typically below the title, dimensions, and price.  This makes the ArtYam tear sheet for the piece instantly accessible anyone that sees the display on any device.</p>
+
+			<br>
+
+			<li>ArtYam tear sheets engage art collectors.</li>
+
+			<p> In addition to providing additional information about the artwork and the artist, ArtYam tear sheets give art collectors the ability to email the tear sheet to themselves to review later and purchase the art online using any major credit card. ArtYam forwards all relevant buyer contact information to the artist and remits proceeds from sales to the artist within 2 business days.</p>  
+
+		</ol>
 
 	</div>
 
@@ -117,7 +132,9 @@
 
 		<h3>How much does ArtYam cost?</h3>
 
-		<p>ArtYam costs $11/month (plus a 3% credit card processing fee for all sales completed through ArtYam). ArtYam charges no additional commissions and does not limit the number of pieces an artists can sell through ArtYam.</p>
+		<p>ArtYam costs $11/month, plus a 3% credit card processing fee for all sales completed through ArtYam. ArtYam charges no additional commissions and does not limit the number of pieces an artists can sell through ArtYam.</p>
+
+		<p>ArtYam affiliates receive 10% commission, or $1.10, per month, per customer for the life of the customer.</p>
 
 	</div>
 
