@@ -2,7 +2,7 @@
 
 	<% items.each do |item| %>
 
-		<div class="entry <% if columns == 2 %>col-2<%end%>">
+		<div class="entry <% if image_only %>image-only<%end%><% if columns == 2 %>col-2<%end%>">
 			
 			<% if user_signed_in? %>
 
