@@ -57,6 +57,20 @@ class User < ActiveRecord::Base
 
   end
 
+  def trial_expired
+
+    if self.trial_end_date
+
+      return Time.now > self.trial_end_date
+
+    else
+
+      return false
+
+    end
+
+  end
+
   def affiliate_referrals(time_period)
 
     all_affiliate_referrals = AffiliateReferral.where(:affiliate_id => self.id)

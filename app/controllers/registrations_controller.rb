@@ -23,8 +23,6 @@ class RegistrationsController < Devise::RegistrationsController
 
     resource.save
 
-    
-
     if params[:purchase_id]
 
         if Purchase.exists?(:id => params[:purchase_id])
@@ -56,12 +54,19 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     yield resource if block_given?
+    
     if resource.persisted?
 
       if resource.active_for_authentication?
         #UserMailer.welcome_email(resource).deliver_later
 
         if params[:is_artist]
+
+          @trial_end_date = Time.now + 14.days
+
+          resource.update(:trial_end_date => @trial_end_date)
+          
+          #redirect_to initiate_trial_subscription_path and return
 
             if AffiliateReferral.where(:ip_address => request.remote_ip).exists?
 

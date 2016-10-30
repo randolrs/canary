@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-	#skip_before_filter :verify_authenticity_token #####****this is a workaround with POSSIBLE SECURITY GAPS####***
+	#skip_before_filter :verify_authenticity_token #####****this is a workaround with POSSIBLE SECURITY GAPS####**
 
 	def home
 
@@ -11,10 +11,10 @@ class PagesController < ApplicationController
 		@hide_return_to_home = true
 
 		if user_signed_in?
-			
+
 			if current_user.is_artist
 
-				if (current_user.billing_initiated && current_user.billing_active) or current_user.is_admin
+				if !(current_user.trial_expired && !current_user.billing_active) or current_user.is_admin
 
 					if current_user.display_name or current_user.is_admin
 
@@ -39,6 +39,7 @@ class PagesController < ApplicationController
 
 					end
 
+
 				else
 
 					redirect_to billing_information_path
@@ -54,10 +55,9 @@ class PagesController < ApplicationController
 
 			end
 
+
 		else
 
-			#@hide_header_on_all_devices = true
-			#@hide_header = true
 			@hide_footer = true
 
 		end

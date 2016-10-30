@@ -27,11 +27,13 @@ Rails.application.routes.draw do
 
   get '/affiliates' => 'affiliates#landing_page', as: 'affiliate_landing_page'
 
+  get 'initiate_trial_subscription' => 'subscriptions#initiate_subscription'
+
   get 'welcome' => 'pages#user_welcome'
 
   get 'balance' => 'pages#balance_payments', as: 'balance_payments'
 
-  get 'billing' => 'pages#billing_initiate', as: 'billing_information'
+  get 'billing' => 'billing#billing_information', as: 'billing_information'
 
   get '/:search_code' => 'item_arts#direct_link', as: 'direct_link_to_item_art'
 
@@ -70,7 +72,6 @@ Rails.application.routes.draw do
   get 'dashboard/inventory' => 'pages#my_work', as: 'portfolio'
 
   get 'dashboard/engagement' => 'pages#engagement', as: 'engagement'
-
 
 
   post 'update_stripe_account' => 'pages#update_stripe_account'

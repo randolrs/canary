@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161029044540) do
+ActiveRecord::Schema.define(version: 20161030095328) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -281,6 +281,8 @@ ActiveRecord::Schema.define(version: 20161029044540) do
     t.string   "my_referral_code"
     t.string   "stripe_subscription_customer_id"
     t.boolean  "billing_active"
+    t.boolean  "billing_information_needed"
+    t.datetime "trial_end_date"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

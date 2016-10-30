@@ -1,17 +1,17 @@
 class StripeController < ApplicationController
 
-    protect_from_forgery :except => :webhook
-
-    if Rails.env == "production"
   
-      Stripe.api_key = ENV['STRIPE_SECRET_KEY_LIVE']
+  protect_from_forgery :except => :webhook
 
-    else
+  if Rails.env == "production"
 
-      Stripe.api_key = ENV['STRIPE_SECRET_KEY_TEST']
+    Stripe.api_key = ENV['STRIPE_SECRET_KEY_LIVE']
 
-    end
+  else
 
+    Stripe.api_key = ENV['STRIPE_SECRET_KEY_TEST']
+
+  end
 
 
   def webhook
@@ -51,7 +51,8 @@ class StripeController < ApplicationController
 
           user = User.where(:stripe_subscription_customer_id => stripe_user_customer.user_id).last
 
-          user.update(:billing_active => false)
+
+          user.update(:billing_active => false, :billing_information_needed => true)
 
       end
 
@@ -65,7 +66,7 @@ class StripeController < ApplicationController
 
         user = User.where(:stripe_subscription_customer_id => stripe_user_customer.user_id).last
 
-        user.update(:billing_active => true)
+        user.update(:billing_active => true, :billing_information_needed => false)
 
       end
 

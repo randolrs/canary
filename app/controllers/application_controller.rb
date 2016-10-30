@@ -12,15 +12,16 @@ class ApplicationController < ActionController::Base
 
   end
 
-  before_action :check_for_stripe_account, if: :user_signed_in?
-
-  before_action :check_for_billing_information, if: :user_signed_in?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   before_action :check_for_affiliate
 
+  before_action :check_for_stripe_account, if: :user_signed_in?
+
+  #before_action :check_if_trial_expired, if: :user_signed_in?
+
   protect_from_forgery with: :exception
 
-  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
 
@@ -28,11 +29,13 @@ class ApplicationController < ActionController::Base
 
       if current_user.is_artist
 
-        if current_user.billing_initiated or current_user.is_admin
+
+
+        unless current_user.billing_information_needed or Time.now > current_user.trial_end_date
 
           if current_user.display_name
 
-    		    root_path
+            root_path
           
           else
 
@@ -45,6 +48,11 @@ class ApplicationController < ActionController::Base
           billing_information_path
 
         end
+
+
+
+
+
 
       elsif current_user.is_affiliate
 
@@ -64,6 +72,25 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(user)
       root_path
   end
+
+  def check_if_trial_expired
+
+
+    if current_user.trial_end_date
+
+      if Time.now < current_user.trial_end_date
+
+        billing_information_path
+
+      end
+
+
+    end
+
+
+  end
+
+
 
   def check_for_affiliate
 
@@ -96,17 +123,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_in, keys: registration_params)
     devise_parameter_sanitizer.permit(:account_update, keys: registration_params)
   
-  end
-
-  
-  def check_for_billing_information
-
-      unless current_user.billing_initiated
-
-        #redirect_to billing_information_path
-
-      end
-
   end
 
 

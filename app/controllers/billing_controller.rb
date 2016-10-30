@@ -19,37 +19,79 @@ class BillingController < ApplicationController
 			},
 		)
 
-		customer = Stripe::Customer.create(
-			:card  => token.id
-		)
 
-		if Rails.env == "production"
-  
-      		@plan_name = "unlimited"
+		if current_user.stripe_subscription_customer_id
 
-    	else
+			customer = Stripe::Customer.retrieve(current_user.stripe_subscription_customer_id)
 
-			@plan_name = "standard"      		
+			if customer
 
-    	end
+				customer.sources.create({:source => token.id})
 
-		plan = Stripe::Subscription.create(
-  		:customer => customer.id,
-  		:plan => @plan_name
-		)
+			else
 
-		current_user.update(:billing_initiated => true, :billing_active => true, :stripe_subscription_customer_id => customer.id)
+				customer = Stripe::Customer.create(
+					:card  => token.id
+				)
 
-		stripe_user_customer = StripeUserCustomer.new
+			end
 
-		stripe_user_customer.update(:stripe_customer_id => customer.id, :user_id => current_user.id)
 
-		billing_record = StripeBillingUserSubscription.new
+			current_user.update(:billing_initiated => true, :billing_active => true)
 
-		billing_record.update(:stripe_customer_id => customer.id, :user_id => current_user.id, :plan_id => plan.id, :active => true)
+		else
 
-		billing_record.save
+			customer = Stripe::Customer.create(
+      			:description  => "ArtYam Subscription",
+      			:card => token.id
+    		)
 
+		    if Rails.env == "production"
+		  
+		      @plan_name = "14freetrial"
+
+		    else
+
+		      @plan_name = "standard"         
+
+		    end
+
+		    plan = Stripe::Subscription.create(
+		      :customer => customer.id,
+		      :plan => @plan_name
+		    )
+		    
+		    current_user.update(:stripe_subscription_customer_id => customer.id, :billing_initiated => true, :billing_active => true)
+
+		    stripe_user_customer = StripeUserCustomer.new
+
+		    stripe_user_customer.update(:stripe_customer_id => customer.id, :user_id => current_user.id)
+
+
+		end
+
+
+		if current_user.billing_information_needed
+
+			stripe_invoice = Stripe::Invoice.list(:limit => 1, :customer => customer.id)
+		
+			if stripe_invoice
+
+				stripe_invoice.pay
+
+				billing_record = StripeBillingUserSubscription.new
+
+				billing_record.update(:stripe_customer_id => customer.id, :user_id => current_user.id, :active => true)
+
+				billing_record.save
+
+			end
+
+			current_user.update(:billing_initiated => true, :billing_active => true)
+
+		end
+
+		
 		if AffiliateSignup.where(:user_id => current_user.id).exists?
 
 			affiliate_signup = AffiliateSignup.where(:user_id => current_user.id).last
@@ -62,16 +104,9 @@ class BillingController < ApplicationController
 
 		end
 
-		unless current_user.display_name
 
-			redirect_to welcome_path
+		redirect_to root_path
 
-		else
-
-
-			root_path
-
-		end
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message

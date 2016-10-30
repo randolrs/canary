@@ -21,6 +21,16 @@
 				
 					<a class="name" href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "sidebar-profile-image"%><br><%= current_user.display_name %></a>
 
+					<br>
+
+					<% unless current_user.trial_expired %>
+
+						<a>Free Trial Expires:</a>
+						<br>
+						<a><%= current_user.trial_end_date.strftime("%m/%d") %></a>
+
+					<%end%>
+
 				<%end%>
 
 				<% if current_user.is_artist %>
