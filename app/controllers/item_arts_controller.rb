@@ -33,6 +33,17 @@ class ItemArtsController < ApplicationController
 
     @item_art = ItemArt.search(params[:search_code].downcase)
 
+    # unless user_signed_in?
+
+    #   unless @item_art.is_sample
+
+    #     @hide_header = true
+    #     @hide_header_on_all_devices = true
+
+    #   end
+
+    # end
+
     if @item_art
 
       @view = View.new

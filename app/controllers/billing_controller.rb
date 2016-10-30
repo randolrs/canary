@@ -23,10 +23,19 @@ class BillingController < ApplicationController
 			:card  => token.id
 		)
 
+		if Rails.env == "production"
+  
+      		@plan_name = "unlimited"
+
+    	else
+
+			@plan_name = "standard"      		
+
+    	end
 
 		plan = Stripe::Subscription.create(
   		:customer => customer.id,
-  		:plan => "standard"
+  		:plan => @plan_name
 		)
 
 		current_user.update(:billing_initiated => true, :billing_active => true, :stripe_subscription_customer_id => customer.id)

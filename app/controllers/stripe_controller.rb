@@ -46,16 +46,12 @@ class StripeController < ApplicationController
     if event.type == "invoice.payment_failed"
 
       stripe_customer_id = event.data.object.customer
-
-      if StripeUserCustomer.where(:stripe_customer_id => stripe_customer_id).exists?
   
-        if User.where(:id => stripe_user_customer.user_id).exists?
+        if User.where(:stripe_subscription_customer_id => stripe_user_customer.user_id).exists?
 
-          user = User.where(:id => stripe_user_customer.user_id).last
+          user = User.where(:stripe_subscription_customer_id => stripe_user_customer.user_id).last
 
           user.update(:billing_active => false)
-
-        end
 
       end
 
@@ -64,16 +60,12 @@ class StripeController < ApplicationController
     elsif event.type == "invoice.payment_succeeded"
 
       stripe_customer_id = event.data.object.customer
-
-      if StripeUserCustomer.where(:stripe_customer_id => stripe_customer_id).exists?
   
-        if User.where(:id => stripe_user_customer.user_id).exists?
+      if User.where(:stripe_subscription_customer_id => stripe_user_customer.user_id).exists?
 
-          user = User.where(:id => stripe_user_customer.user_id).last
+        user = User.where(:stripe_subscription_customer_id => stripe_user_customer.user_id).last
 
-          user.update(:billing_active => true)
-
-        end
+        user.update(:billing_active => true)
 
       end
 
