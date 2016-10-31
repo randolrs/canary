@@ -12,6 +12,159 @@
 
 <%end%>
 
+<div class="content has-fixed-bottom-cta">
+
+  <%# render 'item_arts/show_header' %>
+
+  <div class="content-column primary">
+
+    <div class="hide-on-mobile">
+
+      <div class="left">
+
+        <h2><%= @item_art.name %></h2>
+
+      </div>
+
+      <div class="right">
+
+        <h4><%= number_to_currency(@item_art.price, precision: 0) %></h4>
+
+      </div>
+
+      <p>by <% unless @item_art.is_sample && @item_art.sample_name %><%= link_to @item_art.user.display_name, profile_path(@item_art.user.display_name) %><%else%><%= @item_art.sample_name %><%end%></p>
+      
+      <br>
+
+    </div>
+
+    <div class="item-main-image-container">
+      <%= image_tag @item_art.image.url, class: "item-art-main-image" %>
+    </div>
+
+    <div class="hide-on-mobile">
+
+      <div class="centered">
+
+        <br>
+
+        <p class="item-detail centered"><%= @item_art.medium %></p>
+
+        <p class="item-detail centered"><%= @item_art.height.to_i %> H X <%= @item_art.width.to_i %> W <% if @item_art.length %> X <%= @item_art.length.to_i %> L<%end%></p>
+
+        <br>
+
+      </div>
+      
+    </div>
+
+  </div>
+
+  <div class="content-column secondary left-border">
+
+    <div class="centered mobile-only">
+      
+      <p class="item-detail centered"><h2><%= @item_art.name %></h2></p>
+
+      <p class="item-detail centered">by <span class="artist-name"><% unless @item_art.is_sample && @item_art.sample_name %><%= link_to @item_art.user.display_name, profile_path(@item_art.user.display_name) %><%else%><%= @item_art.sample_name %><%end%></span></p>
+
+      <p class="item-detail centered"><%= @item_art.medium %></p>
+
+      <p class="item-detail centered"><%= @item_art.height.to_i %> H X <%= @item_art.width.to_i %> W <% if @item_art.length %> X <%= @item_art.length.to_i %> L<%end%></p>
+
+    </div>
+
+    <div class="item-side-panel" id="info">
+
+<!--     <p><%# @item_art.search_code %></p> -->
+    
+    <div class="hide-on-mobile">
+
+      <%= render :partial => 'item_arts/buy_cta', :locals => {:item_art => @item_art} %>
+
+    </div>
+
+    <div class="mobile-only">
+
+      <%= render :partial => 'item_arts/fixed_mobile_cta', :locals => {:item_art => @item_art} %>
+
+    </div>
+
+    <% if @item_art.description.length > 0 %>
+    
+      <h4 class="text-header-underline">About "<%= @item_art.name %>"</h4>
+
+      <p><%= @item_art.description %></p>
+
+      <br>
+
+    <%end%>
+
+    <% if @item_art.user.about.length > 0 %>
+
+      <h4 class="text-header-underline">About the Artist</h4>
+
+      <p><% unless @item_art.is_sample && @item_art.sample_name %><%= @item_art.user.about %><%else%><%= @item_art.sample_name %> is an innovative artist. The rest of this section is sample text.  This section is fully editable by the artist and typically includes their artist statement.<%end%></p>
+
+      <br>
+
+    <%end%>
+
+    <div class="button-container">
+      
+        <!-- <a class="button wide large red-frame modal-cta email-to-me-modal">Email this to Me</a> -->
+
+        <a class="button wide large red-frame">Email this to Me</a>
+    
+    </div>
+
+    <% if @more_work_from_artist.count > 0 %>
+    
+      <h4 class="text-header-underline">More Work by <% unless @item_art.is_sample && @item_art.sample_name %><%= link_to @item_art.user.display_name, profile_path(@item_art.user.display_name) %><%else%><%= @item_art.sample_name %><%end%></h4>
+
+      <div class="portfolio">
+
+          <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => true, :columns => 3} %>
+
+      </div>
+
+    <%end%>
+
+  </div>
+
+  </div>
+
+
+</div>
+
+<% if user_signed_in? %>
+  
+  <%= render 'messages/modal_form' %>
+
+<%else%>
+  
+  <%# render :partial => 'modals/email_to_me', :locals => {:item => @item_art} %>
+
+<%end%>
+
+
+
+
+
+<% if flash[:error] %>
+
+  <div class="notice red">
+
+        <span class="glyphicon glyphicon-remove dismiss-parent"></span>
+
+        <p class="notice-content">
+          <span class="glyphicon glyphicon-exclamation-sign"></span> <%= flash[:error] %>
+        </p>
+
+  </div>
+
+<%end%>
+
 <div class="artwork-container">
 
 
@@ -76,85 +229,3 @@
 
 
   </div>
-
-
-  <div class="artwork-image">
-
-    <div class="artwork-image-container">
-
-      <%= image_tag @item_art.image.url, class: "artwork-main-image" %>
-
-      <div class="artwork-actions centered">[actions]</div>
-
-    </div>
-
-    <div class="artwork-about-section">
-
-      <% if @item_art.description.length > 0 %>
-    
-        <h4 class="text-header-underline">About <span class="artwork-name"><%= @item_art.name %></span></h4>
-
-        <p><%= @item_art.description %></p>
-
-      <%end%>
-
-    </div>
-
-    <div class="artwork-about-gallery-section">
-    
-        <h3>[Gallery name]</h3>
-
-        <p>[City | State]</p>
-
-        <p><%= @item_art.description %></p>
-
-    </div>
-
-
-    <div class="artwork-about-artist-section">
-
-      <% if @item_art.user.about.length > 0 %>
-
-        <h4 class="text-header-underline">About the Artist</h4>
-
-        <p><% unless @item_art.is_sample && @item_art.sample_name %><%= @item_art.user.about %><%else%><%= @item_art.sample_name %> is an innovative artist. The rest of this section is sample text.  This section is fully editable by the artist and typically includes their artist statement.<%end%></p>
-
-      <%end%>
-
-    </div>
-
-
-     <div class="artwork-more-work-section">
-
-        <% if @more_work_from_artist.count > 0 %>
-    
-          <h4 class="text-header-underline">More Work by <% unless @item_art.is_sample && @item_art.sample_name %><%= link_to @item_art.user.display_name, profile_path(@item_art.user.display_name) %><%else%><%= @item_art.sample_name %><%end%></h4>
-
-          <div class="portfolio">
-
-              <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => true, :columns => 3} %>
-
-          </div>
-
-        <%end%>
-
-
-     </div>
-
-
-  </div>
-
-
-
-</div>
-
-
-<% if user_signed_in? %>
-  
-  <%= render 'messages/modal_form' %>
-
-<%else%>
-  
-  <%# render :partial => 'modals/email_to_me', :locals => {:item => @item_art} %>
-
-<%end%>
