@@ -19,8 +19,9 @@
    <div class="artwork-info">
 
     <div class="detail-section">
-    
-      <% unless @item_art.is_sample && @item_art.sample_name %><%= link_to @item_art.user.display_name, profile_path(@item_art.user.display_name), class: "artist-name" %><%else%><%= @item_art.sample_name class: "artist-name" %><%end%>
+      
+      <a class="artist-name">[Artist Name]</a>
+      <%# unless @item_art.is_sample && @item_art.sample_name %><%# link_to @item_art.user.display_name, profile_path(@item_art.user.display_name), class: "artist-name" %><%#else%><%# @item_art.sample_name class: "artist-name" %><%#end%>
     
     </div>
 
@@ -83,6 +84,8 @@
 
       <%= image_tag @item_art.image.url, class: "artwork-main-image" %>
 
+      <div class="artwork-actions centered">[actions]</div>
+
     </div>
 
     <div class="artwork-about-section">
@@ -94,6 +97,16 @@
         <p><%= @item_art.description %></p>
 
       <%end%>
+
+    </div>
+
+    <div class="artwork-about-gallery-section">
+    
+        <h3>[Gallery name]</h3>
+
+        <p>[City | State]</p>
+
+        <p><%= @item_art.description %></p>
 
     </div>
 
