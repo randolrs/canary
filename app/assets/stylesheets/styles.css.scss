@@ -4,13 +4,28 @@
 
 @import 'https://fonts.googleapis.com/css?family=Lobster';
 
-body{
-    
-    h1{
+@import url('https://fonts.googleapis.com/css?family=Martel');
 
-        font-size: 3em;
-        margin: 0 0 0.8em 0;
-  
-    }
+html{
+	
+
+	body{
+
+		font-family: 'Lato', sans-serif;
+    	font-family: 'Martel', serif;
+
+	    
+	    h1{
+
+	        font-size: 3em;
+	        margin: 0 0 0.8em 0;
+	  
+	    }
+
+	    .darker-text{
+			color: #000;
+		}
+	}
+
 }
 

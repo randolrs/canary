@@ -12,11 +12,11 @@
 
 <%end%>
 
-<div class="content">
+<div class="content has-fixed-bottom-cta">
 
-  <%= render 'item_arts/show_header' %>
+  <%# render 'item_arts/show_header' %>
 
-  <div class="content-column primary has-mobile-header">
+  <div class="content-column primary">
 
     <div class="hide-on-mobile">
 
@@ -32,7 +32,7 @@
 
       </div>
 
-      <p>by <%= link_to @item_art.user.display_name, profile_path(@item_art.user.display_name) %></p>
+      <p>by <% unless @item_art.is_sample && @item_art.sample_name %><%= link_to @item_art.user.display_name, profile_path(@item_art.user.display_name) %><%else%><%= @item_art.sample_name %><%end%></p>
       
       <br>
 
@@ -46,9 +46,13 @@
 
       <div class="centered">
 
-        <p class="item-detail"><%= @item_art.medium %></p>
+        <br>
 
-        <p class="item-detail"><%= @item_art.height.to_i %> H X <%= @item_art.width.to_i %> W <% if @item_art.length %> X <%= @item_art.length.to_i %> L<%end%></p>
+        <p class="item-detail centered"><%= @item_art.medium %></p>
+
+        <p class="item-detail centered"><%= @item_art.height.to_i %> H X <%= @item_art.width.to_i %> W <% if @item_art.length %> X <%= @item_art.length.to_i %> L<%end%></p>
+
+        <br>
 
       </div>
       
@@ -59,10 +63,14 @@
   <div class="content-column secondary left-border">
 
     <div class="centered mobile-only">
-    
-      <p class="item-detail"><%= @item_art.medium %></p>
+      
+      <p class="item-detail centered"><h2><%= @item_art.name %></h2></p>
 
-      <p class="item-detail"><%= @item_art.height.to_i %> H X <%= @item_art.width.to_i %> W <% if @item_art.length %> X <%= @item_art.length.to_i %> L<%end%></p>
+      <p class="item-detail centered">by <span class="artist-name"><% unless @item_art.is_sample && @item_art.sample_name %><%= link_to @item_art.user.display_name, profile_path(@item_art.user.display_name) %><%else%><%= @item_art.sample_name %><%end%></span></p>
+
+      <p class="item-detail centered"><%= @item_art.medium %></p>
+
+      <p class="item-detail centered"><%= @item_art.height.to_i %> H X <%= @item_art.width.to_i %> W <% if @item_art.length %> X <%= @item_art.length.to_i %> L<%end%></p>
 
     </div>
 
@@ -73,6 +81,12 @@
     <div class="hide-on-mobile">
 
       <%= render :partial => 'item_arts/buy_cta', :locals => {:item_art => @item_art} %>
+
+    </div>
+
+    <div class="mobile-only">
+
+      <%= render :partial => 'item_arts/fixed_mobile_cta', :locals => {:item_art => @item_art} %>
 
     </div>
 
@@ -88,33 +102,29 @@
 
     <% if @item_art.user.about.length > 0 %>
 
-      <h4 class="text-header-underline">About <%= @item_art.user.display_name %></h4>
+      <h4 class="text-header-underline">About the Artist</h4>
 
-      <p><%= @item_art.user.about %></p>
+      <p><% unless @item_art.is_sample && @item_art.sample_name %><%= @item_art.user.about %><%else%><%= @item_art.sample_name %> is an innovative artist. The rest of this section is sample text.  This section is fully editable by the artist and typically includes their artist statement.<%end%></p>
+
+      <br>
 
     <%end%>
 
     <div class="button-container">
       
-      <% if user_signed_in?%>
-      
-        <a class="message-modal modal-cta button large wide red-frame">Contact <%= @item_art.user.display_name %></a>
+        <!-- <a class="button wide large red-frame modal-cta email-to-me-modal">Email this to Me</a> -->
 
-      <%else%>
-
-        <a class="button wide large red-frame modal-cta email-to-me-modal">Email this to Me</a>
-
-      <%end%>
+        <a class="button wide large red-frame">Email this to Me</a>
     
     </div>
 
     <% if @more_work_from_artist.count > 0 %>
     
-      <h4 class="text-header-underline">More Work by <%= @item_art.user.display_name %></h4>
+      <h4 class="text-header-underline">More Work by <% unless @item_art.is_sample && @item_art.sample_name %><%= link_to @item_art.user.display_name, profile_path(@item_art.user.display_name) %><%else%><%= @item_art.sample_name %><%end%></h4>
 
       <div class="portfolio">
 
-        <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist, :image_only => true, :columns => 2} %>
+          <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => true, :columns => 3} %>
 
       </div>
 

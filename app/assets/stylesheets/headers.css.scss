@@ -18,8 +18,9 @@ body{
         z-index: 999;
         height: 56px;
         padding: 0px;
-        background: #323296;
-        text-shadow: 0px 1px 1px rgba(200,200,200,0.3);
+        background: #fff;
+        border-bottom: 1px solid #e5e5e5;
+        box-shadow: 0px 1px 1px rgba(200,200,200,0.2);
 
         .header-content{
 
@@ -64,20 +65,19 @@ body{
         			a{
 
         	    		display: block;
-        	    		font-size: 1.4em;
-        	    		font-weight: 500;
-            			letter-spacing: 1.1px;
+        	    		font-size: 1em;
+        	    		font-weight: 600;
+            			letter-spacing: 0.5px;
             			padding: 5px 10px;
-                        color: #fff;
-                        text-shadow: 0px 1px 1px rgba(0,0,0,0.8);
+                        color: #333;
                         margin: 0 5px;
                         line-height: 46px;
-                        font-family: 'Lato', sans-serif;
+                        text-transform: uppercase;
 
             		}
 
                     a.header-page-title{
-                        color: #fff;
+                        color: #111;
                         font-weight: 600;
                         font-size: 20px;
                         
@@ -105,11 +105,8 @@ body{
 
             		a.header-logo{
         	
-        				font-weight: 300;
-                        font-size: 32px;
-                        font-family: 'Lobster', cursive;
-                        color: #fff;
-                        text-shadow: 0px 1px 1px rgba(0,0,0,1);
+
+                        
 
         			}
 

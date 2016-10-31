@@ -280,3 +280,94 @@ table.delivery-detail-form{
 	display: block;
 	text-align: center;
 }
+
+
+html{
+	
+	body{
+
+		.artwork-container{
+
+
+			.artwork-image{
+
+				padding-top: 20px;
+
+				margin-left: 250px;
+			    height: 100%;
+			    position: relative;
+			    min-height: 100%;
+			    vertical-align: top;
+			    padding: 0px 55px;
+
+
+				.artwork-image-container{
+
+					padding: 40px;
+					text-align: center;
+
+					.artwork-main-image{
+
+						width: 400px;
+						max-width: 100%;
+						height:100%;
+						position: relative;
+
+					}
+
+				}
+
+			}
+
+			.artwork-info{
+
+				position:fixed;
+			    height: 100%;
+			    width:250px;
+			    min-height: 100%;
+			    vertical-align: top;
+			    z-index: 9;
+			    background: #fff;
+
+			    border-right: 1px solid #e5e5e5;
+    			box-shadow: 1px 0px 1px rgba(200,200,200,0.2);
+
+
+			    padding:40px 20px;
+
+			    a.button{
+				
+					display: block;
+
+				}
+
+			    div.detail-section{
+			    	display: block;
+			    	margin-bottom:10px;
+			    }
+
+			    div.detail-section.top-and-bottom-border{
+			    	border-bottom: 1px solid #e5e5e5;
+			    	border-top: 1px solid #e5e5e5;
+			    	padding: 10px 0px;
+			    }
+
+			    a.artist-name{
+			    	font-weight: 600;
+			    	font-size: 1.5em;
+			    }
+
+			    span.artwork-name{
+
+			    }
+				
+
+			}
+
+
+
+		}
+
+
+	}
+}
