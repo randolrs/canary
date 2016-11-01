@@ -15,22 +15,49 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
+  <br>
+
+  <div class="field">
+
+    <label>Artist Photo</label><br>
+    
+    <span>
+    
+      <%= image_tag @artist.image.url, class: "item-art-medium-image" %>
+      <br>
+      <%= f.file_field :image, class: "form-control" %>
+
+    </span>
+
+  </div>
+
+  <br>
+
   <div class="field">
     <%= f.label :biography %><br>
     <%= f.text_area :biography %>
   </div>
+
+  <br>
   <div class="field">
     <%= f.label :artist_statement %><br>
     <%= f.text_area :artist_statement %>
   </div>
+
+  <br>
   <div class="field">
     <%= f.label :birth_year %><br>
     <%= f.text_field :birth_year %>
   </div>
+
+  <br>
   <div class="field">
     <%= f.label :nationality %><br>
     <%= f.text_field :nationality %>
   </div>
+
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

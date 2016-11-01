@@ -169,7 +169,7 @@
     font-size: 1.3em;
     margin: 0px 20px;
     display: inline-block;
-    height: 50px;
+    margin-bottom: 20px;
 
 }
 
@@ -725,6 +725,14 @@ div#new-card-options{
 
 .fill-container{
 	position: absolute;
+    top: 0px;
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.fill-this-container{
+	position: relative;
     top: 0px;
     bottom: 0px;
     height: 100%;

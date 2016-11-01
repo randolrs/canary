@@ -17,7 +17,7 @@ class ArtistsController < InheritedResources::Base
   private
 
     def artist_params
-      params.require(:artist).permit(:name, :biography, :artist_statement, :birth_year, :nationality)
+      params.require(:artist).permit(:name, :biography, :artist_statement, :birth_year, :nationality, :image)
     end
 end
 
