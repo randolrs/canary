@@ -261,6 +261,31 @@ class User < ActiveRecord::Base
 
   end
 
+
+  def my_artists
+
+    @artists = Array.new
+
+
+    self.galleries.each do |gallery|
+
+      gallery.artists.each do |artist|
+
+        @artists << artist
+
+      end
+
+
+    end
+
+
+    return @artists
+
+  end
+
+
+  
+
   def more_work(item, count)
 
     return self.item_arts.where.not(id: item).last(count)

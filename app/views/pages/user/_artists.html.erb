@@ -30,7 +30,7 @@
 			</tr>
 
 		
-			<% current_user.galleries.last.artists.each do |artist| %>
+			<% current_user.my_artists.each do |artist| %>
 				
 				<tr>
 					<td colspan="2"><%= image_tag artist.image.url(:medium), class: "medium-profile-image"%></td>
