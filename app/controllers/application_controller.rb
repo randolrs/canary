@@ -25,11 +25,18 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
 
+
+
+
+
     if user_signed_in?
 
-      if current_user.is_artist
 
+      if current_user.is_affiliate
 
+        affiliate_dashboard_path
+
+      else
 
         unless current_user.billing_information_needed or Time.now > current_user.trial_end_date
 
@@ -49,22 +56,75 @@ class ApplicationController < ActionController::Base
 
         end
 
-
-
-
-
-
-      elsif current_user.is_affiliate
-
-        affiliate_dashboard_path
-
       end
+
+
+      # if current_user.is_gallery
+
+      #   root_path
+
+      # end
+
+
+      # if current_user.is_affiliate
+
+      #   affiliate_dashboard_path
+
+      # end
+
+
+
+
+
+
+      # if current_user.is_artist
+
+      #   unless current_user.billing_information_needed or Time.now > current_user.trial_end_date
+
+      #     if current_user.display_name
+
+      #       root_path
+          
+      #     else
+
+      #       welcome_path
+
+      #     end
+
+      #   else
+
+      #     billing_information_path
+
+      #   end
+
+      # end
+
+
+      # if current_user.is_gallery
+
+      #   root_path
+
+      # end
+
+
+      # if current_user.is_affiliate
+
+      #   affiliate_dashboard_path
+
+      # end
+
+
 
     else
 
       admin_dashboard_path(resource)
 
     end
+
+
+
+
+
 
   end
 
@@ -113,7 +173,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
 
-    registration_params = [:email, :password, :is_artist, :is_buyer, :home_city_id, :password, :display_name, :about, :image, :stripe_customer_id, :stripe_account_id, :onboarded]
+    registration_params = [:email, :password, :is_artist, :is_buyer, :home_city_id, :password, :display_name, :about, :image, :stripe_customer_id, :stripe_account_id, :onboarded, :is_artist, :is_gallery]
     devise_parameter_sanitizer.permit(:sign_up, keys: registration_params)
     devise_parameter_sanitizer.permit(:sign_in, keys: registration_params)
     devise_parameter_sanitizer.permit(:account_update, keys: registration_params)

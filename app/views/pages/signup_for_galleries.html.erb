@@ -1,0 +1,36 @@
+
+<div class="simple-landing-container">
+
+  <%= form_for(:user, :url => registration_path(:user)) do |f| %>
+
+    <h3>ArtYam Gallery Signup</h3>
+
+    <br>
+
+    <div class="field">
+      <label>Email</label>
+      <br>
+      <%= f.email_field :email, autofocus: true, placeholder: "Email", :required => true %>
+    </div>
+
+    <div class="field">
+      <label>Password</label>
+      <br>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Password", required: true, :required => true %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Create Account", class: "button medium black-background" %>
+    </div>
+
+    <%= f.hidden_field :is_gallery, :value => true %>
+
+    <%# hidden_field_tag 'is_gallery', true %>
+
+  <% end %>
+
+  <p class="centered"><%= link_to "Login", login_path %></p>
+
+  
+
+</div>

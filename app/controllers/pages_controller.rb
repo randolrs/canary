@@ -12,10 +12,7 @@ class PagesController < ApplicationController
 
 		if user_signed_in?
 
-			if current_user.is_artist
-
-				
-
+			if current_user.is_artist or current_user.is_gallery
 
 				if !(current_user.trial_expired && !current_user.billing_active) or current_user.is_admin
 
@@ -168,6 +165,18 @@ class PagesController < ApplicationController
 		@hide_footer = true
 
 		@main_SEO_title = "Affiliate Signup"
+		
+
+	end
+
+
+	def signup_for_galleries
+
+		@hide_header = true
+		@hide_header_on_all_devices = true
+		@hide_footer = true
+
+		@main_SEO_title = "Gallery Signup"
 		
 
 	end

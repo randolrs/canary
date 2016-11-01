@@ -326,11 +326,7 @@ class User < ActiveRecord::Base
       return nil
   end
 
-  def is_gallery
 
-    return false
-  
-  end
 
 
   def galleries_for_submission

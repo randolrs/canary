@@ -288,6 +288,12 @@ html{
 
 		.artwork-container{
 
+			h3{
+				
+				font-size: 2em;
+    			margin-bottom: 1em;
+			}
+
 
 			.artwork-image{
 
@@ -313,6 +319,20 @@ html{
 						height:100%;
 						position: relative;
 
+					}
+
+					.artwork-actions{
+
+						padding: 10px 0px;
+						
+						a.action{
+							display:inline-block;
+							height: 48px;
+							width: 48px;
+							line-height:48px;
+							border: 1px solid #ddd;
+							border-radius: 50%;
+						}
 					}
 
 				}
@@ -402,6 +422,8 @@ html{
 			    span.artwork-name{
 
 			    }
+
+
 				
 
 			}

@@ -7,7 +7,7 @@
 
 <%else%>
 
-	<% if current_user.is_artist %>
+	<% if current_user.is_artist or current_user.is_gallery %>
 
 		<%= render 'pages/user/dashboard_side_panel' %>
 

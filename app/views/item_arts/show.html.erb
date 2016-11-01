@@ -85,7 +85,14 @@
 
       <%= image_tag @item_art.image.url, class: "artwork-main-image" %>
 
-      <div class="artwork-actions centered">[actions]</div>
+      <div class="artwork-actions centered">
+
+        <a class="action">F</a>
+        <a class="action">T</a>
+        <a class="action">P</a>
+
+
+      </div>
 
     </div>
 
@@ -282,3 +289,5 @@
   <%# render :partial => 'modals/email_to_me', :locals => {:item => @item_art} %>
 
 <%end%>
+
+

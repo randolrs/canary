@@ -5,57 +5,19 @@
 	<div class="sidebar-panel">
 
 		<ul>
-			<% unless current_user.is_artist %>
 			
-			<li class="dashboard-option" id="home" data-content-panel="home-content">
+			<li class="dashboard-option dashboard-nav-option sales-view <% if @page=="home" %>active<%end%>" id="home" data-dashboard-item-id="sales-view">
 						
-				<a href="<%= root_path %>"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true" style="margin-right: 5px;"></span>Return Home</a>
+				<a href="<%= root_path %>"><span class="glyphicon glyphicon-home" aria-hidden="true" style="margin-right: 5px;"></span><br><span>Home</span></a>
+
 
 			</li>
 
-			<%end%>
-			
-			<li class="dashboard-header" id="site-title">
-
-				<% if current_user.display_name && current_user.display_name.length > 0 %>
-				
-					<a class="name" href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "sidebar-profile-image"%><br><%= current_user.display_name %></a>
-
-					<br>
-
-					<% unless current_user.trial_expired %>
-
-						<a>Free Trial Expires:</a>
-						<br>
-						<a><%= current_user.trial_end_date.strftime("%m/%d") %></a>
-
-					<%end%>
-
-				<%end%>
-
-				<% if current_user.is_artist %>
-					
-					<br>
-
-					<a <%#new_item_art_path%> class="cta orange-background new-artwork-image-modal modal-cta"><span class="glyphicon glyphicon-plus"></span><span>Add Artwork</span></a>
-
-					<!-- <a href="<%# select_gallery_path %>" class="cta bright-blue-background"><span class="glyphicon glyphicon-plus"></span><span>New Submission</span></a> -->
-
-				<%end%>
-
-			</li>
-
-			
 
 			<% if user_signed_in?%>
 
+
 				<% if current_user.is_artist %>
-
-					<!-- <li class="dashboard-option <%# if @page=="home" %>active<%#end%>" id="home" data-content-panel="home-content">
-						
-						<a href="<%= root_path %>"><span class="glyphicon glyphicon-dashboard" aria-hidden="true" style="margin-right: 5px;"></span>Dashboard</a>
-
-					</li> -->
 
 					<li class="dashboard-option dashboard-nav-option sales-view <% if @page=="home" %>active<%end%>" id="home" data-dashboard-item-id="sales-view">
 						
@@ -69,101 +31,43 @@
 
 					</li>
 
-<!-- 					<li class="dashboard-option dashboard-nav-option portfolio-view <%# if @default_view == "Portfolio"%>active<%#end%>" id="work"data-dashboard-item-id="portfolio-view">
-						
-						<a <%#unless @page=="home" %>href="<%# root_path(view: "portfolio") %>"<%#end%>><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right: 5px;"></span>Portfolio</a>
 
-					</li> -->
-
-
-<!-- 					<li class="dashboard-option dashboard-nav-option" data-dashboard-item-id="submissions-view">
-						
-						<a><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span>My Submissions</a>
-
-					</li> -->
-
-<!-- 					<li class="dashboard-option <%# if @page=="engagement" %>active<%#end%>" id="home" data-content-panel="home-content">
-						
-						<a href="<%= engagement_path %>"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span><span>Engagement</span></a>
-
-					</li> -->
-
-					<% if current_user.is_gallery %>
+				<% elsif current_user.is_gallery %>
 
 					<li class="dashboard-option <% if @page=="artists" %>active<%end%>" id="home" data-content-panel="home-content">
 						
-						<a href="<%# root_path %>"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span><span>Artists</span></a>
+						<a href="<%# root_path %>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><br><span>Artists</span></a>
+
+					</li>
+
+					<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="home" data-content-panel="home-content">
+						
+						<a href="<%# root_path %>"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span><br><span>Works</span></a>
+
+					</li>
+
+					<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="home" data-content-panel="home-content">
+						
+						<a href="<%# root_path %>"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><br><span>Shows & Festivals</span></a>
 
 					</li>
 
 					<li class="dashboard-option <% if @page=="customers" %>active<%end%>" id="home" data-content-panel="home-content">
 						
-						<a href="<%# root_path %>"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span><span>Customers</span></a>
+						<a href="<%# root_path %>"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span><br><span>Customers</span></a>
 
 					</li>
 
-					
-
-					<li class="dashboard-option <% if @page=="submissions" %>active<%end%>" id="messages" data-content-panel="messages-content">
-						
-						<a href="<%= inbox_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span><span>Portfolio Submissions</span></a>
-
-					</li>
-
-					<%end%>
-
-<!-- 					<li class="dashboard-option <%# if @page=="messages" %>active<%#end%>" id="messages" data-content-panel="messages-content">
-						
-						<a href="<%= inbox_path %>"><span class="glyphicon glyphicon-comment" aria-hidden="true" style="margin-right: 5px;"></span><span>Messages</span></a>
-
-					</li> -->
-
-
-	<!-- 				<li class="dashboard-option <%# if @page=="balance" %>active<%#end%>" id="balance" data-content-panel="balance-content">
-						
-						<a href="<%# balance_path %>"><span class="glyphicon glyphicon-usd" aria-hidden="true" style="margin-right: 5px;"></span><span>My Sales</span></a>
-
-					</li> -->
-
-
-
-	<!-- 				<li class="dashboard-option <%# if @page=="views" %>active<%#end%>" id="views" data-content-panel="views-content">
-						
-						<a href="<%# views_path %>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="margin-right: 5px;"></span>Views</a>
-
-					</li> -->
+				<%end%>
 
 
 					<li class="dashboard-option <% if @page_title =="Account Settings" %>active<%end%>" id="account-settings" data-content-panel="settings-content">
 						
-						<a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog" aria-hidden="true" style="margin-right: 5px;"></span><span>Account Settings</span></a>
+						<a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog" aria-hidden="true" style="margin-right: 5px;"></span><br><span>Settings</span></a>
 
 					</li>
 
 					<li class="dashboard-option"><a data-method="delete" href='<%= destroy_user_session_path%>'>Logout</a></li>
-
-				<% else %>
-
-					<li class="dashboard-option <% if @page=="mypurchases" %>active<%end%>" id="home" data-content-panel="home-content">
-						
-						<a href="<%= my_purchases_path %>"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="margin-right: 5px;"></span>My Purchases</a>
-
-					</li>
-
-					<li class="dashboard-option <% if @page=="messages" %>active<%end%>" id="messages" data-content-panel="messages-content">
-						
-						<a href="<%= inbox_path %>"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right: 5px;"></span><span>Inbox</span></a>
-
-					</li>
-
-					<li class="dashboard-option <% if @page=="settings" or @page == "payment settings" %>active<%end%>" id="account-settings" data-content-panel="settings-content">
-						
-						<a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog" aria-hidden="true" style="margin-right: 5px;"></span><span>Account Settings</span></a>
-
-					</li>
-					
-
-				<%end%>
 
 			<%else%>
 

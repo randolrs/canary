@@ -276,6 +276,17 @@
     border-radius: 3px;
 }
 
+.black-background{
+	
+	color: #fff;
+    background: #111;
+    text-shadow: 0px 1px 1px #000;
+    border: none;
+
+
+}
+
+
 .orange-background{
 	background: #fe8c00; /* fallback for old browsers */
 	background: -webkit-linear-gradient(to bottom, #fe8c00 , #f83600); /* Chrome 10-25, Safari 5.1-6 */

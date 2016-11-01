@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :artists
   resources :gallery_submissions
   resources :galleries
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -38,6 +39,9 @@ Rails.application.routes.draw do
   get '/:search_code' => 'item_arts#direct_link', as: 'direct_link_to_item_art'
 
   get '/signup/affiliates' => 'pages#signup_for_affiliates', as: 'signup_for_affiliates'
+
+  get '/signup/galleries' => 'pages#signup_for_galleries', as: 'signup_for_galleries'
+
 
   get '/login/affiliates' => 'pages#login_for_affiliates', as: 'login_for_affiliates'
 

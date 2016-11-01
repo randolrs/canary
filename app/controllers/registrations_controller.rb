@@ -60,7 +60,7 @@ class RegistrationsController < Devise::RegistrationsController
       if resource.active_for_authentication?
         #UserMailer.welcome_email(resource).deliver_later
 
-        if params[:is_artist]
+        if params[:is_artist] or resource.is_gallery
 
           @trial_end_date = Time.now + 14.days
 

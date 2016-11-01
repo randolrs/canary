@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161030095328) do
+ActiveRecord::Schema.define(version: 20161101045557) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -69,6 +69,19 @@ ActiveRecord::Schema.define(version: 20161030095328) do
     t.integer  "affiliate_referral_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+  end
+
+  create_table "artists", force: :cascade do |t|
+    t.string   "name"
+    t.text     "biography"
+    t.text     "artist_statement"
+    t.string   "birth_year"
+    t.string   "nationality"
+    t.integer  "user_id"
+    t.integer  "gallery_id"
+    t.boolean  "is_user"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "cities", force: :cascade do |t|
@@ -283,6 +296,7 @@ ActiveRecord::Schema.define(version: 20161030095328) do
     t.boolean  "billing_active"
     t.boolean  "billing_information_needed"
     t.datetime "trial_end_date"
+    t.boolean  "is_gallery"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
