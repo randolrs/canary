@@ -36,25 +36,25 @@
 
 					<li class="dashboard-option <% if @page=="artists" %>active<%end%>" id="home" data-content-panel="home-content">
 						
-						<a href="<%# root_path %>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><br><span>Artists</span></a>
+						<a href="<%= gallery_artists_path %>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><br><span>Artists</span></a>
 
 					</li>
 
-					<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="home" data-content-panel="home-content">
+					<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="works" data-content-panel="home-content">
 						
-						<a href="<%# root_path %>"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span><br><span>Works</span></a>
+						<a href="<%= works_path %>"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span><br><span>Works</span></a>
 
 					</li>
 
-					<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="home" data-content-panel="home-content">
+					<li class="dashboard-option <% if @page=="shows" %>active<%end%>" id="home" data-content-panel="home-content">
 						
 						<a href="<%# root_path %>"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><br><span>Shows & Festivals</span></a>
 
 					</li>
 
-					<li class="dashboard-option <% if @page=="customers" %>active<%end%>" id="home" data-content-panel="home-content">
+					<li class="dashboard-option <% if @page=="sales" %>active<%end%>" id="home" data-content-panel="home-content">
 						
-						<a href="<%# root_path %>"><span class="glyphicon glyphicon-stats" aria-hidden="true" style="margin-right: 5px;"></span><br><span>Customers</span></a>
+						<a href="<%= sales_path %>"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span><br><span>Sales</span></a>
 
 					</li>
 

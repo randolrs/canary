@@ -602,15 +602,18 @@ html{
 
 	.dashboard-item{
 		display: block;
-	    padding-top: 105px;
+	    top: 56px;
+    	padding: 30px 100px;
 	    margin: 0 auto;
 	    font-size: 20px;
 
-	    background: #fcfcfc;
-
-	    float: left;
 	    width: 100%;
     	position: relative;
+
+    	h3{
+    		font-size: 1.5em;
+    		margin-bottom: 1em;
+    	}
 	}
 
 	.dashboard-item.no-nav{

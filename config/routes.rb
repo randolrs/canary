@@ -34,6 +34,10 @@ Rails.application.routes.draw do
 
   get 'balance' => 'pages#balance_payments', as: 'balance_payments'
 
+  get 'sales' => 'pages#sales', as: 'sales'
+
+  get 'dashboard/artists' => 'pages#artists', as: 'gallery_artists'
+
   get 'billing' => 'billing#billing_information', as: 'billing_information'
 
   get '/:search_code' => 'item_arts#direct_link', as: 'direct_link_to_item_art'
@@ -63,7 +67,6 @@ Rails.application.routes.draw do
 
   get '/dashboard/settings/bank_accounts' => 'pages#bank_accounts', as: 'bank_accounts'
 
-  #get 'sales' => 'pages#sales', as: 'balance'
 
   get 'dashboard/sales' => 'pages#sales', as: 'balance'
 
@@ -73,7 +76,7 @@ Rails.application.routes.draw do
 
   #get 'portfolio' => 'pages#my_work'
 
-  get 'dashboard/inventory' => 'pages#my_work', as: 'portfolio'
+  get 'dashboard/works' => 'pages#my_work', as: 'works'
 
   get 'dashboard/engagement' => 'pages#engagement', as: 'engagement'
 

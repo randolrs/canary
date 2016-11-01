@@ -306,6 +306,20 @@ class PagesController < ApplicationController
 
 	end
 
+
+	def artists
+
+		@page="artists"
+
+		@page_title = "Artists"
+
+		if user_signed_in?
+			@hide_header = true
+		end
+
+
+	end
+
 	def balance_payments
 
 		@page = "balance_payments"

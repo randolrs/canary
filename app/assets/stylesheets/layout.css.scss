@@ -56,12 +56,12 @@ background: linear-gradient(to bottom, #323296 , #26D0CE); /* W3C, IE 10+/ Edge,
     .dashboard-header{
         
         padding: 5px 25px;
-        color: #fff;
-        background: rgba(50,50,150,1);
+        background: #fff;
         border-bottom: 1px solid #ddd;
         position:fixed;
         height: 56px;
-        width: 100%;
+        right: 0px;
+        left: 150px;
 
         z-index: 99;
 
@@ -72,6 +72,17 @@ background: linear-gradient(to bottom, #323296 , #26D0CE); /* W3C, IE 10+/ Edge,
             line-height: 46px;
             color: #fff;
             margin: 0px;
+        }
+
+        h4{
+            display: inline-block;
+            line-height: 46px;
+            font-size: 1.2em;
+        }
+
+        a.action{
+            float: right;
+            line-height: 46px;
         }
 
     }
