@@ -1,58 +1,40 @@
 <%= render 'pages/user/dashboard_header' %>
-
-<%= render 'pages/user/settings_header' %>
-
+	
 <div class="dashboard-item" id="profile">
 
-	<%= form_for(current_user, url: registration_path(current_user), html: { method: :put, class: "edit_user_settings" }) do |f| %>
+	<div class="dashboard-section-header">
 
-	    <div class="field">
-	      <%= f.label :email %><br />
-	      <%= f.email_field :email %>
-	    </div>
+		<ul>
+			<li><a class="click-to-reveal active" data-reveal-panel-id="login-information">Login Information</a></li><li><a class="click-to-reveal" data-reveal-panel-id="gallery-profile">Gallery Profile</a></li><li><a class="click-to-reveal" data-reveal-panel-id="billing">Billing</a></li>
+		</ul>
 
-	    <br />
+	</div>
 
-	    <div class="field">
-	      <%= f.label :display_name %><br />
-	      <%= f.text_field :display_name %>
-	    </div>
 
-	    <br />
+	<div class="reveal-panel dashboard-form" id="login-information">
 
-	    <div class="field">
-	      <label>Avatar</label>
-	      <%= f.file_field :image, class: "form-control" %>
-	    </div>
+		<h4>Login Information</h4>
 
-	   
-	    <br />
-	    <% if current_user.is_artist %>
-	    
-		    <div class="field">
-		      <%= f.label "Artist Statement" %><br />
-		      <%= f.text_area :about %>
-		    </div>
+		<%= render 'pages/user/login_settings_form' %>
 
-		    <br />
+	</div>
 
-	    <%end%>
 
-	    <div class="field">
-	      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-	      <%= f.password_field :password, autocomplete: "off" %>
-	      <% if @minimum_password_length %>
-	        <br />
-	        <em><%= @minimum_password_length %> characters minimum</em>
-	      <% end %>
-	    </div>
+	<div class="reveal-panel dashboard-form default-off" id="gallery-profile">
 
-	    <br />
+		<h4>About Your Gallery</h4>
 
-	    <div class="actions">
-	      <%= f.submit "Update", class:"button large green-background" %>
-	    </div>
+		<%= render 'pages/user/profile_form' %>
 
-	<% end %>
+	</div>
+
+
+	<div class="reveal-panel dashboard-form default-off" id="billing">
+
+		<h4>Your Billing Information</h4>
+
+		<%= render 'pages/user/billing_settings_form' %>
+
+	</div>
 
 </div>

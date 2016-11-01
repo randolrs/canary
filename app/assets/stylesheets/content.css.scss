@@ -617,8 +617,75 @@ html{
     		border-bottom: 1px solid #e5e5e5;
     	}
 
+    	h4{
+    		margin-bottom: 1.5em;
+    	}
+
     	.dashboard-actions{
     		padding: 20px;
+    		margin-bottom: 30px;
+    	}
+
+    	.dashboard-form{
+    		max-width:100%;
+    		width:500px;
+    		margin: 0 auto;
+    	}
+
+    	.dashboard-section-header{
+
+    		border-bottom: 2px solid #e5e5e5;
+    		margin-bottom: 50px;
+
+    		ul{
+	
+				list-style-type: none;
+			    margin: 0;
+			    margin-bottom: -1px;
+			    padding: 0;
+			    display: block;
+				
+				li{
+
+					display: inline-block;
+			        text-align: center;
+			        vertical-align: top;
+
+					a{
+
+						display: block;
+			            font-size: 18px;
+			            padding: 10px 20px;
+			           	letter-spacing: 1.5px;
+			           	margin-bottom: -2px;
+
+			           	border-bottom: 2px solid #e5e5e5;
+    					margin-bottom: -1px;
+    					-webkit-transition: border 0.2s; /* Safari */
+    					transition: border 0.2s;
+    					color: #444;
+
+					}
+
+					a:hover{
+						cursor: pointer;
+						border-bottom: 2px solid #333;
+						color: #000;
+						-webkit-transition: border 0.2s; /* Safari */
+    					transition: border 0.2s;
+    					font-weight: 700;
+
+					}
+
+					a.active{
+						color: #000;
+						font-weight: 700;
+						border-bottom: 2px solid #333;
+					}
+
+				}
+
+			}
     	}
 	}
 
@@ -657,7 +724,7 @@ html{
 
 	.input-container{
 		position: relative;	
-		margin-bottom: 15px;
+		margin-bottom: 25px;
 		clear: both;
 	}
 
@@ -666,22 +733,30 @@ html{
 		padding: 6px 10px;
 		border: 1px solid #CFCBC8;
 		line-height: 24px;
+		display: inline-block;
+    	height: 40px;
 
 		
 	} 
 
 	input.cc-form.card-number, input.cc-form.card-name{
 		width: 100%;
+		display: inline-block;
+    	height: 40px;
 	}
 
 	input.card-cvc{
 		width: 70px;
+		display: inline-block;
+    	height: 40px;
 	}
 
 	select.cc-select{
 		padding: 6px 10px;
 	    border: 1px solid #CFCBC8;
 	    line-height: 24px;
+	    display: inline-block;
+    	height: 40px;
 	}   
 
 	span.cc-icon {
@@ -708,7 +783,7 @@ html{
 	.input-group{
 		float: left;
 		padding-right: 10px;
-		margin-bottom: 15px;
+		margin-bottom: 25px;
 	}
 
 	.column-container{

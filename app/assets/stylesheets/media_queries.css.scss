@@ -78,8 +78,10 @@
 			}
 
 			.dashboard-item{
-				padding: 00px;
-			    padding-top:50px;
+				
+				padding: 50px;
+
+				top: 0px;
 
 			    .dashboard-index{
 			    	margin:0px;
@@ -285,7 +287,9 @@
 
 			a.button.medium{
 				display: block;
-				max-width: none;
+				max-width: 100%;
+				width: 300px;
+				margin: 0px auto 30px auto;
 			}
 
 			.single-page-landing{

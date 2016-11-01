@@ -203,6 +203,71 @@ class PagesController < ApplicationController
 			@hide_header = true
 		end
 
+
+		@page_title = "Account Settings"
+
+		@page = "payment settings"
+
+
+
+		# if user_signed_in?
+
+		# 	account = Stripe::Account.retrieve(current_user.stripe_account_id)
+
+		# 	@dob_object = account.legal_entity.dob
+
+		# 	if @dob_object["month"].to_s.length == 1
+
+		# 		@dob_month = "0" + @dob_object["month"].to_s
+
+		# 	else
+
+		# 		@dob_month = @dob_object["month"].to_s
+
+		# 	end
+
+		# 	if @dob_object["day"].to_s.length == 1 
+
+		# 		@dob_day = "0" + @dob_object["day"].to_s
+
+		# 	else
+
+		# 		@dob_day = @dob_object["day"].to_s
+
+		# 	end
+
+		# 	@dob_year = @dob_object["year"].to_s
+
+
+		# 	@firstName = account.legal_entity.first_name
+
+		# 	@lastName = account.legal_entity.last_name
+
+		# 	account.legal_entity.address.country = params[:country]
+
+
+		# 	@addressLine1 = account.legal_entity.address.line1
+
+		# 	@addressLine2 = account.legal_entity.address.line2
+
+		# 	@city = account.legal_entity.address.city
+
+		# 	@postalCode = account.legal_entity.address.postal_code
+
+		# 	@stateProvince = account.legal_entity.address.state
+
+		# else
+
+		# 	redirect_to root_path
+
+		# end
+
+
+
+
+
+
+
 	end
 
 	def customer_payment_settings

@@ -15,6 +15,13 @@ ready = ->
             $(".checkout-modal-cta").click (window.event), ->
                   $('body').find('#checkout-modal').slideDown()
 
+            $("a.click-to-reveal").click (window.event), ->
+                  $('a.click-to-reveal').removeClass('active')
+                  $('div.reveal-panel').hide()
+                  $(@).addClass('active')
+                  targetId = "#" + $(@).data("reveal-panel-id")
+                  $('body').find(targetId).show()
+
             $(".new-account-modal").click (window.event), ->
                   $('body').find('#new-account-modal').show()
 

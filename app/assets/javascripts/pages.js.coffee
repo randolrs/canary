@@ -6,21 +6,21 @@ ready = ->
 		
 	jQuery ->
 
-            $(".email-me-modal").click (event), ->
+            $(".email-me-modal").click (window.event), ->
                   $('body').find('#email-me-modal').show()
 
-            $(".new-card-modal").click (event), ->
+            $(".new-card-modal").click (window.event), ->
                   $('body').find('#new-card-modal').show()
 
-            $(".checkout-modal-cta").click (event), ->
+            $(".checkout-modal-cta").click (window.event), ->
                   $('body').find('#checkout-modal').slideDown()
 
-            $(".new-account-modal").click (event), ->
+            $(".new-account-modal").click (window.event), ->
                   $('body').find('#new-account-modal').show()
 
-            $(".create-account-modal").click (event), ->
+            $(".create-account-modal").click (window.event), ->
                   $('body').find('#create-account-modal').show()
-
+                  
             $("tr.green-on-click").click (event), ->
                   $(@).toggleClass("green-background-and-hover")
                   checkbox = $(@).find('.select-item-checkbox')

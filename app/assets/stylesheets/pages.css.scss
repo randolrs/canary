@@ -135,6 +135,8 @@
     text-align: center;
     z-index: 99;
     position: relative;
+
+    font-family: 'Lato', sans-serif;
 }
 
 .button.fixed-bottom-cta{
@@ -164,11 +166,15 @@
 .button.medium{
 	max-width: 300px;
 	width:100%;
-    font-size: 20px;
+    font-size: 1.3em;
+    margin: 0px 20px;
+    display: inline-block;
+    height: 50px;
+
 }
 
 .button.large{
-	max-width: 400px;
+	max-width: 500px;
 	width: 100%;
 	font-size: 28px;
 }
@@ -279,9 +285,14 @@
 .black-background{
 	
 	color: #fff;
-    background: #111;
     text-shadow: 0px 1px 1px #000;
-    border: none;
+
+    -webkit-box-shadow: 0 1px 0px rgba(255,255,255,0.3) inset, 0 0px 1px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0 1px 0px rgba(255,255,255,0.3) inset, 0 0px 1px rgba(0,0,0,0.7);
+    box-shadow: 0 1px 1px rgba(255,255,255,0.3) inset, 0 0px 1px rgba(0,0,0,0.7);
+    background: #222;
+    border: 1px solid #141414;
+
 
 
 }
@@ -579,7 +590,6 @@ ul.horizontal.header{
 form.edit_user_settings{
 	
 	font-size: 20px;
-	padding: 30px;
 
 	input, label{
 		
@@ -589,7 +599,7 @@ form.edit_user_settings{
 
 	input, textarea{
 		width: 100%;
-    	max-width: 400px;
+    	max-width: 500px;
     	padding: 5px 0px;
     	text-indent: 5px;
 	}

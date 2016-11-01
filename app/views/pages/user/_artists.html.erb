@@ -4,11 +4,35 @@
 
 	<div class="dashboard-actions centered">
 
-		<a class="black-background button medium">+ Add an Artist</a>
+		<%= link_to "+ Add an Artist", new_artist_path, class: "black-background button medium" %>
 
 	</div>
 
-	<h3>All Artists</h3>
+	<div class="dashboard-section-header">
+
+		<ul>
+			<li><a class="click-to-reveal active" data-reveal-panel-id="a-z">A-Z</a></li><li><a class="click-to-reveal" data-reveal-panel-id="recently-added">Recently Added</a></li><li><a class="click-to-reveal" data-reveal-panel-id="active-show">Active Show</a></li>
+		</ul>
+
+	</div>
+
+	<div class="reveal-panel" id="a-z">
+
+		A to Z
+
+	</div>
+
+	<div class="reveal-panel default-off" id="recently-added">
+
+		Recently Added
+
+	</div>
+
+	<div class="reveal-panel default-off" id="active-show">
+
+		Active Show
+
+	</div>
 
 	
 
