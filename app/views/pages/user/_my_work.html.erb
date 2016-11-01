@@ -2,6 +2,16 @@
 <div class="dashboard-item" id="works">
   
   <%= render 'pages/user/warnings' %>
+
+  	<div class="dashboard-actions centered">
+
+		<a class="black-background button medium">+ Add Work</a>
+
+	</div>
+
+	<h3>All Works</h3>
+
+
   
   <%= render :partial => 'item_arts/index_grid', :locals => {:items =>  current_user.item_arts.reverse, :image_only => false, :columns => 3} %>
    

@@ -2,6 +2,9 @@
 
 	<%= render 'pages/user/warnings' %>
 
+
+	<h3>All Sales</h3>
+
 	<% current_user.purchases_of_my_work.each do |purchase| %>
 		
 		<% if purchase.item_art %>
@@ -20,5 +23,9 @@
 		<%end%>
 
 	<%end%>
+	
 
 </div>
+
+
+

@@ -78,6 +78,8 @@ Rails.application.routes.draw do
 
   get 'dashboard/works' => 'pages#my_work', as: 'works'
 
+  get 'dashboard/shows' => 'pages#shows', as: 'dashboard_shows'
+
   get 'dashboard/engagement' => 'pages#engagement', as: 'engagement'
 
 

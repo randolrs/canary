@@ -365,13 +365,29 @@ class PagesController < ApplicationController
 
 		@page = "work"
 
-		@page_title = "Portfolio"
+		@page_title = "Works"
 
 		if user_signed_in?
 			@hide_header = true
 		end
 
 	end
+
+
+	def shows
+
+		@page = "shows"
+
+		@page_title = "Shows & Festivals"
+
+		if user_signed_in?
+			@hide_header = true
+		end
+
+
+	end
+
+
 
 	def email_to_me
 

@@ -1,0 +1,16 @@
+
+<% if user_signed_in? %>
+
+	<%= render 'pages/user/dashboard_side_panel' %>
+
+	<div class="dashboard-container">
+
+		<%= render 'pages/user/dashboard_header' %>
+
+		<%= render 'pages/user/shows' %>
+
+	</div>
+
+<%end%>
+	
+	
