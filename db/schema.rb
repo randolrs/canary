@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101100640) do
+ActiveRecord::Schema.define(version: 20161101132533) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -140,6 +140,9 @@ ActiveRecord::Schema.define(version: 20161101100640) do
     t.integer  "number_of_images"
     t.boolean  "include_artist_statement"
     t.boolean  "require_additional_description"
+    t.text     "about"
+    t.integer  "year_opened"
+    t.integer  "user_id"
   end
 
   create_table "gallery_submission_formats", force: :cascade do |t|
@@ -160,6 +163,14 @@ ActiveRecord::Schema.define(version: 20161101100640) do
     t.datetime "updated_at",             null: false
     t.boolean  "paid"
     t.decimal  "cost"
+  end
+
+  create_table "gallery_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "gallery_id"
+    t.boolean  "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "item_arts", force: :cascade do |t|
@@ -185,6 +196,8 @@ ActiveRecord::Schema.define(version: 20161101100640) do
     t.text     "pickup_instructions"
     t.string   "sample_name"
     t.boolean  "is_set_to_sold"
+    t.integer  "artist_id"
+    t.integer  "year_of_creation"
   end
 
   create_table "messages", force: :cascade do |t|

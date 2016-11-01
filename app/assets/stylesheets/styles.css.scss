@@ -17,7 +17,21 @@ html{
 
     	-webkit-font-smoothing: antialiased;
 
-	    
+	    .form-container{
+	    	max-width: 500px;
+	    	margin:0 auto;
+
+	    	label{
+				font-weight: 700;
+			}
+
+
+	    	input, textarea, select{
+	    		display: block;
+	    		width: 100%;
+	    	}
+	    }
+
 	    h1{
 
 	        font-size: 3em;

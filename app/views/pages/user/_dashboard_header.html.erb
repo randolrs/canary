@@ -2,6 +2,7 @@
 
 	<h4 class="dashboard-header-text"><%= @page_title %></h4>
 
-	<a class="action"><%= current_user.display_name %></a>
+	<a class="action" data-method="delete" href='<%= destroy_user_session_path%>'>Logout</a>
+	<%# current_user.display_name %>
 
 </div>

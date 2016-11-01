@@ -1,64 +1,71 @@
-<%= form_for(@artist) do |f| %>
-  <% if @artist.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+<div class="form-container">
 
-      <ul>
-      <% @artist.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <h4><%= @form_header_prompt %></h4>
+
+  <%= form_for(@artist) do |f| %>
+    <% if @artist.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+
+        <ul>
+        <% @artist.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+
+    <br>
+
+    <div class="field">
+
+      <label>Artist Photo</label><br>
+      
+      <span>
+      
+        <%= image_tag @artist.image.url, class: "item-art-medium-image" %>
+        <br>
+        <%= f.file_field :image, class: "form-control" %>
+
+      </span>
+
+    </div>
+
+    <br>
+
+    <div class="field">
+      <%= f.label :biography %><br>
+      <%= f.text_area :biography %>
+    </div>
+
+    <br>
+    <div class="field">
+      <%= f.label :artist_statement %><br>
+      <%= f.text_area :artist_statement %>
+    </div>
+
+    <br>
+    <div class="field">
+      <%= f.label :birth_year %><br>
+      <%= f.text_field :birth_year %>
+    </div>
+
+    <br>
+    <div class="field">
+      <%= f.label :nationality %><br>
+      <%= f.text_field :nationality %>
+    </div>
+
+    <br>
+    <div class="actions">
+      <%= f.submit "Save New Artist", class:"button large black-background" %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
 
-  <br>
-
-  <div class="field">
-
-    <label>Artist Photo</label><br>
-    
-    <span>
-    
-      <%= image_tag @artist.image.url, class: "item-art-medium-image" %>
-      <br>
-      <%= f.file_field :image, class: "form-control" %>
-
-    </span>
-
-  </div>
-
-  <br>
-
-  <div class="field">
-    <%= f.label :biography %><br>
-    <%= f.text_area :biography %>
-  </div>
-
-  <br>
-  <div class="field">
-    <%= f.label :artist_statement %><br>
-    <%= f.text_area :artist_statement %>
-  </div>
-
-  <br>
-  <div class="field">
-    <%= f.label :birth_year %><br>
-    <%= f.text_field :birth_year %>
-  </div>
-
-  <br>
-  <div class="field">
-    <%= f.label :nationality %><br>
-    <%= f.text_field :nationality %>
-  </div>
-
-  <br>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

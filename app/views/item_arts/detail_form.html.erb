@@ -40,6 +40,15 @@
       <br>
       <br>
 
+      <label>Artist</label>
+
+      <br>
+
+      <%= f.collection_select :artist_id, current_user.artists, :id, :name %>
+
+      <br>
+      <br>
+
       <label>Medium</label>
 
       <br>

@@ -32,6 +32,8 @@ Rails.application.routes.draw do
 
   get 'welcome' => 'pages#user_welcome'
 
+  get 'work/new' => 'item_arts#new_work', as: 'new_work'
+
   get 'balance' => 'pages#balance_payments', as: 'balance_payments'
 
   get 'sales' => 'pages#sales', as: 'sales'

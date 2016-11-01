@@ -3,27 +3,6 @@
 	
 	<%= render 'pages/user/warnings' %>
 
-	<div class="grid">
-
-		<div class="grid-item centered">
-			<div class="grid-content">
-				<span>4<span><br><span>New Sales</span>
-			</div>
-		</div>
-
-		<div class="grid-item centered">
-			<div class="grid-content">
-				<span>12<span><br><span>New Messages</span>
-			</div>
-
-		</div>
-
-		<div class="grid-item centered">
-			<div class="grid-content">
-				<span>32<span><br><span>New Views</span>
-			</div>
-		</div>
-
-	</div>
+	<%= current_user.galleries.count %>
 
 </div>

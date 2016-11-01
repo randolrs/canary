@@ -122,10 +122,12 @@ form.new_item_art{
   width: 100%;
 }
 
+
+
 textarea.description{
 	resize: none;
 	display: block;
-	max-width: 400px;
+	
 	width: 100%;
 	height: 200px;
 }
@@ -324,7 +326,7 @@ html{
 					.artwork-actions{
 
 						padding: 10px 0px;
-						
+
 						a.action{
 							display:inline-block;
 							height: 48px;

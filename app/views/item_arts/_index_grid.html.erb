@@ -6,19 +6,19 @@
 			
 			<% if user_signed_in? %>
 
-				<% if current_user.is_me(item.user) %>
+				<%# if current_user.is_me(item.user) %>
 
-					<%= link_to(item_art_detail_form_path(item.id)) do %>
+					<%# link_to(item_art_detail_form_path(item.id)) do %>
 
-						<div class="image-container">
+<!-- 						<div class="image-container">
 
 							<%= image_tag item.image.url, class: "grid-image"%>
 
-						</div>
+						</div> -->
 
-					<% end %>
+					<%# end %>
 
-				<%else%>
+				<%#else%>
 
 					<%= link_to(direct_link_to_item_art_path(item.search_code)) do %>
 
@@ -30,7 +30,7 @@
 
 					<% end %>
 
-				<%end%>
+				<%#end%>
 
 
 			<%else%>

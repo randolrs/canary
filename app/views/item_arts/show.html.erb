@@ -21,13 +21,13 @@
 
     <div class="detail-section">
       
-      <a class="artist-name">[Artist Name]</a>
+      <a class="artist-name"><%= @item_art.artist.name %></a>
       <%# unless @item_art.is_sample && @item_art.sample_name %><%# link_to @item_art.user.display_name, profile_path(@item_art.user.display_name), class: "artist-name" %><%#else%><%# @item_art.sample_name class: "artist-name" %><%#end%>
     
     </div>
 
     <div class="detail-section">
-      <a><span class="artwork-name"><%= @item_art.name %></span>, [year]</a>
+      <a><span class="artwork-name"><%= @item_art.name %></span>, <%= @item_art.year_of_creation %></a>
     </div>
 
     <div class="detail-section">
@@ -58,7 +58,7 @@
 
       <br>
 
-      <a class="darker-text">[Gallery Name Placeholder]</a>
+      <a class="darker-text"><%= @item_art.artist.gallery.name %></a>
 
       <br>
       <br>
@@ -192,7 +192,7 @@
       </div>
 
       <div class="outbound-link">
-          <a>SEE ALL <%= @item_art.user.item_arts.count %> WORKS BY [ARTIST] <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+          <a>SEE ALL <%= @item_art.artist.item_arts.count %> WORKS BY [ARTIST] <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
       </div>
 
     </div>
@@ -209,7 +209,7 @@
       </div>
 
       <div class="outbound-link">
-          <a>SEE ALL <%= @item_art.user.item_arts.count %> WORKS FROM [GALLERY] <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+          <a>SEE ALL <%= @item_art.artist.item_arts.count %> WORKS FROM [GALLERY] <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
       </div>
 
     </div>
@@ -282,7 +282,7 @@
 
 <% if user_signed_in? %>
   
-  <%= render 'messages/modal_form' %>
+  <%# render 'messages/modal_form' %>
 
 <%else%>
   

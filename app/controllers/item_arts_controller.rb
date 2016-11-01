@@ -23,7 +23,7 @@ class ItemArtsController < ApplicationController
 
     @message_recipient = @item_art.user
 
-    @artist = @item_art.user
+    @artist = @item_art.artist
 
 
     unless @item_art.is_sample
@@ -125,6 +125,17 @@ class ItemArtsController < ApplicationController
     @hide_add_artwork_cta = true
   end
 
+  def new_work
+
+    @form_header_prompt = "Enter Work Details"
+
+    @item_art = ItemArt.new
+
+    @page_title = "New Work"
+
+    @hide_add_artwork_cta = true
+  end
+
   # GET /item_arts/1/edit
   def edit
   end
@@ -162,14 +173,14 @@ class ItemArtsController < ApplicationController
   # POST /item_arts.json
   def create
     
-    if current_user.is_artist
+    if user_signed_in?
 
       @item_art = ItemArt.new(item_art_params)
 
-      @item_art.update(:user_id => current_user.id)
+      #Search code magic
 
       c = 0
-      
+        
       until c==1 do
         
         search_code = (SecureRandom.hex(2)).downcase
@@ -184,9 +195,17 @@ class ItemArtsController < ApplicationController
 
       end
 
+      ##end search code
+
+      if current_user.is_artist
+
+        @item_art.update(:user_id => current_user.id)
+
+      end
+
       respond_to do |format|
         if @item_art.save
-          format.html { redirect_to item_art_detail_form_path(@item_art.id), notice: 'Item art was successfully created.' }
+          format.html { redirect_to works_path, notice: 'Item art was successfully created.' }
           format.json { render :show, status: :created, location: @item_art }
         else
           format.html { render :new }
@@ -270,6 +289,6 @@ class ItemArtsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_art_params
-      params.require(:item_art).permit(:user_id, :description, :name, :height, :width, :length, :venue_id, :price, :search_code, :image, :exhibition_id, :medium, :is_visible, :is_sample, :sample_name, :pickup_instructions)
+      params.require(:item_art).permit(:user_id, :description, :name, :height, :width, :length, :venue_id, :price, :search_code, :image, :exhibition_id, :medium, :is_visible, :is_sample, :sample_name, :pickup_instructions, :artist_id, :year_of_creation)
     end
 end

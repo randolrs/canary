@@ -53,6 +53,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     end
 
+
     yield resource if block_given?
     
     if resource.persisted?
@@ -82,6 +83,23 @@ class RegistrationsController < Devise::RegistrationsController
 
             end
 
+        end
+
+
+        if resource.is_gallery
+
+          @gallery = Gallery.new
+
+          @gallery.update(:user_id => resource.id)
+
+          @gallery.save
+
+
+          @gallery_user = GalleryUser.new
+
+          @gallery_user.update(:user_id => resource.id, :gallery_id => @gallery.id)
+
+      
         end
 
         set_flash_message! :notice, :signed_up

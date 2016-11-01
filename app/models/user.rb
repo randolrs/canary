@@ -18,6 +18,18 @@ class User < ActiveRecord::Base
 
     has_many :views, :through => :item_arts
 
+    has_many :gallery_users
+
+    has_many :galleries, :through => :gallery_users
+
+    has_many :artists
+
+    has_many :artists, :through => :galleries
+
+
+
+
+
 	has_attached_file :image, 
 	:styles => { :medium => "194x194#", :small => "70x70#", :thumb => "30x30#"},
 	:default_url => 'missing_:style.png',
@@ -56,6 +68,30 @@ class User < ActiveRecord::Base
     return affiliate_link
 
   end
+
+  
+
+
+  def my_work
+
+    work = Array.new
+
+    self.galleries.last.artists.each do |artist|
+
+      artist.item_arts.each do |item_art|
+
+        work << item_art
+
+      end
+
+
+    end
+
+    return work
+
+  end
+
+
 
   def trial_expired
 

@@ -5,7 +5,7 @@
 
   	<div class="dashboard-actions centered">
 
-		<a class="black-background button medium">+ Add Work</a>
+  		<%= link_to "+ Add Work", new_work_path, class:'black-background button medium'%>
 
 	</div>
 
@@ -19,7 +19,7 @@
 
 	<div class="reveal-panel" id="all">
 
-		All
+		<%= render :partial => 'item_arts/index_grid', :locals => {:items =>  current_user.my_work, :image_only => false, :columns => 3} %>
 
 	</div>
 

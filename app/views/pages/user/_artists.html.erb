@@ -11,14 +11,38 @@
 	<div class="dashboard-section-header">
 
 		<ul>
-			<li><a class="click-to-reveal active" data-reveal-panel-id="a-z">A-Z</a></li><li><a class="click-to-reveal" data-reveal-panel-id="recently-added">Recently Added</a></li><li><a class="click-to-reveal" data-reveal-panel-id="active-show">Active Show</a></li>
+			<li><a class="click-to-reveal active" data-reveal-panel-id="a-z">A-Z</a></li><li><a class="click-to-reveal" data-reveal-panel-id="recently-added">Recently</a></li><li><a class="click-to-reveal" data-reveal-panel-id="active-show">Active Show</a></li>
 		</ul>
 
 	</div>
 
 	<div class="reveal-panel" id="a-z">
 
-		A to Z
+		<table>
+			
+			<tr>
+				<td colspan="2"></td>
+				<td>Name</td>
+				<td>Biography</td>
+				<td>Artist Statement</td>
+				<td>Number of Pieces</td>
+
+			</tr>
+
+		
+			<% current_user.galleries.last.artists.each do |artist| %>
+				
+				<tr>
+					<td colspan="2"><%= image_tag artist.image.url(:medium), class: "medium-profile-image"%></td>
+					<td><%= artist.name %></td>
+					<td><%= artist.biography.nil? %></td>
+					<td><%= artist.artist_statement.nil? %></td>
+					<td>3</td>
+				</tr>
+				
+			<%end%>
+
+		</table>
 
 	</div>
 
