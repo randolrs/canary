@@ -141,7 +141,11 @@
 
       <div class="artwork-summary-section for-mobile-only">
 
-        <h5>About <i><%= @item_art.name %></i></h5>
+        <h5>About the Work</h5>
+
+        <a class="secondary-grey-text"><%= @item_art.name %></a>
+
+        <br><br>
 
         <p><%= @item_art.description %></p>
 
@@ -155,7 +159,11 @@
 
           <div class="sub-section">
 
-            <h5>About the Work</h5>
+            <h5>About the Artist</h5>
+
+            <a class="secondary-grey-text"><%= @item_art.artist.name %></a>
+
+            <br><br>
 
             <% if @item_art.artist.biography%>
 
@@ -203,6 +211,10 @@
         <div class="sub-section">
 
           <h5>About the Gallery</h5>
+
+          <a class="secondary-grey-text"><%= @item_art.artist.gallery.name %></a>
+
+          <br><br>
 
           <p><%= @item_art.artist.gallery.about %></p>
 
