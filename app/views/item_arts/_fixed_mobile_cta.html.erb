@@ -3,15 +3,15 @@
       
     <%= form_tag start_checkout_path do %>
 
-  		<input type="hidden" name="itemID" value="<%= item_art.id %>">
+  		<input type="hidden" name="itemID" value="<%# item_art.id %>">
 
-  		<input type="submit" value="Buy for <%= number_to_currency(item_art.price, precision: 0) %>" class="button green-background item-buy-action fixed-bottom-cta">
+  		<input type="submit" value="Buy for <%# number_to_currency(item_art.price, precision: 0) %>" class="button black-background item-buy-action fixed-bottom-cta mobile-only">
 
 	<%end%>
   
   <%else%>
 
-    <a class="button green-background fixed-bottom-cta"><span class="glyphicon glyphicon-ok"  aria-hidden="true" style="margin-right: 5px;"></span>Sold</a>
+    <a class="button black-background fixed-bottom-cta mobile-only"><span class="glyphicon glyphicon-ok"  aria-hidden="true" style="margin-right: 5px;"></span>Sold</a>
     
 <%end%>
 
