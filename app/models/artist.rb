@@ -22,4 +22,9 @@ class Artist < ActiveRecord::Base
   	end
 
 
+  	def related_artists
+  		return Artist.last(3)
+  	end
+
+
 end

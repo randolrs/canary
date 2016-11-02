@@ -137,6 +137,10 @@
     position: relative;
 
     font-family: 'Lato', sans-serif;
+
+    box-shadow: inset 0px 1px 3px 0px rgba(240, 240, 240, 0.7), 0px 1px 3px 0px rgba(100, 100, 100, 0.3);
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(240, 240, 240, 0.7) inset, 0px 1px 3px 0px rgba(100, 100, 100, 0.3);
+    -moz-box-shadow: 0px 1px 3px 0px rgba(240, 240, 240, 0.7) inset, 0px 1px 3px 0px rgba(100, 100, 100, 0.3);
 }
 
 .button.fixed-bottom-cta{
@@ -196,7 +200,6 @@
     background-image: linear-gradient(top, #0E6972, #02555D);
 
     border: 1px solid #013e44;
-    box-shadow: inset 0px 1px 3px 0px #3B8C94;
     color: #fff;
 
     border-radius: 3px;
@@ -214,14 +217,12 @@
     background-image: linear-gradient(top, #242434, #141424);
 
     border: 1px solid #040414;
-    box-shadow: inset 0px 1px 3px 0px #444454;
     color: #fff;
     
 }
 
 .green-background{
 	
-    box-shadow: inset 0px 1px 3px 0px #ccc;
     border: 1px solid #00b22d;
     color:#fff;
     text-transform: none;
@@ -252,7 +253,6 @@
 
 .grey-background{
 	
-    box-shadow: inset 0px 1px 1px 0px rgba(200,200,200,0.3);
     border: 1px solid #999;
     color:#333;
     text-transform: none;
@@ -275,7 +275,6 @@
     background-image: -o-linear-gradient(top, #F00000 , #DC281E);
     background-image: linear-gradient(top, #F00000 , #DC281E);
     border: 1px solid #990A02;
-    box-shadow: inset 0px 1px 3px 0px #F3655E;
     color: #fff;
     text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
 
@@ -286,10 +285,6 @@
 	
 	color: #fff;
     text-shadow: 0px 1px 1px #000;
-
-    -webkit-box-shadow: 0 1px 0px rgba(255,255,255,0.3) inset, 0 0px 1px rgba(0,0,0,0.7);
-    -moz-box-shadow: 0 1px 0px rgba(255,255,255,0.3) inset, 0 0px 1px rgba(0,0,0,0.7);
-    box-shadow: 0 1px 1px rgba(255,255,255,0.3) inset, 0 0px 1px rgba(0,0,0,0.7);
     background: #222;
     border: 1px solid #141414;
 
@@ -314,20 +309,17 @@
 
 
 .red-frame{
-	background-color: #fff;
-    border: 2px solid #DD3B33;
-    box-shadow: 0px 1px 3px 0px #F3655E;
-    color: #DD3B33;
-    font-weight: 800;
+	background-color: #DD3B33;
+    border: 1px solid #B5302A;
+    color: #fff;
+    font-weight: 500;
 
-    border-radius: 3px;
-    text-shadow: 0px 1px 1px #ccc;
+    border-radius: 2px;
 }
 
 .red-frame:hover{
-	background-color: #DD3B33;
+	
 	cursor: pointer;
-	text-shadow: none;
 
     color: #fff;
 }
@@ -336,7 +328,6 @@
 
 	background-color: #104891;
     border: 1px solid #0a2e5c;
-    box-shadow: inset 0px 1px 3px 0px #1663c7;
     color: #fff;
     text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2);
 
@@ -347,7 +338,6 @@
 
 	background-color: #ee8f66;
     border: 1px solid #c74b16;
-    box-shadow: inset 0px 1px 3px 0px #eee;
 
     a{
     	color: #222;
@@ -362,7 +352,6 @@
 	 
 	background-color: #e8e230;
     border: 1px solid #918d10;
-    box-shadow: inset 0px 1px 3px 0px #eee;
     color: #fff;
     text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
 
@@ -373,7 +362,6 @@
 	
 	background-color: #ee66aa;
     border: 1px solid #911051;
-    box-shadow: inset 0px 1px 3px 0px #eee;
     color: #fff;
     text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
 

@@ -1,0 +1,54 @@
+<div class="image-grid">
+
+	<% artists.each do |artist| %>
+
+		<div class="entry <% if image_only %>image-only<%end%><% if columns == 2 %>col-2<%end%>">
+			
+			<% if user_signed_in? %>
+
+				<%= link_to(artist_path(artist)) do %>
+
+					<div class="image-container">
+
+						<%= image_tag artist.image.url, class: "grid-image"%>
+
+					</div>
+
+				<% end %>
+
+
+			<%else%>
+
+				<%= link_to(artist_path(artist)) do %>
+
+					<div class="image-container">
+
+						<%= image_tag artist.image.url, class: "grid-image"%>
+
+					</div>
+
+				<% end %>
+
+			<%end%>
+			
+				
+			<% unless image_only %>
+
+				<div class="detail-container">
+
+					<a class="artwork-metadata artist-name"><%= artist.name %></a>
+					<br>
+
+
+					<a class="artwork-metadata"><b>Artworks:</b> <%= artist.item_arts.count %></a>
+					<br>
+
+		    	</div>
+
+	    	<%end%>
+
+		</div>
+
+	<% end %>
+
+</div>

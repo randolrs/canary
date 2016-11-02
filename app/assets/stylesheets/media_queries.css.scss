@@ -363,6 +363,149 @@
 
 }
 
+
+@media only screen and (max-width: 1000px) {
+
+	html{
+
+		body{
+
+    		.image-grid{
+
+    			float: left;
+
+			    .entry{
+			        display: table-cell;
+			        width: 50%;
+			        float: left;
+
+			        padding: 15px;
+
+			        .image-container{
+			           	
+			        }
+
+			    }
+
+			}
+
+			.artwork-container {
+
+
+				.artwork-info {
+					display: none;
+				}
+
+				.artwork-image{
+					margin: 0;
+					padding: 0px;
+
+					.artwork-image-container{
+						padding: 0px;
+
+						.artwork-main-image{
+							width: 100%;
+						}
+
+					}
+
+				}
+
+				.artwork-detailed-summary{
+					margin: 0px;
+					padding: 30px;
+
+					.artwork-summary-section{
+
+						.artwork-summary-section-header{
+							display: none;
+						}
+
+						.artwork-summary-section-body{
+							padding: 0px;
+						}
+
+					}
+
+				}
+
+
+			} 
+
+			
+
+		}
+
+
+	}
+
+	
+
+}
+
+@media only screen and (max-device-width: 1025px) {
+
+	html{
+
+		body{
+
+			.artwork-container {
+
+
+				.artwork-info {
+					display: none;
+				}
+
+				.artwork-image{
+					margin: 0;
+					padding: 0px;
+
+					.artwork-image-container{
+						padding: 0px;
+
+						.artwork-main-image{
+							width: 100%;
+						}
+
+					}
+
+				}
+
+				.artwork-detailed-summary{
+					margin: 0px;
+					padding: 30px;
+
+					.artwork-summary-section{
+
+						.artwork-summary-section-header{
+							display: none;
+						}
+
+						.artwork-summary-section-body{
+							padding: 0px;
+						}
+
+					}
+
+				}
+
+
+			} 
+
+			
+
+		}
+
+
+	}
+
+	
+
+}
+
+
+
+
 @media only screen and (max-width: 600px) {
 
 	html{

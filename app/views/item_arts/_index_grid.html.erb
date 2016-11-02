@@ -64,11 +64,10 @@
 					<br>
 
 					<a class="artwork-metadata" href="<%= direct_link_to_item_art_path(item.search_code) %>">ArtYam.com/<span style="color: red;"><%= item.search_code %></span></a>
-					<br>
-
 					
 
-					<p><% unless item.sold or item.is_set_to_sold %><a class="mark-as-sold green-background" data-item-id="<%= item.id %>">Mark as Sold</a><%end%></p>
+					<!-- <br> -->
+					<!-- <p><%# unless item.sold or item.is_set_to_sold %><a class="mark-as-sold green-background" data-item-id="<%= item.id %>">Mark as Sold</a><%#end%></p> -->
 
 		    	</div>
 

@@ -57,16 +57,8 @@ class ItemArtsController < ApplicationController
 
       @view = View.new
 
-      unless @item_art.is_sample && @item_art.sample_name
+      @page_title = @item_art.name + " by " + @item_art.artist.name
 
-        @page_title = @item_art.name + " by " + @item_art.user.display_name
-
-
-      else
-
-        @page_title = @item_art.name + " by " + @item_art.sample_name
-
-      end
 
       @main_SEO_title = @page_title
 
@@ -78,7 +70,7 @@ class ItemArtsController < ApplicationController
 
       @message_recipient = @item_art.user
 
-      @artist = @item_art.user
+      @artist = @item_art.artist
 
       unless @item_art.is_sample
         
