@@ -150,7 +150,7 @@ class ChargesController < ApplicationController
 				@order_item.update(:order_id => @order.id, :item_id => @item.id)
 
 				if @order_item.save
-					redirect_to add_contact_information_to_order(@order.id)
+					redirect_to add_contact_information_to_order_path(@order.id)
 					#redirect_to start_order_path(@order.id)
 				else
 					redirect_to :back
@@ -275,13 +275,13 @@ class ChargesController < ApplicationController
 			:customer    => @order.card_token,
 			:amount      => stripe_price,
 			:description => 'Rails Stripe customer',
-			:currency    => 'usd',
-			:destination => @item_art.user.stripe_account_id,
-			:application_fee => processing_fee
+			:currency    => 'usd'
+			#:destination => @item_art.user.stripe_account_id, #NNNEEEED THIS UPDATE FOR GALLERIES
+			#:application_fee => processing_fee, ###NEEED TO MAKE THIS 4 percent once destination is reestablished
 			)
 
 			purchase = Purchase.create(amount: price, description: charge.description, currency: charge.currency,
-	    	stripe_customer_id: @order.card_token, item_art_id: @item_art.id, artist_id: @item_art.user.id, order_id: @order.id)
+	    	stripe_customer_id: @order.card_token, item_art_id: @item_art.id, artist_id: @item_art.artist.id, order_id: @order.id)
 
 
 			if user_signed_in?
@@ -302,9 +302,6 @@ class ChargesController < ApplicationController
 
 		end
 
-	rescue Stripe::RequestError => e
-		flash[:error] = e.message
-		redirect_to :back
 
 	rescue Stripe::CardError => e
 		flash[:error] = e.message
