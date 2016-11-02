@@ -120,14 +120,17 @@
       </div>
 
       <div class="sub-section">
-        <h5>DETAILS</h5>
+        <a><b>DETAILS</b></a>
+        <br><br>
         <a><%= @item_art.medium %></a>
         <br>
         <a><%= @item_art.height.to_i %> x <%= @item_art.width.to_i %> <% if @item_art.length %> x <%= @item_art.length.to_i %><%end%> in, <%= @item_art.height.to_i * 2.54 %> x <%= @item_art.width.to_i * 2.54  %> <% if @item_art.length %> x <%= @item_art.length.to_i * 2.54 %><%end%> cm</a>
       </div>
 
-      <h5>GALLERY</h5>
-      <a><%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-chevron-right" style="margin-left: 5px;"></span></a>
+      <a><b>GALLERY</b></a>
+      <br><br>
+      <a><%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 5px;"></span></a>
+      <a><%= @item_art.artist.gallery.city %> <% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>|<%end%> <%= @item_art.artist.gallery.state_province %></a>
 
 
     </div>
@@ -138,7 +141,7 @@
 
       <div class="artwork-summary-section for-mobile-only">
 
-        <h5>ABOUT THE WORK</h5>
+        <h5>ABOUT <i><%= @item_art.name.upcase %></i></h5>
 
         <p><%= @item_art.description %></p>
 
@@ -146,35 +149,70 @@
 
     <%end%>
 
+    <% if @item_art.artist.biography or @item_art.artist.artist_statement %>
+    
+      <div class="artwork-summary-section for-mobile-only">
+
+          <div class="sub-section">
+
+            <h5>ABOUT <%= @item_art.artist.name.upcase %></h5>
+
+            <% if @item_art.artist.biography%>
+
+              <p class="click-to-toggle" data-reveal-panel-id="biography">Biography<span class="glyphicon glyphicon-chevron-down" style="margin-left: 5px;"></span></p>
+
+              <div class="reveal-panel default-off" id="biography">
+
+                <p class="hidden-content"><%= @item_art.artist.biography%></p>
+
+                <p><%= @item_art.artist.nationality %>, b. <%= @item_art.artist.birth_year %></p>
+        
+
+              </div>
+
+
+
+            <%end%>
+
+            <br><br>
+
+            <% if @item_art.artist.artist_statement%>
+
+              <p class="click-to-toggle" data-reveal-panel-id="artist-statement">Artist Statement<span class="glyphicon glyphicon-chevron-down" style="margin-left: 5px;"></span></p>
+
+              <div class="reveal-panel default-off" id="artist-statement">
+
+                 <p class="hidden-content"><%= @item_art.artist.artist_statement%></p>
+
+              </div>
+
+            <%end%>
+
+          </div>
+
+          <div class="outbound-link">
+            <a>GO TO <%= @item_art.artist.name.upcase.possessive %> ARTIST PAGE <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+          </div>
+
+      </div>
+
+    <%end%>
 
     <div class="artwork-summary-section for-mobile-only">
 
         <div class="sub-section">
 
-          <h5>ABOUT THE ARTIST</h5>
+          <h5>ABOUT <%= @item_art.artist.gallery.name.upcase %></h5>
 
-          <p><%= @item_art.artist.name %></p>
-
-        </div>
-
-
-        <a>GO TO <%= @item_art.artist.name.upcase.possessive %> ARTIST PAGE <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
-
-    </div>
-
-    <div class="artwork-summary-section for-mobile-only">
-
-        <div class="sub-section">
-
-          <h5>ABOUT THE GALLERY</h5>
-
-          <p><%= @item_art.artist.gallery.name %></p>
-
+          <p><%= @item_art.artist.gallery.about %></p>
 
         </div>
 
-        <a>GO TO <%= @item_art.artist.gallery.name.upcase.possessive %> GALLERY PAGE <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+        <div class="outbound-link">
+          <a>GO TO <%= @item_art.artist.gallery.name.upcase.possessive %> GALLERY PAGE <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+        </div>
 
+        
     </div>
 
 
@@ -236,7 +274,7 @@
         </div>
 
         <div class="outbound-link">
-          <a>GO TO <%= @item_art.artist.name.upcase.possessive %> ARTIST PAGE <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+          <a>Go to <%= @item_art.artist.name.upcase.possessive %> artist page<span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
         </div>
         
       </div>
@@ -244,7 +282,7 @@
     </div>
 
 
-    <div class="artwork-summary-section">
+    <div class="artwork-summary-section full-size">
 
       <div class="artwork-summary-section-header centered">
 
@@ -257,12 +295,12 @@
 
         <h3><%= @item_art.artist.gallery.name %></h3>
 
-        <h4><%= @item_art.artist.gallery.city %> | <%= @item_art.artist.gallery.state_province %></h4>
+        <h4><%= @item_art.artist.gallery.city %> <% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>|<%end%> <%= @item_art.artist.gallery.state_province %></h4>
 
         <p><%= @item_art.artist.gallery.about %></p>
 
         <div class="outbound-link">
-          <a>GO TO <%= @item_art.artist.gallery.name.upcase.possessive %> GALLERY PAGE <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+          <a>Go to <%= @item_art.artist.gallery.name.upcase.possessive %> gallery page<span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
         </div>
         
       </div>
@@ -279,7 +317,7 @@
       <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => false, :columns => 3} %>
 
       <div class="outbound-link">
-          <a>SEE ALL <%= @item_art.artist.item_arts.count %> WORKS BY <%= @item_art.artist.name.upcase %> <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+          <a>See all <%= @item_art.artist.item_arts.count %> work by <%= @item_art.artist.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
       </div>
 
     </div>
@@ -293,7 +331,7 @@
 
 
       <div class="outbound-link">
-          <a>SEE ALL <%= @item_art.artist.item_arts.count %> WORKS FROM <%= @item_art.artist.gallery.name.upcase %> <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+          <a>See all <%= @item_art.artist.item_arts.count %> works from <%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
       </div>
 
     </div>
@@ -324,7 +362,7 @@
         <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => false, :columns => 3} %>
         
         <div class="outbound-link">
-          <a>SEE MORE RELATED WORKS <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+          <a>See more related works<span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
         </div>
 
       </div>
@@ -343,7 +381,7 @@
 
 
         <div class="outbound-link">
-          <a>SEE MORE ARTISTS SIMILAR TO <%= @item_art.artist.name.upcase %> <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+          <a>See more artists similar to <%= @item_art.artist.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
       </div>
 
 
@@ -359,7 +397,7 @@
 
 
       <div class="outbound-link">
-          <a>SEE ALL RECENTLY VIEWED WORKS <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+          <a>See all recently viewed works<span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
       </div>
 
     </div>
