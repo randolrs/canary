@@ -422,7 +422,7 @@
 					
 					.artwork-summary-section{
 
-						padding: 20px;
+						padding: 30px 20px;
 						border: none;
 						border-bottom: 1px solid #e5e5e5;
 
@@ -439,6 +439,10 @@
 						}
 
 
+					}
+
+					.artwork-summary-section.full-size{
+						display: none !important;
 					}
 
 					.artwork-summary-section.for-mobile-only{

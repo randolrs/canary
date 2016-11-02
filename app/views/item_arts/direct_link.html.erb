@@ -120,15 +120,13 @@
       </div>
 
       <div class="sub-section">
-        <a><b>DETAILS</b></a>
-        <br><br>
+        <h5>DETAILS</h5>
         <a><%= @item_art.medium %></a>
         <br>
         <a><%= @item_art.height.to_i %> x <%= @item_art.width.to_i %> <% if @item_art.length %> x <%= @item_art.length.to_i %><%end%> in, <%= @item_art.height.to_i * 2.54 %> x <%= @item_art.width.to_i * 2.54  %> <% if @item_art.length %> x <%= @item_art.length.to_i * 2.54 %><%end%> cm</a>
       </div>
 
-      <a><b>GALLERY</b></a>
-      <br><br>
+      <h5>GALLERY</h5>
       <a><%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-chevron-right" style="margin-left: 5px;"></span></a>
 
 
@@ -140,9 +138,7 @@
 
       <div class="artwork-summary-section for-mobile-only">
 
-        <h5><b>ABOUT THE WORK</b></h5>
-
-        <br>
+        <h5>ABOUT THE WORK</h5>
 
         <p><%= @item_art.description %></p>
 
@@ -153,20 +149,39 @@
 
     <div class="artwork-summary-section for-mobile-only">
 
-        <h5><b>ABOUT THE ARTIST</b></h5>
+        <div class="sub-section">
 
-        <br>
+          <h5>ABOUT THE ARTIST</h5>
 
-        <p><%= @item_art.artist.name %></p>
+          <p><%= @item_art.artist.name %></p>
 
-      </div>
+        </div>
 
+
+        <a>GO TO <%= @item_art.artist.name.upcase.possessive %> ARTIST PAGE <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+
+    </div>
+
+    <div class="artwork-summary-section for-mobile-only">
+
+        <div class="sub-section">
+
+          <h5>ABOUT THE GALLERY</h5>
+
+          <p><%= @item_art.artist.gallery.name %></p>
+
+
+        </div>
+
+        <a>GO TO <%= @item_art.artist.gallery.name.upcase.possessive %> GALLERY PAGE <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+
+    </div>
 
 
 
     <% if @item_art.description.length > 0 %>
 
-      <div class="artwork-summary-section">
+      <div class="artwork-summary-section full-size">
 
         <div class="artwork-summary-section-header">
 
@@ -188,7 +203,7 @@
 
 
 
-    <div class="artwork-summary-section">
+    <div class="artwork-summary-section full-size">
 
       <h3>About <%= @item_art.artist.name %></h3>
 
@@ -308,7 +323,14 @@
 
         <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => false, :columns => 3} %>
         
+        <div class="outbound-link">
+          <a>SEE MORE RELATED WORKS <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+        </div>
+
       </div>
+
+
+
 
     </div>
 
@@ -334,6 +356,11 @@
       <h3>Recently Viewed</h3>
 
         <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => false, :columns => 3} %>
+
+
+      <div class="outbound-link">
+          <a>SEE ALL RECENTLY VIEWED WORKS <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+      </div>
 
     </div>
 
