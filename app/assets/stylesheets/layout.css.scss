@@ -121,27 +121,40 @@ background: linear-gradient(to bottom, #323296 , #26D0CE); /* W3C, IE 10+/ Edge,
     content: "";
     clear: both;
     display: block;
-    float: left;
     width: 100%;
 
 
     .entry{
-        display: table-cell;
+        display: inline-block;
         width: 33%;
-        float: left;
         height: 400px;
-        text-align: center;
+        text-align: left;
+        vertical-align: top;
+        float: left;
+        content: "";
 
         padding: 15px;
 
         .image-container{
             height: 200px;
             line-height: 200px;
+            text-align: center;
         }
 
         .detail-container{
 
             padding: 10px;
+            text-align: center;
+
+            a.artwork-metadata{
+                
+                color: #666;
+                font-size: 0.8em;
+            }
+
+            a.artwork-metadata.artist-name{
+                font-weight: 700;
+            }
             
         }
 

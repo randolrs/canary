@@ -378,6 +378,10 @@ class PagesController < ApplicationController
 
 		@page_title = "Artists"
 
+		@dashboard_mobile_action = "Add Artist"
+
+		@dashboard_mobile_action_path = new_artist_path
+
 		if user_signed_in?
 			@hide_header = true
 		end
@@ -432,6 +436,10 @@ class PagesController < ApplicationController
 
 		@page_title = "Works"
 
+		@dashboard_mobile_action = "Add Work"
+
+		@dashboard_mobile_action_path = new_work_path
+
 		if user_signed_in?
 			@hide_header = true
 		end
@@ -444,6 +452,10 @@ class PagesController < ApplicationController
 		@page = "shows"
 
 		@page_title = "Shows & Festivals"
+
+		@dashboard_mobile_action = "Add Show"
+
+		@dashboard_mobile_action_path = root_path
 
 		if user_signed_in?
 			@hide_header = true

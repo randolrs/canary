@@ -19,19 +19,20 @@
 
 	<div class="reveal-panel" id="all">
 
-		<%= render :partial => 'item_arts/index_grid', :locals => {:items =>  current_user.my_work, :image_only => false, :columns => 3} %>
+		<%= render :partial => 'item_arts/index_grid', :locals => {:items =>  current_user.my_work.sort_by{|e| e[:created_at]}.reverse, :image_only => false, :columns => 3} %>
 
 	</div>
 
 	<div class="reveal-panel default-off" id="for-sale">
 
-		For Sale
+		<%= render :partial => 'item_arts/index_grid', :locals => {:items =>  current_user.my_work.select { |work| work.is_set_to_sold == nil or work.is_set_to_sold == false }, :image_only => false, :columns => 3} %>
 
 	</div>
 
 	<div class="reveal-panel default-off" id="sold">
 
-		Sold
+		<%= render :partial => 'item_arts/index_grid', :locals => {:items =>  current_user.my_work.select { |work| work.is_set_to_sold == true}, :image_only => false, :columns => 3} %>
+
 
 	</div>
 

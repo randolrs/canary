@@ -55,6 +55,21 @@
 
 						</ul>
 
+					<%else%>
+
+						<% if @dashboard_mobile_action %>
+
+						<ul class="header-right">
+
+							<li>
+								<a class="dashboard-mobile-action" href="<%= @dashboard_mobile_action_path %>"><span class="glyphicon glyphicon-plus" aria-hidden="true" style="margin-right:5px;"></span><%= @dashboard_mobile_action %></a>
+							</li>
+
+
+						</ul>
+
+						<%end%>
+
 					<%end%>
 
 				<%elsif current_user.is_buyer %>

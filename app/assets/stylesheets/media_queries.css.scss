@@ -79,13 +79,24 @@
 
 			.dashboard-item{
 				
-				padding: 50px;
+				padding: 0px;
 
 				top: 0px;
 
 			    .dashboard-index{
 			    	margin:0px;
 			    }
+
+			    .dashboard-actions{
+			    	display: none;
+			    }
+
+			    .dashboard-section-header {
+    
+    				text-align: center;
+
+    			}
+				
 			}
 
 			.dashboard-item.no-nav {

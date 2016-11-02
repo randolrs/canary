@@ -12,20 +12,21 @@
 
 <%end%>
 
+
 <div class="artwork-container">
 
 
-
-   <div class="artwork-info">
+  <div class="artwork-info">
 
     <div class="detail-section">
-    
-      <%# unless @item_art.is_sample && @item_art.sample_name %><%# link_to @item_art.user.display_name, profile_path(@item_art.user.display_name), class: "artist-name" %><%else%><%= @item_art.sample_name class: "artist-name" %><%end%>
+      
+      <a class="artist-name"><%= @item_art.artist.name %></a>
+      <%# unless @item_art.is_sample && @item_art.sample_name %><%# link_to @item_art.user.display_name, profile_path(@item_art.user.display_name), class: "artist-name" %><%#else%><%# @item_art.sample_name class: "artist-name" %><%#end%>
     
     </div>
 
     <div class="detail-section">
-      <a><span class="artwork-name"><%= @item_art.name %></span>, [year]</a>
+      <a><span class="artwork-name"><%= @item_art.name %></span>, <%= @item_art.year_of_creation %></a>
     </div>
 
     <div class="detail-section">
@@ -56,7 +57,7 @@
 
       <br>
 
-      <a class="darker-text">[Gallery Name Placeholder]</a>
+      <a class="darker-text"><%= @item_art.artist.gallery.name %></a>
 
       <br>
       <br>
@@ -83,66 +84,196 @@
 
       <%= image_tag @item_art.image.url, class: "artwork-main-image" %>
 
-      <div class="artwork-actions centered">[actions]</div>
+      <div class="artwork-actions centered">
+
+        <a class="action">F</a>
+        <a class="action">T</a>
+        <a class="action">P</a>
+
+
+      </div>
 
     </div>
 
-    <div class="artwork-about-section">
 
-      <% if @item_art.description.length > 0 %>
-    
-        <h4 class="text-header-underline">About <span class="artwork-name"><%= @item_art.name %></span></h4>
 
-        <p><%= @item_art.description %></p>
+    <% if @item_art.description.length > 0 %>
 
-      <%end%>
+      <div class="artwork-summary-section">
+
+        <div class="artwork-summary-section-header">
+
+          <h4 class="text-header-underline">ABOUT THE WORK</span></h4>
+
+        </div>
+
+
+        <div class="artwork-summary-section-body">
+
+          <p><%= @item_art.description %></p>
+
+        </div>
+
+      </div>
+
+    <%end%>
+
+
+
+
+    <div class="artwork-summary-section">
+
+      <h3>About Artist Name</h3>
+
+      <div class="artwork-summary-section-header">
+
+        <a class="clickable">BIOGRAPHY</span></a>
+
+        <br>
+        <br>
+
+        <a class="clickable inactive-option-text">ARTIST STATEMENT</span></a>
+
+      </div>
+
+
+      <div class="artwork-summary-section-body">
+
+        <p>Lots of stuff here and here and here.  Will need additional db work and text formatter.</p>
+
+        <p>[Nationality], b. 1988</p>
+
+        <div class="outbound-link">
+          <a>GO TO [artist's] ARTIST PAGE <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+        </div>
+        
+      </div>
 
     </div>
 
-    <div class="artwork-about-gallery-section">
-    
+
+    <div class="artwork-summary-section">
+
+      <div class="artwork-summary-section-header">
+
+        [img]
+
+      </div>
+
+
+      <div class="artwork-summary-section-body">
+
         <h3>[Gallery name]</h3>
 
-        <p>[City | State]</p>
+        <h4>[City | State]</h4>
 
         <p><%= @item_art.description %></p>
 
-    </div>
-
-
-    <div class="artwork-about-artist-section">
-
-      <% if @item_art.user.about.length > 0 %>
-
-        <h4 class="text-header-underline">About the Artist</h4>
-
-        <p><% unless @item_art.is_sample && @item_art.sample_name %><%= @item_art.user.about %><%else%><%= @item_art.sample_name %> is an innovative artist. The rest of this section is sample text.  This section is fully editable by the artist and typically includes their artist statement.<%end%></p>
-
-      <%end%>
+        <div class="outbound-link">
+          <a>GO TO [gallery's] GALLERY PAGE <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+        </div>
+        
+      </div>
 
     </div>
 
 
-     <div class="artwork-more-work-section">
-
-        <% if @more_work_from_artist.count > 0 %>
-    
-          <h4 class="text-header-underline">More Work by <% unless @item_art.is_sample && @item_art.sample_name %><%= link_to @item_art.user.display_name, profile_path(@item_art.user.display_name) %><%else%><%= @item_art.sample_name %><%end%></h4>
-
-          <div class="portfolio">
-
-              <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => true, :columns => 3} %>
-
-          </div>
-
-        <%end%>
 
 
-     </div>
+    <div class="artwork-summary-section">
+
+      <h3>Other Works by [Artist]</h3>
+
+      <div class="portfolio">
+
+        <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => true, :columns => 3} %>
+
+      </div>
+
+      <div class="outbound-link">
+          <a>SEE ALL <%= @item_art.artist.item_arts.count %> WORKS BY [ARTIST] <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+      </div>
+
+    </div>
+
+
+    <div class="artwork-summary-section">
+
+      <h3>Other Works by [Gallery]</h3>
+
+      <div class="portfolio">
+
+        <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => true, :columns => 3} %>
+
+      </div>
+
+      <div class="outbound-link">
+          <a>SEE ALL <%= @item_art.artist.item_arts.count %> WORKS FROM [GALLERY] <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+      </div>
+
+    </div>
+
+
+
+    <div class="artwork-summary-section">
+
+      <h3>Related Works</h3>
+
+      <div class="artwork-summary-section-header">
+
+        <a class="clickable">MOST SIMILAR</span></a>
+
+        <br>
+
+        <a class="clickable inactive-option-text">[MEDIUM]</span></a>
+
+        <br>
+
+        <a class="clickable inactive-option-text">[CITY]</span></a>
+
+      </div>
+
+
+      <div class="artwork-summary-section-body">
+
+        <div class="portfolio">
+
+          <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => true, :columns => 3} %>
+
+        </div>
+        
+      </div>
+
+    </div>
+
+
+    <div class="artwork-summary-section">
+
+      <h3>Related Artists</h3>
+
+        <div class="portfolio">
+
+          <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => true, :columns => 3} %>
+
+        </div>
+
+    </div>
+
+
+    <div class="artwork-summary-section">
+
+      <h3>Recently Viewed</h3>
+
+        <div class="portfolio">
+
+          <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => true, :columns => 3} %>
+
+        </div>
+
+    </div>
 
 
   </div>
-
 
 
 </div>
@@ -150,10 +281,11 @@
 
 <% if user_signed_in? %>
   
-  <%= render 'messages/modal_form' %>
+  <%# render 'messages/modal_form' %>
 
 <%else%>
   
   <%# render :partial => 'modals/email_to_me', :locals => {:item => @item_art} %>
 
 <%end%>
+
