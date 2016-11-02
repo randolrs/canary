@@ -275,9 +275,9 @@ class ChargesController < ApplicationController
 			:customer    => @order.card_token,
 			:amount      => stripe_price,
 			:description => 'Rails Stripe customer',
-			:currency    => 'usd'
-			#:destination => @item_art.user.stripe_account_id, #NNNEEEED THIS UPDATE FOR GALLERIES
-			#:application_fee => processing_fee, ###NEEED TO MAKE THIS 4 percent once destination is reestablished
+			:currency    => 'usd',
+			:destination => @item_art.artist.gallery.stripe_account_id, #NNNEEEED THIS UPDATE FOR GALLERIES
+			:application_fee => processing_fee ###NEEED TO MAKE THIS 4 percent once destination is reestablished
 			)
 
 			purchase = Purchase.create(amount: price, description: charge.description, currency: charge.currency,

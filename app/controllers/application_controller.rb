@@ -199,7 +199,29 @@ class ApplicationController < ActionController::Base
 
       end
 
+    elsif current_user.is_gallery
+
+      @my_gallery = current_user.galleries.last
+
+      unless @my_gallery.stripe_account_id
+
+        account = Stripe::Account.create({:country => "US", :managed => true})
+
+        @my_gallery.update(:stripe_account_id => account.id)
+
+        account.tos_acceptance.date = Time.now.to_i
+
+        account.tos_acceptance.ip = request.remote_ip
+
+        account.legal_entity.type = "company"
+
+        account.save
+
+
+      end
+
     end
+      
 
   end
 
