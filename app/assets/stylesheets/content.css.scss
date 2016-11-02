@@ -638,6 +638,11 @@ html{
     		max-width:100%;
     		width:500px;
     		margin: 0 auto;
+
+    		input, textarea{
+    			width:100%;
+    			display: block;
+    		}
     	}
 
     	.dashboard-section-header{

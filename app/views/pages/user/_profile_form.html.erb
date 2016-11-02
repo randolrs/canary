@@ -1,51 +1,89 @@
 
-<%= form_for(current_user, url: registration_path(current_user), html: { method: :put, class: "edit_user_settings" }) do |f| %>
+	<% if current_user.is_artist %>
 
-    <div class="field">
-      <%= f.label :display_name %><br />
-      <%= f.text_field :display_name %>
-    </div>
+		<%= form_for(current_user, url: registration_path(current_user), html: { method: :put, class: "edit_user_settings" }) do |f| %>
 
-    <br />
+		    <div class="field">
+		      <%= f.label :display_name %><br />
+		      <%= f.text_field :display_name %>
+		    </div>
 
+		    <br />
+	    	
+		    <div class="field">
+		      <label>Artist Profile Photo</label>
+		      <%= f.file_field :image, class: "form-control" %>
+		    </div>
 
+	   
+	    	<br />
 
-    <% if current_user.is_artist %>
-    	
-	    <div class="field">
-	      <label>Artist Profile Photo</label>
-	      <%= f.file_field :image, class: "form-control" %>
-	    </div>
+		    <div class="field">
+		      <%= f.label "Artist Statement" %><br />
+		      <%= f.text_area :about %>
+		    </div>
 
-   
-    	<br />
+		    <br />
 
-	    <div class="field">
-	      <%= f.label "Artist Statement" %><br />
-	      <%= f.text_area :about %>
-	    </div>
+		    <br />
 
-	    <br />
+		    <div class="actions">
+		      <%= f.submit "Update", class:"button large bright-blue-background" %>
+		    </div>
+
+		<% end %>
 
 	<% elsif current_user.is_gallery %>
+		
+		<%= form_for(current_user.galleries.last) do |f| %>
 
-		<div class="field">
-	      <label>Gallery Profile Photo</label>
-	      <%# f.file_field :image, class: "form-control" %>
-	    </div>
+			<div class="field">
+		      <label>Gallery Name</label>
+		      <br>
+		      <%= f.text_field :name, class: "form-control" %>
+		    </div>
 
-		<div class="field">
-	      <%= f.label "About our Gallery" %><br />
-	      <%# f.text_area :about %>
-	    </div>
+		    <br>
 
-    <%end%>
+		    <div class="field">
+		      <label>City</label>
+		      <br>
+		      <%= f.text_field :city, class: "form-control" %>
+		    </div>
 
-    <br />
+		    <br>
 
-    <div class="actions">
-      <%= f.submit "Update", class:"button large bright-blue-background" %>
-    </div>
+		    <div class="field">
+		      <label>State/Province</label>
+		      <br>
+		      <%= f.text_field :state_province, class: "form-control" %>
+		    </div>
 
-<% end %>
+		    <br>
+
+			<div class="field">
+		      <label>Gallery Profile Photo</label>
+		      <br>
+		      <%= f.file_field :image, class: "form-control" %>
+		    </div>
+
+		    <br>
+
+			<div class="field">
+		      <%= f.label "About our Gallery" %><br />
+		      <%= f.text_area :about %>
+		    </div>
+
+		    <br>
+
+		    <div class="actions">
+		      <%= f.submit "Update", class:"button large bright-blue-background" %>
+		    </div>
+
+
+		<%end%>
+
+	<%end%>
+
+
 

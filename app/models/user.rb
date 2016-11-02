@@ -284,6 +284,14 @@ class User < ActiveRecord::Base
   end
 
 
+  def my_galleries
+
+    #return self.galleries
+
+
+  end
+
+
   
 
   def more_work(item, count)

@@ -129,8 +129,8 @@
 
       <a><b>GALLERY</b></a>
       <br><br>
-      <a><%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 5px;"></span></a>
-      <a><%= @item_art.artist.gallery.city %> <% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>|<%end%> <%= @item_art.artist.gallery.state_province %></a>
+      <a><%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 5px;"></span></a><br>
+      <a><%= @item_art.artist.gallery.city %> <% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>, <%end%> <%= @item_art.artist.gallery.state_province %></a>
 
 
     </div>
@@ -143,7 +143,7 @@
 
         <h5>About the Work</h5>
 
-        <a class="secondary-grey-text"><%= @item_art.name %></a>
+        <a class="secondary-grey-text"><i><%= @item_art.name %></i></a>
 
         <br><br>
 
@@ -307,7 +307,7 @@
 
         <h3><%= @item_art.artist.gallery.name %></h3>
 
-        <h4><%= @item_art.artist.gallery.city %> <% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>|<%end%> <%= @item_art.artist.gallery.state_province %></h4>
+        <h4><%= @item_art.artist.gallery.city %> <% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>, <%end%> <%= @item_art.artist.gallery.state_province %></h4>
 
         <p><%= @item_art.artist.gallery.about %></p>
 
