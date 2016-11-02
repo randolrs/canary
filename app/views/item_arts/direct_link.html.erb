@@ -99,6 +99,69 @@
 
   <div class="artwork-detailed-summary">
 
+    <div class="artwork-summary-section for-mobile-only">
+
+      <a><b><%= @item_art.artist.name.upcase %></b></a>
+      <br>
+
+      <a><span class="artwork-name"><%= @item_art.name %></span>, <%= @item_art.year_of_creation %></a>
+
+    </div>
+
+
+    <div class="artwork-summary-section for-mobile-only">
+
+      <div class="sub-section">
+
+        <a>Price:</a>
+
+        <a style="float: right;"><%= number_to_currency(@item_art.price, precision: 0) %></a>
+
+      </div>
+
+      <div class="sub-section">
+        <a><b>DETAILS</b></a>
+        <br><br>
+        <a><%= @item_art.medium %></a>
+        <br>
+        <a><%= @item_art.height.to_i %> x <%= @item_art.width.to_i %> <% if @item_art.length %> x <%= @item_art.length.to_i %><%end%> in, <%= @item_art.height.to_i * 2.54 %> x <%= @item_art.width.to_i * 2.54  %> <% if @item_art.length %> x <%= @item_art.length.to_i * 2.54 %><%end%> cm</a>
+      </div>
+
+      <a><b>GALLERY</b></a>
+      <br><br>
+      <a><%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-chevron-right" style="margin-left: 5px;"></span></a>
+
+
+    </div>
+
+
+    <% if @item_art.description.length > 0 %>
+
+
+      <div class="artwork-summary-section for-mobile-only">
+
+        <h5><b>ABOUT THE WORK</b></h5>
+
+        <br>
+
+        <p><%= @item_art.description %></p>
+
+      </div>
+
+    <%end%>
+
+
+    <div class="artwork-summary-section for-mobile-only">
+
+        <h5><b>ABOUT THE ARTIST</b></h5>
+
+        <br>
+
+        <p><%= @item_art.artist.name %></p>
+
+      </div>
+
+
 
 
     <% if @item_art.description.length > 0 %>
@@ -168,7 +231,7 @@
 
     <div class="artwork-summary-section">
 
-      <div class="artwork-summary-section-header">
+      <div class="artwork-summary-section-header centered">
 
         <%= image_tag @item_art.artist.image.url, class: "medium-profile-image" %>
 

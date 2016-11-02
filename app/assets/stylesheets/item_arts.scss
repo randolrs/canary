@@ -352,12 +352,16 @@ html{
 			    vertical-align: top;
 			    padding: 0px 55px;
 
-    
+
 
 				.artwork-summary-section{
 
 					border-top: 1px solid #e5e5e5;
 			    	padding: 30px 0px 50px;
+
+			    	.sub-section{
+			    		margin-bottom: 2em;
+			    	}
 
 			    	.artwork-summary-section-header{
 			    		
@@ -394,6 +398,10 @@ html{
 			    			display: inline-block;
 			    	}
 
+				}
+
+				.artwork-summary-section.for-mobile-only{
+					display: none !important;
 				}
 
 			}
