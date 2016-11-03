@@ -19,6 +19,8 @@
         </div>
       <% end %>
 
+      <div class="field">
+
         <label>Image</label>
 
         <br>
@@ -28,8 +30,9 @@
           <%= f.file_field :image, class: "form-control clickable fill-container clear" %>
         </div>
 
-        <br>
-        <br>
+      </div>
+
+      <div class="field">
 
         <label>Name</label>
 
@@ -37,8 +40,9 @@
 
         <%= f.text_field :name, placeholder: "Name/Title", required: true %>
 
-        <br>
-        <br>
+      </div>
+
+      <div class="field">
 
         <label>Artist</label>
 
@@ -46,8 +50,20 @@
 
         <%= f.collection_select :artist_id, current_user.artists, :id, :name, :prompt => true %>
 
+      </div>
+
+
+      <div class="field">
+
+        <label>Show</label>
+
+        <br>
+
+        <%= f.collection_select :show_id, current_user.gallery_shows, :id, :name, :prompt => "No Show" %>
+
         <br>
         <br>
+
 
         <label>Year of Creation</label>
 
@@ -55,9 +71,10 @@
 
         <%= f.number_field :year_of_creation, placeholder: "Year of Creation", required: true  %>
 
-        <br>
-        <br>
+      </div>
 
+
+      <div class="field">
 
         <label>Medium</label>
 
@@ -65,8 +82,9 @@
 
         <%= f.text_field :medium, placeholder: "Medium", required: true, class: "medium" %>
 
-        <br>
-        <br>
+      </div>
+
+      <div class="field">
 
         <label>Description of this Piece</label>
 
@@ -74,8 +92,9 @@
 
         <%= f.text_area :description, required: true, placeholder: "A description of this piece.", class: "description"  %>
 
-        <br>
-        <br>
+      </div>
+
+      <div class="field">
 
         <label>Dimensions (in)</label>
 
@@ -87,8 +106,9 @@
 
         <%= f.number_field :length, placeholder: "Length", class: "dimension" %>
 
-        <br>
-        <br>
+      </div>
+
+      <div class="field">
 
         <label>Price</label>
 
@@ -96,8 +116,9 @@
 
         <%= f.number_field :price, placeholder: "Price", required: true, class: "price"  %>
 
-        <br>
-        <br>
+      </div>
+
+      <div class="field">
 
         <label>Pickup Instruction</label>
 
@@ -121,14 +142,19 @@
 
         <%end%>
 
+      </div>
+
       <% if current_user.is_admin %>
+
+        <div class="field">
         Sample?
-        <%= f.check_box :is_sample %>
-        <br>
+          <%= f.check_box :is_sample %>
+          <br>
 
-        <%= f.text_field :sample_name, placeholder: "Sample Artist Name" %>
+          <%= f.text_field :sample_name, placeholder: "Sample Artist Name" %>
 
-        <br>
+        </div>
+
       <%end%>
 
       <br><br>

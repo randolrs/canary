@@ -6,6 +6,8 @@ class ItemArt < ActiveRecord::Base
 
 	belongs_to :gallery
 
+	belongs_to :show
+
 	has_many :views
 
 	has_many :purchases
