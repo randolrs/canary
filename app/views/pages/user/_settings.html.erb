@@ -10,30 +10,33 @@
 
 	</div>
 
+	<div class="form-container">
+	
+		<div class="reveal-panel" id="login-information">
 
-	<div class="reveal-panel dashboard-form" id="login-information">
+			<h4>Login Information</h4>
 
-		<h4>Login Information</h4>
+			<%= render 'pages/user/login_settings_form' %>
 
-		<%= render 'pages/user/login_settings_form' %>
-
-	</div>
-
-
-	<div class="reveal-panel dashboard-form default-off" id="gallery-profile">
-
-		<h4>About Your Gallery</h4>
-
-		<%= render 'pages/user/profile_form' %>
-
-	</div>
+		</div>
 
 
-	<div class="reveal-panel dashboard-form default-off" id="billing">
+		<div class="reveal-panel default-off" id="gallery-profile">
 
-		<h4>Your Billing Information</h4>
+			<h4>About Your Gallery</h4>
 
-		<%= render 'pages/user/billing_settings_form' %>
+			<%= render 'pages/user/profile_form' %>
+
+		</div>
+
+
+		<div class="reveal-panel default-off" id="billing">
+
+			<h4>Your Billing Information</h4>
+
+			<%= render 'pages/user/billing_settings_form' %>
+
+		</div>
 
 	</div>
 

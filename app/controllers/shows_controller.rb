@@ -9,6 +9,10 @@ class ShowsController < InheritedResources::Base
 
 		@show = Show.new
 
+		@page_title = "New Work"
+
+		@return_home_only = true
+
 
 	end
 

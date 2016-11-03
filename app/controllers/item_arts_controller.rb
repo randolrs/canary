@@ -126,6 +126,9 @@ class ItemArtsController < ApplicationController
     @page_title = "New Work"
 
     @hide_add_artwork_cta = true
+
+    @return_home_only = true
+    
   end
 
   # GET /item_arts/1/edit

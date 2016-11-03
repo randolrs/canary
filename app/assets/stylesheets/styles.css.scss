@@ -21,6 +21,15 @@ html{
 	    	max-width: 500px;
 	    	margin:0 auto;
 
+	    	padding: 30px;
+    		border: 1px solid #ddd;
+    		box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+
+	    	.input-table{
+	    		width:100%;
+	    		block: block;
+	    	}
+
 	    	label{
 				font-weight: 700;
 			}

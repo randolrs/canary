@@ -20,16 +20,27 @@
     <label>Name of Show</label><br>
     <%= f.text_field :name %>
   </div>
+
   <div class="field">
-    <label>Start Date</label><br>
-    <%= f.datetime_select :begin_date %>
+
+    <table class="input-table">
+
+      <tr>
+        <td style="padding-right: 20px;"><label>Start Date</label></td>
+        <td><label>End Date</label></td>
+      </tr>
+
+      <tr>
+        <td style="padding-right: 20px;"><input type="text" class="datepicker" name="start_date"></td>
+        <td><input type="text" class="datepicker" name="end_date"></td>
+      </tr>
+
+    </table>
+
   </div>
+
   <div class="field">
-    <label>End Date</label><br>
-    <%= f.datetime_select :end_date %>
-  </div>
-  <div class="field">
-    <%= f.label :open_to_public %><br>
+    <label>Open to the Public?</label><br>
     <%= f.check_box :open_to_public %>
   </div>
 <!--   <div class="field">
