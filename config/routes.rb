@@ -130,6 +130,8 @@ Rails.application.routes.draw do
 
   get 'artist/:name/shows' => 'artists#profile_shows', as: 'artist_profile_shows'
 
+  get 'gallery/:name' => 'galleries#profile', as: 'gallery_profile'
+
   get 'blog/selling-your-art-in-cafes-restaurants-and-more' => 'blog#selling_your_art', as: 'selling_your_art'
   
 

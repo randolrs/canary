@@ -20,7 +20,7 @@
 
     <div class="detail-section">
       
-      <a class="artist-name"><%= @item_art.artist.name %></a>
+      <a href="<%= artist_profile_path(@item_art.artist.name) %>" class="artist-name"><%= @item_art.artist.name %></a>
     
     </div>
 
@@ -56,7 +56,7 @@
 
       <br>
 
-      <a class="darker-text"><%= @item_art.artist.gallery.name %></a>
+      <a href="<%= gallery_profile_path(@item_art.artist.gallery.name) %>" class="darker-text"><%= @item_art.artist.gallery.name %></a>
 
       <br>
       <br>
@@ -101,7 +101,7 @@
 
     <div class="artwork-summary-section for-mobile-only">
 
-      <a><b><%= @item_art.artist.name %></b></a>
+      <a href="<%= artist_profile_path(@item_art.artist.name) %>"><b><%= @item_art.artist.name %></b></a>
       <br>
 
       <a><span class="artwork-name"><%= @item_art.name %></span>, <%= @item_art.year_of_creation %></a>
@@ -342,7 +342,7 @@
           <p><%= @item_art.artist.gallery.about %></p>
 
           <div class="outbound-link">
-            <a>Go to <%= @item_art.artist.gallery.name.possessive %> gallery page<span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+            <a href="<%= gallery_profile_path(@item_art.artist.gallery.name) %>">Go to <%= @item_art.artist.gallery.name.possessive %> gallery page<span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
           </div>
           
         </div>
@@ -381,7 +381,7 @@
       <%= render :partial => 'item_arts/index_grid', :locals => {:items => @item_art.artist.more_work(@item_art.id, 3).reverse, :image_only => false, :columns => 3} %>
 
       <div class="outbound-link">
-          <a>See all <%= @item_art.artist.item_arts.count %> works by <%= @item_art.artist.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+          <a href="<%= artist_profile_path(@item_art.artist.name) %>">See all <%= @item_art.artist.item_arts.count %> works by <%= @item_art.artist.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
       </div>
 
     </div>
@@ -395,7 +395,7 @@
 
 
       <div class="outbound-link">
-          <a>See all <%= @item_art.artist.gallery.item_arts.count %> works from <%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+          <a href="<%= gallery_profile_path(@item_art.artist.gallery.name) %>">See all <%= @item_art.artist.gallery.item_arts.count %> works from <%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
       </div>
 
     </div>

@@ -16,6 +16,14 @@ class GalleriesController < InheritedResources::Base
 	end
 
 
+	def profile
+
+		@gallery = Gallery.where(:name => params[:name]).last
+
+
+	end
+
+
   private
 
     def gallery_params
