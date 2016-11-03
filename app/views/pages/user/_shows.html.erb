@@ -21,7 +21,27 @@
 
 	<div class="reveal-panel" id="all">
 
-		All
+		<table>
+
+			<tr>
+				<td>Name</td>
+				<td>Start Date</td>
+				<td>End Date</td>
+				<td>Open to the Public?</td>
+			</tr>
+
+			<% current_user.gallery_shows.all.each do |show|%>
+
+				<tr>
+					<td><%= show.name %></td>
+					<td><%= show.begin_date.strftime("%b %e, %Y") %></td>
+					<td><%= show.end_date.strftime("%b %e, %Y") %></td>
+					<td><%= show.open_to_public %></td>
+				</tr>
+
+			<%end%>
+
+		</table>
 
 	</div>
 

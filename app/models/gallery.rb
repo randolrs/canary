@@ -8,6 +8,8 @@ class Gallery < ActiveRecord::Base
 
 	has_many :artists
 
+	has_many :shows
+
 	has_many :gallery_users
 
 	has_many :item_arts, :through => :artists

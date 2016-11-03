@@ -70,7 +70,14 @@ class User < ActiveRecord::Base
   end
 
   
+  def gallery_shows
 
+    @gallery = self.galleries.last
+
+    return @gallery.shows
+
+
+  end
 
   def my_work
 

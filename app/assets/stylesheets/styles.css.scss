@@ -17,6 +17,10 @@ html{
 
     	-webkit-font-smoothing: antialiased;
 
+    	.ui-datepicker{
+    		z-index:999 !important;
+    	}
+
 	    .form-container{
 	    	max-width: 500px;
 	    	margin:0 auto;

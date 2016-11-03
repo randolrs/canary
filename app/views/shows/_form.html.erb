@@ -21,6 +21,22 @@
     <%= f.text_field :name %>
   </div>
 
+  <% if current_user.galleries.count > 1 %>
+    
+    <div class="field">
+      <label>Gallery/Venue</label><br>
+      <%= f.collection_select :gallery_id, current_user.galleries, :id, :name, :prompt => true %>
+    </div>
+
+
+  <% elsif current_user.galleries.count == 1 %>
+
+    <%= f.hidden_field :gallery_id, :value => current_user.galleries.last.id %>
+
+  <%end%>
+
+
+
   <div class="field">
 
     <table class="input-table">
@@ -31,7 +47,7 @@
       </tr>
 
       <tr>
-        <td style="padding-right: 20px;"><input type="text" class="datepicker" name="start_date"></td>
+        <td style="padding-right: 20px;"><input type="text" class="datepicker" name="begin_date"></td>
         <td><input type="text" class="datepicker" name="end_date"></td>
       </tr>
 
