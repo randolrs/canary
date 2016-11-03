@@ -127,10 +127,23 @@
         <a><%= @item_art.height.to_i %> x <%= @item_art.width.to_i %> <% if @item_art.length %> x <%= @item_art.length.to_i %><%end%> in, <%= @item_art.height.to_i * 2.54 %> x <%= @item_art.width.to_i * 2.54  %> <% if @item_art.length %> x <%= @item_art.length.to_i * 2.54 %><%end%> cm</a>
       </div>
 
-      <a><b>GALLERY</b></a>
-      <br><br>
-      <a><%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 5px;"></span></a><br>
-      <a><%= @item_art.artist.gallery.city %> <% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>, <%end%> <%= @item_art.artist.gallery.state_province %></a>
+      <% if @item_art.artist.gallery %>
+
+        <a><b>GALLERY</b></a>
+        <br><br>
+        <a><%= @item_art.artist.gallery.name %></a><br>
+        <a><%= @item_art.artist.gallery.city %> <% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>, <%end%> <%= @item_art.artist.gallery.state_province %></a>
+
+      <%end%>
+
+      <% if @item_art.show %>
+        <br><br>
+        <a><b>SHOW</b></a>
+        <br><br>
+        <a><%= @item_art.show.name %></a><br>
+        <a><%= @item_art.show.begin_date.strftime("%b %e") %> to <%= @item_art.show.end_date.strftime("%b %e") %></a>
+
+      <%end%>
 
 
     </div>
@@ -319,7 +332,25 @@
 
     </div>
 
+    <% if @item_art.show %>
 
+      <% if @item_art.show.other_work_in_this_show(@item_art.id, 3).count > 1 %>
+      
+        <div class="artwork-summary-section">
+
+          <h3>Other Works in This Show</h3>
+
+          <%= render :partial => 'item_arts/index_grid', :locals => {:items => @item_art.show.other_work_in_this_show(@item_art.id, 3).reverse, :image_only => false, :columns => 3} %>
+
+          <div class="outbound-link">
+              <a>Go to the show page for <%= @item_art.show.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+          </div>
+
+        </div>
+
+      <%end%>
+
+    <% end %>
 
 
     <div class="artwork-summary-section">

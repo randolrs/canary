@@ -10,4 +10,11 @@ class Show < ActiveRecord::Base
 	:s3_protocol => :https
 
 
+	def other_work_in_this_show(item, count)
+
+    return self.item_arts.where.not(id: item).last(count)
+
+  end
+
+
 end

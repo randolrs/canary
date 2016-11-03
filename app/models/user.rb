@@ -321,6 +321,8 @@ class User < ActiveRecord::Base
 
   end
 
+  
+
   def recommended_artwork(count)
 
     @item_arts = Array.new
