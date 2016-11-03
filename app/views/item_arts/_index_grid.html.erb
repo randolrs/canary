@@ -57,14 +57,14 @@
 
 				<div class="detail-container">
 
-					<a class="artwork-metadata artist-name"><%= item.artist.name %></a>
+					<a href="<%= artist_profile_path(item.artist.name) %>" class="artwork-metadata artist-name"><%= item.artist.name %></a>
 					<br>
 
 
 					<a class="artwork-metadata"><i><%= item.name %></i>, <%= item.year_of_creation %></a>
 					<br>
 
-					<a class="artwork-metadata"><%= item.artist.gallery.name %></a>
+					<a href="<%= gallery_profile_path(item.artist.gallery.name) %>" class="artwork-metadata"><%= item.artist.gallery.name %></a>
 					<br>
 
 					<a class="artwork-metadata"><%= number_to_currency(item.price, precision: 0) %><% if item.sold %> (Sold)<%end%></a>

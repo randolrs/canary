@@ -20,6 +20,11 @@ class GalleriesController < InheritedResources::Base
 
 		@gallery = Gallery.where(:name => params[:name]).last
 
+	end
+
+	def profile_shows
+
+		@gallery = Gallery.where(:name => params[:name]).last
 
 	end
 

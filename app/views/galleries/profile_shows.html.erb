@@ -33,7 +33,7 @@
     <div class="section-header-nav">
 
       <ul>
-        <li><a href="<%= gallery_profile_path(@gallery.name) %>" class="active">For Sale</a></li><li><a href="<%= gallery_profile_shows_path(@gallery.name) %>">Shows</a></li>
+        <li><a href="<%= gallery_profile_path(@gallery.name) %>">For Sale</a></li><li><a href="<%= gallery_profile_shows_path(@gallery.name) %>" class="active">Shows</a></li>
       </ul>
 
     </div>
@@ -41,9 +41,9 @@
 
       <div id="works">
 
-        <% if @gallery.item_arts.count > 0 %>
+        <% if @gallery.shows.count > 0 %>
 
-          <%= render :partial => 'item_arts/index_grid', :locals => {:items => @gallery.item_arts.reverse, :image_only => false, :columns => 3} %>
+          <%= render partial: 'shows/index_grid', :locals => {:shows =>  @gallery.shows, :image_only => false, :columns => 3} %>
 
         <%else%>
 
