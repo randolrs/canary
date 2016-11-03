@@ -23,7 +23,11 @@ class Artist < ActiveRecord::Base
 
 
   	def related_artists
-  		return Artist.last(3)
+  		
+  		@artists = Artist.all.where.not(id: self.id)
+
+  		return @artists.last(3)
+
   	end
 
 

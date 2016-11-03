@@ -21,6 +21,13 @@ class Gallery < ActiveRecord::Base
 
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
+	
+
+	def more_work(item, count)
+
+    	return self.item_arts.where.not(id: item).last(count)
+
+  	end
 
 
 end

@@ -69,7 +69,7 @@
 
       <%= render :partial => 'item_arts/buy_cta', :locals => {:item_art => @item_art} %>
 
-      <a class="button wide red-frame">Email this to Me</a>
+      <a class="button wide side-panel red-frame">Email this to Me</a>
 
     </div>
 
@@ -132,7 +132,7 @@
         <a><b>GALLERY</b></a>
         <br><br>
         <a><%= @item_art.artist.gallery.name %></a><br>
-        <a><%= @item_art.artist.gallery.city %> <% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>, <%end%> <%= @item_art.artist.gallery.state_province %></a>
+        <a><%= @item_art.artist.gallery.city %><% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>, <%end%> <%= @item_art.artist.gallery.state_province %></a>
 
       <%end%>
 
@@ -264,73 +264,89 @@
     <%end%>
 
 
+    <% if @item_art.artist.artist_statement or @item_art.artist.biography %>
 
+      <div class="artwork-summary-section full-size">
 
-    <div class="artwork-summary-section full-size">
+        <h3>About <%= @item_art.artist.name %></h3>
 
-      <h3>About <%= @item_art.artist.name %></h3>
+        <div class="artwork-summary-section-header">
 
-      <div class="artwork-summary-section-header">
+          <% if @item_art.artist.biography %>
 
-        <a class="click-to-reveal active clickable" data-reveal-panel-id="biography">BIOGRAPHY</span></a>
+          <a class="click-to-reveal active clickable" data-reveal-panel-id="biography-1">BIOGRAPHY</span></a>
 
-        <br>
-        <br>
+          <br>
+          <br>
 
-        <a class="click-to-reveal inactive-option-text clickable" data-reveal-panel-id="artist-statement">ARTIST STATEMENT</span></a>
+          <% end %>
 
-      </div>
-
-
-      <div class="artwork-summary-section-body">
-
-        <div class="reveal-panel" id="biograghy">
-
-          <p><%= @item_art.artist.biography %></p>
-  
-          <p><%= @item_art.artist.nationality %>, b. <%= @item_art.artist.birth_year %></p>
-        
-        </div>
-
-        <div class="reveal-panel default-off" id="artist-statement">
+          <% if @item_art.artist.artist_statement %>
+            
+            <a class="click-to-reveal clickable" data-reveal-panel-id="artist-statement-1">ARTIST STATEMENT</span></a>
           
-          <p><%= @item_art.artist.artist_statement %></p>
-  
+          <%end%>
+
         </div>
 
-        <div class="outbound-link">
-          <a>Go to <%= @item_art.artist.name.possessive %> artist page<span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+
+        <div class="artwork-summary-section-body">
+
+          <div class="reveal-panel" id="biography-1">
+
+            <p><%= @item_art.artist.biography %></p>
+    
+            <p><%= @item_art.artist.nationality %>, b. <%= @item_art.artist.birth_year %></p>
+          
+          </div>
+
+          <div class="reveal-panel default-off" id="artist-statement-1">
+            
+            <p><%= @item_art.artist.artist_statement %></p>
+    
+          </div>
+
+          <div class="outbound-link">
+            <a>Go to <%= @item_art.artist.name.possessive %> artist page<span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+          </div>
+          
         </div>
-        
-      </div>
-
-    </div>
-
-
-    <div class="artwork-summary-section full-size">
-
-      <div class="artwork-summary-section-header centered">
-
-        <%= image_tag @item_art.artist.image.url, class: "medium-profile-image" %>
 
       </div>
 
+    <%end%>
 
-      <div class="artwork-summary-section-body">
 
-        <h3><%= @item_art.artist.gallery.name %></h3>
+    <% if @item_art.artist.gallery %>
+    
+      <div class="artwork-summary-section full-size">
 
-        <h4><%= @item_art.artist.gallery.city %> <% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>, <%end%> <%= @item_art.artist.gallery.state_province %></h4>
+        <div class="artwork-summary-section-header centered">
 
-        <p><%= @item_art.artist.gallery.about %></p>
+          <%= image_tag @item_art.artist.gallery.image.url, class: "medium-profile-image" %>
 
-        <div class="outbound-link">
-          <a>Go to <%= @item_art.artist.gallery.name.possessive %> gallery page<span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
         </div>
-        
+
+
+        <div class="artwork-summary-section-body">
+
+          <h3><%= @item_art.artist.gallery.name %></h3>
+
+          <h4><%= @item_art.artist.gallery.city %><% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>, <%end%> <%= @item_art.artist.gallery.state_province %></h4>
+
+          <p><%= @item_art.artist.gallery.about %></p>
+
+          <div class="outbound-link">
+            <a>Go to <%= @item_art.artist.gallery.name.possessive %> gallery page<span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+          </div>
+          
+        </div>
+
       </div>
 
-    </div>
+    <%end%>
+
+
 
     <% if @item_art.show %>
 
@@ -360,7 +376,7 @@
       <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => false, :columns => 3} %>
 
       <div class="outbound-link">
-          <a>See all <%= @item_art.artist.item_arts.count %> work by <%= @item_art.artist.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+          <a>See all <%= @item_art.artist.item_arts.count %> works by <%= @item_art.artist.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
       </div>
 
     </div>
@@ -370,50 +386,51 @@
 
       <h3>Other Works Offered by <%= @item_art.artist.gallery.name %></h3>
 
-      <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => false, :columns => 3} %>
+      <%= render :partial => 'item_arts/index_grid', :locals => {:items => @item_art.artist.gallery.more_work(@item_art.id, 3), :image_only => false, :columns => 3} %>
 
 
       <div class="outbound-link">
-          <a>See all <%= @item_art.artist.item_arts.count %> works from <%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+          <a>See all <%= @item_art.artist.gallery.item_arts.count %> works from <%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
       </div>
 
     </div>
 
 
+    <% if @hidden_for_now %>
 
-    <div class="artwork-summary-section">
+      <div class="artwork-summary-section">
 
-      <h3>Related Works</h3>
+        <h3>Related Works</h3>
 
-      <div class="artwork-summary-section-header">
+        <div class="artwork-summary-section-header">
 
-        <a class="clickable">MOST SIMILAR</span></a>
+          <a class="clickable">MOST SIMILAR</span></a>
 
-        <br>
+          <br>
 
-        <a class="clickable inactive-option-text">[MEDIUM]</span></a>
+          <a class="clickable">[MEDIUM]</span></a>
 
-        <br>
+          <br>
 
-        <a class="clickable inactive-option-text">[CITY]</span></a>
+          <a class="clickable">[CITY]</span></a>
 
-      </div>
-
-
-      <div class="artwork-summary-section-body">
-
-        <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => false, :columns => 3} %>
-        
-        <div class="outbound-link">
-          <a>See more related works<span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
         </div>
 
+
+        <div class="artwork-summary-section-body">
+
+          <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => false, :columns => 3} %>
+          
+          <div class="outbound-link">
+            <a>See more related works<span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+          </div>
+
+        </div>
+
+
       </div>
 
-
-
-
-    </div>
+    <%end%>
 
 
     <div class="artwork-summary-section">
@@ -438,11 +455,6 @@
 
         <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => false, :columns => 3} %>
 
-
-      <div class="outbound-link">
-          <a>See all recently viewed works<span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
-      </div>
-
     </div>
 
 
@@ -452,24 +464,10 @@
 </div>
 
 
-<% unless @item_art.sold %>
-      
-    <%= form_tag start_checkout_path do %>
 
-      <input type="hidden" name="itemID" value="<%= @item_art.id %>">
-
-      <input type="submit" value="Buy for <%= number_to_currency(@item_art.price, precision: 0) %>" class="button green-background item-buy-action fixed-bottom-cta mobile-only">
-
-  <%end%>
-  
-  <%else%>
-
-    <a class="button green-background fixed-bottom-cta mobile-only"><span class="glyphicon glyphicon-ok"  aria-hidden="true" style="margin-right: 5px;"></span>Sold</a>
-    
-<%end%>
+<%= render :partial => 'item_arts/fixed_mobile_cta', :locals => {:item_art => @item_art} %>
 
 
-<%# render 'item_arts/fixed_mobile_cta', :locals => {:item_art => @item_art} %>
 
 <% if user_signed_in? %>
   

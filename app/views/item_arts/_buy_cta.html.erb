@@ -4,12 +4,12 @@
 
   		<input type="hidden" name="itemID" value="<%= item_art.id %>">
 
-  		<input type="submit" value="Buy for <%= number_to_currency(item_art.price, precision: 0) %>" class="button green-background item-buy-action">
+  		<input type="submit" value="Buy for <%= number_to_currency(item_art.price, precision: 0) %>" class="button side-panel green-background item-buy-action">
 
 	<%end%>
   
   <%else%>
 
-    <a class="button green-background"><span class="glyphicon glyphicon-ok"  aria-hidden="true" style="margin-right: 5px;"></span>Sold</a>
+    <a class="button side-panel green-background"><span class="glyphicon glyphicon-ok"  aria-hidden="true" style="margin-right: 5px;"></span>Sold</a>
     
 <%end%>

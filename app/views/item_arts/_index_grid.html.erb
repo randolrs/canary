@@ -20,30 +20,34 @@
 
 				<%#else%>
 
-					<%= link_to(direct_link_to_item_art_path(item.search_code)) do %>
+					
 
 						<div class="image-container">
 
-							<%= image_tag item.image.url, class: "grid-image"%>
+							<%= link_to(direct_link_to_item_art_path(item.search_code)) do %>
+								<%= image_tag item.image.url, class: "grid-image"%>
+							<% end %>
 
 						</div>
 
-					<% end %>
+					
 
 				<%#end%>
 
 
 			<%else%>
 
-				<%= link_to(direct_link_to_item_art_path(item.search_code)) do %>
 
 					<div class="image-container">
 
-						<%= image_tag item.image.url, class: "grid-image"%>
+						<%= link_to(direct_link_to_item_art_path(item.search_code)) do %>
+
+							<%= image_tag item.image.url, class: "grid-image"%>
+							
+						<% end %>
 
 					</div>
 
-				<% end %>
 
 			<%end%>
 			
@@ -58,6 +62,9 @@
 
 
 					<a class="artwork-metadata"><i><%= item.name %></i>, <%= item.year_of_creation %></a>
+					<br>
+
+					<a class="artwork-metadata"><%= item.artist.gallery.name %></a>
 					<br>
 
 					<a class="artwork-metadata"><%= number_to_currency(item.price, precision: 0) %><% if item.sold %> (Sold)<%end%></a>

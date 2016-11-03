@@ -127,13 +127,13 @@ background: linear-gradient(to bottom, #323296 , #26D0CE); /* W3C, IE 10+/ Edge,
     .entry{
         display: inline-block;
         width: 33%;
-        height: 400px;
+        height: 350px;
         text-align: left;
         vertical-align: top;
         float: left;
         content: "";
 
-        padding: 40px;
+        padding: 10px 20px 0px 20px;
 
         .image-container{
             height: 200px;
@@ -143,8 +143,8 @@ background: linear-gradient(to bottom, #323296 , #26D0CE); /* W3C, IE 10+/ Edge,
 
         .detail-container{
 
-            padding: 10px;
-            text-align: center;
+            padding: 20px 0px;
+            text-align: left;
 
             a.artwork-metadata{
                 
@@ -163,15 +163,10 @@ background: linear-gradient(to bottom, #323296 , #26D0CE); /* W3C, IE 10+/ Edge,
             max-height: 100%;
             position: relative;
             box-shadow: 0px 2px 2px rgba(0,0,0,0.5);
-            vertical-align: middle;
+            vertical-align: bottom;
         }
     }
 
-    .entry:hover{
-        cursor: pointer;
-        
-        
-    }
 
     .entry.image-only{
         height: auto;

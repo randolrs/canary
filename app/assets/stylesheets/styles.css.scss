@@ -21,6 +21,14 @@ html{
     		z-index:999 !important;
     	}
 
+    	a.click-to-reveal{
+    		color: #666;
+    	}
+
+    	a.click-to-reveal.active{
+    		color: #111;
+    	}
+
 	    .form-container{
 	    	max-width: 500px;
 	    	margin:0 auto;
