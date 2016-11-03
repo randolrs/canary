@@ -72,9 +72,23 @@ class User < ActiveRecord::Base
   
   def gallery_shows
 
-    @gallery = self.galleries.last
+    @shows = Array.new
 
-    return @gallery.shows
+    @gallery = self.galleries
+
+    @gallery.each do |gallery|
+
+      gallery.shows.each do |show|
+
+        @shows << show
+
+      end
+
+    end
+
+
+
+    return @shows
 
 
   end

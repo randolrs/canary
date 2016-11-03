@@ -18,7 +18,7 @@
 
   <div class="field">
     <label>Name of Show</label><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
   </div>
 
   <% if current_user.galleries.count > 1 %>
@@ -47,8 +47,8 @@
       </tr>
 
       <tr>
-        <td style="padding-right: 20px;"><input type="text" class="datepicker" name="begin_date"></td>
-        <td><input type="text" class="datepicker" name="end_date"></td>
+        <td style="padding-right: 20px;"><input type="text" class="datepicker" name="begin_date" required></td>
+        <td><input type="text" class="datepicker" name="end_date" required></td>
       </tr>
 
     </table>

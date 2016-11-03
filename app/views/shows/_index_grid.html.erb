@@ -1,0 +1,54 @@
+<div class="image-grid">
+
+	<% shows.each do |show| %>
+
+		<div class="entry <% if image_only %>image-only<%end%><% if columns == 2 %>col-2<%end%>">
+			
+			<% if user_signed_in? %>
+
+				<%= link_to(show_path(show)) do %>
+
+					<div class="image-container">
+
+						<%= image_tag show.image.url, class: "grid-image"%>
+
+					</div>
+
+				<% end %>
+
+
+			<%else%>
+
+				<%= link_to(show_path(show)) do %>
+
+					<div class="image-container">
+
+						<%= image_tag show.image.url, class: "grid-image"%>
+
+					</div>
+
+				<% end %>
+
+			<%end%>
+			
+				
+			<% unless image_only %>
+
+				<div class="detail-container">
+
+					<a class="artwork-metadata artist-name"><%= show.name %></a>
+					<br>
+
+
+					<a class="artwork-metadata"> <%= show.begin_date.strftime("%b %e") %> - <%= show.end_date.strftime("%b %e") %></a>
+					<br>
+
+		    	</div>
+
+	    	<%end%>
+
+		</div>
+
+	<% end %>
+
+</div>

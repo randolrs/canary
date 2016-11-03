@@ -14,40 +14,20 @@
 	<div class="dashboard-section-header">
 
 		<ul>
-			<li><a class="click-to-reveal active" data-reveal-panel-id="all">All</a></li><li><a class="click-to-reveal" data-reveal-panel-id="active">Active</a></li><li><a class="click-to-reveal" data-reveal-panel-id="past">Past</a></li>
+			<li><a class="click-to-reveal active" data-reveal-panel-id="all">Current</a></li><li><a class="click-to-reveal" data-reveal-panel-id="active">Upcoming</a></li><li><a class="click-to-reveal" data-reveal-panel-id="past">Past</a></li>
 		</ul>
 
 	</div>
 
 	<div class="reveal-panel" id="all">
 
-		<table>
-
-			<tr>
-				<td>Name</td>
-				<td>Start Date</td>
-				<td>End Date</td>
-				<td>Open to the Public?</td>
-			</tr>
-
-			<% current_user.gallery_shows.all.each do |show|%>
-
-				<tr>
-					<td><%= show.name %></td>
-					<td><%= show.begin_date.strftime("%b %e, %Y") %></td>
-					<td><%= show.end_date.strftime("%b %e, %Y") %></td>
-					<td><%= show.open_to_public %></td>
-				</tr>
-
-			<%end%>
-
-		</table>
+		<%= render partial: 'shows/index_grid', :locals => {:shows =>  current_user.gallery_shows.sort_by{|e| e[:name]}.reverse, :image_only => false, :columns => 3} %>
 
 	</div>
 
 	<div class="reveal-panel default-off" id="active">
 
-		Active
+		Upcoming
 
 	</div>
 
