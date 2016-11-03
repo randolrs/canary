@@ -129,19 +129,27 @@
 
       <% if @item_art.artist.gallery %>
 
-        <a><b>GALLERY</b></a>
-        <br><br>
-        <a><%= @item_art.artist.gallery.name %></a><br>
-        <a><%= @item_art.artist.gallery.city %><% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>, <%end%> <%= @item_art.artist.gallery.state_province %></a>
+        <div class="sub-section">
+
+          <a><b>GALLERY</b></a>
+          <br><br>
+          <a><%= @item_art.artist.gallery.name %></a><br>
+          <a><%= @item_art.artist.gallery.city %><% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>, <%end%> <%= @item_art.artist.gallery.state_province %></a>
+
+        </div>
 
       <%end%>
 
       <% if @item_art.show %>
-        <br><br>
-        <a><b>SHOW</b></a>
-        <br><br>
-        <a><%= @item_art.show.name %></a><br>
-        <a><%= @item_art.show.begin_date.strftime("%b %e") %> to <%= @item_art.show.end_date.strftime("%b %e") %></a>
+
+        <div class="sub-section">
+
+          <a><b>SHOW</b></a>
+          <br><br>
+          <a><%= @item_art.show.name %></a><br>
+          <a><%= @item_art.show.begin_date.strftime("%b %e") %> - <%= @item_art.show.end_date.strftime("%b %e") %></a>
+
+        </div>
 
       <%end%>
 
@@ -442,7 +450,7 @@
 
         <div class="outbound-link">
           <a>See more artists similar to <%= @item_art.artist.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
-      </div>
+        </div>
 
 
 
@@ -454,6 +462,11 @@
       <h3>Recently Viewed</h3>
 
         <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => false, :columns => 3} %>
+
+        <div class="outbound-link">
+          <a>See more recently viewed works<span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+        </div>
+
 
     </div>
 
