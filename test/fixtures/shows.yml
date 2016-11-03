@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  is_festival: false
+  name: MyString
+  begin_date: 2016-11-02 18:56:54
+  end_date: 2016-11-02 18:56:54
+  open_to_public: false
+  gallery_id: 1
+
+two:
+  is_festival: false
+  name: MyString
+  begin_date: 2016-11-02 18:56:54
+  end_date: 2016-11-02 18:56:54
+  open_to_public: false
+  gallery_id: 1

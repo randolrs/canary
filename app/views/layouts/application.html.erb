@@ -54,6 +54,16 @@
 
 		</div>
 
+		<% if user_signed_in? %>
+
+			<% if @display_mobile_action_footer %>
+				<%= render 'layouts/mobile_action_footer' %>
+			<%end%>
+
+
+		<%end%>
+
+
 		<% unless @hide_footer %>
 
 			<%# render 'layouts/footer' %>

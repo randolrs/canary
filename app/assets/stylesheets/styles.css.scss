@@ -25,11 +25,36 @@ html{
 				font-weight: 700;
 			}
 
+	    	.field{
 
-	    	input, textarea, select{
-	    		display: block;
-	    		width: 100%;
-	    	}
+    			margin-bottom: 2em;
+    			
+    		}
+
+    		input, textarea, select{
+    			width:100%;
+    			display: block;
+    			padding: 5px 0px;
+    			text-indent: 5px;
+    		}
+
+    		input[type="text"], input[type="number"]{
+    			border: 2px solid #bbb;
+    			margin-top: 10px;
+    		}
+
+    		input.card-cvc{
+    			width: 70px;
+    			display: inline-block;
+    			height: 40px;
+    			margin: 0px;
+    		}
+
+    		textarea{
+    			resize: none;
+    		}
+
+
 	    }
 
 	    h1{

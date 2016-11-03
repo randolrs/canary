@@ -14,6 +14,8 @@ class PagesController < ApplicationController
 
 			if current_user.is_artist or current_user.is_gallery
 
+				@display_mobile_action_footer = true
+
 				if !(current_user.trial_expired && !current_user.billing_active) or current_user.is_admin
 
 					if current_user.display_name or current_user.is_admin

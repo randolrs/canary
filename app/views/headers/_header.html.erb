@@ -21,37 +21,31 @@
 
 						<ul class="header-right">
 
-<!-- 							<li>
-								<a href="<%# inbox_path %>"><span class="glyphicon glyphicon-envelope mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Inbox</span></a>
-							</li>
-
-							<li>
-								<a href="<%# select_gallery_path %>">New Submission</a>
-							</li> -->
-
-							<li>
-								<a class="new-artwork-image-modal modal-cta clickable"><span class="glyphicon glyphicon-plus mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Add Artwork</span></a>
-							</li>
-
-							<% if current_user.display_name && current_user.display_name.length > 0 %>
+							<% unless current_user.is_gallery %>
 
 								<li>
-		
-									<a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "header-profile-image" %></a>
+									<a class="new-artwork-image-modal modal-cta clickable"><span class="glyphicon glyphicon-plus mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Add Artwork</span></a>
+								</li>
 
+								<% if current_user.display_name && current_user.display_name.length > 0 %>
+
+									<li>
+			
+										<a href="<%= profile_path(current_user.display_name) %>"><%= image_tag current_user.image.url(:medium), class: "header-profile-image" %></a>
+
+									</li>
+
+								<%end%>
+
+								<li>
+									<a class="clickable" href="<%= sales_path %>"><span class="glyphicon glyphicon-usd mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Balance: <%= number_to_currency(current_user.stripe_balance) %></span></a>
 								</li>
 
 							<%end%>
 
 							<li>
-								<a class="clickable" href="<%= sales_path %>"><span class="glyphicon glyphicon-usd mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Balance: <%= number_to_currency(current_user.stripe_balance) %></span></a>
-							</li>
-
-							<li>
 								<a href="<%= settings_path %>"><span class="glyphicon glyphicon-cog mobile-only" aria-hidden="true"></span><span class="hide-on-mobile">Account Settings</span></a>
 							</li>
-
-
 
 						</ul>
 

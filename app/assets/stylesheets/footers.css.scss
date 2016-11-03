@@ -58,18 +58,14 @@
     position: fixed;
     width: 100%;
 
-    background: #141424;
-    border-top: 1px solid #001;
+    background: #111;
 
     z-index: 999;
     padding: 0;
 
-    box-shadow: 0px -1px 1px #112;
-
 
     .mobile-action-footer-content{
 
-        box-shadow: inset 0px 1px 2px 0px #333;
 
         ul{
             
@@ -86,6 +82,8 @@
                 vertical-align: middle;
                 width: 300px;
 
+                
+
                 a{
 
                     display: block;
@@ -93,8 +91,9 @@
                     font-weight: 400;
                     letter-spacing: 1.1px;
                     padding: 15px 20px;
-                    color: #eee;
+                    color: #fff;
                     text-shadow: 0px 2px 1px #000;
+                    height: 80px;
 
                 }
 
@@ -105,8 +104,8 @@
             }
 
             li.middle{
-                border-left: 2px solid #001;
-                border-right: 2px solid #001;
+                border-left: 2px solid #000;
+                border-right: 2px solid #000;
             }
 
         }

@@ -1,0 +1,42 @@
+<%= form_for(@show) do |f| %>
+  <% if @show.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@show.errors.count, "error") %> prohibited this show from being saved:</h2>
+
+      <ul>
+      <% @show.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<!--   <div class="field">
+    <%# f.label :is_festival %><br>
+    <%# f.check_box :is_festival %>
+  </div> -->
+
+  <div class="field">
+    <label>Name of Show</label><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <label>Start Date</label><br>
+    <%= f.datetime_select :begin_date %>
+  </div>
+  <div class="field">
+    <label>End Date</label><br>
+    <%= f.datetime_select :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :open_to_public %><br>
+    <%= f.check_box :open_to_public %>
+  </div>
+<!--   <div class="field">
+    <%# f.label :gallery_id %><br>
+    <%# f.number_field :gallery_id %>
+  </div> -->
+  <div class="actions">
+    <%= f.submit "Save Details", class: "button large black-background" %>
+  </div>
+<% end %>

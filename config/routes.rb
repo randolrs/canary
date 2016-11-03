@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :shows
   resources :artists
   resources :gallery_submissions
   resources :galleries
