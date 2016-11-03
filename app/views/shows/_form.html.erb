@@ -21,6 +21,19 @@
     <%= f.text_field :name, required: true %>
   </div>
 
+  <div class="field">
+
+    <label>Image</label>
+
+    <br>
+
+    <div style="position:relative; display: inline-block;">
+      <%= image_tag @show.image.url, class: "item-art-medium-image" %>
+      <%= f.file_field :image, class: "form-control clickable fill-container clear" %>
+    </div>
+
+  </div>
+
   <% if current_user.galleries.count > 1 %>
     
     <div class="field">
