@@ -40,23 +40,30 @@
 
 
     <div class="reveal-panel" id="about">
-      <br>
+      
+
 
       <% if @artist.biography %>
 
-        <h4>Biography</h4>
+        <div class="sub-section">
 
-        <p><%= @artist.biography %></p>
+          <h4>Biography</h4>
+
+          <p><%= @artist.biography %></p>
+
+        </div>
 
       <%end%>
 
-      <br><br>
-
       <% if @artist.artist_statement %>
+        
+        <div class="sub-section">
 
-        <h4>Artist Statement</h4>
+          <h4>Artist Statement</h4>
 
-        <p><%= @artist.artist_statement %></p>
+          <p><%= @artist.artist_statement %></p>
+
+        </div>
 
       <%end%>
 
