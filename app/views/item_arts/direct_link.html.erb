@@ -142,17 +142,12 @@
 
       <% if @item_art.show %>
 
-        <div class="sub-section">
-
-          <a><b>SHOW</b></a>
-          <br><br>
-          <a><%= @item_art.show.name %></a><br>
-          <a><%= @item_art.show.begin_date.strftime("%b %e") %> - <%= @item_art.show.end_date.strftime("%b %e") %></a>
-
-        </div>
+        <a><b>SHOW</b></a>
+        <br><br>
+        <a><%= @item_art.show.name %></a><br>
+        <a><%= @item_art.show.begin_date.strftime("%b %e") %> - <%= @item_art.show.end_date.strftime("%b %e") %></a>
 
       <%end%>
-
 
     </div>
 
@@ -381,7 +376,7 @@
 
       <h3>Other Works by <%= @item_art.artist.name %></h3>
 
-      <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => false, :columns => 3} %>
+      <%= render :partial => 'item_arts/index_grid', :locals => {:items => @item_art.artist.more_work(@item_art.id, 3).reverse, :image_only => false, :columns => 3} %>
 
       <div class="outbound-link">
           <a>See all <%= @item_art.artist.item_arts.count %> works by <%= @item_art.artist.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
