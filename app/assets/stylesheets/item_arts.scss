@@ -60,32 +60,12 @@
 
 form.new_item_art{
 
-	input[type="text"], input[type="number"], textarea{
-		text-indent: 5px;
-		padding: 5px;
-		background: #eee;
-    	border: 1px solid #aaa;
-    	font-weight: 600;
-    	width: 100%;
-	}
-
 	.dimension-table{
 		td{
 			padding:5px;
 			text-align:center;
 			font-weight: 600;
 		}
-	}
-
-	input[type="text"]:focus, textarea:focus{
-		background: #ffdddd;
-		outline: 1px solid #6666ff;
-	}
-
-	.description{
-		width: 100%;
-    	resize: none;
-    	height: 100px;
 	}
 
 }
