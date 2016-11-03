@@ -215,7 +215,7 @@
           </div>
 
           <div class="outbound-link">
-            <a>Go to <%= @item_art.artist.name.possessive %> Artist Page<span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+            <a href="<%= artist_profile_path(@item_art.artist.name) %>">Go to <%= @item_art.artist.name.possessive %> Artist Page<span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
           </div>
 
       </div>
@@ -310,7 +310,9 @@
           </div>
 
           <div class="outbound-link">
-            <a>Go to <%= @item_art.artist.name.possessive %> artist page<span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+
+            <a href="<%= artist_profile_path(@item_art.artist.name) %>">Go to <%= @item_art.artist.name.possessive %> profile<span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+            
           </div>
           
         </div>

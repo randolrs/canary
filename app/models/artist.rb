@@ -6,6 +6,8 @@ class Artist < ActiveRecord::Base
 	belongs_to :gallery
 
 	has_many :item_arts
+
+	has_many :shows
 	
 	has_attached_file :image, 
 	:styles => { :medium => "100x100#", :small => "70x70#", :thumb => "30x30#"},

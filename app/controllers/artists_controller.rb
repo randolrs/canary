@@ -13,6 +13,28 @@ class ArtistsController < InheritedResources::Base
 
 	end
 
+	
+	def profile
+
+		@artist = Artist.where(:name => params[:name]).last
+
+
+	end
+
+	def profile_about
+
+		@artist = Artist.where(:name => params[:name]).last
+
+
+	end
+
+	def profile_shows
+
+		@artist = Artist.where(:name => params[:name]).last
+
+
+	end
+
 
 
 	def create

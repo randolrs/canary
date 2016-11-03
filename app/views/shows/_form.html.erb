@@ -48,6 +48,12 @@
 
   <%end%>
 
+  <div class="field">
+
+      <label>Artist</label><br>
+      <%= f.collection_select :artist_id, current_user.my_artists, :id, :name, :prompt => true %>
+  
+  </div>
 
 
   <div class="field">

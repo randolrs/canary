@@ -122,7 +122,13 @@ Rails.application.routes.draw do
   
   get 'artwork/new/add_details/:id' => 'item_arts#detail_form', as: 'item_art_detail_form'
   
-  get 'artist/:display_name' => 'pages#profile', as: 'profile'
+  #get 'artist/:display_name' => 'pages#profile', as: 'profile'
+
+  get 'artist/:name' => 'artists#profile', as: 'artist_profile'
+
+  get 'artist/:name/about' => 'artists#profile_about', as: 'artist_profile_about'
+
+  get 'artist/:name/shows' => 'artists#profile_shows', as: 'artist_profile_shows'
 
   get 'blog/selling-your-art-in-cafes-restaurants-and-more' => 'blog#selling_your_art', as: 'selling_your_art'
   

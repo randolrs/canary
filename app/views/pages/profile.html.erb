@@ -6,15 +6,12 @@
 
 		<div class="profile-header-content">
 
-			<div class="profile-header-image">
+			<%= image_tag @user.image.url(:medium), class: "medium-profile-image"%>
 
-				<%= image_tag @user.image.url(:medium), class: "medium-profile-image"%>
+			<br>
+	
+			<h2><%= @user.display_name %></h2>
 
-			</div>
-
-			<div class="profile-header-text">
-
-				<h2><%= @user.display_name %></h2>
 
 				<% if @user.about.length > 0 %>
 

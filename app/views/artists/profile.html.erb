@@ -1,0 +1,82 @@
+
+<!-- <p>
+  <strong>Biography:</strong>
+  <%# @artist.biography %>
+</p>
+
+<p>
+  <strong>Artist statement:</strong>
+  <%# @artist.artist_statement %>
+</p> -->
+
+
+<div class="open-page-container">
+
+  <div class="profile-header">
+
+    <div class="profile-header-content">
+
+        <%= image_tag @artist.image.url(:medium), class: "medium-profile-image"%>
+
+        <br>
+
+        <h2><%= @artist.name %></h2>
+
+        <p><%= @artist.nationality %>, b. <%= @artist.birth_year %></p>
+
+    </div>
+
+  </div>
+
+  <div class="profile-content">
+
+    <div class="section-header-nav">
+
+      <ul>
+        <li><a class="active" href="<%= artist_profile_path(@artist.name) %>" class="click-to-reveal active">Works</a></li><li><a href="<%= artist_profile_about_path(@artist.name) %>">About</a></li><li><a href="<%= artist_profile_shows_path(@artist.name) %>">Shows</a></li>
+      </ul>
+
+    </div>
+
+    <div id="works">
+
+      <% if @artist.item_arts.count > 0 %>
+
+        <%= render :partial => 'item_arts/index_grid', :locals => {:items => @artist.item_arts.reverse, :image_only => false, :columns => 3} %>
+
+      <%else%>
+
+        <div class="nothing-to-see-container">
+
+          <p class="red">
+
+            <% if user_signed_in?%>
+
+              <% if current_user.galleries.last.id == @artist.gallery_id %>
+
+                You have not shared any artwork yet. <%= link_to "Add Artwork", new_item_art_path, class: "warning-text-cta" %>
+
+              <%else%>
+
+                <%= @artist.name %> has not shared any artwork yet.
+
+              <%end%>
+
+            <%else%>
+
+              <%= @artist.name %> has not shared any artwork yet.
+
+            <%end%>
+
+          </p>
+
+        </div>
+
+
+      <%end%>
+
+    </div>
+
+  </div>
+
+</div>
