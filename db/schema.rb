@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104105655) do
+ActiveRecord::Schema.define(version: 20161104114455) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -271,6 +271,7 @@ ActiveRecord::Schema.define(version: 20161104105655) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "artist_id"
+    t.text     "about"
   end
 
   create_table "stripe_billing_user_subscriptions", force: :cascade do |t|

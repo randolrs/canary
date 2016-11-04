@@ -1,0 +1,58 @@
+
+<div class="open-page-container">
+
+  <div class="profile-header">
+
+    <div class="profile-header-content">
+
+        <%= image_tag @show.image.url(:medium), class: "medium-profile-image"%>
+
+        <br>
+
+        <h2><%= @show.name %></h2>
+
+        <h4><%= link_to @show.gallery.name, gallery_profile_path(@show.gallery.name) %></h4>
+
+        <p><%= @show.gallery.city %>, <%= @show.gallery.state_province %></p>
+
+        <p><%= @show.begin_date.strftime("%b %e") %> - <%= @show.end_date.strftime("%b %e") %></p>
+
+        <br>
+
+        <h4>Artist: <%= link_to @show.artist.name, artist_profile_path(@show.artist.name) %></h4>
+        <p><%= @show.item_arts.count %> Pieces</p>
+
+        <br>
+        
+        <p><%= @show.about %></p>
+
+    </div>
+
+  </div>
+
+  <div class="profile-content">
+
+    <div class="section-header-nav">
+
+
+
+    </div>
+
+
+      <div id="works">
+
+        <% if @show.item_arts.count > 0 %>
+
+          <%= render :partial => 'item_arts/index_grid', :locals => {:items => @show.item_arts.reverse, :image_only => false, :columns => 3} %>
+
+        <%else%>
+
+        <%end%>
+
+      </div>
+
+
+  </div>
+
+
+</div>

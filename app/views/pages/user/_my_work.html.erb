@@ -5,7 +5,7 @@
 
   	<div class="dashboard-actions centered">
 
-  		<%= link_to "+ Add a New Work", new_work_path, class:'bright-blue-background button medium'%>
+  		<%= link_to "+ Add New Work", new_work_path, class:'bright-blue-background button medium'%>
 
 	</div>
 
@@ -32,6 +32,7 @@
 	<div class="reveal-panel default-off" id="sold">
 
 		<%= render :partial => 'item_arts/index_grid', :locals => {:items =>  current_user.my_work.select { |work| work.is_set_to_sold == true}, :image_only => false, :columns => 3} %>
+		
 
 
 	</div>

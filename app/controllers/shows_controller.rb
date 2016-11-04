@@ -16,6 +16,12 @@ class ShowsController < InheritedResources::Base
 
 	end
 
+	def profile
+
+		@show = Show.where(:name => params[:name]).last
+		
+	end
+
 
 
 	def create
@@ -62,7 +68,7 @@ class ShowsController < InheritedResources::Base
   private
 
     def show_params
-      params.require(:show).permit(:is_festival, :name, :begin_date, :end_date, :open_to_public, :gallery_id)
+      params.require(:show).permit(:is_festival, :name, :begin_date, :end_date, :open_to_public, :gallery_id, :artist_id)
     end
 end
 

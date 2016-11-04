@@ -22,7 +22,7 @@
 	<div class="reveal-panel" id="all">
 
 		<%= render partial: 'shows/index_grid', :locals => {:shows =>  current_user.gallery_shows.sort_by{|e| e[:name]}.reverse, :image_only => false, :columns => 3} %>
-
+		
 	</div>
 
 	<div class="reveal-panel default-off" id="active">
