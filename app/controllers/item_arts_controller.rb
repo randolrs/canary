@@ -45,9 +45,6 @@ class ItemArtsController < ApplicationController
     @session_item_art = SessionItemArt.new
 
 
-    
-
-
     unless SessionItemArt.where(:session_option_id => request.session_options[:id], :item_art_id => @item_art.id).exists?
 
       @session_item_art.update(:session_option_id => request.session_options[:id], :item_art_id => @item_art.id)
@@ -66,7 +63,7 @@ class ItemArtsController < ApplicationController
 
     @recently_viewed = Array.new
 
-    SessionItemArt.where(:session_option_id => request.session_options[:id]).last(3).each do |record|
+    SessionItemArt.where(:session_option_id => request.session_options[:id]).each do |record|
       @recently_viewed << record.item_art
     end
 
