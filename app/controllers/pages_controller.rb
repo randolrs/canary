@@ -8,6 +8,7 @@ class PagesController < ApplicationController
 
 		session[:message] = "Hey Friend" 
 
+
 		@hide_return_to_home = true
 
 		if user_signed_in?
@@ -192,6 +193,21 @@ class PagesController < ApplicationController
 		@main_SEO_title = @page_title
 
 	end
+
+
+
+	def recently_viewed
+
+		@recently_viewed = Array.new
+
+	    SessionItemArt.where(:session_option_id => request.session_options[:id]).each do |record|
+	      @recently_viewed << record.item_art
+	    end
+
+	end
+
+
+
 
 	def settings
 

@@ -458,10 +458,10 @@
 
       <h3>Recently Viewed</h3>
 
-        <%= render :partial => 'item_arts/index_grid', :locals => {:items => @more_work_from_artist.reverse, :image_only => false, :columns => 3} %>
+        <%= render :partial => 'item_arts/index_grid', :locals => {:items => @recently_viewed.reverse, :image_only => false, :columns => 3} %>
 
         <div class="outbound-link">
-          <a>See more recently viewed works<span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+          <a href="<%= recently_viewed_work_path %>">See more recently viewed works<span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
         </div>
 
 

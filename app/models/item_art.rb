@@ -14,6 +14,8 @@ class ItemArt < ActiveRecord::Base
 
 	has_many :collection_items
 
+	has_many :session_item_arts
+
 
 
 	has_attached_file :image, 

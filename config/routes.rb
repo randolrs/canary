@@ -143,6 +143,8 @@ Rails.application.routes.draw do
 
   get '/:display_name/about' => 'pages#profile_about', as: 'profile_about'
 
+  get '/work/recently_viewed' => 'pages#recently_viewed', as: 'recently_viewed_work'
+
   post '/order/start' => 'charges#start_checkout', as: 'start_checkout'
 
   get '/order/:order_id/payment' => 'charges#start_order', as: 'start_order'

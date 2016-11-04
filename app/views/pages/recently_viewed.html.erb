@@ -1,0 +1,10 @@
+
+<div class="medium-content">
+
+	<h3>Recently Viewed</h3>
+
+	<%= render :partial => 'item_arts/index_grid', :locals => {:items => @recently_viewed.reverse, :image_only => false, :columns => 3} %>
+
+</div>
+	
+	

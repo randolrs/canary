@@ -42,6 +42,34 @@ class ItemArtsController < ApplicationController
 
     @item_art = ItemArt.search(params[:search_code].downcase)
 
+    @session_item_art = SessionItemArt.new
+
+
+    
+
+
+    unless SessionItemArt.where(:session_option_id => request.session_options[:id], :item_art_id => @item_art.id).exists?
+
+      @session_item_art.update(:session_option_id => request.session_options[:id], :item_art_id => @item_art.id)
+
+      if user_signed_in?
+
+        @session_item_art.update(:user_id => current_user.id)
+
+
+      end
+
+
+      @session_item_art.save
+
+    end
+
+    @recently_viewed = Array.new
+
+    SessionItemArt.where(:session_option_id => request.session_options[:id]).last(3).each do |record|
+      @recently_viewed << record.item_art
+    end
+
     # unless user_signed_in?
 
     #   unless @item_art.is_sample
