@@ -373,18 +373,21 @@
 
     <% end %>
 
+    <% if @item_art.artist.more_work(@item_art.id, 3).count > 0 %>
 
-    <div class="artwork-summary-section">
+      <div class="artwork-summary-section">
 
-      <h3>Other Works by <%= @item_art.artist.name %></h3>
+        <h3>Other Works by <%= @item_art.artist.name %></h3>
 
-      <%= render :partial => 'item_arts/index_grid', :locals => {:items => @item_art.artist.more_work(@item_art.id, 3).reverse, :image_only => false, :columns => 3} %>
+        <%= render :partial => 'item_arts/index_grid', :locals => {:items => @item_art.artist.more_work(@item_art.id, 3).reverse, :image_only => false, :columns => 3} %>
 
-      <div class="outbound-link">
-          <a href="<%= artist_profile_path(@item_art.artist.name) %>">See all <%= @item_art.artist.item_arts.count %> works by <%= @item_art.artist.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+        <div class="outbound-link">
+            <a href="<%= artist_profile_path(@item_art.artist.name) %>">See all <%= @item_art.artist.item_arts.count %> works by <%= @item_art.artist.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+        </div>
+
       </div>
 
-    </div>
+    <% end %>
 
 
     <div class="artwork-summary-section">
