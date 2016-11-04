@@ -8,7 +8,7 @@
 
 				<div class="image-container">
 					
-					<%= link_to(artist_path(artist)) do %>
+					<%= link_to(artist_profile_path(artist.name)) do %>
 						<%= image_tag artist.image.url, class: "grid-image"%>
 					<% end %>
 
@@ -18,7 +18,7 @@
 
 				<div class="image-container">
 
-					<%= link_to(artist_path(artist)) do %>
+					<%= link_to(artist_profile_path(artist.name)) do %>
 
 						<%= image_tag artist.image.url, class: "grid-image"%>
 
@@ -33,10 +33,10 @@
 
 				<div class="detail-container">
 
-					<a class="artwork-metadata artist-name"><%= artist.name %></a>
+					<a href="<%= artist_profile_path(artist.name) %>" class="artwork-metadata artist-name"><%= artist.name %></a>
 					<br>
 
-					<a class="artwork-metadata"><b>Artworks:</b> <%= artist.item_arts.count %></a>
+					<a href="<%= artist_profile_path(artist.name) %>" class="artwork-metadata"><b>Artworks:</b> <%= artist.item_arts.count %></a>
 					<br>
 
 		    	</div>

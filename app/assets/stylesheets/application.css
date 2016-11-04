@@ -71,6 +71,10 @@ body{
   text-transform: uppercase !important;
 }
 
+.no-margin{
+  margin: 0px !important;
+}
+
 div.actions{
   margin-top: 15px;
 }

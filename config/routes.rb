@@ -134,6 +134,10 @@ Rails.application.routes.draw do
 
   get 'gallery/:name/shows' => 'galleries#profile_shows', as: 'gallery_profile_shows'
 
+  get 'gallery/:name/about' => 'galleries#profile_about', as: 'gallery_profile_about'
+
+
+
   get 'blog/selling-your-art-in-cafes-restaurants-and-more' => 'blog#selling_your_art', as: 'selling_your_art'
   
 

@@ -22,7 +22,14 @@
 				.section-header-nav{
 
 					text-align: center !important;
-					border: none !important;
+					
+					border-top: 2px solid #e5e5e5;
+
+					ul{
+						li{
+							width: 33.3%;
+						}
+					}
 
 				}
 
@@ -397,6 +404,10 @@
 	html{
 
 		body{
+
+			.fixed-bottom-cta{
+				display: block !important;
+			}
 
     		.image-grid{
 

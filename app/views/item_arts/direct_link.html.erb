@@ -101,15 +101,15 @@
 
     <div class="artwork-summary-section for-mobile-only">
 
-      <a href="<%= artist_profile_path(@item_art.artist.name) %>"><b><%= @item_art.artist.name %></b></a>
-      <br>
+      <h5 class="no-margin"><a href="<%= artist_profile_path(@item_art.artist.name) %>"><b><%= @item_art.artist.name %></b></a></h5>
+ 
 
-      <a><span class="artwork-name"><%= @item_art.name %></span>, <%= @item_art.year_of_creation %></a>
+      <a style="font-size: 1.5em;"><span class="artwork-name"><%= @item_art.name %></span>, <%= @item_art.year_of_creation %></a>
 
     </div>
 
 
-    <div class="artwork-summary-section for-mobile-only">
+    <div class="artwork-summary-section details for-mobile-only">
 
       <div class="sub-section">
 
@@ -237,7 +237,7 @@
         </div>
 
         <div class="outbound-link">
-          <a>Go to <%= @item_art.artist.gallery.name.possessive %> Gallery Page <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
+          <a href="<%= gallery_profile_about_path(@item_art.artist.gallery.name) %>">Go to <%= @item_art.artist.gallery.name.possessive %> Gallery Page <span class="glyphicon glyphicon-arrow-right" style="margin-left: 15px;"></span></a>
         </div>
 
         
