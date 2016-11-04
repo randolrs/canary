@@ -48,7 +48,7 @@ class BillingController < ApplicationController
 
 		    if Rails.env == "production"
 		  
-		      @plan_name = "unlimited"
+		      @plan_name = "gallery"
 
 		    else
 
