@@ -20,17 +20,23 @@ class GalleriesController < InheritedResources::Base
 
 		@gallery = Gallery.where(:name => params[:name]).last
 
+		@page_title = @gallery.name.possessive + " Profile"
+
 	end
 
 	def profile_shows
 
 		@gallery = Gallery.where(:name => params[:name]).last
 
+		@page_title = @gallery.name.possessive + " Shows"
+
 	end
 
 	def profile_about
 
 		@gallery = Gallery.where(:name => params[:name]).last
+
+		@page_title = "About " + @gallery.name
 
 	end
 

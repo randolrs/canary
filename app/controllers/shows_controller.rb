@@ -19,6 +19,8 @@ class ShowsController < InheritedResources::Base
 	def profile
 
 		@show = Show.where(:name => params[:name]).last
+
+		@page_title = @show.name
 		
 	end
 

@@ -96,6 +96,8 @@ Rails.application.routes.draw do
 
   post '/order/start/create_customer' => 'charges#create_customer', as: 'create_customer'
 
+  post '/home_page/question' => 'pages#question', as: 'question'
+
   post '/stripe/webhook/artyam' => 'stripe#webhook', as: 'stripe_webhook'
 
   get 'item_art/mark_as_sold/:itemID' => 'item_arts#mark_as_sold', as: 'mark_as_sold'

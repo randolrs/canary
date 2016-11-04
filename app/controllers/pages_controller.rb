@@ -409,6 +409,17 @@ class PagesController < ApplicationController
 
 	end
 
+	def question
+
+		contact_question = ContactQuestion.create(:email => params[:email], :message => params[:message])
+
+		flash[:notice] = "Message Received!"
+
+		redirect_to root_path
+
+
+	end
+
 	def balance_payments
 
 		@page = "balance_payments"

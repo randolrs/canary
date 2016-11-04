@@ -109,7 +109,55 @@
 
 		<p>$149/month plus a 3.5% credit card processing fee for all sales completed through ArtYam. No limits on the number of pieces you can sell through ArtYam, no commissions, and no hidden costs.</p>
 
-		<a href="<%= signup_for_galleries_path %>" class="cta orange-background button large">Start Your Free Trial</a>
+	</div>
+
+</section>
+
+<section class="home-primary">
+
+	<div class="landing-content-container">
+
+		<h3>Questions?</h3>
+
+		<p class="centered">Send Us a Message!</p>
+
+		<div class="form-container">
+
+			<%= form_tag question_path do %>
+
+				<% if flash[:notice] %>
+
+					<div class="notice yellow">
+
+						<p class="notice-content yellow">
+						  <%= flash[:notice] %>
+						</p>
+
+					</div>
+
+				<%end%>
+
+				<div class="field">
+
+					<label>Email</label><br>
+					<input type="text" name="email" required>
+
+				</div>
+				
+				<div class="field">
+
+					<label>Message</label><br>
+					<textarea rows="3" name="message" required></textarea>
+
+				</div>
+
+				<input type="submit" class="button large bright-blue-background" value="Send">
+
+			<%end%>
+
+
+		</div>
+
 
 	</div>
 
