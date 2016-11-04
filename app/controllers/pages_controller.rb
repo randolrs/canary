@@ -198,6 +198,8 @@ class PagesController < ApplicationController
 
 	def recently_viewed
 
+		@page_title = "Recently Viewed"
+
 		@recently_viewed = Array.new
 
 	    SessionItemArt.where(:session_option_id => request.session_options[:id]).each do |record|
