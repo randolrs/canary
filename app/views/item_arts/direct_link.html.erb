@@ -73,16 +73,20 @@
 
     <div class="detail-section">
 
-      <a class="darker-text">OFFERED BY</a>
+      <a class="darker-text">OFFERED BY:</a>
 
       <br>
 
       <a href="<%= gallery_profile_path(@item_art.artist.gallery.name) %>" class="darker-text"><%= @item_art.artist.gallery.name %></a>
 
+      <a><%= @item_art.artist.gallery.phone_number %></a>
+
+      <a><%= @item_art.artist.gallery.website_url %></a>
+
       <br>
       <br>
 
-      <a>Show Phone Number</a>
+      
 
     </div>
 
@@ -414,19 +418,22 @@
 
     <% end %>
 
+    <% if @item_art.artist.gallery.item_arts.count > 1 %>
 
-    <div class="artwork-summary-section">
+      <div class="artwork-summary-section">
 
-      <h3>Other Works Offered by <%= @item_art.artist.gallery.name %></h3>
+        <h3>Other Works Offered by <%= @item_art.artist.gallery.name %></h3>
 
-      <%= render :partial => 'item_arts/index_grid', :locals => {:items => @item_art.artist.gallery.more_work(@item_art.id, 3), :image_only => false, :columns => 3} %>
+        <%= render :partial => 'item_arts/index_grid', :locals => {:items => @item_art.artist.gallery.more_work(@item_art.id, 3), :image_only => false, :columns => 3} %>
 
 
-      <div class="outbound-link">
-          <a href="<%= gallery_profile_path(@item_art.artist.gallery.name) %>">See all <%= @item_art.artist.gallery.item_arts.count %> works from <%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+        <div class="outbound-link">
+            <a href="<%= gallery_profile_path(@item_art.artist.gallery.name) %>">See all <%= @item_art.artist.gallery.item_arts.count %> works from <%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+        </div>
+
       </div>
 
-    </div>
+    <%end%>
 
 
     <% if @hidden_for_now %>
@@ -468,13 +475,13 @@
 
     <div class="artwork-summary-section">
 
-      <h3>Related Artists</h3>
+      <h3>More Artists Represented by <%= @item_art.artist.gallery.name %></h3>
 
         <%= render :partial => 'artists/index_grid', :locals => {:artists => @item_art.artist.related_artists, :image_only => false, :columns => 3} %>
 
 
         <div class="outbound-link">
-          <a>See more artists similar to <%= @item_art.artist.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
+          <a>See all artists represented by <%= @item_art.artist.gallery.name %><span class="glyphicon glyphicon-arrow-right" style="margin-left: 10px;"></span></a>
         </div>
 
 
