@@ -36,7 +36,12 @@ class ChargesController < ApplicationController
 
 	purchase = Purchase.create(email: params[:stripeEmail], stripe_card_id: params[:stripeToken], 
     amount: price, description: charge.description, currency: charge.currency,
-    stripe_customer_id: customer.id, item_art_id: params[:itemArtID], artist_id: @item_art.user.id, ip_address: request.remote_ip)
+    stripe_customer_id: customer.id, item_art_id: params[:itemArtID], artist_id: @item_art.user.id, ip_address: request.remote_ip, gallery_id: @item_art.artist.gallery.id)
+
+	@item_art.update(:is_set_to_sold => true)
+
+	@item_art.save
+
 
 
 	if user_signed_in?

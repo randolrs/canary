@@ -12,7 +12,23 @@
 
 	<div class="reveal-panel" id="recent">
 
-		Recent
+		<table>
+			
+			<tr>
+				<td>Name</td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<%current_user.gallery_purchases.each do |purchase| %>
+				<tr>
+					<td><%= purchase.item_art.name %></td>
+					<td></td>
+					<td></td>
+				</tr>
+			<%end%>
+
+		</table>
 
 	</div>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105012954) do
+ActiveRecord::Schema.define(version: 20161105014604) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -256,6 +256,7 @@ ActiveRecord::Schema.define(version: 20161105012954) do
     t.integer  "artist_id"
     t.integer  "order_id"
     t.string   "ip_address"
+    t.integer  "gallery_id"
   end
 
   create_table "session_item_arts", force: :cascade do |t|

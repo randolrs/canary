@@ -14,6 +14,8 @@ class Gallery < ActiveRecord::Base
 
 	has_many :item_arts, :through => :artists
 
+	has_many :purchases
+
 	has_attached_file :image, 
 	:styles => { :medium => "100x100#", :small => "70x70#", :thumb => "30x30#"},
 	:default_url => 'missing_item_photo.png',

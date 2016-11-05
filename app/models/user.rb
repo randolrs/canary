@@ -76,15 +76,35 @@ class User < ActiveRecord::Base
 
     @shows = Array.new
 
-    @gallery = self.galleries
+    @galleries = self.galleries
 
-    @gallery.each do |gallery|
+    @galleries.each do |gallery|
 
       gallery.shows.each do |show|
 
         @shows << show
 
       end
+
+    end
+
+
+    def gallery_purchases
+
+      @purchases = Array.new
+
+      @galleries = self.galleries
+
+      @galleries.each do |gallery|
+
+        gallery.purchases.each do |purchase|
+
+          @purchases << purchase
+
+        end
+
+      end
+
 
     end
 
