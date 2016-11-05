@@ -5,7 +5,7 @@
 	<div class="dashboard-section-header">
 
 		<ul>
-			<li><a class="click-to-reveal active" data-reveal-panel-id="login-information">Login</a></li><li><a class="click-to-reveal" data-reveal-panel-id="gallery-profile">About Us</a></li><li><a class="click-to-reveal" data-reveal-panel-id="billing">Billing</a></li>
+			<li><a class="click-to-reveal active" data-reveal-panel-id="login-information">Login</a></li><li><a class="click-to-reveal" data-reveal-panel-id="gallery-profile">About You</a></li><li><a class="click-to-reveal" data-reveal-panel-id="billing">Billing</a></li>
 		</ul>
 
 	</div>
@@ -14,7 +14,7 @@
 	
 		<div class="reveal-panel" id="login-information">
 
-			<h4>Login Information</h4>
+			<h4 class="centered">Login Information</h4>
 
 			<%= render 'pages/user/login_settings_form' %>
 
@@ -23,7 +23,7 @@
 
 		<div class="reveal-panel default-off" id="gallery-profile">
 
-			<h4>About Your Gallery</h4>
+			<h4 class="centered">About Your Gallery</h4>
 
 			<%= render 'pages/user/profile_form' %>
 
@@ -32,7 +32,7 @@
 
 		<div class="reveal-panel default-off" id="billing">
 
-			<h4>Your Billing Information</h4>
+			<h4 class="centered">Your Billing Information</h4>
 
 			<%= render 'pages/user/billing_settings_form' %>
 

@@ -1,0 +1,19 @@
+<div class="">
+
+	<div class="content-inner">
+
+		<p>Perfect! We will call you at <%= current_user.user_calls.last.hour %> on <%= current_user.user_calls.last.scheduled_time %> to discuss your specific needs and provide any help you need to get your account setup.</p>
+
+		<br>
+
+		<p>In the interim, check out our do-it-yourself setup guide or go ahead and get started now on your own.</p>
+
+		<%= link_to 'Setup Guide', root_path, class:'button large black-background'%>
+
+		<%= link_to 'Get Started Now', root_path, class:'button large red-background'%>
+
+
+	</div>
+
+
+</div>

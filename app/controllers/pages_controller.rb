@@ -782,7 +782,27 @@ class PagesController < ApplicationController
 
 		@user_call.save
 
-		redirect_to root_path
+		if user_signed_in?
+			redirect_to get_started_path
+		else
+			redirect_to root_path
+		end
+
+	end
+
+
+
+	def get_started
+
+		if user_signed_in?
+
+			@user_call = current_user.user_calls.last
+		else
+
+			redirect_to root_path
+		end
+
+
 
 	end
 

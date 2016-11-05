@@ -103,6 +103,8 @@ Rails.application.routes.draw do
 
   get '/setup/schedule_call' => 'pages#schedule_setup_call', as: 'schedule_setup_call'
 
+  get '/setup/get_started' => 'pages#get_started', as: 'get_started'
+
   post '/setup/schedule_call/save' => 'pages#save_setup_call', as: 'save_setup_call'
 
   post '/setup/gallery/create' => 'galleries#create_for_user', as: 'create_gallery_for_user'

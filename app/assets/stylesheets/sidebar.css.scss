@@ -85,6 +85,10 @@ html{
         		
         	}
 
+            li.active{
+                background: rgba(100,100,100,0.5);
+            }
+
         	li.dashboard-header{
 
                 text-align: center;
