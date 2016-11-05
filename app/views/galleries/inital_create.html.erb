@@ -1,0 +1,56 @@
+<div class="content">
+
+	<div class="content-inner">
+
+
+		<h4>Thanks for signing up.</h4>
+		<h4>First, please tell us about yourself and your gallery:</h4>
+
+		<br>
+
+		<div class="form-container">
+
+			<%= form_tag create_gallery_for_user_path do %>
+
+				<div class="field">
+					
+					<label>Your Name</label>
+					<input type="text" name="userName" autofocus required>
+
+				</div>
+
+				<div class="field">
+					
+					<label>Your Gallery's Name</label>
+					<input type="text" name="galleryName" required>
+
+				</div>
+
+				<div class="field">
+					
+					<label>Gallery City</label>
+					<input type="text" name="galleryCity" required>
+
+				</div>
+
+				<div class="field">
+					
+					<label>Gallery State/Province</label>
+					<input type="text" name="galleryStateProvince" required>
+
+				</div>
+
+				<div class="centered">
+
+					<input class="button large bright-blue-background" type="submit" value="Next">
+
+				</div>
+
+			<%end%>
+
+		</div>
+
+	</div>
+
+
+</div>

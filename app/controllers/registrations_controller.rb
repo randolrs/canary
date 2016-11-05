@@ -69,38 +69,26 @@ class RegistrationsController < Devise::RegistrationsController
           
           #redirect_to initiate_trial_subscription_path and return
 
-            if AffiliateReferral.where(:ip_address => request.remote_ip).exists?
+          if AffiliateReferral.where(:ip_address => request.remote_ip).exists?
 
-              affiliate_referral = AffiliateReferral.where(:ip_address => request.remote_ip).first
+            affiliate_referral = AffiliateReferral.where(:ip_address => request.remote_ip).first
 
-              resource.update(:affiliate_id => affiliate_referral.affiliate_id)
-              
-              affiliate_signup = AffiliateSignup.new
+            resource.update(:affiliate_id => affiliate_referral.affiliate_id)
+            
+            affiliate_signup = AffiliateSignup.new
 
-              affiliate_signup.update(:user_id => resource.id, :affiliate_id => affiliate_referral.affiliate_id, :affiliate_referral_id => affiliate_referral.id)
-              
-              affiliate_signup.save
+            affiliate_signup.update(:user_id => resource.id, :affiliate_id => affiliate_referral.affiliate_id, :affiliate_referral_id => affiliate_referral.id)
+            
+            affiliate_signup.save
 
-            end
+          end
+
+
 
         end
 
 
-        if resource.is_gallery
 
-          @gallery = Gallery.new
-
-          @gallery.update(:user_id => resource.id)
-
-          @gallery.save
-
-
-          @gallery_user = GalleryUser.new
-
-          @gallery_user.update(:user_id => resource.id, :gallery_id => @gallery.id)
-
-      
-        end
 
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
@@ -121,6 +109,7 @@ class RegistrationsController < Devise::RegistrationsController
   def edit
     render :edit
   end
+
 
   # PUT /resource
   # We need to use a copy of the resource because we don't want to change

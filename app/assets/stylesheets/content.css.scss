@@ -416,7 +416,7 @@ html{
 
 	section.home-primary{
 		width: 100%;
-		background: #fff;
+		
 		position:relative;
 		padding: 50px 20px 20px 20px;
 		text-align: center;
@@ -535,7 +535,7 @@ html{
 
 	.landing-content-container{
 		width: 100%;
-		max-width: 900px;
+		max-width: 800px;
 		margin: 0 auto;
 		position: relative;
 
@@ -548,11 +548,18 @@ html{
 
 		h3{
 			
-			font-size: 2.5em;
+			font-size: 3em;
 			color: #333;
 			text-shadow: none;
 			margin-bottom: 30px;
+			letter-spacing: 2px;
+			word-spacing: 10px;
 
+		}
+
+		h3.white-text{
+			color: #fff;
+    		text-shadow: 0px 2px 1px rgba(0,0,0,0.5);
 		}
 
 
@@ -565,6 +572,10 @@ html{
 	            
         }
 
+        h5{
+        	COLOR: #666;
+        }
+
 		p{
 			
 			    font-size: 1.5em;
@@ -572,6 +583,11 @@ html{
     			margin-bottom: 1em;
     			text-align: justify;
     			letter-spacing: 0.5px;
+		}
+
+		p.white-text{
+			color: #fff;
+			text-shadow: 0px 2px 1px rgba(0,0,0,0.5);
 		}
 	}
 
@@ -769,11 +785,10 @@ html{
 		width: 100%;
 	    max-width: 600px;
 	    margin: 0 auto;
-	    border: 1px solid #ccc;
-    	box-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+	  
     	padding: 24px;
-    	border-radius: 2px;
-	    background: #fff;
+    	
+
 
 	}
 

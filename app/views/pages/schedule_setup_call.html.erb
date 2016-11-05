@@ -1,0 +1,43 @@
+<div class="content">
+
+	<div class="content-inner">
+
+
+		<h4>Schedule Setup Call</h4>
+	
+
+		<br>
+
+		<div class="form-container">
+
+			<%= form_tag save_setup_call_path do %>
+
+
+				<div class="field">
+					
+					<label>Day</label>
+					<input type="text" class="datepicker" name="scheduledDay" required>
+
+				</div>
+
+				<div class="field">
+					
+					<label>Time</label>
+					<input type="text" name="scheduledTime" required>
+
+				</div>
+
+				<div class="centered">
+
+					<input class="button large bright-blue-background" type="submit" value="Next">
+
+				</div>
+
+			<%end%>
+
+		</div>
+
+	</div>
+
+
+</div>

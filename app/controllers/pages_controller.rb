@@ -6,69 +6,120 @@ class PagesController < ApplicationController
 
 		@page = "home"
 
-		session[:message] = "Hey Friend" 
+		
 
+	    
 
-		@hide_return_to_home = true
+	    if user_signed_in?
 
-		if user_signed_in?
+	    	@hide_header = true
 
-			if current_user.is_artist or current_user.is_gallery
+			@hide_return_to_home = true
+			
+			@page_title = "Dashboard"
 
-				@display_mobile_action_footer = true
-
-				if !(current_user.trial_expired && !current_user.billing_active) or current_user.is_admin
-
-					if current_user.display_name or current_user.is_admin
-
-						@hide_header = true
-						@page_title = "Dashboard"
-
-						@main_SEO_title = @page_title
-
-						if params[:view]
-
-							if params[:view] == "Portfolio"
-
-								@default_view = "Portfolio"
-
-							end
-
-						end
-
-					else
-
-						redirect_to welcome_path
-
-					end
-
-
-				else
-
-					redirect_to billing_information_path
-				end
+			@main_SEO_title = @page_title
 
 
 
+	      if current_user.is_affiliate
+
+	        redirect_to affiliate_dashboard_path
+
+	      elsif current_user.is_gallery
+
+	        unless current_user.billing_information_needed or Time.now > current_user.trial_end_date
+
+	          if current_user.galleries.count == 0
+
+	            redirect_to gallery_inital_create_path
+
+	          end
+
+	        else
+
+	          redirect_to billing_information_path
+
+	        end
+
+
+	      elsif current_user.artist
+
+	      end
+
+
+	    else
+
+
+	    end
 
 
 
-			elsif current_user.is_affiliate
-
-				redirect_to affiliate_dashboard_path
-
-			else
-
-				@page_title = "ArtYam"
-
-			end
 
 
-		else
 
-			@hide_footer = true
 
-		end
+
+		
+
+		# if user_signed_in?
+
+		# 	if current_user.is_artist or current_user.is_gallery
+
+		# 		@display_mobile_action_footer = true
+
+		# 		if !(current_user.trial_expired && !current_user.billing_active) or current_user.is_admin
+
+		# 			if current_user.display_name or current_user.is_admin
+
+		# 				@hide_header = true
+		# 				@page_title = "Dashboard"
+
+		# 				@main_SEO_title = @page_title
+
+		# 				if params[:view]
+
+		# 					if params[:view] == "Portfolio"
+
+		# 						@default_view = "Portfolio"
+
+		# 					end
+
+		# 				end
+
+		# 			else
+
+		# 				redirect_to welcome_path
+
+		# 			end
+
+
+		# 		else
+
+		# 			redirect_to billing_information_path
+		# 		end
+
+
+
+
+
+
+		# 	elsif current_user.is_affiliate
+
+		# 		redirect_to affiliate_dashboard_path
+
+		# 	else
+
+		# 		@page_title = "ArtYam"
+
+		# 	end
+
+
+		# else
+
+		# 	@hide_footer = true
+
+		# end
 		
 	end
 
@@ -705,6 +756,24 @@ class PagesController < ApplicationController
 		else
 			redirect_to root_path
 		end
+
+	end
+
+
+	def schedule_setup_call
+
+
+
+	end
+
+
+	
+
+
+	def save_setup_call
+
+		
+
 
 	end
 

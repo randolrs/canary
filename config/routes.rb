@@ -77,6 +77,7 @@ Rails.application.routes.draw do
 
   post 'setup_user' => "pages#setup_user"
 
+
   #get 'portfolio' => 'pages#my_work'
 
   get 'dashboard/works' => 'pages#my_work', as: 'works'
@@ -97,6 +98,14 @@ Rails.application.routes.draw do
   post '/order/start/create_customer' => 'charges#create_customer', as: 'create_customer'
 
   post '/home_page/question' => 'pages#question', as: 'question'
+
+  get '/setup/gallery' => 'galleries#inital_create', as: 'gallery_inital_create'
+
+  get '/setup/schedule_call' => 'pages#schedule_setup_call', as: 'schedule_setup_call'
+
+  post '/setup/schedule_call/save' => 'pages#save_setup_call', as: 'save_setup_call'
+
+  post '/setup/gallery/create' => 'galleries#create_for_user', as: 'create_gallery_for_user'
 
   post '/stripe/webhook/artyam' => 'stripe#webhook', as: 'stripe_webhook'
 

@@ -15,6 +15,33 @@
 
 		body{
 
+
+			.grid{
+
+			    .grid-item{
+
+			        display: block;
+			        width: 100%;
+			        float: left;
+
+			        padding: 15px;
+
+			        .grid-content{
+			        	width: 100%;
+			        	max-width: 600px;
+			        	margin: 0 auto;
+
+			        	p{
+			        		margin: 0px;
+			        	}
+
+			            
+			        }
+
+			    }
+			}
+
+
 			.profile-content{
 				
 				padding:0px;
@@ -42,7 +69,8 @@
 			.single-page-landing{
 
 	            .single-page-landing-container{
-	                padding: 30px;
+	                padding: 50px;
+	                font-size: 10px;
 	            }
 
 			}
@@ -335,6 +363,8 @@
 			}
 
 			.single-page-landing{
+
+				
 
 				p.landing-page-actions{
 	        		text-align: center;

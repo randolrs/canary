@@ -272,6 +272,15 @@
     
 }
 
+.dark-grey-background{
+	background: #333;
+}
+
+.light-grey-background{
+	background: #eee;
+	border: 1px solid #ccc;
+}
+
 .red-background{
 	background-color: #F00000;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#F00000), to(#DC281E));
@@ -285,6 +294,10 @@
     text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
 
     border-radius: 3px;
+}
+
+.purple-background{
+	background: #d04ed6;
 }
 
 .black-background{

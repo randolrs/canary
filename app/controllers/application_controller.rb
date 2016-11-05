@@ -31,17 +31,17 @@ class ApplicationController < ActionController::Base
 
         affiliate_dashboard_path
 
-      else
+      elsif current_user.is_gallery
 
         unless current_user.billing_information_needed or Time.now > current_user.trial_end_date
 
-          if current_user.display_name
+          if current_user.galleries.count == 0
 
-            root_path
-          
+            gallery_inital_create_path
+
           else
 
-            welcome_path
+            root_path
 
           end
 
@@ -50,6 +50,9 @@ class ApplicationController < ActionController::Base
           billing_information_path
 
         end
+
+
+      elsif current_user.artist
 
       end
 
@@ -115,10 +118,6 @@ class ApplicationController < ActionController::Base
       admin_dashboard_path(resource)
 
     end
-
-
-
-
 
 
   end
@@ -201,20 +200,24 @@ class ApplicationController < ActionController::Base
 
       @my_gallery = current_user.galleries.last
 
-      unless @my_gallery.stripe_account_id
+      if @my_gallery
 
-        account = Stripe::Account.create({:country => "US", :managed => true})
+        unless @my_gallery.stripe_account_id
 
-        @my_gallery.update(:stripe_account_id => account.id)
+          account = Stripe::Account.create({:country => "US", :managed => true})
 
-        account.tos_acceptance.date = Time.now.to_i
+          @my_gallery.update(:stripe_account_id => account.id)
 
-        account.tos_acceptance.ip = request.remote_ip
+          account.tos_acceptance.date = Time.now.to_i
 
-        account.legal_entity.type = "company"
+          account.tos_acceptance.ip = request.remote_ip
 
-        account.save
+          account.legal_entity.type = "company"
 
+          account.save
+
+
+        end
 
       end
 
