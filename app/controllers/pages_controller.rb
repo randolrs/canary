@@ -30,11 +30,15 @@ class PagesController < ApplicationController
 
 	        unless current_user.billing_information_needed or Time.now > current_user.trial_end_date
 
-	          if current_user.galleries.count == 0
+				if current_user.galleries.count == 0
 
-	            redirect_to gallery_inital_create_path
+	            	redirect_to gallery_inital_create_path
 
-	          end
+	          	elsif current_user.user_calls.count == 0
+
+	          		redirect_to schedule_setup_call_path
+
+	          	end
 
 	        else
 
@@ -772,8 +776,13 @@ class PagesController < ApplicationController
 
 	def save_setup_call
 
+		@user_call = UserCall.new
 		
+		@user_call.update(:scheduled_time => params[:scheduledDay], :user_id =>current_user.id, :hour => params[:date][:hour])
 
+		@user_call.save
+
+		redirect_to root_path
 
 	end
 

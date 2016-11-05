@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
 
     has_many :gallery_users
 
+    has_many :user_calls
+
     has_many :galleries, :through => :gallery_users
 
     has_many :artists
