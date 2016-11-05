@@ -88,32 +88,32 @@ class User < ActiveRecord::Base
 
     end
 
-
-    def gallery_purchases
-
-      @purchases = Array.new
-
-      @galleries = self.galleries
-
-      @galleries.each do |gallery|
-
-        gallery.purchases.each do |purchase|
-
-          @purchases << purchase
-
-        end
-
-      end
-
-
-    end
-
-
-
     return @shows
 
 
   end
+
+
+  def gallery_purchases
+
+    @purchases = Array.new
+
+    @galleries = self.galleries
+
+    @galleries.each do |gallery|
+
+      gallery.purchases.each do |purchase|
+
+        @purchases << purchase
+
+      end
+
+    end
+
+    return @purchases
+
+
+    end
 
   def my_work
 
