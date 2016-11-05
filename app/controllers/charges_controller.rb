@@ -38,6 +38,7 @@ class ChargesController < ApplicationController
     amount: price, description: charge.description, currency: charge.currency,
     stripe_customer_id: customer.id, item_art_id: params[:itemArtID], artist_id: @item_art.user.id, ip_address: request.remote_ip, gallery_id: @item_art.artist.gallery.id)
 
+	purchase.update(:gallery_id => @item_art.artist.gallery.id)
 	@item_art.update(:is_set_to_sold => true)
 
 	@item_art.save
@@ -286,7 +287,7 @@ class ChargesController < ApplicationController
 			)
 
 			purchase = Purchase.create(amount: price, description: charge.description, currency: charge.currency,
-	    	stripe_customer_id: @order.card_token, item_art_id: @item_art.id, artist_id: @item_art.artist.id, order_id: @order.id)
+	    	stripe_customer_id: @order.card_token, item_art_id: @item_art.id, artist_id: @item_art.artist.id, order_id: @order.id, gallery_id: @item_art.artist.gallery.id)
 
 
 			if user_signed_in?
