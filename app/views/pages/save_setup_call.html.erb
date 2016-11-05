@@ -1,0 +1,56 @@
+<div class="content">
+
+	<div class="content-inner">
+
+
+		<h4>Schedule Setup Call</h4>
+	
+
+		<br>
+
+		<div class="form-container">
+
+			<%= form_tag save_setup_call_path do %>
+
+				<div class="field">
+					
+					<label>Your Name</label>
+					<input type="text" name="userName" autofocus required>
+
+				</div>
+
+				<div class="field">
+					
+					<label>Your Gallery's Name</label>
+					<input type="text" name="galleryName" required>
+
+				</div>
+
+				<div class="field">
+					
+					<label>Gallery City</label>
+					<input type="text" name="galleryCity" required>
+
+				</div>
+
+				<div class="field">
+					
+					<label>Gallery State/Province</label>
+					<input type="text" name="galleryStateProvince" required>
+
+				</div>
+
+				<div class="centered">
+
+					<input class="button large bright-blue-background" type="submit" value="Next">
+
+				</div>
+
+			<%end%>
+
+		</div>
+
+	</div>
+
+
+</div>

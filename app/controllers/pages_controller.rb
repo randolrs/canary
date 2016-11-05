@@ -28,7 +28,7 @@ class PagesController < ApplicationController
 
 	      elsif current_user.is_gallery
 
-	        unless current_user.billing_information_needed or Time.now > current_user.trial_end_date
+	        unless current_user.billing_information_needed or (Time.now > current_user.trial_end_date && !current_user.billing_active)
 
 				if current_user.galleries.count == 0
 

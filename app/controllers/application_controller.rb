@@ -18,7 +18,11 @@ class ApplicationController < ActionController::Base
 
   before_action :check_for_stripe_account, if: :user_signed_in?
 
-  #before_action :check_if_trial_expired, if: :user_signed_in?
+  before_action :check_if_trial_expired, if: :user_signed_in?
+
+  skip_before_filter :check_if_trial_expired, :only => [:billing_information, :initiate]
+
+  #skip_before_filter :check_if_trial_expired, only: :billing_initialize
 
   protect_from_forgery with: :exception
 
@@ -132,8 +136,12 @@ class ApplicationController < ActionController::Base
 
   def check_if_trial_expired
 
-    
+    if current_user.billing_information_needed or (Time.now > current_user.trial_end_date && !current_user.billing_active)
 
+     
+      redirect_to billing_information_path
+
+    end
 
   end
 
