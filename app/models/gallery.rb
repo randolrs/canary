@@ -32,4 +32,11 @@ class Gallery < ActiveRecord::Base
   	end
 
 
+  	def other_artists(this_artist, count)
+
+  		return self.artists.where.not(id: this_artist.id).last(count)
+
+  	end
+
+
 end

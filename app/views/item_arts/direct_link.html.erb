@@ -300,7 +300,9 @@
 
       <div class="artwork-summary-section full-size">
 
-        <h3>About <%= @item_art.artist.name %></h3>
+        <h3>About the Artist</h3>
+
+        <h4><%= @item_art.artist.name %></h4>
 
         <div class="artwork-summary-section-header">
 
@@ -364,7 +366,9 @@
 
         <div class="artwork-summary-section-body">
 
-          <h3><%= @item_art.artist.gallery.name %></h3>
+          <h3>About the Gallery</h3>
+
+          <h4><%= @item_art.artist.gallery.name %></h4>
 
           <h4><%= @item_art.artist.gallery.city %><% if @item_art.artist.gallery.city && @item_art.artist.gallery.state_province %>, <%end%> <%= @item_art.artist.gallery.state_province %></h4>
 
@@ -477,7 +481,7 @@
 
       <h3>More Artists Represented by <%= @item_art.artist.gallery.name %></h3>
 
-        <%= render :partial => 'artists/index_grid', :locals => {:artists => @item_art.artist.related_artists, :image_only => false, :columns => 3} %>
+        <%= render :partial => 'artists/index_grid', :locals => {:artists => @item_art.artist.gallery.other_artists(@item_art, 3), :image_only => false, :columns => 3} %>
 
 
         <div class="outbound-link">
