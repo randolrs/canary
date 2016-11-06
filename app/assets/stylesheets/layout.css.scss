@@ -110,6 +110,27 @@ background: linear-gradient(to bottom, #323296 , #26D0CE); /* W3C, IE 10+/ Edge,
 
 }
 
+.page-content-container{
+    
+    float: left;
+    width: 100%;
+    border-bottom: 3px solid #ccc;
+
+    .half-page-content{
+        
+        width:50%;
+        float: left;   
+        text-align: left;
+        padding: 20px 30px;
+
+        h4{
+            color: green;
+        }
+    }
+
+}
+
+
 .dashboard-fixed-header{
     position: fixed;
     top: 56px;
