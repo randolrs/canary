@@ -120,19 +120,18 @@ background: linear-gradient(to bottom, #323296 , #26D0CE); /* W3C, IE 10+/ Edge,
 
 
 .image-grid{
-    
-    display: table;
 
     content: "";
     clear: both;
     display: block;
     width: 100%;
+    float: left;
 
 
     .entry{
         display: inline-block;
         width: 33%;
-        height: 350px;
+        
         text-align: left;
         vertical-align: top;
         float: left;

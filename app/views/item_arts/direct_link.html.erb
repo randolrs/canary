@@ -302,7 +302,6 @@
 
         <h3>About the Artist</h3>
 
-        <h4><%= @item_art.artist.name %></h4>
 
         <div class="artwork-summary-section-header">
 
@@ -326,6 +325,8 @@
 
         <div class="artwork-summary-section-body">
 
+          <h4><%= @item_art.artist.name %></h4>
+          
           <div class="reveal-panel" id="biography-1">
 
             <p><%= @item_art.artist.biography %></p>
