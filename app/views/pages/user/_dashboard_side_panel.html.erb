@@ -40,17 +40,26 @@
 
 					</li>
 
-					<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="works" data-content-panel="home-content">
-						
-						<a href="<%= works_path %>"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span><br><span>Works</span></a>
 
-					</li>
+					<% unless current_user.gallery_shows.count == 0 %>
 
-					<li class="dashboard-option <% if @page=="shows" %>active<%end%>" id="home" data-content-panel="home-content">
-						
-						<a href="<%= dashboard_shows_path %>"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><br><span>Shows</span></a>
+						<li class="dashboard-option <% if @page=="work" %>active<%end%>" id="works" data-content-panel="home-content">
+							
+							<a href="<%= works_path %>"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span><br><span>Works</span></a>
 
-					</li>
+						</li>
+
+					<%end%>
+
+					<% unless current_user.my_artists.count == 0 %>
+
+						<li class="dashboard-option <% if @page=="shows" %>active<%end%>" id="home" data-content-panel="home-content">
+							
+							<a href="<%= dashboard_shows_path %>"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><br><span>Shows</span></a>
+
+						</li>
+
+					<%end%>
 
 					<li class="dashboard-option <% if @page=="sales" %>active<%end%>" id="home" data-content-panel="home-content">
 						

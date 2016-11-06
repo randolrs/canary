@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   get 'balance' => 'pages#balance_payments', as: 'balance_payments'
 
-  get 'sales' => 'pages#sales', as: 'sales'
+  get '/dashboard/sales' => 'pages#sales', as: 'sales'
 
   get 'dashboard/artists' => 'pages#artists', as: 'gallery_artists'
 
@@ -71,7 +71,7 @@ Rails.application.routes.draw do
   get '/dashboard/settings/bank_accounts' => 'pages#bank_accounts', as: 'bank_accounts'
 
 
-  get 'dashboard/sales' => 'pages#sales', as: 'balance'
+  #get 'dashboard/sales' => 'pages#sales', as: 'balance'
 
   get 'item_search' => 'item_arts#search'
 

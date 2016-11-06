@@ -12,18 +12,43 @@
 
 	<%end%>
 
-<!-- 	<%# if current_user.exhibitions.count == 0 %>
-			
-		<div class="notice red">
 
-			<span class="glyphicon glyphicon-remove dismiss-parent"></span>
+<% elsif current_user.is_gallery %>
+	
+	<% if current_user.my_artists.count == 0 %>
 
-			<p class="notice-content">
-				<span class="glyphicon glyphicon-exclamation-sign"></span>You have not shared  any exhibitions.  <%# link_to "Add Exhibitions", new_exhibition_path %> to promote your exhibitions through the ART network.
+		<div class="notice">
+
+			<p class="notice-content yellow">
+				<span class="glyphicon glyphicon-exclamation-sign"></span> You have not added any artists to ArtYam yet. <a class="new-artwork-image-modal modal-cta warning-text-cta">Add an Artist</a> to get started promoting your artists and their shows.
 			</p>
 
 		</div>
 
-	<%#end%> -->
+	<% elsif current_user.gallery_shows.count == 0 %>
+
+		<div class="notice">
+
+			<p class="notice-content yellow">
+				<span class="glyphicon glyphicon-exclamation-sign"></span> You have not listed any of your artists shows on ArtYam yet. <a class="warning-text-cta" href="<%= new_show_path %>">Add a Show</a> to get started promoting your artist's shows and selling their artwork.
+			</p>
+
+		</div>
+
+
+	<% elsif current_user.my_work.count == 0 %>
+
+		<div class="notice">
+
+			<p class="notice-content yellow">
+				<span class="glyphicon glyphicon-exclamation-sign"></span> You have not uploaded any of your artist's work yet. <a class="new-artwork-image-modal modal-cta warning-text-cta">Add Artwork</a> to get started selling your artists' work on ArtYam.
+			</p>
+
+		</div>
+
+	<%end%>
+
+	
+
 
 <%end%>
