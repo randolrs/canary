@@ -26,7 +26,7 @@
 
 		<h3>Your Partner in the Booming Online Art Market</h3>
 
-		<p class="centered">ArtYam provides everything your gallery needs to grow your business in the $3.2 billion online art market.  From online tear sheets for your shows to integrated eCommerce and even professional writing services, our team handles the heavy lifting of promoting and selling your gallery's art online so you can focus on your business.</p>
+		<p class="centered">ArtYam provides everything your gallery needs to grow your business in the $3.2 billion online art market.  ArtYam is one part software and one part service, making it as easy as possible to get started selling art online.  From online tear sheets for your shows to integrated eCommerce and even professional writing services, our team handles the heavy lifting of promoting and selling your gallery's art online so you can focus on your business.</p>
 
 	</div>
 
@@ -115,95 +115,18 @@
 
 				<p>ArtYam charges no commission on sales of your art, just a 3.5% payment processing fee.  A monthly subscription, which includes free account setup, unlimited art listings, and unlimited support costs a flat fee of $149/month.</p>
 
+				<a href="<%= how_it_works_path %>" class="bright-blue-background large button">What Happens When I Signup?</a>
+
 			</div>
 
 		</div>
 
 
 	</div>
+
+
 
 </section>
-
-
-
-
-<!-- <section class="home-primary">
-
-	<div class="landing-content-container">
-
-		<h3>Start Growing Your Business Today</h3>
-
-		<div class="grid">
-
-			<div class="grid-item">
-				
-				<div class="grid-content">
-					
-					<h5>Promote</h5>
-					<p>Share detailed information about your shows, artists, and artwork via email, social media, and across our network of online art collectors!</p>
-
-				</div>
-
-			</div>
-
-			<div class="grid-item">
-				
-				<div class="grid-content">
-					
-					<h5>Engage</h5>
-					<p>Artyam ... puts together a ... cohesive story about that engages art collectors and ...</p>
-
-				</div>
-
-			</div>
-
-			<div class="grid-item">
-				
-				<div class="grid-content">
-					
-					<h5>Sell</h5>
-					<p>ArtYam processes payments and ... seamless </p>
-
-				</div>
-
-			</div>
-
-
-		</div>
-
-	</div>
-
-</section> -->
-
-
-
-
-<!-- <section class="home-primary">
-
-	<div class="landing-content-container">
-
-		<h3 class="upcase">How it Works</h3>
-			
-		<h4 class="centered">1. Full-Service Setup</h4>
-
-		<p>When you sign up for ArtYam we will ask you for a few basic details about your gallery and immeditely schedule a call with you to discuss your specific needs and goals within 1 business day. Following our initial call, we will import all of your data to ArtYam within 48 hours, absolutely free. (You also have the option to do it yourself using our easy self-service portal, if you insist).</p>
-
-		<br>
-
-		<h4 class="centered">2. Share</h4>
-
-		<p>Once your ArtYam account is setup, we will provide a summary of custom pages created for your gallery, shows, artwork, and artists that includes [shareable links that can be used on your website, social media, printed materials, or physical display.]  These pages provide art collectors from your promotion efforts, as well as all over the world, to engage with your gallery beyond your phyical location and provides online purchasing options for your work.</p>
-
-		<br>
-
-		<h4 class="centered">3. Sales</h4>
-
-		<p>Your ArtYam tear sheets for your work not only include additional information ... but instant online purchasing options for your artwork as well.  Upon sale of your listed art you will be notified by email as well as by phone from an ArtYam customer service agent.  ArtYam processes all major credit cards and charges no commission.</p>
-
-	</div>
-
-</section> -->
-
 
 
 
@@ -235,12 +158,12 @@
 
 			<%= form_tag question_path do %>
 
-				<% if flash[:notice] %>
+				<% if flash[:message] %>
 
 					<div class="notice yellow">
 
 						<p class="notice-content yellow">
-						  <%= flash[:notice] %>
+						  <%= flash[:message] %>
 						</p>
 
 					</div>

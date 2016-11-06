@@ -464,11 +464,19 @@ class PagesController < ApplicationController
 
 	end
 
+	def how_it_works
+
+
+
+	end
+
+	
+
 	def question
 
 		contact_question = ContactQuestion.create(:email => params[:email], :message => params[:message])
 
-		flash[:notice] = "Message Received!"
+		flash[:message] = "Message Received!"
 
 		redirect_to root_path
 

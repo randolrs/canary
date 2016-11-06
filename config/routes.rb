@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
   get '/settings' => 'pages#settings', as: 'settings'
 
+  get '/how_it_works' => 'pages#how_it_works', as: 'how_it_works'
+
   get '/affiliates' => 'affiliates#landing_page', as: 'affiliate_landing_page'
 
   get 'initiate_trial_subscription' => 'subscriptions#initiate_subscription'
