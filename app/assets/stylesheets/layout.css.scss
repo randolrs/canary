@@ -114,17 +114,22 @@ background: linear-gradient(to bottom, #323296 , #26D0CE); /* W3C, IE 10+/ Edge,
     
     float: left;
     width: 100%;
-    border-bottom: 3px solid #ccc;
+    margin-bottom: 20px;
 
     .half-page-content{
         
         width:50%;
         float: left;   
-        text-align: left;
+        text-align: center;
         padding: 20px 30px;
 
         h4{
             color: green;
+        }
+
+        p{
+            line-height: 1.5em;
+            color: #666;
         }
     }
 
