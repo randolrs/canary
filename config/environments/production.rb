@@ -6,7 +6,7 @@ Rails.application.configure do
 
   #force ssl
 
-  config.force_ssl = true
+  config.force_ssl = false
 
   config.action_mailer.default_url_options = { host: 'http://tranquil-cove-65569.herokuapp.com/' }
 
